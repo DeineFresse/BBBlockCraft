@@ -16,20 +16,20 @@ public class TestBlock extends Block{
 {
 		
         super(blockID, Material.rock);
-        blockIndexInTexture =1;
+      //  blockIndexInTexture =1;
         setHardness(2.0f);
         setResistance(5.0f);
         setStepSound(soundStoneFootstep);
         setCreativeTab(CreativeTabs.tabBlock);
         ID = blockID;
-        setBlockName("The Brick Entchantment House");
+      //  setBlockName("The Brick Entchantment House");
         
         
 }
 	
 	
 	
-	@Override
+/*	@Override
 	public int getBlockTextureFromSide(int side)
 {
         switch(side)
@@ -41,7 +41,7 @@ public class TestBlock extends Block{
         }
         return blockIndexInTexture;	
         
- } 
+ } */
 	
 	
 	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9)
@@ -64,11 +64,11 @@ public class TestBlock extends Block{
 	}
 	
 	
-	@Override
+/*	@Override
         public String getTextureFile()
 {
         return "/bb/Pic/BBBlockCraftBlocks.png";
-}
+}*/
 	
 	public int Houscheck(World par1,int par2,int par3,int par4,int par5,EntityPlayer par6){
 		

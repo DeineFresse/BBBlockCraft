@@ -16,12 +16,12 @@ public class CloudWhite extends Block{
 
 	public CloudWhite(int blockID) {
 		
-		super(blockID,64,Material.cloth);
+		super(blockID,Material.cloth);
 		setHardness(0.0f);
 		setResistance(100.0f);
 		setStepSound(soundClothFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setRequiresSelfNotify();
+	//	setRequiresSelfNotify();
 				
 		// TODO Auto-generated constructor stub
 	}
@@ -31,21 +31,21 @@ public class CloudWhite extends Block{
         super.onEntityWalking(par1World, par2, par3, par4, par5Entity);
     }
     
-	@Override
+	/*@Override
 	public String getTextureFile(){
 		return "/bb/Pic/BBBlockCraftBlocks.png";
 		
-	}
+	}*/
 	
 	
 	
 	   /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public int getBlockTextureFromSideAndMetadata(int par1, int par2)
+  /*  public int getBlockTextureFromSideAndMetadata(int par1, int par2)
     {
         return 5+par2;
-        }
+        }*/
     
 
     /**

@@ -9,18 +9,18 @@ public class MyFirstItem extends Item{
 		super(itemID);
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
-		setItemName("My First Item");
+		//setItemName("My First Item");
 		
 	
 	}
 	
 	
-	@Override
+	/*@Override
         public String getTextureFile()
 {
         return "/bb/Pic/BBBlockCraftItems.png";
 		
-	}
+	}*/
 	
 
 }

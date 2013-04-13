@@ -10,16 +10,16 @@ public class BlockOreOne extends Block{
 	public BlockOreOne(int blockID)
 {
         super(blockID, Material.rock);
-        blockIndexInTexture =0;
+       // blockIndexInTexture =0;
         setHardness(2.0f);
         setResistance(5.0f);
         setStepSound(soundStoneFootstep);
         setCreativeTab(CreativeTabs.tabBlock);
         shiftedIndex = blockID;
         setLightValue(1.5F);
-        setBlockName("BlockOreOne");
+     //   setBlockName("BlockOreOne");
 }
-	@Override
+	/*@Override
 	public int getBlockTextureFromSide(int side)
 {
         switch(side)
@@ -36,6 +36,6 @@ public class BlockOreOne extends Block{
 {
         return "/bb/Pic/BBBlockCraftBlocks.png";
 }
-
+*/
 	
 }

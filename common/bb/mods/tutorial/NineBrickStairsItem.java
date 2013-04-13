@@ -19,7 +19,7 @@ public class NineBrickStairsItem extends Item {
 			canRepair = false;
 			maxStackSize = 64;
 			setCreativeTab(CreativeTabs.tabMisc);
-			setItemName("Brickstair");
+		//	setItemName("Brickstair");
 			
 		
 		}
@@ -54,13 +54,13 @@ public class NineBrickStairsItem extends Item {
 			
 		}
 		
-		@Override
+	/*	@Override
 	        public String getTextureFile()
 	{
 	        return "/bb/Pic/BBBlockCraftItems.png";
 			
 		}
-		
+		*/
 
 	}
 

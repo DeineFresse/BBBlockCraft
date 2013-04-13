@@ -9,16 +9,16 @@ public class Bookwallitem extends Item {
 		super(par1);
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
-		setItemName("My First Item");
+		//setItemName("My First Item");
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-    public String getTextureFile()
+//	@Override
+/*    public String getTextureFile()
 {
     return "/bb/Pic/BBBlockCraftItems.png";
 	
-}
+}*/
 
 	
 	
