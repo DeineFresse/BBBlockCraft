@@ -1,0 +1,20 @@
+[
+{
+  "modid": "BBBlockCraft",
+  "name": "BBBlockCraft",
+  "description": "My DIY with the Internet Mod",
+  "version": "DEV-0.1.1",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "BB20101997"
+  ],
+  "credits": "All of you lovely modders out there!",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
