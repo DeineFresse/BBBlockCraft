@@ -27,7 +27,7 @@ public class Spacetest1 {
 						return false;
 						}
 					if(x!=par2&&y!=par3&&z!=par4){par1.setBlock(x, y, z, 0);}
-					if(Reference.DEBUGMODE){par1.setBlock(x, y, z, 20);}
+					if(Reference.DEBUGMODE){par1.setBlock(x, y, z, 0);}
 					z--;
 //					System.out.print(x);System.out.print(y);System.out.println(z);
 					

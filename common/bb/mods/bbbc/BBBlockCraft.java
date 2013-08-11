@@ -82,7 +82,7 @@ static boolean settingdebug = false;
 	@Init
 	public void init(FMLInitializationEvent evtent)
 	{
-	
+       
 		BBBlockCraft.addAchievementLocalizations();				
 		
 		//Register AchivementPage
@@ -104,7 +104,6 @@ static boolean settingdebug = false;
 		//Add World Gen
 		GameRegistry.registerWorldGenerator(worldGen);
 		
-
 	}
 	
 	@PostInit

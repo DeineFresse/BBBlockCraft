@@ -41,21 +41,12 @@ public class BrickHouse {
 		    par1.setBlock(par2-i,par3+3,par4-1,108,3,0x01);
 			par1.setBlock(par2-i,par3+3,par4-7,108,2,0x01);}
 		
-		par1.setBlock(par2-1, par3, par4-3,49);
-		par1.setBlock(par2-1, par3, par4-5,49);
-		par1.setBlock(par2+1, par3, par4-3,49);
-		par1.setBlock(par2+1, par3, par4-5,49);
-		par1.setBlock(par2, par3, par4-4,49);
-		par1.setBlock(par2, par3, par4-3,89);
-		par1.setBlock(par2, par3, par4-5,89);
-		par1.setBlock(par2+1, par3, par4-4,89);
-		par1.setBlock(par2-1, par3, par4-4,89);
-		
+	
 		for(int i = 1;i<=7;i++){
 		    par1.setBlock(par2-3,par3+3,par4-i,108,0,0x01);
 			par1.setBlock(par2+3,par3+3,par4-i,108,1,0x01);
 			for(int ii = -3;ii<=3;ii++){
-			    for(int iii = 0;iii<=3;iii++){ par1.setBlock(par2+ii, par3+iii, par4-i, 45);}
+			    for(int iii = 0;iii<=2;iii++){ par1.setBlock(par2+ii, par3+iii, par4-i, 45);}
 			    }
 			}
 		
@@ -94,7 +85,17 @@ public class BrickHouse {
 			par1.setBlock(par2-i,par3+5,par4-3,108,3,0x01);
 			par1.setBlock(par2-i,par3+5,par4-5,108,2,0x01);			
 		}
-
+		
+		par1.setBlock(par2-1, par3, par4-3,49);
+		par1.setBlock(par2-1, par3, par4-5,49);
+		par1.setBlock(par2+1, par3, par4-3,49);
+		par1.setBlock(par2+1, par3, par4-5,49);
+		par1.setBlock(par2, par3, par4-4,49);
+		par1.setBlock(par2, par3, par4-3,89);
+		par1.setBlock(par2, par3, par4-5,89);
+		par1.setBlock(par2+1, par3, par4-4,89);
+		par1.setBlock(par2-1, par3, par4-4,89);
+		
 		par1.setBlock(par2, par3+6, par4-4,44,4,0x01);
 	}
 	
@@ -111,16 +112,7 @@ public class BrickHouse {
 		for(int i = -3;i<=3;i++){par1.setBlock(par2-i,par3,par4-8,108,2,0x01);}
 		
 	
-		par1.setBlock(par2-1, par3, par4-3,49);
-		par1.setBlock(par2-1, par3, par4-5,49);
-		par1.setBlock(par2+1, par3, par4-3,49);
-		par1.setBlock(par2+1, par3, par4-5,49);
-		par1.setBlock(par2, par3, par4-4,49);
-		par1.setBlock(par2, par3, par4-3,89);
-		par1.setBlock(par2, par3, par4-5,89);
-		par1.setBlock(par2+1, par3, par4-4,89);
-		par1.setBlock(par2-1, par3, par4-4,89);
-		
+
 		for(int i = 1;i<=7;i++){
 			par1.setBlock(par2-3,par3+3,par4-i,108,0,0x01);			
 			par1.setBlock(par2+3,par3+3,par4-i,108,1,0x01);
@@ -151,6 +143,16 @@ public class BrickHouse {
 		par1.setBlock(par2, par3+1, par4-7,64,6,0x01);
 		par1.setBlock(par2, par3+2, par4-7,64,9,0x01);
 		par1.setBlock(par2, par3+1, par4-4, 116);
+		
+		par1.setBlock(par2-1, par3, par4-3,49);
+		par1.setBlock(par2-1, par3, par4-5,49);
+		par1.setBlock(par2+1, par3, par4-3,49);
+		par1.setBlock(par2+1, par3, par4-5,49);
+		par1.setBlock(par2, par3, par4-4,49);
+		par1.setBlock(par2, par3, par4-3,89);
+		par1.setBlock(par2, par3, par4-5,89);
+		par1.setBlock(par2+1, par3, par4-4,89);
+		par1.setBlock(par2-1, par3, par4-4,89);
 		
 		for(int i =-3;i<=3;i++){
 			par1.setBlock(par2-i,par3+3,par4-1,108,3,0x01);
