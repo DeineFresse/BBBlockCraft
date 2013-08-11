@@ -27,7 +27,7 @@ public class CloudWhite extends Block{
 	}
 	public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-        par5Entity.motionY = 10;
+        par5Entity.motionY = 2;
         super.onEntityWalking(par1World, par2, par3, par4, par5Entity);
     }
     
