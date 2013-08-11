@@ -27,7 +27,7 @@ public class Spacetest1 {
 						return false;
 						}
 					if(x!=par2&&y!=par3&&z!=par4){par1.setBlock(x, y, z, 0);}
-					if(Reference.DEBUGMODE){par1.setBlock(x, y, z, 0);}
+					if(Reference.DEBUGMODE){if(par1.getBlockId(x,y,z)!=161)par1.setBlock(x, y, z, 20);}
 					z--;
 //					System.out.print(x);System.out.print(y);System.out.println(z);
 					
@@ -61,7 +61,7 @@ public class Spacetest1 {
 						par5.addChatMessage("X:"+x+" Y:"+y+" Z:"+z);
 						return false;
 						}
-					if(Reference.DEBUGMODE){par1.setBlock(x, y, z, 20);}
+					if(Reference.DEBUGMODE){if(par1.getBlockId(x,y,z)!=161)par1.setBlock(x, y, z, 20);}
 					z--;
 //					System.out.print(x);System.out.print(y);System.out.println(z);
 				}while(z>par4-2);
@@ -72,7 +72,70 @@ public class Spacetest1 {
 		return true;
 	}
 
-	
+
+
+	public static boolean airwest(World par1, int par2, int par3, int par4,
+			EntityPlayer par5, int ID) {
+		int x;
+		int y = par3;
+		int z;
+//		String s;
+//		int i;
+		do{
+			x = par2+1;
+			do{
+				z=par4-4;
+				do{
+					if(par1.getBlockId(x,y,z)!= 0 &&par1.getBlockId(x, y, z)!=ID&&par1.getBlockId(x,y,z)!=20){
+//						i = par1.getBlockId(x, y, z);
+//						Integer I = new Integer(i);
+//						s = I.toString();
+//						par5.addChatMessage(s);
+						par5.addChatMessage("X:"+x+" Y:"+y+" Z:"+z);
+						return false;
+						}
+					if(Reference.DEBUGMODE){if(par1.getBlockId(x,y,z)!=161){par1.setBlock(x, y, z, 20);}}
+					z++;
+//					System.out.print(x);System.out.print(y);System.out.println(z);
+				}while(z<=par4+4);
+				x--;
+			}while(x>(par2-9));
+			y++;
+		}while(y<(par3+7));
+		return true;
+	}
+
+	public static boolean aireast(World par1, int par2, int par3, int par4,
+			EntityPlayer par5, int ID) {
+		int x;
+		int y = par3;
+		int z;
+//		String s;
+//		int i;
+		do{
+			x = par2+8;
+			do{
+				z=par4-4;
+				do{
+					if(par1.getBlockId(x,y,z)!= 0 &&par1.getBlockId(x, y, z)!=ID&&par1.getBlockId(x,y,z)!=20){
+//						i = par1.getBlockId(x, y, z);
+//						Integer I = new Integer(i);
+//						s = I.toString();
+//						par5.addChatMessage(s);
+						par5.addChatMessage("X:"+x+" Y:"+y+" Z:"+z);
+						return false;
+						}
+					if(Reference.DEBUGMODE){if(par1.getBlockId(x,y,z)!=161){par1.setBlock(x, y, z, 20);}}
+					z++;
+//					System.out.print(x);System.out.print(y);System.out.println(z);
+				}while(z<=par4+4);
+				x--;
+			}while(x>(par2-2));
+			y++;
+		}while(y<(par3+7));
+		return true;
+	}
+
 }
 	
 
