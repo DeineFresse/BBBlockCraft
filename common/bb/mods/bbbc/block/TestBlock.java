@@ -75,10 +75,10 @@ public class TestBlock extends Block{
 	public int Houscheck(World par1,int par2,int par3,int par4,int par5,EntityPlayer par6){
 		
 		switch (par5){
-		case 0:{if(Spacetest1.airsouth(par1, par2, par3, par4, par6,ID)){return 1;}}
-		case 1:{break;}
-		case 2:{if(Spacetest1.airnorth(par1,par2,par3,par4,par6,ID)){return 1;}}
-		case 3:{break;}
+		case 0:{if(Spacetest1.airsouth(par1, par2, par3 , par4, par6,ID)){return 1;}}
+		case 1:{if(Spacetest1.airwest(par1, par2, par3 ,par4 ,par6,ID)){return 1;}}
+		case 2:{if(Spacetest1.airnorth(par1 ,par2 ,par3 ,par4 ,par6,ID)){return 1;}}
+		case 3:{if(Spacetest1.aireast(par1 ,par2 ,par3 ,par4 ,par6,ID)){return 1;}}
 		}
 		if(Reference.DEBUGMODE)par6.addChatMessage("?");
 		if(par5<0||par5>3){return 2;}else if(par5==1||par5==3){return 3;}else{return 0;}		
