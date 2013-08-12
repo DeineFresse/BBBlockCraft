@@ -21,6 +21,8 @@ public class BrickHouse {
 		
 	}
 
+	//TODO: Swap to the the use of Basic Form!
+	
 	public static void north(World par1,int par2,int par3,int par4,EntityPlayer par5){
 		
 		par1.setBlock(par2-1, par3, par4+1,108);

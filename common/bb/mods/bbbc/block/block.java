@@ -30,11 +30,11 @@ public class block {
 	}
  
  public static void Blockname(){
-    
-     ModLoader.addName(block.BlockOreOne, "My First Ore");
-     ModLoader.addName(block.TestBlock,"The Constructor");
-     ModLoader.addName(block.cloudore,"The Cloud Ore");
-     ModLoader.addName(new ItemStack(block.CloudWhite,1,0), "Cloud in White");
+    //TODO Find out how to add names
+     ModLoader.addName(BlockOreOne, "My First Ore");
+     ModLoader.addName(TestBlock,"The Constructor");
+     ModLoader.addName(cloudore,"The Cloud Ore");
+     ModLoader.addName(CloudWhite, "Cloud");
  }
  
 }
