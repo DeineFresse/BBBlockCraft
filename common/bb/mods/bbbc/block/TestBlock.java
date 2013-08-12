@@ -24,7 +24,7 @@ public class TestBlock extends Block{
         setStepSound(soundStoneFootstep);
         setCreativeTab(CreativeTabs.tabBlock);
         ID = blockID;
-      //  setBlockName("The Brick Entchantment House");
+        //setBlockName("The Brick Entchantment House");
         
         
 }
@@ -58,8 +58,8 @@ public class TestBlock extends Block{
 		switch (Ergebnis){
 		case 0:{par5EntityPlayer.addChatMessage("Building was not possible,to less space!");break;}
 		case 1:{par5EntityPlayer.addChatMessage("Building is Possible!");BrickHouse.BuildBrickHouse(par1World, par2, par3, par4, par5EntityPlayer,f);break;}
-		case 2:{par5EntityPlayer.addChatMessage("Build not possible,ERROR,unexpacted Input for Methode Housecheck ("+ss+")");break;}
-		case 3:{par5EntityPlayer.addChatMessage("Chek for space and building NIY");break;}
+		case 2:{par5EntityPlayer.addChatMessage("Build not possible,ERROR,unexpacted Output from Methode Housecheck ("+ss+")");break;}
+		// unused case 3:{par5EntityPlayer.addChatMessage("Chek for space and building NIY");break;}
 		}
 		super.onBlockClicked(par1World, par2, par3, par4, par5EntityPlayer);
 		return true;
@@ -75,13 +75,13 @@ public class TestBlock extends Block{
 	public int Houscheck(World par1,int par2,int par3,int par4,int par5,EntityPlayer par6){
 		
 		switch (par5){
-		case 0:{if(Spacetest1.airsouth(par1, par2, par3 , par4, par6,ID)){return 1;}}
-		case 1:{if(Spacetest1.airwest(par1, par2, par3 ,par4 ,par6,ID)){return 1;}}
-		case 2:{if(Spacetest1.airnorth(par1 ,par2 ,par3 ,par4 ,par6,ID)){return 1;}}
-		case 3:{if(Spacetest1.aireast(par1 ,par2 ,par3 ,par4 ,par6,ID)){return 1;}}
+		case 0:{if(Spacetest1.airsouth(par1, par2, par3 , par4, par6,ID)){return 1;}else {return 0;}}
+		case 1:{if(Spacetest1.airwest(par1, par2, par3 ,par4 ,par6,ID)){return 1;}else {return 0;}}
+		case 2:{if(Spacetest1.airnorth(par1 ,par2 ,par3 ,par4 ,par6,ID)){return 1;}else {return 0;}}
+		case 3:{if(Spacetest1.aireast(par1 ,par2 ,par3 ,par4 ,par6,ID)){return 1;}else {return 0;}}
+		default: {return 2;}
 		}
-		if(Reference.DEBUGMODE)par6.addChatMessage("?");
-		if(par5<0||par5>3){return 2;}else if(par5==1||par5==3){return 3;}else{return 0;}		
+				
 	}
 }	
 	
