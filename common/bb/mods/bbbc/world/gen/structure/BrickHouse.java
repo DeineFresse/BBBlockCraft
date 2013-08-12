@@ -1,5 +1,6 @@
 package bb.mods.bbbc.world.gen.structure;
 import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.world.gen.structure.basic.Forms;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -252,5 +253,7 @@ public class BrickHouse {
 		par1.setBlock(par2+5,par3,par4-3,108,3,0x01);
 		par1.setBlock(par2+5,par3,par4-4,108,1,0x01);
 		par1.setBlock(par2+5,par3,par4-5,108,2,0x01);
+		
+		Forms.rectangle(par1, par2, par3+9, par4, 7, 8, 20);
 	}
 }
