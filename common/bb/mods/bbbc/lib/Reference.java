@@ -4,7 +4,7 @@ public class Reference {
 
     
     //Debug-Mode On/Off
-    public static final boolean DEBUGMODE = true;
+    public static final boolean DEBUGMODE = false;
     
    //General Mod Kanstanten
     public static final String MOD_ID = "BBBlockCraft";
