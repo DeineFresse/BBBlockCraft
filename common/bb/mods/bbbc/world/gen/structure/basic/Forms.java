@@ -53,23 +53,23 @@ public class Forms {
 		if(ID == 64 || ID == 71){
 			switch(f){
 			case(0):{
-				par1.setBlock(x, y, z,64,1,0x01);
-				par1.setBlock(x, y+1, z,64,9,0x01);
+				par1.setBlock(x, y, z,ID,1,0x01);
+				par1.setBlock(x, y+1, z,ID,9,0x01);
 				break;
 			}
 			case(1):{
-				par1.setBlock(x, y, z,64,2,0x01);
-				par1.setBlock(x, y+1, z,64,10,0x01);
+				par1.setBlock(x, y, z,ID,2,0x01);
+				par1.setBlock(x, y+1, z,ID,10,0x01);
 				break;
 			}
 			case(2):{
-				par1.setBlock(x, y, z,64,3,0x01);
-				par1.setBlock(x, y+1, z,64,11,0x01);
+				par1.setBlock(x, y, z,ID,3,0x01);
+				par1.setBlock(x, y+1, z,ID,11,0x01);
 				break;
 			}
 			case(3):{
-				par1.setBlock(x, y, z,64,4,0x01);
-				par1.setBlock(x, y+1, z,64,12,0x01);
+				par1.setBlock(x, y, z,ID,0,0x01);
+				par1.setBlock(x, y+1, z,ID,8,0x01);
 				break;
 			}
 			}
