@@ -33,5 +33,49 @@ public class Forms {
 		}
 
 	}
+ 
+	/**
+	@param par1 World
+	@param x x-Koordinate
+	@param y y-Koordinate
+	@param z z-Koordinare
+	@param ID BlockId
+	**/ 
+	public static void square(World par1, int x, int y, int z, int lang,int breit, int ID) {
+		for(int i = 0;i<lang;i++){
+			for(int ii = 0;ii<breit;ii++){
+				par1.setBlock(x+i, y, z+ii, ID);
+			}
+		}
+		
+	}
+	public static void door(World par1,int x,int y,int z,int f,int ID){
+		if(ID == 64 || ID == 71){
+			switch(f){
+			case(0):{
+				par1.setBlock(x, y, z,64,1,0x01);
+				par1.setBlock(x, y+1, z,64,9,0x01);
+				break;
+			}
+			case(1):{
+				par1.setBlock(x, y, z,64,2,0x01);
+				par1.setBlock(x, y+1, z,64,10,0x01);
+				break;
+			}
+			case(2):{
+				par1.setBlock(x, y, z,64,3,0x01);
+				par1.setBlock(x, y+1, z,64,11,0x01);
+				break;
+			}
+			case(3):{
+				par1.setBlock(x, y, z,64,4,0x01);
+				par1.setBlock(x, y+1, z,64,12,0x01);
+				break;
+			}
+			}
+			
+			
+		}
+	}
 	
 }
