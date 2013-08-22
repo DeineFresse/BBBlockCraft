@@ -2,8 +2,12 @@ package bb.mods.bbbc.block;
 
 import java.util.List;
 
+import bb.mods.bbbc.lib.Block_Names;
+import bb.mods.bbbc.lib.Reference;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
@@ -21,8 +25,7 @@ public class CloudWhite extends Block{
 		setResistance(100.0f);
 		setStepSound(soundClothFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
-	//	setRequiresSelfNotify();
-				
+		setUnlocalizedName(Block_Names.CLOUDWHITE);
 	
 	}
 	public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
@@ -37,22 +40,17 @@ public class CloudWhite extends Block{
         super.onFallenUpon(par1World, par2, par3, par4, par5Entity,par6);
 	}
 
-	/*@Override
-	public String getTextureFile(){
-		return "/bb/Pic/BBBlockCraftBlocks.png";
-		
-	}*/
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister icon) {
+	blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":blocks:" + Block_Names.CLOUDWHITE);
+	}
 	
 	
 	
 	   /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-  /*  public int getBlockTextureFromSideAndMetadata(int par1, int par2)
-    {
-        return 5+par2;
-        }*/
-    
+      
 
     /**
      * Determines the damage on the item the block drops. Used in cloth and wood.

@@ -1,8 +1,14 @@
 package bb.mods.bbbc.block;
 
+import bb.mods.bbbc.lib.Block_Names;
+import bb.mods.bbbc.lib.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.util.Icon;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockOreOne extends Block{
 
@@ -10,32 +16,30 @@ public class BlockOreOne extends Block{
 	public BlockOreOne(int blockID)
 {
         super(blockID, Material.rock);
-       // blockIndexInTexture =0;
         setHardness(2.0f);
         setResistance(5.0f);
         setStepSound(soundStoneFootstep);
         setCreativeTab(CreativeTabs.tabBlock);
-        shiftedIndex = blockID;
         setLightValue(1.5F);
-     //   setBlockName("BlockOreOne");
+        setUnlocalizedName(Block_Names.BLOCKOREONE);
 }
-	/*@Override
-	public int getBlockTextureFromSide(int side)
-{
-        switch(side)
-        {
-        case 0:
-                return 0;
-        case 1:
-                return 0;
-        }
-        return blockIndexInTexture;
-}
-        @Override
-        public String getTextureFile()
-{
-        return "/bb/Pic/BBBlockCraftBlocks.png";
-}
-*/
+	 
+	@SideOnly(Side.CLIENT)
+	public static Icon topIcon;
+	
+	
+	
+	public Icon getIcon(int par1,int par2)
+	    {
+	       
+		
+		return this.blockIcon;
+	       
+	    }
+	
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister icon) {
+	blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":blocks:" + Block_Names.BLOCKOREONE);
+	}
 	
 }

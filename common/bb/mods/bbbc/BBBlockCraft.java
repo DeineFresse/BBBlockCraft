@@ -11,9 +11,7 @@ import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.AchievementPage;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
-import cpw.mods.fml.common.Mod.PostInit;
-import cpw.mods.fml.common.Mod.PreInit;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -68,10 +66,10 @@ static boolean settingdebug = false;
 		
 	public static BBBlockCraft  instance;
 		
-	//@SidedProxy(clientSide = "bb.mods.tutorial.ClientProxy",serverSide = "bb.mods.tutorial.CommonProxy")
+	//@SidedProxy(clientSide = "bb.mods.bbbc.ClientProxy",serverSide = "bb.mods.bbbc.CommonProxy")
 	//public static CommonProxy proxy;
 	
-	@PreInit
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		block.signBlockID();
@@ -79,7 +77,7 @@ static boolean settingdebug = false;
 		block.Blockname();
 	}
 	
-	@Init
+	@EventHandler
 	public void init(FMLInitializationEvent evtent)
 	{
        
@@ -106,7 +104,7 @@ static boolean settingdebug = false;
 		
 	}
 	
-	@PostInit
+	@EventHandler
 	public void postInit(FMLPostInitializationEvent evt)
 	{
 		

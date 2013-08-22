@@ -1,7 +1,7 @@
 package bb.mods.bbbc.block;
 
+import bb.mods.bbbc.lib.Block_Names;
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
 
 public class block {
@@ -30,11 +30,10 @@ public class block {
 	}
  
  public static void Blockname(){
-    //TODO Find out how to add names
-     ModLoader.addName(BlockOreOne, "My First Ore");
-     ModLoader.addName(TestBlock,"The Constructor");
-     ModLoader.addName(cloudore,"The Cloud Ore");
-     ModLoader.addName(CloudWhite, "Cloud");
+     ModLoader.addName(BlockOreOne, Block_Names.BLOCKOREONE);
+     ModLoader.addName(TestBlock,Block_Names.TESTBLOCK);
+     ModLoader.addName(cloudore,Block_Names.CLOUDORE);
+     ModLoader.addName(CloudWhite, Block_Names.CLOUDWHITE);
  }
  
 }
