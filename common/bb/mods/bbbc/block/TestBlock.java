@@ -100,10 +100,10 @@ public class TestBlock extends Block{
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
-	topIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":blocks:" + Block_Names.TESTBLOCK.toLowerCase() + "_top");
-	bottomIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":blocks:" + Block_Names.TESTBLOCK.toLowerCase() + "_bottom");
-	sideIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":blocks:" + Block_Names.TESTBLOCK.toLowerCase() + "_side");
-	blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":blocks:" + Block_Names.TESTBLOCK.toLowerCase());
+	topIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.TESTBLOCK.toLowerCase() + "_top");
+	bottomIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.TESTBLOCK.toLowerCase() + "_bottom");
+	sideIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.TESTBLOCK.toLowerCase() + "_side");
+	blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.TESTBLOCK.toLowerCase());
 	}
 	
 	

@@ -39,7 +39,7 @@ public class BlockOreOne extends Block{
 	
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
-	blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":blocks:" + Block_Names.BLOCKOREONE);
+	blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.BLOCKOREONE);
 	}
 	
 }
