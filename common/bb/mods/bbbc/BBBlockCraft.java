@@ -29,7 +29,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 	    serverSideRequired = false//,
 /*	    packetHandler = PacketHandler.class*/ )
 public class BBBlockCraft {
-static boolean settingdebug = false;
+static boolean settingdebug = Reference.DEBUGMODE;
 	
 	// New Creative Tab	
 	
