@@ -1,8 +1,10 @@
 package bb.mods.bbbc;
 
 import bb.mods.bbbc.block.block;
+import bb.mods.bbbc.item.item;
 import bb.mods.bbbc.lib.Reference;
 import bb.mods.bbbc.world.gen.BBWorldGen;
+import bb.mods.bbbc.common.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,7 +22,6 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@SuppressWarnings("unused")
 @Mod(modid = Reference.MOD_ID , name = Reference.MOD_NAME, version = Reference.MOD_VERSION  )
 @NetworkMod(
 		channels = {"BBBlockCraft_alt"},
@@ -32,11 +33,6 @@ static boolean settingdebug = false;
 	
 	// New Creative Tab	
 	
-
-	// Item Definitions
-		public static Item MyFirstItem;
-		public static Item NineBrickStairsItem;
-		public static Item Bookwallitem;
 		
 	//Gen Definition
 		
@@ -66,8 +62,8 @@ static boolean settingdebug = false;
 		
 	public static BBBlockCraft  instance;
 		
-	//@SidedProxy(clientSide = "bb.mods.bbbc.ClientProxy",serverSide = "bb.mods.bbbc.CommonProxy")
-	//public static CommonProxy proxy;
+	@SidedProxy(clientSide = "bb.mods.bbbc.common.ClientProxy",serverSide = "bb.mods.bbbc.common.CommonProxy")
+	public static CommonProxy proxy;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -75,6 +71,8 @@ static boolean settingdebug = false;
 		block.signBlockID();
 		block.Blockreg();
 		block.Blockname();
+		item.signItemID();
+		item.Itemname();
 	}
 	
 	@EventHandler
@@ -85,20 +83,11 @@ static boolean settingdebug = false;
 		
 		//Register AchivementPage
 		AchievementPage.registerAchievementPage(page1);
-		
-		//??? Blocks/Items
-	/*	MyFirstItem = new MyFirstItem(2100);
-		NineBrickStairsItem =new NineBrickStairsItem(2101);
-		Bookwallitem = new Bookwallitem(2102);
-		
-		
-		*/
-		//Blockreg();
-		//SmeltingRecipe();
-		//Recipe();
-		//ShapelessRecipe();
-		//Blocknames();
-		
+			
+		SmeltingRecipe();
+		Recipe();
+		ShapelessRecipe();
+			
 		//Add World Gen
 		GameRegistry.registerWorldGenerator(worldGen);
 		
@@ -110,42 +99,38 @@ static boolean settingdebug = false;
 		
 	}
 	
-	
-	
-	
+		
 	/**To add Smelting Recipes*/
 	public void SmeltingRecipe(){
 		
 		  //Add Furnace Recipe
 		
-		  ModLoader.addSmelting(160,new ItemStack(MyFirstItem,5),5.0F);
+		  ModLoader.addSmelting(160,new ItemStack(item.MyFirstItem,5),5.0F);
 	      ModLoader.addSmelting(162,new ItemStack(block.CloudWhite,1,0),5.0F);
 						
 		}
 	
-	
-	
+		
 	/**To add Recipes*/
 	public void Recipe(){
 		
 		// Add Recipes
 		
 		ModLoader.addRecipe(new ItemStack(Item.ingotIron,2),new Object[]
-		{"   ","XXX","   ",'X',MyFirstItem});
+		{"   ","XXX","   ",'X',item.MyFirstItem});
 		
-		ModLoader.addRecipe(new ItemStack(NineBrickStairsItem,1),new Object[]{
+		ModLoader.addRecipe(new ItemStack(item.NineBrickStairsItem,1),new Object[]{
 			"XXX","XXX","XXX",'X',Block.stairsBrick});
 		
-		ModLoader.addRecipe(new ItemStack(NineBrickStairsItem,1,1),new Object[]{
-			"XXX","XXX","XXX",'X',new ItemStack(NineBrickStairsItem,1,0)});
+		ModLoader.addRecipe(new ItemStack(item.NineBrickStairsItem,1,1),new Object[]{
+			"XXX","XXX","XXX",'X',new ItemStack(item.NineBrickStairsItem,1,0)});
 			
-		ModLoader.addRecipe(new ItemStack(Bookwallitem,1), new Object[]{
+		ModLoader.addRecipe(new ItemStack(item.Bookwallitem,1), new Object[]{
 			"XXX","XXX","XXX",'X',new ItemStack(Block.bookShelf,1)
 		});
 	}
 	
-	
-	
+		
 	/**To add Shapeless Recipes*/
 	public void ShapelessRecipe(){
 		
@@ -157,47 +142,30 @@ static boolean settingdebug = false;
 		ModLoader.addShapelessRecipe(new ItemStack(block.CloudWhite,1,1), new Object[]
 				{new ItemStack(Block.cloth,1,1)});
 		
-		ModLoader.addShapelessRecipe(new ItemStack(MyFirstItem,3),new Object[]
+		ModLoader.addShapelessRecipe(new ItemStack(item.MyFirstItem,3),new Object[]
 				{Item.ingotIron,Item.ingotIron});
 		
 		ModLoader.addShapelessRecipe(new ItemStack(block.BlockOreOne,1),new Object[]
-				{MyFirstItem,MyFirstItem,MyFirstItem,MyFirstItem,MyFirstItem});
+				{item.MyFirstItem,item.MyFirstItem,item.MyFirstItem,item.MyFirstItem,item.MyFirstItem});
 		
 		ModLoader.addShapelessRecipe(new ItemStack(block.TestBlock,1),new Object[]
 				{Block.stone,block.BlockOreOne});
 		
 		ModLoader.addShapelessRecipe(new ItemStack(Block.stairsBrick,9),new Object[]{
-		NineBrickStairsItem});
+		item.NineBrickStairsItem});
 		
 		ModLoader.addShapelessRecipe(new ItemStack(block.TestBlock,1),new Object[]{
 		new ItemStack(Block.stairsBrick,64),new ItemStack(Block.stairsBrick,18),new ItemStack(Block.bookShelf,34),new ItemStack(Block.enchantmentTable,1),new ItemStack(Block.brick,64),new ItemStack(Block.brick,22),new ItemStack(Block.stoneSingleSlab,1,4)});
 	
 	
-		ModLoader.addShapelessRecipe(new ItemStack(NineBrickStairsItem,9),new Object[]{
-			new ItemStack(NineBrickStairsItem,1,1)});
+		ModLoader.addShapelessRecipe(new ItemStack(item.NineBrickStairsItem,9),new Object[]{
+			new ItemStack(item.NineBrickStairsItem,1,1)});
 		
 
 		ModLoader.addShapelessRecipe(new ItemStack(Block.bookShelf,9),new Object[]{
-			new ItemStack(Bookwallitem,1)
+			new ItemStack(item.Bookwallitem,1)
 		});
-
-	
-		
+			
 	}
-	
-	
-	/**To add Block names*/
-	public void Blocknames(){
-	
-		// Add Names
-		
-				ModLoader.addName(MyFirstItem, "My First Item");
-				ModLoader.addName(NineBrickStairsItem,"Brick Stairs");
-				ModLoader.addName(Bookwallitem," Bookwall Item ");
-				
-				
-		
-	}
-	
 	
  }
