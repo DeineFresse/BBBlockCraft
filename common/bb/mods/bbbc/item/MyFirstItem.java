@@ -1,5 +1,6 @@
 package bb.mods.bbbc.item;
 
+import bb.mods.bbbc.lib.Item_Names;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 public class MyFirstItem extends Item{
@@ -9,18 +10,13 @@ public class MyFirstItem extends Item{
 		super(itemID);
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
-		//setItemName("My First Item");
+		setUnlocalizedName(Item_Names.MYFIRSTITEM);
 		
 	
 	}
 	
 	
-	/*@Override
-        public String getTextureFile()
-{
-        return "/bb/Pic/BBBlockCraftItems.png";
-		
-	}*/
+	
 	
 
 }
