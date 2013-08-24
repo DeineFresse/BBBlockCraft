@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -41,11 +42,75 @@ public class CloudWhite extends Block{
 	}
 
 	@SideOnly(Side.CLIENT)
+	public static Icon Icon0;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon1;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon2;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon3;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon4;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon5;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon6;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon7;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon8;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon9;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon10;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon11;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon12;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon13;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon14;
+	@SideOnly(Side.CLIENT)
+	public static Icon Icon15;
+	
+	
+	
+	
+	
+	@Override
+	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
-	blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE);
+	Icon0 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"0");
+	Icon1 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"1");
+	Icon2 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"2");
+	Icon3 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"3");
+	Icon4 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"4");
+	Icon5 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"5");
+	Icon6 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"6");
+	Icon7 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"7");
+	Icon8 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"8");
+	Icon9 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"9");
+	Icon10 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"10");
+	Icon11 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"11");
+	Icon12 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"12");
+	Icon13 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"13");
+	Icon14 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"14");
+	Icon15 = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.CLOUDWHITE +"15");
+	
 	}
 	
-	
+	public boolean renderAsNormalBlock(){
+		return false;
+		
+	}
+	public int getRenderBlockPass(){
+		return 0;
+	}
+	 public boolean isOpaqueCube()
+	    {
+	        return false;
+	    }
 	
 	   /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
