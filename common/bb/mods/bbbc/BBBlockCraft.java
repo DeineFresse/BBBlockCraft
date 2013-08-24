@@ -26,8 +26,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(
 		channels = {"BBBlockCraft_alt"},
 		clientSideRequired = true,
-	    serverSideRequired = false//,
-/*	    packetHandler = PacketHandler.class*/ )
+	    serverSideRequired = false,
+	    packetHandler = bb.mods.bbbc.common.network.PacketHandler.class
+	    )
 public class BBBlockCraft {
 static boolean settingdebug = Reference.DEBUGMODE;
 	
