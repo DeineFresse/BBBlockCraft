@@ -1,0 +1,7 @@
+the copy bat needs 3 command line arguments
+examle test0.txt 
+1 how many times to copy
+2 befor the the number in the example test
+3 after the number here .txt
+
+also the file to copy needs to have the number 0
