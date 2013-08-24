@@ -84,6 +84,7 @@ public class TestBlock extends Block{
 	
 	
 
+	@SuppressWarnings("static-access")
 	public Icon getIcon(int par1,int par2)
 	    {
 	  		
