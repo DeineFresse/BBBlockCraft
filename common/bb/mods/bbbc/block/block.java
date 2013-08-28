@@ -1,5 +1,6 @@
 package bb.mods.bbbc.block;
 
+import bb.mods.bbbc.itemblock.CloudWhiteItem;
 import bb.mods.bbbc.lib.Block_Names;
 import net.minecraft.block.Block;
 import net.minecraft.src.ModLoader;
@@ -11,21 +12,24 @@ public class block {
     public static Block TestBlock;
     public static Block cloudore;
     public static Block CloudWhite;
+    public static Block Dark_Stone;
 
  public static void signBlockID(){
     BlockOreOne = new BlockOreOne(160);
     TestBlock = new TestBlock(161);
     cloudore = new cloudore(162);
     CloudWhite = new CloudWhite(163);
+    Dark_Stone = new Dark_Stone(164);
     }	
  public static void Blockreg(){
 		
 		// Register Blocks
 		
 				ModLoader.registerBlock(BlockOreOne);
+				ModLoader.registerBlock(Dark_Stone);
 				ModLoader.registerBlock(TestBlock);
 				ModLoader.registerBlock(cloudore);
-				ModLoader.registerBlock(CloudWhite);
+				ModLoader.registerBlock(CloudWhite,CloudWhiteItem.class);
 		
 	}
  
@@ -34,6 +38,7 @@ public class block {
      ModLoader.addName(TestBlock,Block_Names.TESTBLOCK);
      ModLoader.addName(cloudore,Block_Names.CLOUDORE);
      ModLoader.addName(CloudWhite, Block_Names.CLOUDWHITE);
+     ModLoader.addName(Dark_Stone, Block_Names.DARKSTONE);
  }
  
 }
