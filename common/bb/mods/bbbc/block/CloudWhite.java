@@ -30,20 +30,35 @@ public class CloudWhite extends Block{
 		setCreativeTab(CreativeTabs.tabBlock);
 		setUnlocalizedName(Block_Names.CLOUDWHITE);
 		func_111022_d("wool_colored");
+		
 	
 	}
-	public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
+	/**
+	    public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
+		par5Entity.handleHealthUpdate((byte)9);
         par5Entity.motionY = 2;
         super.onEntityWalking(par1World, par2, par3, par4, par5Entity);
     }
     
 	public void onFallenUpon(World par1World, int par2, int par3, int par4, Entity par5Entity, float par6) {
 
-	    par5Entity.motionY = 10;
+	    par5Entity.motionY = 2;
         super.onFallenUpon(par1World, par2, par3, par4, par5Entity,par6);
 	}
+	**/
+	
+	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity) {
+		
+		par5Entity.fallDistance = 0;
+		if (par5Entity.isCollidedVertically) {
+			
+			par5Entity.motionY = 2;
+		}
+		super.onEntityCollidedWithBlock(par1World, par2, par3, par4, par5Entity);
+	}
 
+	
 	
 	
 	
@@ -68,6 +83,7 @@ public class CloudWhite extends Block{
 	public Icon getIcon(int par1,int par2)
 	    {
 	     
+		
 		
 		return iconArray[0];
 		
@@ -96,7 +112,7 @@ public class CloudWhite extends Block{
      */
     public int damageDropped(int par1)
     {
-        return par1;
+    	return par1;
     }
 
     /**
@@ -114,15 +130,15 @@ public class CloudWhite extends Block{
     {
         return ~par0 & 15;
     }
-
     
+     
     @SuppressWarnings("unchecked")
 	@SideOnly(Side.CLIENT)
 
     /**
      * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
      */
-    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs, @SuppressWarnings("rawtypes") List par3List)
+    public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs,List par3List)
     {
         for (int var4 = 0; var4 < 16; ++var4)
         {
