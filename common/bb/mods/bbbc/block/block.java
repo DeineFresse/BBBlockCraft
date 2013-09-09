@@ -1,8 +1,10 @@
 package bb.mods.bbbc.block;
 
+import bb.mods.bbbc.itemblock.BigBlockItem;
 import bb.mods.bbbc.itemblock.CloudWhiteItem;
 import bb.mods.bbbc.lib.Block_Names;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.src.ModLoader;
 
 public class block {
@@ -13,6 +15,8 @@ public class block {
     public static Block cloudore;
     public static Block CloudWhite;
     public static Block Dark_Stone;
+    public static Block Faceblock;
+    public static Block BigBlock;
 
  public static void signBlockID(){
     BlockOreOne = new BlockOreOne(160);
@@ -20,6 +24,8 @@ public class block {
     cloudore = new cloudore(162);
     CloudWhite = new CloudWhite(163);
     Dark_Stone = new Dark_Stone(164);
+    Faceblock = new Faceblock(165,Material.wood);
+    BigBlock = new BigBlock(166);
     }	
  public static void Blockreg(){
 		
@@ -30,6 +36,8 @@ public class block {
 				ModLoader.registerBlock(TestBlock);
 				ModLoader.registerBlock(cloudore);
 				ModLoader.registerBlock(CloudWhite,CloudWhiteItem.class);
+				ModLoader.registerBlock(Faceblock);
+				ModLoader.registerBlock(BigBlock,BigBlockItem.class);
 		
 	}
  

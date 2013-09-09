@@ -132,7 +132,7 @@ public class CloudWhite extends Block{
     }
     
      
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"rawtypes", "unchecked" })
 	@SideOnly(Side.CLIENT)
 
     /**
