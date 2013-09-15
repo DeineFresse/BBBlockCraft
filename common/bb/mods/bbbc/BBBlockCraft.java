@@ -9,6 +9,7 @@ import bb.mods.bbbc.stats.Achievements;
 import bb.mods.bbbc.world.gen.BBWorldGen;
 import bb.mods.bbbc.common.CommonProxy;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -18,17 +19,16 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
-@NetworkMod(channels = { "BBBlockCraft_alt" }, clientSideRequired = true, serverSideRequired = false, packetHandler = bb.mods.bbbc.common.network.PacketHandler.class)
+@NetworkMod(channels = {Reference.MOD_CHANNEL}, clientSideRequired = true, serverSideRequired = false, packetHandler = bb.mods.bbbc.common.network.PacketHandler.class)
+
+
 public class BBBlockCraft {
-	static boolean settingdebug = Reference.DEBUGMODE;
-
-	// New Creative Tab
-
+	
 	// Gen Definition
 
 	public static bb.mods.bbbc.world.gen.BBWorldGen worldGen = new BBWorldGen();
 
-	
+	@Instance(Reference.MOD_ID)
 	public static BBBlockCraft instance;
 
 	@SidedProxy(clientSide = "bb.mods.bbbc.common.ClientProxy", serverSide = "bb.mods.bbbc.common.CommonProxy")
@@ -36,9 +36,14 @@ public class BBBlockCraft {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		
+		proxy.initSounds();
+		proxy.initRenderers();
+		
 		block.signBlockID();
 		block.Blockreg();
 		block.Blockname();
+		
 		item.signItemID();
 		item.Itemname();
 	}
