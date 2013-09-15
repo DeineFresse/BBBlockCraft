@@ -3,8 +3,8 @@ package bb.mods.bbbc.block;
 import bb.mods.bbbc.itemblock.BigBlockItem;
 import bb.mods.bbbc.itemblock.CloudWhiteItem;
 import bb.mods.bbbc.lib.Block_Names;
+import bb.mods.bbbc.lib.LoadedIDs;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.src.ModLoader;
 
 public class block {
@@ -19,13 +19,13 @@ public class block {
     public static Block BigBlock;
 
  public static void signBlockID(){
-    BlockOreOne = new BlockOreOne(160);
-    TestBlock = new TestBlock(161);
-    cloudore = new cloudore(162);
-    CloudWhite = new CloudWhite(163);
-    Dark_Stone = new Dark_Stone(164);
-    Faceblock = new Faceblock(165,Material.wood);
-    BigBlock = new BigBlock(166);
+    BlockOreOne = new BlockOreOne(LoadedIDs.Block_BlockOreOne);
+    TestBlock = new TestBlock(LoadedIDs.Block_TestBlock);
+    cloudore = new cloudore(LoadedIDs.Block_cloudore);
+    CloudWhite = new CloudWhite(LoadedIDs.Block_CloudWhite);
+    Dark_Stone = new Dark_Stone(LoadedIDs.Block_Dark_Stone);
+    Faceblock = new Faceblock(LoadedIDs.Block_Faceblock);
+    BigBlock = new BigBlock(LoadedIDs.Block_BigBlock);
     }	
  public static void Blockreg(){
 		

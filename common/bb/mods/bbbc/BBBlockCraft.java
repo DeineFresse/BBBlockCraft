@@ -8,6 +8,7 @@ import bb.mods.bbbc.reciepe.smelting;
 import bb.mods.bbbc.stats.Achievements;
 import bb.mods.bbbc.world.gen.BBWorldGen;
 import bb.mods.bbbc.common.CommonProxy;
+import bb.mods.bbbc.config.ConfigHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -36,6 +37,8 @@ public class BBBlockCraft {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		
 		proxy.initSounds();
 		proxy.initRenderers();

@@ -1,5 +1,6 @@
 package bb.mods.bbbc.itemblock;
 
+import bb.mods.bbbc.lib.LoadedIDs;
 import bb.mods.bbbc.tileentity.TileEntityFace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
@@ -51,7 +52,7 @@ public class BigBlockItem extends ItemBlock {
 
 				for(int i = 0;i< gagShift.length;i++){
 					shift = rotXZByDir(gagShift[i][0],gagShift[i][1],gagShift[i][2],dir);
-					world.setBlock(x +shift[0], y+shift[1], z+shift[2], bb.mods.bbbc.block.Faceblock.shiftedIndex,dir,0x02);
+					world.setBlock(x +shift[0], y+shift[1], z+shift[2],LoadedIDs.Block_Faceblock,dir,0x02);
 					
 					TileEntityFace tileFace = (TileEntityFace)world.getBlockTileEntity(x+shift[0],y+shift[1],z+shift[2]);
 					

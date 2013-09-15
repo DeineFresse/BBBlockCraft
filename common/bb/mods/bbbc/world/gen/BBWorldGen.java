@@ -2,6 +2,8 @@ package bb.mods.bbbc.world.gen;
 
 import java.util.Random;
 
+import bb.mods.bbbc.lib.LoadedIDs;
+
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -22,6 +24,7 @@ public class BBWorldGen implements IWorldGenerator {
 	  public void generateit(Random random, int chunkX, int chunkZ, World world,IChunkProvider chunkGenerator, IChunkProvider chunkProvider,int ID){
 	
 		boolean nosucsess = true ;
+		int tries = 0;
 		BiomeGenBase b = world.getBiomeGenForCoords(chunkX,chunkZ);
 		int Y;
 		int Z;
@@ -45,19 +48,20 @@ public class BBWorldGen implements IWorldGenerator {
 			
 		       if(isitright(world.getBlockId(A,B,C)) && isitright(world.getBlockId(A,B-1,C)) && isitright(world.getBlockId(A+1,B,C)) && isitright(world.getBlockId(A+1,B-1,C))){
 			
-			   world.setBlock(chunkX*16 + X,Y,chunkZ*16 + Z,160);
-		       world.setBlock(chunkX*16 + X,Y-1,chunkZ*16 + Z,160);
-			   world.setBlock(chunkX*16 +1 + X,Y,chunkZ*16 + Z,160);
-			   world.setBlock(chunkX*16 +1 + X,Y-1,chunkZ*16 + Z,160);
+			   world.setBlock(chunkX*16 + X,Y,chunkZ*16 + Z,ID);
+		       world.setBlock(chunkX*16 + X,Y-1,chunkZ*16 + Z,ID);
+			   world.setBlock(chunkX*16 +1 + X,Y,chunkZ*16 + Z,ID);
+			   world.setBlock(chunkX*16 +1 + X,Y-1,chunkZ*16 + Z,ID);
 			   nosucsess = false;
 			   System.out.println(ID +" X: "+A +" Y: "+ B +" Z: "+ C);
 		       }
 		       else{
 			   nosucsess = true;
-			   System.out.println("Had no sucess,try again!");
+			   tries ++;
+			   System.out.println("Had no sucess,try again!Tried:"+tries);
 		       }
 			
-		    }while(nosucsess);
+		    }while(nosucsess && tries < 10);
 			
 		  }
     	}
@@ -68,8 +72,8 @@ public class BBWorldGen implements IWorldGenerator {
 	  @Override
 	  public void generate(Random random, int chunkX, int chunkZ, World world,IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		
-		generateit(random,chunkX,chunkZ,world,chunkGenerator,chunkProvider,162);
-		generateit(random,chunkX,chunkZ,world,chunkGenerator,chunkProvider,160);
+		generateit(random,chunkX,chunkZ,world,chunkGenerator,chunkProvider,LoadedIDs.Block_BlockOreOne);
+		generateit(random,chunkX,chunkZ,world,chunkGenerator,chunkProvider,LoadedIDs.Block_cloudore);
 
 	  }
 

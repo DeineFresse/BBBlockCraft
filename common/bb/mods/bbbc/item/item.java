@@ -1,6 +1,7 @@
 package bb.mods.bbbc.item;
 
 import bb.mods.bbbc.lib.Item_Names;
+import bb.mods.bbbc.lib.LoadedIDs;
 import net.minecraft.src.ModLoader;
 import net.minecraft.item.Item;
 
@@ -14,9 +15,9 @@ public class item {
     
 	public static void signItemID(){
 	  
-	    MyFirstItem = new MyFirstItem(2100);
-	  	NineBrickStairsItem =new NineBrickStairsItem(2101);
-	  	Bookwallitem = new Bookwallitem(2102);
+	    MyFirstItem = new MyFirstItem(LoadedIDs.Item_MyFirstItem);
+	  	NineBrickStairsItem =new NineBrickStairsItem(LoadedIDs.Item_NineBrickStairItem);
+	  	Bookwallitem = new Bookwallitem(LoadedIDs.Item_BookWallItem);
 	    }	
 	 
 	 

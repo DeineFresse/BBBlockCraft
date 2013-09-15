@@ -1,7 +1,8 @@
 package bb.mods.bbbc.stats;
 
+import bb.mods.bbbc.block.block;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.item.Item;
+import net.minecraft.block.Block;
 import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.AchievementPage;
@@ -9,10 +10,10 @@ import net.minecraftforge.common.AchievementPage;
 public class Achievements {
 
 	public static Achievement firstAchievement = new Achievement(2001,
-			"Getting Ore", 0, 2, Item.diamond, AchievementList.openInventory)
+			"Getting Ore", 0, 2,block.BlockOreOne, AchievementList.openInventory)
 			.setSpecial().registerAchievement();
 	public static Achievement secondAchievement = new Achievement(2002,
-			"Smelting the Ore", 2, 2, Item.diamond,
+			"Smelting the Ore", 2, 2, Block.furnaceBurning,
 			firstAchievement).registerAchievement();
 
 	private static void addAchievementName(String ach, String name) {

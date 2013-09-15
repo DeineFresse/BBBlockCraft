@@ -10,5 +10,7 @@ public class Reference {
     public static final String MOD_ID = "BBBlockCraft";
     public static final String MOD_NAME = "BBBlockCraft";
     public static final String MOD_VERSION = "DEV-0.1.1";
-    public static final String MOD_CHANNEL  = "";
+    public static final String MOD_CHANNEL  = "BB_BBBC";
+
+	public static final String CHATPREFIX = "["+MOD_CHANNEL+"]";
     }
