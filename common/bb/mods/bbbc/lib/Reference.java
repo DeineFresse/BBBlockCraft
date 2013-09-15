@@ -13,4 +13,6 @@ public class Reference {
     public static final String MOD_CHANNEL  = "BB_BBBC";
 
 	public static final String CHATPREFIX = "["+MOD_CHANNEL+"]";
+
+	public static final int[] REPLACEIDLIST = new int[]{0,20,78,31};
     }
