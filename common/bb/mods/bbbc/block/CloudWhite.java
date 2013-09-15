@@ -36,14 +36,16 @@ public class CloudWhite extends Block{
 	
 	    public void onEntityWalking(World par1World, int par2, int par3, int par4, Entity par5Entity)
     {
-		par5Entity.handleHealthUpdate((byte)9);
-        par5Entity.motionY = 2;
+	    if(!par5Entity.worldObj.isRemote){
+	    	par5Entity.motionY = 2;
+        }
         super.onEntityWalking(par1World, par2, par3, par4, par5Entity);
     }
     
-	public void onFallenUpon(World par1World, int par2, int par3, int par4, Entity par5Entity, float par6) {
-
-	    par5Entity.motionY = 2;
+	public void onFallenUpon(World par1World, int par2, int par3, int par4, Entity par5Entity, float par6){
+		if(!par5Entity.worldObj.isRemote){
+			par5Entity.motionY = 2;
+			}
         super.onFallenUpon(par1World, par2, par3, par4, par5Entity,par6);
 	}
 	
@@ -51,8 +53,8 @@ public class CloudWhite extends Block{
 	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity) {
 		
 		par5Entity.fallDistance = 0;
-		if (par5Entity.isCollidedVertically) {
-			
+		
+		if (par5Entity.isCollidedVertically&&!par5Entity.worldObj.isRemote) {
 			par5Entity.motionY = 2;
 		}
 		super.onEntityCollidedWithBlock(par1World, par2, par3, par4, par5Entity);
