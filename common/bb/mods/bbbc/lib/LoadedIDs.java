@@ -15,5 +15,6 @@ public class LoadedIDs {
 	public static int Block_Dark_Stone;
 	public static int Block_Faceblock;
 	public static int Block_BigBlock;
+	public static int Item_SwordUp;
 
 }

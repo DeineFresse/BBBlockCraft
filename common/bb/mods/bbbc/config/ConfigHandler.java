@@ -22,6 +22,7 @@ public class ConfigHandler {
 		LoadedIDs.Item_MyFirstItem = config.getItem("My First Item", DefaultIDs.ITEM_MYFIRSTITEM).getInt();
 		LoadedIDs.Item_NineBrickStairItem = config.getItem("NBSI", DefaultIDs.ITEM_NINEBRICKSTAIRITEM).getInt();
 		LoadedIDs.Item_BookWallItem = config.getItem("BWI", DefaultIDs.ITEM_BOOKWALLITEM).getInt();
+		LoadedIDs.Item_SwordUp = config.getItem("BWI", DefaultIDs.ITEM_SWORDUP).getInt();
 		
 		//Block ID´s
 		LoadedIDs.Block_BlockOreOne = config.getBlock("BlockOreOne",DefaultIDs.BLOCK_BLOCKOREONE).getInt();

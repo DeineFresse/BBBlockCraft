@@ -6,6 +6,7 @@ public class DefaultIDs {
 	public static final int ITEM_MYFIRSTITEM = 3500;
 	public static final int ITEM_NINEBRICKSTAIRITEM = 3501;
 	public static final int ITEM_BOOKWALLITEM = 3502;
+	public static final int ITEM_SWORDUP = 3503;
 	
 	//Block ID´s
 	public static final int BLOCK_BLOCKOREONE = 301;
