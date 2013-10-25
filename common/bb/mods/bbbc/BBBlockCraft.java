@@ -6,6 +6,7 @@ import bb.mods.bbbc.lib.Reference;
 import bb.mods.bbbc.reciepe.crafting;
 import bb.mods.bbbc.reciepe.smelting;
 import bb.mods.bbbc.stats.Achievements;
+import bb.mods.bbbc.tileentity.TileEntity;
 import bb.mods.bbbc.world.gen.BBWorldGen;
 import bb.mods.bbbc.common.CommonProxy;
 import bb.mods.bbbc.config.ConfigHandler;
@@ -49,6 +50,9 @@ public class BBBlockCraft {
 		
 		item.signItemID();
 		item.Itemname();
+		
+		TileEntity.regTileEntity();
+		
 	}
 
 	@EventHandler

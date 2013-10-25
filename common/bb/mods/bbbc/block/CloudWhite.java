@@ -29,7 +29,7 @@ public class CloudWhite extends Block{
 		setStepSound(soundClothFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setUnlocalizedName(Block_Names.CLOUDWHITE);
-		func_111022_d("wool_colored");
+		setTextureName("wool_colored");
 		
 	
 	}

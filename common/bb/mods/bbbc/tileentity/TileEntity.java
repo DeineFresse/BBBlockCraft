@@ -4,7 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TileEntity {
 	
-	public void regTileEntity(){
+	public static void regTileEntity(){
 	
 	GameRegistry.registerTileEntity(TileEntityFace.class, "Face");
 

@@ -18,13 +18,13 @@ public class SwordUp extends Item{
 	}
 	
 	@Override 
-	public boolean func_111207_a(ItemStack IS,EntityPlayer player,EntityLivingBase target){
+	public boolean itemInteractionForEntity(ItemStack IS,EntityPlayer player,EntityLivingBase target){
 		if (!target.worldObj.isRemote){
 			target.motionY = 2;
 		}
 		
 		
-		return false;
+		return true;
 	}
 
 }

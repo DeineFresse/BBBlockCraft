@@ -15,4 +15,10 @@ public class Reference {
 	public static final String CHATPREFIX = "["+MOD_CHANNEL+"]";
 
 	public static final int[] REPLACEIDLIST = new int[]{0,20,78,31};
+
+	public static final String[] SideSufix = new String[]{"top","bottom","north","south","east","west"};
+	
+	public static String getSideSufix(int par5) {
+		return null;
+	}
     }
