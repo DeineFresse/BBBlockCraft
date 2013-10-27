@@ -21,11 +21,9 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
-@NetworkMod(channels = {Reference.MOD_CHANNEL}, clientSideRequired = true, serverSideRequired = false, packetHandler = bb.mods.bbbc.common.network.PacketHandler.class)
-
-
+@NetworkMod(channels = { Reference.MOD_CHANNEL }, clientSideRequired = true, serverSideRequired = false, packetHandler = bb.mods.bbbc.common.network.PacketHandler.class)
 public class BBBlockCraft {
-	
+
 	// Gen Definition
 
 	public static bb.mods.bbbc.world.gen.BBWorldGen worldGen = new BBWorldGen();
@@ -38,21 +36,21 @@ public class BBBlockCraft {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		
+
 		ConfigHandler.init(event.getSuggestedConfigurationFile());
-		
+
 		proxy.initSounds();
 		proxy.initRenderers();
-		
+
 		block.signBlockID();
 		block.Blockreg();
 		block.Blockname();
-		
+
 		item.signItemID();
 		item.Itemname();
-		
+
 		TileEntity.regTileEntity();
-		
+
 	}
 
 	@EventHandler
@@ -73,6 +71,5 @@ public class BBBlockCraft {
 	public void postInit(FMLPostInitializationEvent evt) {
 
 	}
-
 
 }

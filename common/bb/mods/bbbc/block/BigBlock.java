@@ -12,60 +12,95 @@ import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BigBlock extends Block{
+public class BigBlock extends Block {
 
 	public static int shiftedIndex;
-	public BigBlock(int blockID)
-{
-        super(blockID, Material.rock);
-        setHardness(2.0f);
-        shiftedIndex = blockID;
-        setResistance(5.0f);
-        setStepSound(soundStoneFootstep);
-        setCreativeTab(CreativeTabs.tabBlock);
-        setLightValue(1.5F);
-        setUnlocalizedName(Block_Names.BIGBLOCK);
-}
-	 
-	@SideOnly(Side.CLIENT)
-	public static Icon topIcon;
-	
-	public Icon getBlockTexture(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-    {
-       String namesufix  = Reference.getSideSufix(par5);
-       byte Connected = 0;
-       
-       if(isBigBlockPart(par1IBlockAccess.getBlockId(par2, par3, par4+1))){Connected|=1 ;}
-       if(isBigBlockPart(par1IBlockAccess.getBlockId(par2, par3, par4+1))){Connected|=2;}
-       if(isBigBlockPart(par1IBlockAccess.getBlockId(par2, par3, par4+1))){Connected|=4;}
-       if(isBigBlockPart(par1IBlockAccess.getBlockId(par2, par3, par4+1))){Connected|=8;}
-       if(isBigBlockPart(par1IBlockAccess.getBlockId(par2, par3, par4+1))){Connected|=16;}
-       if(isBigBlockPart(par1IBlockAccess.getBlockId(par2, par3, par4+1))){Connected|=32;}
-       
-       String icon = namesufix+Connected;
-       
-       return null;
-    }
-	
-	
-	
-	private boolean isBigBlockPart(int blockId) {
-		int[] ids= new int[]{LoadedIDs.Block_BigBlock,LoadedIDs.Block_Faceblock};
-		
-		return false;
+
+	private int[] ids = new int[] { LoadedIDs.Block_BigBlock,
+			LoadedIDs.Block_Faceblock, 20 };
+
+	private Icon[][] blockIcon = new Icon[17][16];
+
+	public BigBlock(int blockID) {
+		super(blockID, Material.rock);
+		setHardness(2.0f);
+		shiftedIndex = blockID;
+		setResistance(5.0f);
+		setStepSound(soundStoneFootstep);
+		setCreativeTab(CreativeTabs.tabBlock);
+		setUnlocalizedName(Block_Names.BIGBLOCK);
 	}
 
-	public Icon getIcon(int par1,int par2)
-	    {
-	    
-		
-		return this.blockIcon;
-	       
-	    }
-	
+	@SideOnly(Side.CLIENT)
+	public Icon getBlockTexture(IBlockAccess par1IBlockAccess, int par2,
+			int par3, int par4, int par5) {
+		int[] connected = Connected.getConnection(ids, par5, par1IBlockAccess,
+				par2, par3, par4);
+
+		return this.blockIcon[connected[0]][connected[1]];
+	}
+
+	@SideOnly(Side.CLIENT)
+	public Icon getIcon(int par1, int par2) {
+		return this.blockIcon[0][0];
+	}
+
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
-	blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.DARKSTONE);
+
+		for (int i = 0; i < blockIcon.length; i++) {
+			if (i == 15) {
+				for (int ii = 0; ii < blockIcon[i].length; ii++) {
+					this.blockIcon[i][ii] = icon.registerIcon(Reference.MOD_ID
+							.toLowerCase()
+							+ ":"
+							+ Block_Names.BIGBLOCK
+							+ i
+							+ "_" + ii);
+				}
+			} else if (i == 5 || i == 6 || i == 9 || i == 10) {
+				for (int ii = 0; ii < blockIcon[i].length; ii++) {
+					int x = ii & 1;
+					this.blockIcon[i][ii] = icon.registerIcon(Reference.MOD_ID
+							.toLowerCase()
+							+ ":"
+							+ Block_Names.BIGBLOCK
+							+ i
+							+ "_" + x);
+				}
+
+			} else if (isAdvanced(i)) {
+				for (int ii = 0; ii < blockIcon[i].length; ii++) {
+					int x = ii & 3;
+					this.blockIcon[i][ii] = icon.registerIcon(Reference.MOD_ID
+							.toLowerCase()
+							+ ":"
+							+ Block_Names.BIGBLOCK
+							+ i
+							+ "_" + x);
+				}
+			} else {
+				for (int ii = 0; ii < blockIcon[i].length; ii++) {
+					this.blockIcon[i][ii] = icon.registerIcon(Reference.MOD_ID
+							.toLowerCase()
+							+ ":"
+							+ Block_Names.BIGBLOCK
+							+ i
+							+ "_" + 0);
+				}
+			}
+		}
+
 	}
-	
+
+	private boolean isAdvanced(int is) {
+		int[] advanced = new int[] { 5, 6, 7, 9, 10, 11, 13, 14, 15 };
+		for (int i = 0; i < advanced.length; i++) {
+			if (is == advanced[i]) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 }

@@ -1,13 +1,14 @@
 package bb.mods.bbbc.lib;
 
 public class LoadedIDs {
-	
-	//Item ID큦
+
+	// Item ID큦
 	public static int Item_MyFirstItem;
 	public static int Item_NineBrickStairItem;
 	public static int Item_BookWallItem;
-	
-	//Block ID큦
+	public static int Item_SwordUp;
+
+	// Block ID큦
 	public static int Block_BlockOreOne;
 	public static int Block_TestBlock;
 	public static int Block_cloudore;
@@ -15,6 +16,6 @@ public class LoadedIDs {
 	public static int Block_Dark_Stone;
 	public static int Block_Faceblock;
 	public static int Block_BigBlock;
-	public static int Item_SwordUp;
+	public static int Block_ConnectedGlass;
 
 }

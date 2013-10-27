@@ -11,17 +11,14 @@ public class Bookwallitem extends Item {
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
 		setUnlocalizedName(Item_Names.MYFIRSTITEM);
-		
+
 	}
 
-//	@Override
-/*    public String getTextureFile()
-{
-    return "/bb/Pic/BBBlockCraftItems.png";
-	
-}*/
+	// @Override
+	/*
+	 * public String getTextureFile() { return "/bb/Pic/BBBlockCraftItems.png";
+	 * 
+	 * }
+	 */
 
-	
-	
-	
 }

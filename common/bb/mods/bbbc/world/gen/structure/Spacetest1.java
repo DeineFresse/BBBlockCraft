@@ -5,17 +5,17 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class Spacetest1 {
-	
-	public static boolean isReplaceable(int ID,int ID2){
+
+	public static boolean isReplaceable(int ID, int ID2) {
 		boolean is = false;
-		for(int i = 0;i< Reference.REPLACEIDLIST.length;i++){
-			if(ID == Reference.REPLACEIDLIST[i]||ID==ID2){
+		for (int i = 0; i < Reference.REPLACEIDLIST.length; i++) {
+			if (ID == Reference.REPLACEIDLIST[i] || ID == ID2) {
 				is = true;
 			}
 		}
-		
+
 		return is;
-		
+
 	}
 
 	@SuppressWarnings("unused")
@@ -31,7 +31,7 @@ public class Spacetest1 {
 			do {
 				z = par4 + 1;
 				do {
-					if (!isReplaceable(par1.getBlockId(x, y, z),ID)) {
+					if (!isReplaceable(par1.getBlockId(x, y, z), ID)) {
 						if (!par5.worldObj.isRemote && Reference.DEBUGMODE) {
 							i = par1.getBlockId(x, y, z);
 							Integer I = new Integer(i);
@@ -70,7 +70,7 @@ public class Spacetest1 {
 			do {
 				z = par4 + 8;
 				do {
-					if (!isReplaceable(par1.getBlockId(x, y, z),ID)) {
+					if (!isReplaceable(par1.getBlockId(x, y, z), ID)) {
 						if (!par5.worldObj.isRemote && Reference.DEBUGMODE) {
 							i = par1.getBlockId(x, y, z);
 							Integer I = new Integer(i);
@@ -106,7 +106,7 @@ public class Spacetest1 {
 			do {
 				z = par4 - 4;
 				do {
-					if (!isReplaceable(par1.getBlockId(x, y, z),ID)) {
+					if (!isReplaceable(par1.getBlockId(x, y, z), ID)) {
 						if (!par5.worldObj.isRemote && Reference.DEBUGMODE) {
 							i = par1.getBlockId(x, y, z);
 							Integer I = new Integer(i);
@@ -143,7 +143,7 @@ public class Spacetest1 {
 			do {
 				z = par4 - 4;
 				do {
-					if (!isReplaceable(par1.getBlockId(x, y, z),ID)) {
+					if (!isReplaceable(par1.getBlockId(x, y, z), ID)) {
 						if (!par5.worldObj.isRemote && Reference.DEBUGMODE) {
 							i = par1.getBlockId(x, y, z);
 							Integer I = new Integer(i);

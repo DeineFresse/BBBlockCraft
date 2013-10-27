@@ -10,36 +10,33 @@ import net.minecraft.util.Icon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockOreOne extends Block{
+public class BlockOreOne extends Block {
 
 	public static int shiftedIndex;
-	public BlockOreOne(int blockID)
-{
-        super(blockID, Material.rock);
-        setHardness(2.0f);
-        setResistance(5.0f);
-        setStepSound(soundStoneFootstep);
-        setCreativeTab(CreativeTabs.tabBlock);
-        setLightValue(1.5F);
-        setUnlocalizedName(Block_Names.BLOCKOREONE);
-}
-	 
+
+	public BlockOreOne(int blockID) {
+		super(blockID, Material.rock);
+		setHardness(2.0f);
+		setResistance(5.0f);
+		setStepSound(soundStoneFootstep);
+		setCreativeTab(CreativeTabs.tabBlock);
+		setLightValue(1.5F);
+		setUnlocalizedName(Block_Names.BLOCKOREONE);
+	}
+
 	@SideOnly(Side.CLIENT)
 	public static Icon topIcon;
-	
-	
-	
-	public Icon getIcon(int par1,int par2)
-	    {
-	       
-		
+
+	public Icon getIcon(int par1, int par2) {
+
 		return this.blockIcon;
-	       
-	    }
-	
+
+	}
+
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
-	blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Block_Names.BLOCKOREONE);
+		blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":"
+				+ Block_Names.BLOCKOREONE);
 	}
-	
+
 }

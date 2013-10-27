@@ -1,6 +1,7 @@
 package bb.mods.bbbc.itemblock;
 
 import bb.mods.bbbc.lib.LoadedIDs;
+import bb.mods.bbbc.lib.Reference;
 import bb.mods.bbbc.tileentity.TileEntityFace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
@@ -41,7 +42,9 @@ public class BigBlockItem extends ItemBlock {
 				shift = rotXZByDir(gagShift[i][0], gagShift[i][1],
 						gagShift[i][2], dir);
 
-				if (!world.isAirBlock(x + shift[0], y + shift[1], z + shift[2])) {
+				if (!world.isAirBlock(x + shift[0], y + shift[1], z + shift[2])
+						&& !isReplaceable(world.getBlockId(x + shift[0], y
+								+ shift[1], z + shift[2]))) {
 
 					canPlace = false;
 				}
@@ -77,6 +80,17 @@ public class BigBlockItem extends ItemBlock {
 
 			return true;
 		}
+		return false;
+	}
+
+	private boolean isReplaceable(int theblockId) {
+
+		for (int i = 0; i < Reference.REPLACEIDLIST.length; i++) {
+			if (theblockId == Reference.REPLACEIDLIST[i]) {
+				return true;
+			}
+		}
+
 		return false;
 	}
 

@@ -12,8 +12,9 @@ public class smelting {
 		// Add Furnace Recipe
 
 		GameRegistry.addSmelting(160, new ItemStack(item.MyFirstItem, 5), 5.0F);
-		GameRegistry.addSmelting(162, new ItemStack(block.CloudWhite, 1, 0), 5.0F);
+		GameRegistry.addSmelting(162, new ItemStack(block.CloudWhite, 1, 0),
+				5.0F);
 
 	}
-	
+
 }
