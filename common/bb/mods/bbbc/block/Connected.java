@@ -101,6 +101,7 @@ public class Connected {
 			}
 			if (!IBA.isAirBlock(x, y - 1, z)) {
 				Connected = 15;
+				Corner = 15;
 			}
 			break;
 		}
@@ -195,6 +196,7 @@ public class Connected {
 			}
 			if (!IBA.isAirBlock(x, y + 1, z)) {
 				Connected = 15;
+				Corner = 15;
 			}
 			break;
 		}
@@ -290,6 +292,7 @@ public class Connected {
 			}
 			if (!IBA.isAirBlock(x, y, z - 1)) {
 				Connected = 15;
+				Corner = 15;
 			}
 			break;
 		}
@@ -384,6 +387,7 @@ public class Connected {
 			}
 			if (!IBA.isAirBlock(x, y, z + 1)) {
 				Connected = 15;
+				Corner = 15;
 			}
 			break;
 		}
@@ -479,6 +483,7 @@ public class Connected {
 			}
 			if (!IBA.isAirBlock(x - 1, y, z)) {
 				Connected = 15;
+				Corner = 15;
 			}
 			break;
 		}
@@ -574,6 +579,7 @@ public class Connected {
 			}
 			if (!IBA.isAirBlock(x + 1, y, z)) {
 				Connected = 15;
+				Corner = 15;
 			}
 			break;
 		}

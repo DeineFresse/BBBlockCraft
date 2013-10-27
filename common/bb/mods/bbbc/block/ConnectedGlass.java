@@ -100,10 +100,16 @@ public class ConnectedGlass extends Block {
 		return false;
 	}
 
+	
 	public int getRenderBlockPass() {
 		return 0;
 	}
 
+	public static boolean isNormalCube(int par0)
+    {
+        return true;
+    }
+	
 	public boolean isOpaqueCube() {
 		return false;
 	}
