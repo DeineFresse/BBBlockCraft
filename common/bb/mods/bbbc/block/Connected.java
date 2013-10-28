@@ -9,580 +9,178 @@ public class Connected {
 		byte Connected = 0;
 		byte Corner = 0;
 
+		int[] cCX = new int[4];
+		int[] cCY = new int[4];
+		int[] cCZ = new int[4];
+		int AX = 0, AY = 0, AZ = 0;
+
+		for (int i = 0; i < cCX.length && i < cCY.length && i < cCZ.length; i++) {
+			cCX[i] = 0;
+			cCY[i] = 0;
+			cCZ[i] = 0;
+		}
+
 		switch (dir) {
 		/** bottom **/
 		case 0: {
-			if (canConnect(IBA.getBlockId(x, y, z + 1), blockList)) {
-				Connected |= 1;
-			}
-			if (canConnect(IBA.getBlockId(x, y, z - 1), blockList)) {
-				Connected |= 2;
-			}
-			if (canConnect(IBA.getBlockId(x + 1, y, z), blockList)) {
-				Connected |= 4;
-			}
-			if (canConnect(IBA.getBlockId(x - 1, y, z), blockList)) {
-				Connected |= 8;
-			}
-			// --------------------------------------------------------
-			/** Rechts Unten **/
-			if (canConnect(IBA.getBlockId(x + 1, y, z + 1), blockList)) {
-				switch (Connected) {
-				case 15: {
-				}
-				case 13: {
-				}
-				case 7: {
-				}
-				case 5: {
-					Corner |= 1;
-					break;
-				}
-				}
-
-			}
-			/** Rechts Oben **/
-			if (canConnect(IBA.getBlockId(x + 1, y, z - 1), blockList)) {
-
-				switch (Connected) {
-				case 14: {
-				}
-				case 6: {
-					Corner |= 1;
-					break;
-				}
-				case 15: {
-				}
-				case 7: {
-					Corner |= 2;
-					break;
-				}
-				}
-
-			}
-			/** Links Unten **/
-			if (canConnect(IBA.getBlockId(x - 1, y, z + 1), blockList)) {
-				switch (Connected) {
-				case 11: {
-				}
-				case 9: {
-					Corner |= 1;
-					break;
-				}
-				case 13: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 4;
-					break;
-				}
-				}
-			}
-			/** Links Oben **/
-			if (canConnect(IBA.getBlockId(x - 1, y, z - 1), blockList)) {
-
-				switch (Connected) {
-				case 10: {
-					Corner |= 1;
-					break;
-				}
-				case 14: {
-				}
-				case 11: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 8;
-					break;
-				}
-				}
-			}
-			if (!IBA.isAirBlock(x, y - 1, z)) {
-				Connected = 15;
-				Corner = 15;
-			}
+			cCZ[0] = 1;
+			cCZ[1] = -1;
+			cCX[2] = 1;
+			cCX[3] = -1;
+			AY = -1;
 			break;
 		}
 		/** top **/
 		case 1: {
-			if (canConnect(IBA.getBlockId(x, y, z + 1), blockList)) {
-				Connected |= 1;
-			}
-			if (canConnect(IBA.getBlockId(x, y, z - 1), blockList)) {
-				Connected |= 2;
-			}
-			if (canConnect(IBA.getBlockId(x + 1, y, z), blockList)) {
-				Connected |= 4;
-			}
-			if (canConnect(IBA.getBlockId(x - 1, y, z), blockList)) {
-				Connected |= 8;
-			}
-			// --------------------------------------------------------
-			/** Rechts Unten **/
-			if (canConnect(IBA.getBlockId(x + 1, y, z + 1), blockList)) {
-				switch (Connected) {
-				case 15: {
-				}
-				case 13: {
-				}
-				case 7: {
-				}
-				case 5: {
-					Corner |= 1;
-					break;
-				}
-				}
-
-			}
-			/** Rechts Oben **/
-			if (canConnect(IBA.getBlockId(x + 1, y, z - 1), blockList)) {
-
-				switch (Connected) {
-				case 14: {
-				}
-				case 6: {
-					Corner |= 1;
-					break;
-				}
-				case 15: {
-				}
-				case 7: {
-					Corner |= 2;
-					break;
-				}
-				}
-
-			}
-			/** Links Unten **/
-			if (canConnect(IBA.getBlockId(x - 1, y, z + 1), blockList)) {
-				switch (Connected) {
-				case 11: {
-				}
-				case 9: {
-					Corner |= 1;
-					break;
-				}
-				case 13: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 4;
-					break;
-				}
-				}
-			}
-			/** Links Oben **/
-			if (canConnect(IBA.getBlockId(x - 1, y, z - 1), blockList)) {
-
-				switch (Connected) {
-				case 10: {
-					Corner |= 1;
-					break;
-				}
-				case 14: {
-				}
-				case 11: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 8;
-					break;
-				}
-				}
-			}
-			if (!IBA.isAirBlock(x, y + 1, z)) {
-				Connected = 15;
-				Corner = 15;
-			}
+			cCZ[0] = 1;
+			cCZ[1] = -1;
+			cCX[2] = 1;
+			cCX[3] = -1;
+			AY = 1;
 			break;
 		}
 		/** north **/
 		case 2: {
-			if (canConnect(IBA.getBlockId(x, y - 1, z), blockList)) {
-				Connected |= 1;
-			}
-			if (canConnect(IBA.getBlockId(x, y + 1, z), blockList)) {
-				Connected |= 2;
-			}
-			if (canConnect(IBA.getBlockId(x - 1, y, z), blockList)) {
-				Connected |= 4;
-			}
-			if (canConnect(IBA.getBlockId(x + 1, y, z), blockList)) {
-				Connected |= 8;
-			}
-			// --------------------------------------------------------
-			/** Rechts Unten **/
-			/** Rechts Unten **/
-			if (canConnect(IBA.getBlockId(x - 1, y - 1, z), blockList)) {
-				switch (Connected) {
-				case 15: {
-				}
-				case 13: {
-				}
-				case 7: {
-				}
-				case 5: {
-					Corner |= 1;
-					break;
-				}
-				}
-
-			}
-			/** Rechts Oben **/
-			if (canConnect(IBA.getBlockId(x - 1, y + 1, z), blockList)) {
-
-				switch (Connected) {
-				case 14: {
-				}
-				case 6: {
-					Corner |= 1;
-					break;
-				}
-				case 15: {
-				}
-				case 7: {
-					Corner |= 2;
-					break;
-				}
-				}
-
-			}
-			/** Links Unten **/
-			if (canConnect(IBA.getBlockId(x + 1, y - 1, z), blockList)) {
-				switch (Connected) {
-				case 11: {
-				}
-				case 9: {
-					Corner |= 1;
-					break;
-				}
-				case 13: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 4;
-					break;
-				}
-				}
-			}
-			/** Links Oben **/
-			if (canConnect(IBA.getBlockId(x + 1, y + 1, z), blockList)) {
-
-				switch (Connected) {
-				case 10: {
-					Corner |= 1;
-					break;
-				}
-				case 14: {
-				}
-				case 11: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 8;
-					break;
-				}
-				}
-			}
-			if (!IBA.isAirBlock(x, y, z - 1)) {
-				Connected = 15;
-				Corner = 15;
-			}
+			cCY[0] = -1;
+			cCY[1] = 1;
+			cCX[2] = -1;
+			cCX[3] = 1;
+			AZ = -1;
 			break;
 		}
 		/** south **/
 		case 3: {
-			if (canConnect(IBA.getBlockId(x, y - 1, z), blockList)) {
-				Connected |= 1;
-			}
-			if (canConnect(IBA.getBlockId(x, y + 1, z), blockList)) {
-				Connected |= 2;
-			}
-			if (canConnect(IBA.getBlockId(x + 1, y, z), blockList)) {
-				Connected |= 4;
-			}
-			if (canConnect(IBA.getBlockId(x - 1, y, z), blockList)) {
-				Connected |= 8;
-			}
-			// --------------------------------------------------------
-			/** Rechts Unten **/
-			if (canConnect(IBA.getBlockId(x + 1, y - 1, z), blockList)) {
-				switch (Connected) {
-				case 15: {
-				}
-				case 13: {
-				}
-				case 7: {
-				}
-				case 5: {
-					Corner |= 1;
-					break;
-				}
-				}
-
-			}
-			/** Rechts Oben **/
-			if (canConnect(IBA.getBlockId(x + 1, y + 1, z), blockList)) {
-
-				switch (Connected) {
-				case 14: {
-				}
-				case 6: {
-					Corner |= 1;
-					break;
-				}
-				case 15: {
-				}
-				case 7: {
-					Corner |= 2;
-					break;
-				}
-				}
-
-			}
-			/** Links Unten **/
-			if (canConnect(IBA.getBlockId(x - 1, y - 1, z), blockList)) {
-				switch (Connected) {
-				case 11: {
-				}
-				case 9: {
-					Corner |= 1;
-					break;
-				}
-				case 13: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 4;
-					break;
-				}
-				}
-			}
-			/** Links Oben **/
-			if (canConnect(IBA.getBlockId(x - 1, y + 1, z), blockList)) {
-
-				switch (Connected) {
-				case 10: {
-					Corner |= 1;
-					break;
-				}
-				case 14: {
-				}
-				case 11: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 8;
-					break;
-				}
-				}
-			}
-			if (!IBA.isAirBlock(x, y, z + 1)) {
-				Connected = 15;
-				Corner = 15;
-			}
+			cCY[0] = -1;
+			cCY[1] = 1;
+			cCX[2] = 1;
+			cCX[3] = -1;
+			AZ = +1;
 			break;
 		}
-
 		/** west **/
 		case 4: {
-			if (canConnect(IBA.getBlockId(x, y - 1, z), blockList)) {
-				Connected |= 1;
-			}
-			if (canConnect(IBA.getBlockId(x, y + 1, z), blockList)) {
-				Connected |= 2;
-			}
-			if (canConnect(IBA.getBlockId(x, y, z + 1), blockList)) {
-				Connected |= 4;
-			}
-			if (canConnect(IBA.getBlockId(x, y, z - 1), blockList)) {
-				Connected |= 8;
-			}
-			// --------------------------------------------------------
-			/** Rechts Unten **/
-			if (canConnect(IBA.getBlockId(x, y - 1, z + 1), blockList)) {
-				switch (Connected) {
-				case 15: {
-				}
-				case 13: {
-				}
-				case 7: {
-				}
-				case 5: {
-					Corner |= 1;
-					break;
-				}
-				}
-
-			}
-			/** Rechts Oben **/
-			if (canConnect(IBA.getBlockId(x, y + 1, z + 1), blockList)) {
-
-				switch (Connected) {
-				case 14: {
-				}
-				case 6: {
-					Corner |= 1;
-					break;
-				}
-				case 15: {
-				}
-				case 7: {
-					Corner |= 2;
-					break;
-				}
-				}
-
-			}
-			/** Links Unten **/
-			if (canConnect(IBA.getBlockId(x, y - 1, z - 1), blockList)) {
-				switch (Connected) {
-				case 11: {
-				}
-				case 9: {
-					Corner |= 1;
-					break;
-				}
-				case 13: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 4;
-					break;
-				}
-				}
-			}
-			/** Links Oben **/
-			if (canConnect(IBA.getBlockId(x, y + 1, z - 1), blockList)) {
-
-				switch (Connected) {
-				case 10: {
-					Corner |= 1;
-					break;
-				}
-				case 14: {
-				}
-				case 11: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 8;
-					break;
-				}
-				}
-			}
-			if (!IBA.isAirBlock(x - 1, y, z)) {
-				Connected = 15;
-				Corner = 15;
-			}
+			cCY[0] = -1;
+			cCY[1] = 1;
+			cCZ[2] = 1;
+			cCZ[3] = -1;
+			AX = -1;
 			break;
 		}
-
 		/** east **/
 		case 5: {
-			if (canConnect(IBA.getBlockId(x, y - 1, z), blockList)) {
-				Connected |= 1;
-			}
-			if (canConnect(IBA.getBlockId(x, y + 1, z), blockList)) {
-				Connected |= 2;
-			}
-			if (canConnect(IBA.getBlockId(x, y, z - 1), blockList)) {
-				Connected |= 4;
-			}
-			if (canConnect(IBA.getBlockId(x, y, z + 1), blockList)) {
-				Connected |= 8;
-			}
-			// --------------------------------------------------------
-			/** Rechts Unten **/
-			if (canConnect(IBA.getBlockId(x, y - 1, z - 1), blockList)) {
-				switch (Connected) {
-				case 15: {
-				}
-				case 13: {
-				}
-				case 7: {
-				}
-				case 5: {
-					Corner |= 1;
-					break;
-				}
-				}
-
-			}
-			/** Rechts Oben **/
-			if (canConnect(IBA.getBlockId(x, y+1, z - 1), blockList)) {
-
-				switch (Connected) {
-				case 14: {
-				}
-				case 6: {
-					Corner |= 1;
-					break;
-				}
-				case 15: {
-				}
-				case 7: {
-					Corner |= 2;
-					break;
-				}
-				}
-
-			}
-			/** Links Unten **/
-			if (canConnect(IBA.getBlockId(x , y-1, z+ 1), blockList)) {
-				switch (Connected) {
-				case 11: {
-				}
-				case 9: {
-					Corner |= 1;
-					break;
-				}
-				case 13: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 4;
-					break;
-				}
-				}
-			}
-			/** Links Oben **/
-			if (canConnect(IBA.getBlockId(x, y+1, z + 1), blockList)) {
-
-				switch (Connected) {
-				case 10: {
-					Corner |= 1;
-					break;
-				}
-				case 14: {
-				}
-				case 11: {
-					Corner |= 2;
-					break;
-				}
-				case 15: {
-					Corner |= 8;
-					break;
-				}
-				}
-			}
-			if (!IBA.isAirBlock(x + 1, y, z)) {
-				Connected = 15;
-				Corner = 15;
-			}
+			cCY[0] = -1;
+			cCY[1] = 1;
+			cCZ[2] = -1;
+			cCZ[3] = 1;
+			AX = 1;
 			break;
 		}
+		}
+
+		if (canConnect(IBA.getBlockId(x + cCX[0], y + cCY[0], z + cCZ[0]),
+				blockList)) {
+			Connected |= 1;
+		}
+		if (canConnect(IBA.getBlockId(x + cCX[1], y + cCY[1], z + cCZ[1]),
+				blockList)) {
+			Connected |= 2;
+		}
+		if (canConnect(IBA.getBlockId(x + cCX[2], y + cCY[2], z + cCZ[2]),
+				blockList)) {
+			Connected |= 4;
+		}
+		if (canConnect(IBA.getBlockId(x + cCX[3], y + cCY[3], z + cCZ[3]),
+				blockList)) {
+			Connected |= 8;
+		}
+		// --------------------------------------------------------
+		/** Rechts Unten **/
+		if (canConnect(
+				IBA.getBlockId(x + cCX[2] + cCX[0], y + cCY[2] + cCY[0], z
+						+ cCZ[2] + cCZ[0]), blockList)) {
+			switch (Connected) {
+			case 15: {
+			}
+			case 13: {
+			}
+			case 7: {
+			}
+			case 5: {
+				Corner |= 1;
+				break;
+			}
+			}
+
+		}
+		/** Rechts Oben **/
+		if (canConnect(
+				IBA.getBlockId(x + cCX[2] + cCX[1], y + cCY[2] + cCY[1], z
+						+ cCZ[2] + cCZ[1]), blockList)) {
+
+			switch (Connected) {
+			case 14: {
+			}
+			case 6: {
+				Corner |= 1;
+				break;
+			}
+			case 15: {
+			}
+			case 7: {
+				Corner |= 2;
+				break;
+			}
+			}
+
+		}
+		/** Links Unten **/
+		if (canConnect(
+				IBA.getBlockId(x + cCX[3] + cCX[0], y + cCY[3] + cCY[0], z
+						+ cCZ[3] + cCZ[0]), blockList)) {
+			switch (Connected) {
+			case 11: {
+			}
+			case 9: {
+				Corner |= 1;
+				break;
+			}
+			case 13: {
+				Corner |= 2;
+				break;
+			}
+			case 15: {
+				Corner |= 4;
+				break;
+			}
+			}
+		}
+		/** Links Oben **/
+		if (canConnect(
+				IBA.getBlockId(x + cCX[1] + cCX[3], y + cCY[1] + cCY[3], z
+						+ cCZ[1] + cCZ[3]), blockList)) {
+
+			switch (Connected) {
+			case 10: {
+				Corner |= 1;
+				break;
+			}
+			case 14: {
+			}
+			case 11: {
+				Corner |= 2;
+				break;
+			}
+			case 15: {
+				Corner |= 8;
+				break;
+			}
+
+			}
+
+		}
+		if (canConnect(IBA.getBlockId(x + AX, y + AY, z + AZ), blockList)) {
+			Connected = 15;
+			Corner = 15;
 		}
 		System.out.println("[BBBlockCraft:]Connected at the end:" + Connected);
 		return new int[] { Connected, Corner };
