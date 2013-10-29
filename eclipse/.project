@@ -3,6 +3,7 @@
 	<name>BBBlockCraft</name>
 	<comment></comment>
 	<projects>
+		<project>Minecraft</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -14,4 +15,16 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>common</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/BBBlockCraft/common</locationURI>
+		</link>
+		<link>
+			<name>recources</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/BBBlockCraft/recources</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
