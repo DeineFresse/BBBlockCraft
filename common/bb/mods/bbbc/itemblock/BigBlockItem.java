@@ -16,7 +16,7 @@ public class BigBlockItem extends ItemBlock {
 	public BigBlockItem(int par1) {
 
 		super(par1);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.BIGBLOCK));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.BIGBLOCK));
 
 
 	}

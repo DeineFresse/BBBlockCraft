@@ -28,7 +28,7 @@ public class Faceblock extends BlockContainer {
 
 		super(id, Material.wood);
 
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.FACEBLOCK));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.FACEBLOCK));
 
 
 	}

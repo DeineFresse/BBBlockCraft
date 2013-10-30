@@ -11,7 +11,7 @@ public class Bookwallitem extends Item {
 		super(par1);
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("item",Item_Names.BOOKWALLITEM));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Item_Names.BOOKWALLITEM));
 
 
 	}

@@ -44,11 +44,9 @@ public class BBBlockCraft {
 
 		block.signBlockID();
 		block.Blockreg();
-		block.Blockname();
 
 		item.signItemID();
-		item.Itemname();
-
+		
 		TileEntity.regTileEntity();
 
 	}

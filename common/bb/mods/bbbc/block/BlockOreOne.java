@@ -22,7 +22,7 @@ public class BlockOreOne extends Block {
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setLightValue(1.5F);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.BLOCKOREONE));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.BLOCKOREONE));
 
 	}
 

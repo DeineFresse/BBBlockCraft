@@ -14,7 +14,7 @@ public class SwordUp extends Item {
 		super(ID);
 		maxStackSize = 8;
 		setCreativeTab(CreativeTabs.tabMisc);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("item",Item_Names.SWORDUP));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Item_Names.SWORDUP));
 
 	}
 

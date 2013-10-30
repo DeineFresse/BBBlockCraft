@@ -53,7 +53,8 @@ public class crafting {
 	public static void Recipe() {
 
 		// Add Recipes
-
+		GameRegistry.addRecipe(new ItemStack(block.ConnectedGlass,16),
+				new Object[] { "XYX", "XZX", "XYX", 'X',Block.glass,'Y',Item.ingotIron,'Z',Block.glowStone});
 		GameRegistry.addRecipe(new ItemStack(Item.ingotIron, 2), new Object[] {
 				"   ", "XXX", "   ", 'X', item.MyFirstItem });
 

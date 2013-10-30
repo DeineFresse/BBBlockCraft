@@ -29,7 +29,7 @@ public class BigBlock extends Block {
 		setResistance(5.0f);
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.BIGBLOCK));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.BIGBLOCK));
 
 	}
 

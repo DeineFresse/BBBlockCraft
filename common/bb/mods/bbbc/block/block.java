@@ -1,10 +1,8 @@
 package bb.mods.bbbc.block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import bb.mods.bbbc.itemblock.BigBlockItem;
 import bb.mods.bbbc.itemblock.CloudWhiteItem;
-import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.LoadedIDs;
 import net.minecraft.block.Block;
 
@@ -45,20 +43,4 @@ public class block {
 		GameRegistry.registerBlock(ConnectedGlass, "ConnectedGlass");
 
 	}
-
-	public static void Blockname() {
-		LanguageRegistry.instance().addNameForObject(BlockOreOne, "en_US",
-				Block_Names.BLOCKOREONE);
-		LanguageRegistry.instance().addNameForObject(TestBlock, "en_US",
-				Block_Names.TESTBLOCK);
-		LanguageRegistry.instance().addNameForObject(cloudore, "en_US",
-				Block_Names.CLOUDORE);
-		LanguageRegistry.instance().addNameForObject(CloudWhite, "en_US",
-				Block_Names.CLOUDWHITE);
-		LanguageRegistry.instance().addNameForObject(Dark_Stone, "en_US",
-				Block_Names.DARKSTONE);
-		LanguageRegistry.instance().addNameForObject(ConnectedGlass, "en_US",
-				Block_Names.CONNECTEDGLASS);
-	}
-
 }

@@ -29,7 +29,7 @@ public class TestBlock extends Block {
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
 		ID = blockID;
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.TESTBLOCK));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.TESTBLOCK));
 
 
 	}

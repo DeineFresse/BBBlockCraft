@@ -26,7 +26,7 @@ public class ConnectedGlass extends Block {
 		setStepSound(soundGlassFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setLightValue(1.5F);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.CONNECTEDGLASS));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.CONNECTEDGLASS));
 
 	}
 

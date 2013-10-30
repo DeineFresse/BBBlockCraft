@@ -20,7 +20,7 @@ public class cloudore extends Block {
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setLightValue(1.0F);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.CLOUDORE));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.CLOUDORE));
 
 
 	}

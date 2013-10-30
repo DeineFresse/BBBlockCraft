@@ -1,7 +1,5 @@
 package bb.mods.bbbc.item;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import bb.mods.bbbc.lib.Item_Names;
 import bb.mods.bbbc.lib.LoadedIDs;
 import net.minecraft.item.Item;
 
@@ -22,14 +20,4 @@ public class item {
 		SwordUp = new SwordUp(LoadedIDs.Item_SwordUp);
 
 	}
-
-	public static void Itemname() {
-		LanguageRegistry.instance().addNameForObject(MyFirstItem, "en_US",
-				Item_Names.MYFIRSTITEM);
-		LanguageRegistry.instance().addNameForObject(NineBrickStairsItem,
-				"en_US", Item_Names.NBSI);
-		LanguageRegistry.instance().addNameForObject(Bookwallitem, "en_US",
-				Item_Names.BOOKWALLITEM);
-	}
-
 }

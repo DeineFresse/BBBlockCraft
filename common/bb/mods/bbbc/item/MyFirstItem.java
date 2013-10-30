@@ -12,7 +12,7 @@ public class MyFirstItem extends Item {
 		super(itemID);
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("item",Item_Names.MYFIRSTITEM));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Item_Names.MYFIRSTITEM));
 
 	}
 

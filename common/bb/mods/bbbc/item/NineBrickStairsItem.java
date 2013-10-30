@@ -18,7 +18,7 @@ public class NineBrickStairsItem extends Item {
 		canRepair = false;
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("item",Item_Names.NBSI));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Item_Names.NBSI));
 
 
 	}

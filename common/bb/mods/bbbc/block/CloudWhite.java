@@ -28,7 +28,7 @@ public class CloudWhite extends Block {
 		setResistance(100.0f);
 		setStepSound(soundClothFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.CLOUDWHITE));
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.CLOUDWHITE));
 		setTextureName("wool_colored");
 
 	}
