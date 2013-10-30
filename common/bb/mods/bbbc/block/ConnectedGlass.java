@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.LoadedIDs;
 import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.lib.UnlocalizedNames;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -25,7 +26,8 @@ public class ConnectedGlass extends Block {
 		setStepSound(soundGlassFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setLightValue(1.5F);
-		setUnlocalizedName(Block_Names.CONNECTEDGLASS);
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.CONNECTEDGLASS));
+
 	}
 
 	@SideOnly(Side.CLIENT)

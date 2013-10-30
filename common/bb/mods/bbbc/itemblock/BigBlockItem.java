@@ -1,7 +1,9 @@
 package bb.mods.bbbc.itemblock;
 
+import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.LoadedIDs;
 import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.lib.UnlocalizedNames;
 import bb.mods.bbbc.tileentity.TileEntityFace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
@@ -14,6 +16,8 @@ public class BigBlockItem extends ItemBlock {
 	public BigBlockItem(int par1) {
 
 		super(par1);
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.BIGBLOCK));
+
 
 	}
 

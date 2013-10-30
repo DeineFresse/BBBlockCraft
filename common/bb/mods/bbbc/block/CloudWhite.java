@@ -12,6 +12,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.lib.UnlocalizedNames;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -27,7 +28,7 @@ public class CloudWhite extends Block {
 		setResistance(100.0f);
 		setStepSound(soundClothFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setUnlocalizedName(Block_Names.CLOUDWHITE);
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.CLOUDWHITE));
 		setTextureName("wool_colored");
 
 	}

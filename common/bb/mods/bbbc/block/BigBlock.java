@@ -3,6 +3,7 @@ package bb.mods.bbbc.block;
 import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.LoadedIDs;
 import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.lib.UnlocalizedNames;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -28,7 +29,8 @@ public class BigBlock extends Block {
 		setResistance(5.0f);
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setUnlocalizedName(Block_Names.BIGBLOCK);
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.BIGBLOCK));
+
 	}
 
 	@SideOnly(Side.CLIENT)

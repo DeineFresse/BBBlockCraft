@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.lib.UnlocalizedNames;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -19,7 +20,8 @@ public class cloudore extends Block {
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setLightValue(1.0F);
-		setUnlocalizedName(Block_Names.CLOUDORE);
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.CLOUDORE));
+
 
 	}
 

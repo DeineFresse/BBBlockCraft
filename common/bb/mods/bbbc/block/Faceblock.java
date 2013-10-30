@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.LoadedIDs;
 import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.lib.UnlocalizedNames;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -27,7 +28,8 @@ public class Faceblock extends BlockContainer {
 
 		super(id, Material.wood);
 
-		setUnlocalizedName(Block_Names.FACEBLOCK);
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.FACEBLOCK));
+
 
 	}
 

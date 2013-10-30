@@ -1,6 +1,7 @@
 package bb.mods.bbbc.item;
 
 import bb.mods.bbbc.lib.Item_Names;
+import bb.mods.bbbc.lib.UnlocalizedNames;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,7 +14,7 @@ public class SwordUp extends Item {
 		super(ID);
 		maxStackSize = 8;
 		setCreativeTab(CreativeTabs.tabMisc);
-		setUnlocalizedName(Item_Names.SWORDUP);
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("item",Item_Names.SWORDUP));
 
 	}
 

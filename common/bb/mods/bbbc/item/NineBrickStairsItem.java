@@ -3,7 +3,7 @@ package bb.mods.bbbc.item;
 import java.util.List;
 
 import bb.mods.bbbc.lib.Item_Names;
-
+import bb.mods.bbbc.lib.UnlocalizedNames;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,7 +18,8 @@ public class NineBrickStairsItem extends Item {
 		canRepair = false;
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
-		setUnlocalizedName(Item_Names.NBSI);
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("item",Item_Names.NBSI));
+
 
 	}
 

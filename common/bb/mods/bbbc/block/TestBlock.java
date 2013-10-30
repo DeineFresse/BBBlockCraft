@@ -12,6 +12,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.lib.UnlocalizedNames;
 import bb.mods.bbbc.world.gen.structure.BrickHouse;
 import bb.mods.bbbc.world.gen.structure.Spacetest1;
 
@@ -28,7 +29,8 @@ public class TestBlock extends Block {
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
 		ID = blockID;
-		setUnlocalizedName(Block_Names.TESTBLOCK);
+		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName("tile",Block_Names.TESTBLOCK));
+
 
 	}
 
