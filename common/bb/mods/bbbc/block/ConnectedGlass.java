@@ -17,7 +17,7 @@ public class ConnectedGlass extends Block {
 
 	Icon[][] blockIcon = new Icon[17][16];
 
-	int[] ids = new int[] { LoadedIDs.Block_ConnectedGlass, 20 };
+	int[] ids = new int[] { LoadedIDs.Block_ConnectedGlass};
 
 	public ConnectedGlass(int blockID) {
 		super(blockID, Material.glass);
@@ -104,7 +104,7 @@ public class ConnectedGlass extends Block {
 
 	
 	public int getRenderBlockPass() {
-		return 0;
+		return 1;
 	}
 
 	public static boolean isNormalCube(int par0)
