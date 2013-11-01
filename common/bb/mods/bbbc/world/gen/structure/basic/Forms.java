@@ -3,6 +3,13 @@ package bb.mods.bbbc.world.gen.structure.basic;
 import net.minecraft.world.World;
 
 public class Forms {
+	
+	
+	public static void wall(World par1,int x,int y,int z,int länge,int breite,int höhe,int Block){
+		for(int i=0;i<höhe;i++){
+			rectangle(par1,x,y+i,z,länge,breite,Block);
+		}
+	}
 
 	public static void rectangle(World par1, int x, int y, int z, int lang,
 			int breit, int Block) {
