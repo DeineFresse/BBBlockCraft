@@ -24,6 +24,7 @@ public class BrickHouse {
 
 	public static void BuildBrickHouse(World par1, int par2, int par3,
 			int par4, EntityPlayer par5, int f,int ID) {
+		
 		Material = BrickHouse;
 
 		if (!Reference.DEBUGMODE) {

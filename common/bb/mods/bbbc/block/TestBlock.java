@@ -21,7 +21,6 @@ public class TestBlock extends Block {
 	public TestBlock(int blockID) {
 
 		super(blockID, Material.rock);
-		// blockIndexInTexture =1;
 		setHardness(2.0f);
 		setResistance(5.0f);
 		setStepSound(soundStoneFootstep);

@@ -104,7 +104,7 @@ public class ConnectedGlass extends Block {
 
 	
 	public int getRenderBlockPass() {
-		return 1;
+		return 0;
 	}
 
 	public static boolean isNormalCube(int par0)
