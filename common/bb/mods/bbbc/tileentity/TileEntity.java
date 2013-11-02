@@ -7,6 +7,7 @@ public class TileEntity {
 	public static void regTileEntity() {
 
 		GameRegistry.registerTileEntity(TileEntityFace.class, "Face");
+		GameRegistry.registerTileEntity(TileEntityFirstMachine.class, "FirstMachine");
 
 	}
 }

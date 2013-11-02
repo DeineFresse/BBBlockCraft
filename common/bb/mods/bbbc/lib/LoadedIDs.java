@@ -17,5 +17,6 @@ public class LoadedIDs {
 	public static int Block_Faceblock;
 	public static int Block_BigBlock;
 	public static int Block_ConnectedGlass;
+	public static int Block_FirstMachine;
 
 }

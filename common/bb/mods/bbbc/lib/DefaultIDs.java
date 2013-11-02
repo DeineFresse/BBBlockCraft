@@ -17,5 +17,6 @@ public class DefaultIDs {
 	public static final int BLOCK_FACEBLOCK = 306;
 	public static final int BLOCK_BIGBLOCK = 307;
 	public static final int BLOCK_CONNECTEDGLASS = 308;
+	public static final int BLOCK_FIRSTMACHINE = 309;
 
 }

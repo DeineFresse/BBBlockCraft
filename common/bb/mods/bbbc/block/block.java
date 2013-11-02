@@ -17,6 +17,7 @@ public class block {
 	public static Block Faceblock;
 	public static Block BigBlock;
 	public static Block ConnectedGlass;
+	public static Block FirstMachine;
 
 	public static void signBlockID() {
 		BlockOreOne = new BlockOreOne(LoadedIDs.Block_BlockOreOne);
@@ -27,6 +28,7 @@ public class block {
 		Faceblock = new Faceblock(LoadedIDs.Block_Faceblock);
 		BigBlock = new BigBlock(LoadedIDs.Block_BigBlock);
 		ConnectedGlass = new ConnectedGlass(LoadedIDs.Block_ConnectedGlass);
+		FirstMachine = new FirstMachine(LoadedIDs.Block_FirstMachine);
 	}
 
 	public static void Blockreg() {
@@ -41,6 +43,7 @@ public class block {
 		GameRegistry.registerBlock(Faceblock, "Faceblock(Fakeblock)");
 		GameRegistry.registerBlock(BigBlock, BigBlockItem.class, "BigBlock");
 		GameRegistry.registerBlock(ConnectedGlass, "ConnectedGlass");
+		GameRegistry.registerBlock(FirstMachine, "FirstMachine");
 
 	}
 }

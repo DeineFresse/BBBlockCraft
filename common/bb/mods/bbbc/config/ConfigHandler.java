@@ -43,10 +43,12 @@ public class ConfigHandler {
 		LoadedIDs.Block_Faceblock = config.getBlock("Faceblock",
 				DefaultIDs.BLOCK_FACEBLOCK).getInt();
 		LoadedIDs.Block_BigBlock = config.getBlock("BigBlock",
-				DefaultIDs.BLOCK_BIGBLOCK).getInt();
-		
+				DefaultIDs.BLOCK_BIGBLOCK).getInt();		
 		LoadedIDs.Block_ConnectedGlass = config.getBlock("ConnectedGlass",
 				DefaultIDs.BLOCK_CONNECTEDGLASS).getInt();
+		LoadedIDs.Block_FirstMachine = config.getBlock("CFirstMachine",
+				DefaultIDs.BLOCK_FIRSTMACHINE).getInt();
+
 
 		config.save();
 
