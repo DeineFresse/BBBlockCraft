@@ -182,7 +182,6 @@ public class Connected {
 			Connected = 15;
 			Corner = 15;
 		}
-		System.out.println("[BBBlockCraft:]Connected at the end:" + Connected);
 		return new int[] { Connected, Corner };
 	}
 
@@ -190,7 +189,6 @@ public class Connected {
 
 		for (int i = 0; i < ids.length; i++) {
 			if (blockId == ids[i]) {
-				System.out.println("[BBBlockCraft:]true");
 				return true;
 			}
 		}
