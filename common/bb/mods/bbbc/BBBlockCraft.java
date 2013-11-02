@@ -1,6 +1,7 @@
 package bb.mods.bbbc;
 
 import bb.mods.bbbc.block.block;
+import bb.mods.bbbc.interfaces.GuiHandler;
 import bb.mods.bbbc.item.item;
 import bb.mods.bbbc.lib.Reference;
 import bb.mods.bbbc.reciepe.crafting;
@@ -71,6 +72,8 @@ public class BBBlockCraft {
 
 		GameRegistry.registerWorldGenerator(worldGen);
 
+		new GuiHandler();
+		
 	}
 
 	@EventHandler
