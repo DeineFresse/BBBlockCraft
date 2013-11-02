@@ -1,5 +1,8 @@
 package bb.mods.bbbc.block;
 
+import java.io.File;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.lib.Block_Names;
@@ -17,7 +20,7 @@ import bb.mods.bbbc.tileentity.TileEntityFace;
 
 public class Faceblock extends BlockContainer {
 
-	Icon[][] blockIcon = new Icon[17][16];
+	Icon[][] blockIcon = new Icon[16][16];
 
 	public static final int shiftedIndex = 165;
 
@@ -28,9 +31,14 @@ public class Faceblock extends BlockContainer {
 
 		super(id, Material.wood);
 
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.FACEBLOCK));
+		setUnlocalizedName(UnlocalizedNames
+				.getUnlocalizedName(Block_Names.FACEBLOCK));
 
+	}
 
+	@Override
+	public int idDropped(int par1, Random par2Random, int par3) {
+		return LoadedIDs.Block_BigBlock;
 	}
 
 	public TileEntity createTileEntity(World world, int metadata) {
@@ -81,8 +89,11 @@ public class Faceblock extends BlockContainer {
 							.toLowerCase()
 							+ ":"
 							+ Block_Names.BIGBLOCK
+							+ File.separator
+							+ Block_Names.BIGBLOCK
 							+ i
-							+ "_" + ii);
+							+ "_"
+							+ ii);
 				}
 			} else if (i == 5 || i == 6 || i == 9 || i == 10) {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
@@ -91,8 +102,11 @@ public class Faceblock extends BlockContainer {
 							.toLowerCase()
 							+ ":"
 							+ Block_Names.BIGBLOCK
+							+ File.separator
+							+ Block_Names.BIGBLOCK
 							+ i
-							+ "_" + x);
+							+ "_"
+							+ x);
 				}
 
 			} else if (isAdvanced(i)) {
@@ -102,8 +116,11 @@ public class Faceblock extends BlockContainer {
 							.toLowerCase()
 							+ ":"
 							+ Block_Names.BIGBLOCK
+							+ File.separator
+							+ Block_Names.BIGBLOCK
 							+ i
-							+ "_" + x);
+							+ "_"
+							+ x);
 				}
 			} else {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
@@ -111,8 +128,11 @@ public class Faceblock extends BlockContainer {
 							.toLowerCase()
 							+ ":"
 							+ Block_Names.BIGBLOCK
+							+ File.separator
+							+ Block_Names.BIGBLOCK
 							+ i
-							+ "_" + 0);
+							+ "_"
+							+ 0);
 				}
 			}
 		}

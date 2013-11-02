@@ -1,5 +1,7 @@
 package bb.mods.bbbc.block;
 
+import java.io.File;
+
 import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.LoadedIDs;
 import bb.mods.bbbc.lib.Reference;
@@ -20,7 +22,7 @@ public class BigBlock extends Block {
 	private int[] ids = new int[] { LoadedIDs.Block_BigBlock,
 			LoadedIDs.Block_Faceblock, 20 };
 
-	private Icon[][] blockIcon = new Icon[17][16];
+	private Icon[][] blockIcon = new Icon[16][16];
 
 	public BigBlock(int blockID) {
 		super(blockID, Material.rock);
@@ -29,7 +31,8 @@ public class BigBlock extends Block {
 		setResistance(5.0f);
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.BIGBLOCK));
+		setUnlocalizedName(UnlocalizedNames
+				.getUnlocalizedName(Block_Names.BIGBLOCK));
 
 	}
 
@@ -57,6 +60,8 @@ public class BigBlock extends Block {
 							.toLowerCase()
 							+ ":"
 							+ Block_Names.BIGBLOCK
+							+ File.separatorChar
+							+ Block_Names.BIGBLOCK
 							+ i
 							+ "_" + ii);
 				}
@@ -66,6 +71,8 @@ public class BigBlock extends Block {
 					this.blockIcon[i][ii] = icon.registerIcon(Reference.MOD_ID
 							.toLowerCase()
 							+ ":"
+							+ Block_Names.BIGBLOCK
+							+ File.separatorChar
 							+ Block_Names.BIGBLOCK
 							+ i
 							+ "_" + x);
@@ -78,14 +85,19 @@ public class BigBlock extends Block {
 							.toLowerCase()
 							+ ":"
 							+ Block_Names.BIGBLOCK
+							+ File.separator
+							+ Block_Names.BIGBLOCK
 							+ i
-							+ "_" + x);
+							+ "_"
+							+ x);
 				}
 			} else {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
 					this.blockIcon[i][ii] = icon.registerIcon(Reference.MOD_ID
 							.toLowerCase()
 							+ ":"
+							+ Block_Names.BIGBLOCK
+							+ File.separatorChar
 							+ Block_Names.BIGBLOCK
 							+ i
 							+ "_" + 0);
