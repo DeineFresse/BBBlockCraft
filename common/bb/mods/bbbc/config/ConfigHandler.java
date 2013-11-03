@@ -26,7 +26,9 @@ public class ConfigHandler {
 				DefaultIDs.ITEM_NINEBRICKSTAIRITEM).getInt();
 		LoadedIDs.Item_BookWallItem = config.getItem("BWI",
 				DefaultIDs.ITEM_BOOKWALLITEM).getInt();
-		LoadedIDs.Item_SwordUp = config.getItem("BWI", DefaultIDs.ITEM_SWORDUP)
+		LoadedIDs.Item_SwordUp = config.getItem("SwordUp", DefaultIDs.ITEM_SWORDUP)
+				.getInt();
+		LoadedIDs.Item_LayoutCard = config.getItem("LayoutCard", DefaultIDs.ITEM_LAYOUTCARD)
 				.getInt();
 
 		// Block ID´s

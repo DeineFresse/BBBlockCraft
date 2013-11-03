@@ -7,6 +7,7 @@ public class LoadedIDs {
 	public static int Item_NineBrickStairItem;
 	public static int Item_BookWallItem;
 	public static int Item_SwordUp;
+	public static int Item_LayoutCard;
 
 	// Block ID´s
 	public static int Block_BlockOreOne;

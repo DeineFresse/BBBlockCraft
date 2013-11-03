@@ -10,6 +10,7 @@ public class item {
 	public static Item NineBrickStairsItem;
 	public static Item Bookwallitem;
 	public static Item SwordUp;
+	public static Item LayoutCard;
 
 	public static void signItemID() {
 
@@ -18,6 +19,7 @@ public class item {
 				LoadedIDs.Item_NineBrickStairItem);
 		Bookwallitem = new Bookwallitem(LoadedIDs.Item_BookWallItem);
 		SwordUp = new SwordUp(LoadedIDs.Item_SwordUp);
+		LayoutCard = new LayoutCard(LoadedIDs.Item_LayoutCard);
 
 	}
 }

@@ -2,18 +2,22 @@ package bb.mods.bbbc.item;
 
 import java.util.List;
 
-import bb.mods.bbbc.lib.Item_Names;
-import bb.mods.bbbc.lib.UnlocalizedNames;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Icon;
+import bb.mods.bbbc.lib.Item_Names;
+import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.lib.UnlocalizedNames;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class NineBrickStairsItem extends Item {
 
 	public NineBrickStairsItem(int itemID) {
 
 		super(itemID);
-		setMaxDamage(0);
 		hasSubtypes = true;
 		canRepair = false;
 		maxStackSize = 64;
@@ -22,6 +26,8 @@ public class NineBrickStairsItem extends Item {
 
 
 	}
+	
+	
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void getSubItems(int par1, CreativeTabs par2CreativeTabs,
@@ -31,33 +37,28 @@ public class NineBrickStairsItem extends Item {
 		}
 
 	}
-
-	public int getIconfromDamage(int par1) {
-
-		int i = par1 + 1;
-
-		return i;
-
+	
+	 public String getUnlocalizedName(ItemStack par1ItemStack)
+	    {
+	        return "item." + UnlocalizedNames.getUnlocalizedName(Item_Names.NBSI)+par1ItemStack.getItemDamage();
+	    }
+	
+	@SideOnly(Side.CLIENT)
+	private Icon[] brick = new Icon[4];	
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister par1IconRegister) {
+		brick[0] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_9");
+		brick[1] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_81");
+		brick[2] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_?");
+		brick[3] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_??");
 	}
 
-	public String getItemNameIS(ItemStack par1) {
-		String[] StairName;
-		StairName = new String[4];
-		StairName[0] = "x9  Stairs";
-		StairName[1] = "x81 Stairs";
-		StairName[2] = "NYI";
-		StairName[3] = "NYI";
-		return StairName[par1.getItemDamage()];
-
-		// return null;
-
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Icon getIconFromDamage(int par1) {
+		return brick[par1];
 	}
-
-	/*
-	 * @Override public String getTextureFile() { return
-	 * "/bb/Pic/BBBlockCraftItems.png";
-	 * 
-	 * }
-	 */
-
+	
 }
