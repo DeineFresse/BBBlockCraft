@@ -10,4 +10,5 @@ public class TileEntity {
 		GameRegistry.registerTileEntity(TileEntityFirstMachine.class, "FirstMachine");
 
 	}
+
 }

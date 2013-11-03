@@ -3,6 +3,7 @@ package bb.mods.bbbc.block;
 import cpw.mods.fml.common.registry.GameRegistry;
 import bb.mods.bbbc.itemblock.BigBlockItem;
 import bb.mods.bbbc.itemblock.CloudWhiteItem;
+import bb.mods.bbbc.itemblock.FirstMachineItem;
 import bb.mods.bbbc.lib.LoadedIDs;
 import net.minecraft.block.Block;
 
@@ -43,7 +44,7 @@ public class block {
 		GameRegistry.registerBlock(Faceblock, "Faceblock(Fakeblock)");
 		GameRegistry.registerBlock(BigBlock, BigBlockItem.class, "BigBlock");
 		GameRegistry.registerBlock(ConnectedGlass, "ConnectedGlass");
-		GameRegistry.registerBlock(FirstMachine, "FirstMachine");
+		GameRegistry.registerBlock(FirstMachine,FirstMachineItem.class, "FirstMachine");
 
 	}
 }

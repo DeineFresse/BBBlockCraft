@@ -75,7 +75,7 @@ public class LayoutCard extends Item {
 	public void registerIcons(IconRegister par1IconRegister) {
 		for (int i = 0; i < brick.length; i++) {
 			brick[i] = par1IconRegister.registerIcon(Reference.MOD_ID
-					.toLowerCase());
+					.toLowerCase()+"_"+i);
 		}
 	}
 

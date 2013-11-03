@@ -30,6 +30,10 @@ public class ContainerFirstMachine extends Container{
 		
 	}
 	
+	public TileEntityFirstMachine getMachine(){
+		return machine;
+	}
+	
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
 		return machine.isUseableByPlayer(entityplayer);

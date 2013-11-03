@@ -1,5 +1,7 @@
 package bb.mods.bbbc.block;
 
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -13,10 +15,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import bb.mods.bbbc.BBBlockCraft;
 import bb.mods.bbbc.lib.Block_Names;
 import bb.mods.bbbc.lib.Reference;
 import bb.mods.bbbc.lib.UnlocalizedNames;
 import bb.mods.bbbc.tileentity.TileEntityFirstMachine;
+import cpw.mods.fml.common.network.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -36,19 +40,12 @@ public class FirstMachine extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z,
 			EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
+	if (!world.isRemote) {
+			FMLNetworkHandler.openGui(player, BBBlockCraft.instance, 0, world,
+					x, y, z);
 
-		if (!world.isRemote) {
-			int newMeta = world.getBlockMetadata(x, y, z) ^ 1;
-
-			world.setBlockMetadataWithNotify(x, y, z, newMeta, 3);
 		}
 
-		/*
-		 * if (!world.isRemote) { FMLNetworkHandler.openGui(player,
-		 * BBBlockCraft.instance, 0, world, x, y, z);
-		 * 
-		 * }
-		 */
 		return true;
 	}
 
@@ -88,10 +85,23 @@ public class FirstMachine extends BlockContainer {
 	}
 
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
-		if (!world.isRemote && !isDisabled(world.getBlockMetadata(x, y, z))) {
-			spawnAnvil(world, x, y + 20, z);
+		TileEntity te = world.getBlockTileEntity(x, y, z);
+		if (te != null && te instanceof TileEntityFirstMachine) {
+			TileEntityFirstMachine machine = (TileEntityFirstMachine) te;
+			if (!world.isRemote && !isDisabled(world.getBlockMetadata(x, y, z))) {
+				spawnAnvil(world, machine, x, y + 20, z);
+			}
 		}
+	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs,
+			List par3List) {
+		for (int var4 = 0; var4 < 4; ++var4) {
+			par3List.add(new ItemStack(par1, 1, var4 * 2));
+		}
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -117,12 +127,16 @@ public class FirstMachine extends BlockContainer {
 		disableIcon = par1IconRegister.registerIcon(Reference.MOD_ID
 				.toLowerCase() + ":" + Block_Names.FIRSTMACHINE + "_disabled");
 		sideIcons[0] = sideIcon;
-		sideIcons[1] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()
-				+ ":" + Block_Names.FIRSTMACHINE + "_side_border");
-		sideIcons[2] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()
-				+ ":" + Block_Names.FIRSTMACHINE + "_side_x");
-		sideIcons[3] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()
-				+ ":" + Block_Names.FIRSTMACHINE + "_side_arrow");	
+		sideIcons[1] = par1IconRegister.registerIcon(Reference.MOD_ID
+				.toLowerCase()
+				+ ":"
+				+ Block_Names.FIRSTMACHINE
+				+ "_side_border");
+		sideIcons[2] = par1IconRegister.registerIcon(Reference.MOD_ID
+				.toLowerCase() + ":" + Block_Names.FIRSTMACHINE + "_side_x");
+		sideIcons[3] = par1IconRegister
+				.registerIcon(Reference.MOD_ID.toLowerCase() + ":"
+						+ Block_Names.FIRSTMACHINE + "_side_arrow");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -135,12 +149,17 @@ public class FirstMachine extends BlockContainer {
 			return isDisabled(par2) ? disableIcon : topIcon;
 		}
 		default: {
-			
-			int texture = (par2&14)/2;
-			
+
+			int texture = (par2 & 14) / 2;
+
 			return sideIcons[texture];
 		}
 		}
+	}
+
+	@Override
+	public int damageDropped(int meta) {
+		return meta & 14;
 	}
 
 	private boolean isDisabled(int meta) {
@@ -152,23 +171,56 @@ public class FirstMachine extends BlockContainer {
 		int meta = world.getBlockMetadata(x, y, z);
 		if (!world.isRemote && world.isBlockIndirectlyGettingPowered(x, y, z)
 				&& !isDisabled(meta)) {
-			switch(meta/2){
-			case 0:{
-				spawnAnvil(world, x, y + 20, z);
-				break;
+
+			TileEntity te = world.getBlockTileEntity(x, y, z);
+			if (te != null && te instanceof TileEntityFirstMachine) {
+
+				TileEntityFirstMachine machine = (TileEntityFirstMachine) te;
+
+				switch (meta / 2) {
+				case 0: {
+					spawnAnvil(world, machine, x, y + 20, z);
+					break;
+				}
+				case 3: {
+					for (int i = 0; i < 5; i++) {
+						spawnAnvil(world, machine, x, y + 20 + i, z);
+					}
+					break;
+				}
+				case 1: {
+					for (int i = -1; i <= 1; i++) {
+						spawnAnvil(world, machine, x + i, y + 20, z - 2);
+						spawnAnvil(world, machine, x + i, y + 20, z + 2);
+						spawnAnvil(world, machine, x - 2, y + 20, z + i);
+						spawnAnvil(world, machine, x + 2, y + 20, z + i);
+					}
+					break;
+				}
+				case 2: {
+					for (int i = -2; i <= 2; i++) {
+						spawnAnvil(world, machine, x + i, y + 20, z + i);
+						spawnAnvil(world, machine, x - i, y + 20, z + i);
+						spawnAnvil(world, machine, x + i, y + 20, z - i);
+						spawnAnvil(world, machine, x - i, y + 20, z - i);
+					}
+				}
+				}
+
 			}
-			case 1:
-				
-			case 2:
-				
-			case 3:
-			}
-			}
+		}
 	}
 
-	private void spawnAnvil(World world, int x, int y, int z) {
+	private void spawnAnvil(World world, IInventory inv, int x, int y, int z) {
 		if (world.isAirBlock(x, y, z)) {
-			world.setBlock(x, y, z, Block.anvil.blockID);
+			for (int i = 0; i < inv.getSizeInventory(); i++) {
+				ItemStack stack = inv.getStackInSlot(i);
+				if (stack != null && stack.itemID == Block.anvil.blockID) {
+					inv.decrStackSize(i, 1);
+					world.setBlock(x, y, z, Block.anvil.blockID);
+					return;
+				}
+			}
 		}
 	}
 

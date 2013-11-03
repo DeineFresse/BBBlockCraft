@@ -130,5 +130,18 @@ public class TileEntityFirstMachine extends TileEntity implements IInventory{
 			}
 		}
 	}
+
+	public void receiveButtonEvent(byte buttonId) {
+		switch(buttonId){
+		 case 0:{
+				
+				 if (!worldObj.isRemote) { 
+					 int newMeta = worldObj.getBlockMetadata(xCoord, yCoord, zCoord)^ 1;
+				 
+				 worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, newMeta, 3); }
+				
+		 }
+		}		
+	}
 	
 }
