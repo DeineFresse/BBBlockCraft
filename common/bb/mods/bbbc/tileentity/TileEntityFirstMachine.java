@@ -78,6 +78,9 @@ public class TileEntityFirstMachine extends TileEntity implements IInventory{
 
 	@Override
 	public void onInventoryChanged() {
+		super.onInventoryChanged();
+		
+		anvils = -1;
 	}
 
 	@Override
@@ -139,9 +142,37 @@ public class TileEntityFirstMachine extends TileEntity implements IInventory{
 					 int newMeta = worldObj.getBlockMetadata(xCoord, yCoord, zCoord)^ 1;
 				 
 				 worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, newMeta, 3); }
-				
+				 
+				 break;
+		 }
+		 case 1:{
+			 int meta2 = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+			 
+			 worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, meta2 % 2, 3);
+			 
+			 break;
 		 }
 		}		
+	}
+
+	private int anvils = -1;
+	
+	public int getAnvils() {
+		if(anvils == -1){
+			calculateAnvilCount();
+		}
+		
+		return anvils;
+	}
+	
+	private void calculateAnvilCount() {
+		anvils = 0;
+		for(int i = 0;i<getSizeInventory();i++){
+			ItemStack stack = getStackInSlot(i);
+			if (stack != null && isItemValidForSlot(i,stack)){
+				anvils += stack.stackSize;
+			}
+		}
 	}
 	
 }
