@@ -6,7 +6,6 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import bb.mods.bbbc.tileentity.TileEntityFirstMachine;
 import bb.mods.bbbc.tileentity.TileEntityHouseMachine;
 
 public class ContainerHouseMachine extends Container{

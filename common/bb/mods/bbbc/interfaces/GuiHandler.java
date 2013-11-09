@@ -50,7 +50,7 @@ public class GuiHandler implements IGuiHandler {
 		}
 		case 1:{
 			TileEntity te = world.getBlockTileEntity(x, y, z);
-			if(te != null && te instanceof TileEntityHousetMachine){
+			if(te != null && te instanceof TileEntityHouseMachine){
 				return new GuiHousemachine(player.inventory,(TileEntityHouseMachine)te);
 			}
 			break;
