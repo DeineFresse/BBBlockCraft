@@ -19,5 +19,5 @@ public class DefaultIDs {
 	public static final int BLOCK_BIGBLOCK = 307;
 	public static final int BLOCK_CONNECTEDGLASS = 308;
 	public static final int BLOCK_FIRSTMACHINE = 309;
-
+	public static final int BLOCK_HOUSEMACHINE = 310;
 }

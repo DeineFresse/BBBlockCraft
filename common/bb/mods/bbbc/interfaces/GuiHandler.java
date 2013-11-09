@@ -5,6 +5,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import bb.mods.bbbc.BBBlockCraft;
 import bb.mods.bbbc.tileentity.TileEntityFirstMachine;
+import bb.mods.bbbc.tileentity.TileEntityHouseMachine;
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 
@@ -25,6 +26,13 @@ public class GuiHandler implements IGuiHandler {
 				}
 				break;
 			}
+			case 1:{
+				TileEntity te = world.getBlockTileEntity(x, y, z);
+				if(te != null && te instanceof TileEntityHouseMachine){
+					return new ContainerHouseMachine(player.inventory,(TileEntityHouseMachine)te);
+				}
+				break;
+			}
 		}
 		return null;
 	}
@@ -37,6 +45,13 @@ public class GuiHandler implements IGuiHandler {
 			TileEntity te = world.getBlockTileEntity(x, y, z);
 			if(te != null && te instanceof TileEntityFirstMachine){
 				return new GuiFirstMachine(player.inventory,(TileEntityFirstMachine)te);
+			}
+			break;
+		}
+		case 1:{
+			TileEntity te = world.getBlockTileEntity(x, y, z);
+			if(te != null && te instanceof TileEntityHousetMachine){
+				return new GuiHousemachine(player.inventory,(TileEntityHouseMachine)te);
 			}
 			break;
 		}
