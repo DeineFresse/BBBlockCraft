@@ -20,15 +20,15 @@ public class ConnectedGlass extends Block {
 
 	Icon[][] blockIcon = new Icon[16][16];
 	
-	int[] ids = new int[] { LoadedIDs.Block_ConnectedGlass};
+	int[] ids = new int[] {LoadedIDs.Block_ConnectedGlass};
 
 	public ConnectedGlass(int blockID) {
 		super(blockID, Material.glass);
-		setHardness(2.0f);
-		setResistance(5.0f);
+		setHardness(1.0f);
+		setResistance(200000.0f);
 		setStepSound(soundGlassFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setLightValue(1.5F);
+		setLightValue(1.0F);
 		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.CONNECTEDGLASS));
 
 	}
@@ -119,13 +119,8 @@ public class ConnectedGlass extends Block {
 
 	
 	public int getRenderBlockPass() {
-		return 0;
+		return 1;
 	}
-
-	public static boolean isNormalCube(int par0)
-    {
-        return true;
-    }
 	
 	public boolean isOpaqueCube() {
 		return false;

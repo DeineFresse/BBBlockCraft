@@ -178,7 +178,7 @@ public class Connected {
 			}
 
 		}
-		if (canConnect(IBA.getBlockId(x + AX, y + AY, z + AZ), blockList)) {
+		if (canConnect(IBA.getBlockId(x + AX, y + AY, z + AZ), blockList)&&IBA.getBlockId(x+AX, y+AY, z+AZ)!=0) {
 			Connected = 15;
 			Corner = 15;
 		}

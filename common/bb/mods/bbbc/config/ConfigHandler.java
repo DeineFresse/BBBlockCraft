@@ -48,8 +48,10 @@ public class ConfigHandler {
 				DefaultIDs.BLOCK_BIGBLOCK).getInt();		
 		LoadedIDs.Block_ConnectedGlass = config.getBlock("ConnectedGlass",
 				DefaultIDs.BLOCK_CONNECTEDGLASS).getInt();
-		LoadedIDs.Block_FirstMachine = config.getBlock("CFirstMachine",
+		LoadedIDs.Block_FirstMachine = config.getBlock("FirstMachine",
 				DefaultIDs.BLOCK_FIRSTMACHINE).getInt();
+		LoadedIDs.Block_Housemachine = config.getBlock("HouseMachine",
+				DefaultIDs.BLOCK_HOUSEMACHINE).getInt();
 
 
 		config.save();

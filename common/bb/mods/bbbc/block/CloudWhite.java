@@ -27,7 +27,7 @@ public class CloudWhite extends Block {
 		setHardness(0.0f);
 		setResistance(100.0f);
 		setStepSound(soundClothFootstep);
-		setCreativeTab(CreativeTabs.tabBlock);
+		setCreativeTab(CreativeTabs.tabDecorations);
 		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.CLOUDWHITE));
 		setTextureName("wool_colored");
 
@@ -76,17 +76,12 @@ public class CloudWhite extends Block {
 
 	public Icon getIcon(int par1, int par2) {
 
-		return iconArray[0];
-
-	}
-
-	public boolean renderAsNormalBlock() {
-		return false;
+		return iconArray[par2];
 
 	}
 
 	public int getRenderBlockPass() {
-		return 0;
+		return 1;
 	}
 
 	public boolean isOpaqueCube() {

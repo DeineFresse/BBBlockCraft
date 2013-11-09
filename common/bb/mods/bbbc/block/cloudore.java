@@ -19,7 +19,7 @@ public class cloudore extends Block {
 		setResistance(5.0f);
 		setStepSound(soundStoneFootstep);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setLightValue(1.0F);
+		setLightValue(0.5F);
 		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.CLOUDORE));
 
 
