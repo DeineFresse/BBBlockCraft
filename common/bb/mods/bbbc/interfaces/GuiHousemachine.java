@@ -16,6 +16,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class GuiHousemachine extends GuiContainer {
 
+	@SuppressWarnings("unused")
 	private TileEntityHouseMachine machine;
 
 	public GuiHousemachine(InventoryPlayer invPlayer,
@@ -29,7 +30,7 @@ public class GuiHousemachine extends GuiContainer {
 	}
 
 	private static final ResourceLocation texture = new ResourceLocation(
-			"bbblockcraft", "textures/gui/firstmachine.png");
+			"bbblockcraft", "textures/gui/housemaker.png");
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float f, int i, int j) {
@@ -44,36 +45,15 @@ public class GuiHousemachine extends GuiContainer {
 		fontRenderer.drawSplitString("Silly Machine", 8, 6, 100, 0x404040);
 
 	}
-
-	private static final String ENABLE_TEXT = "Enable";
-	private static final String DISABLE_TEXT = "Disable";
-
-	@SuppressWarnings("unchecked")
+	
 	@Override
 	public void initGui() {
 		super.initGui();
-		buttonList.clear();
-
-		buttonList.add(new GuiButton(0, guiLeft + 80, guiTop + 14, 48, 20,
-				((machine.getBlockMetadata() & 1) == 1 ? ENABLE_TEXT
-						: DISABLE_TEXT)));
-
-		GuiButton clearButton = new GuiButton(1, guiLeft + 130, guiTop + 14,
-				40, 20, "Clear");
-		clearButton.enabled = machine.getBlockMetadata() / 2 != 0;
-		buttonList.add(clearButton);
-
 	}
 
 	@Override
 	protected void actionPerformed(GuiButton button) {
 		PacketHandler.sendButtonPacket((byte) button.id);
-		if (button.id == 0) {
-			button.displayString = button.displayString.equals(DISABLE_TEXT) ? ENABLE_TEXT
-					: DISABLE_TEXT;
-		} else if (button.id == 1) {
-			button.enabled = false;
-		}
 	}
 
 }

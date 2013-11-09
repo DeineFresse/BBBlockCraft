@@ -13,12 +13,23 @@ public class TileEntityHouseMachine extends TileEntity implements IInventory{
 	private ItemStack[] items;
 	private int proccesTimer;
 	private final int MAXTIMER = 200;
-
+	
+	private int[][] valid;
+	
 	private boolean inventoryChange = true;
 	
 	public TileEntityHouseMachine(){
 		items = new ItemStack[4];
+		valid = new int[4][];
+		valid[0] = new int[]{159};
+		valid[1] = new int[]{159};
+		valid[2] = new int[]{};
+		valid[3] = new int[]{159};
 		
+	}
+	
+	public int[] getValidItems(int slot){
+		return valid[slot];
 	}
 	
 	public boolean hasInventoryChanged(){
