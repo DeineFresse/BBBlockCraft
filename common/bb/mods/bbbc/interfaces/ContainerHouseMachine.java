@@ -5,6 +5,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import bb.mods.bbbc.interfaces.slots.InputSlot;
 import bb.mods.bbbc.tileentity.TileEntityHouseMachine;
 
 public class ContainerHouseMachine extends Container {
@@ -25,11 +26,15 @@ public class ContainerHouseMachine extends Container {
 						8 + 18 * x, 84 + y * 18));
 			}
 		}
-		
-		addSlotToContainer(new InputSlot(machine, 0, 26, 12, machine.getValidItems(0)));
-		addSlotToContainer(new InputSlot(machine, 1, 93, 12, machine.getValidItems(1)));
-		addSlotToContainer(new InputSlot(machine, 2, 26, 52, machine.getValidItems(2)));
-		addSlotToContainer(new InputSlot(machine, 3, 93, 53, machine.getValidItems(3)));
+
+		addSlotToContainer(new InputSlot(machine, 0, 26, 12,
+				machine.getValidItems(0)));
+		addSlotToContainer(new InputSlot(machine, 1, 93, 12,
+				machine.getValidItems(1)));
+		addSlotToContainer(new InputSlot(machine, 2, 26, 52,
+				machine.getValidItems(2)));
+		addSlotToContainer(new InputSlot(machine, 3, 93, 53,
+				machine.getValidItems(3)));
 	}
 
 	public TileEntityHouseMachine getMachine() {
@@ -43,7 +48,9 @@ public class ContainerHouseMachine extends Container {
 
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int i) {
+
 		Slot slot = getSlot(i);
+
 		if (slot != null && slot.getHasStack()) {
 			ItemStack stack = slot.getStack();
 			ItemStack result = stack.copy();
@@ -52,38 +59,47 @@ public class ContainerHouseMachine extends Container {
 				if (!mergeItemStack(stack, 0, 36, false)) {
 					return null;
 				}
-			} else {				
-				for (int ii = 36; ii < (36 + machine.getSizeInventory());ii++) {
-					
+			} else {
+
+				for (int ii = 36; ii < (36 + machine.getSizeInventory()); ii++) {
+
 					if (getSlot(ii).isItemValid(stack)) {
-						
-						if (!mergeItemStack(stack, ii, ii + 1, false)&&ii==35+machine.getSizeInventory()) {
-							
-							return null;
+
+						if (!mergeItemStack(stack, ii, ii + 1, false)) {
+							continue;
 						}
 						else {
 							if (stack.stackSize == 0) {
 								slot.putStack(null);
-							} else {
-								slot.onSlotChanged();
 							}
-
+							else{
+							slot.onSlotChanged();
+							}
 							slot.onPickupFromSlot(player, stack);
+							
 						}
+						
 					}
+					
 				}
-			}
 
+			}
 			if (stack.stackSize == 0) {
 				slot.putStack(null);
-			} else {
+			} 
+			else if (stack.stackSize == result.stackSize){
+				return null;
+			}
+			else {
 				slot.onSlotChanged();
 			}
 
 			slot.onPickupFromSlot(player, stack);
 			return result;
 		}
+
 		return null;
+
 	}
-	
+
 }

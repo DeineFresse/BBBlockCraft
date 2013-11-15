@@ -22,9 +22,9 @@ public class InputSlot extends Slot {
 				}
 			}
 		}
-		if(stack == null){
+		/*if(stack == null){
 			return true;
-		}
+		}*/
 		return false;
 	}
 
