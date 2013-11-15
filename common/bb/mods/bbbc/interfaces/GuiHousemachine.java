@@ -16,7 +16,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class GuiHousemachine extends GuiContainer {
 
-	@SuppressWarnings("unused")
 	private TileEntityHouseMachine machine;
 
 	public GuiHousemachine(InventoryPlayer invPlayer,
@@ -38,6 +37,18 @@ public class GuiHousemachine extends GuiContainer {
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		
+		float filled = machine.getTimer()/machine.getMacTimer();
+		
+		float barHeight = (int) (filled *75);
+
+		if (barHeight > 0) {
+			int srcX = 75 - (int)barHeight;
+			int srcY = ySize;
+
+			drawTexturedModalRect(guiLeft + 104 - (int)barHeight,guiTop + 30, srcX,
+					srcY, (int)barHeight,18);
+		}
 	}
 
 	@Override

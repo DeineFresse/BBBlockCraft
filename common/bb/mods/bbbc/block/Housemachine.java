@@ -28,7 +28,7 @@ public class Housemachine extends BlockContainer {
 		setResistance(0.5f);
 		setStepSound(soundAnvilFootstep);
 		setCreativeTab(CreativeTabs.tabDecorations);
-		setLightValue(15.0f);
+		setLightValue(1.0f);
 		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.HOUSEMACHINE));
 	}
 	
