@@ -55,6 +55,8 @@ public class crafting {
 		// Add Recipes
 		GameRegistry.addRecipe(new ItemStack(block.ConnectedGlass,16),
 				new Object[] { "XYX", "XZX", "XYX", 'X',Block.glass,'Y',Item.ingotIron,'Z',Block.glowStone});
+		GameRegistry.addRecipe(new ItemStack(item.SwordUp,1),
+				new Object[] { "Y", "X", "X", 'X',new ItemStack(Item.dyePowder,1,4),'Y',Item.stick});
 		GameRegistry.addRecipe(new ItemStack(Item.ingotIron, 2), new Object[] {
 				"   ", "XXX", "   ", 'X', item.MyFirstItem });
 
