@@ -1,4 +1,4 @@
-package bb.mods.bbbc.interfaces;
+package bb.mods.bbbc.interfaces.slots;
 
 import net.minecraft.block.Block;
 import net.minecraft.inventory.IInventory;

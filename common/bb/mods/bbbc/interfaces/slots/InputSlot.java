@@ -1,4 +1,4 @@
-package bb.mods.bbbc.interfaces;
+package bb.mods.bbbc.interfaces.slots;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -21,6 +21,9 @@ public class InputSlot extends Slot {
 					return true;
 				}
 			}
+		}
+		if(stack == null){
+			return true;
 		}
 		return false;
 	}
