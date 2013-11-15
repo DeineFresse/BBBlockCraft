@@ -1,5 +1,6 @@
 package bb.mods.bbbc.interfaces;
 
+import bb.mods.bbbc.interfaces.slots.SlotAnvil;
 import bb.mods.bbbc.tileentity.TileEntityFirstMachine;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
