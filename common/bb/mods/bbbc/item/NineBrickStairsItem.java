@@ -32,7 +32,7 @@ public class NineBrickStairsItem extends Item {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void getSubItems(int par1, CreativeTabs par2CreativeTabs,
 			List par3List) {
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 2; i++) {
 			par3List.add(new ItemStack(par1, 1, i));
 		}
 
@@ -44,15 +44,13 @@ public class NineBrickStairsItem extends Item {
 	    }
 	
 	@SideOnly(Side.CLIENT)
-	private Icon[] brick = new Icon[4];	
+	private Icon[] brick = new Icon[2];	
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister) {
 		brick[0] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_9");
 		brick[1] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_81");
-		brick[2] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_?");
-		brick[3] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_??");
 	}
 
 	@Override
