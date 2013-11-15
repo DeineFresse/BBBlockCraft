@@ -59,8 +59,6 @@ public class TestBlock extends Block {
 				+ Block_Names.TESTBLOCK.toLowerCase() + "_bottom");
 		sideIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":"
 				+ Block_Names.TESTBLOCK.toLowerCase() + "_side");
-		blockIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":"
-				+ Block_Names.TESTBLOCK.toLowerCase());
 	}
 
 	@SuppressWarnings("static-access")

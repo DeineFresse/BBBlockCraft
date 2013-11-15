@@ -3,4 +3,12 @@
       "pack_format":1,
       "description":"BBBlockCraft"
    }
+    "language":{
+      "Localisations":{
+         "name":"lo",
+         "region":"CA",
+         "bidirectional":false
+      }
+   }
+    
 }
