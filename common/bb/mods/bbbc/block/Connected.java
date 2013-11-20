@@ -3,9 +3,19 @@ package bb.mods.bbbc.block;
 import net.minecraft.world.IBlockAccess;
 
 public class Connected {
+	
+	/**
+	 * 
+	 * @param blockList = Blocks to connect with
+	 * @param dir = side
+	 * @param IBA = IBlockAccess
+	 * @param x = X-Coordinate
+	 * @param y = Y-Coordinate
+	 * @param z = Z-Coordinate;
+	 * @return int[],texture,sub-texture
+     */
 
-	public static int[] getConnection(int[] blockList, int dir,
-			IBlockAccess IBA, int x, int y, int z) {
+	public static int[] getConnection(int[] blockList, int dir,IBlockAccess IBA, int x, int y, int z) {
 		byte Connected = 0;
 		byte Corner = 0;
 

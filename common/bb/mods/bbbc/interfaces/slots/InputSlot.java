@@ -8,6 +8,10 @@ public class InputSlot extends Slot {
 
 	private int[] valid;
 
+	/**
+	 * @param valid
+	 * list of valid inputs 
+	 * **/
 	public InputSlot(IInventory inventory, int x, int y, int z, int[] valid) {
 		super(inventory, x, y, z);
 		this.valid = valid;

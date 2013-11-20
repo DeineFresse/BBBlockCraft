@@ -9,7 +9,10 @@ import bb.mods.bbbc.lib.Reference;
 import net.minecraftforge.common.Configuration;
 
 public class ConfigHandler {
-
+	
+	/**
+	 * @param file is the config file to use
+	 * **/
 	public static void init(File file) {
 		Configuration config = new Configuration(file);
 
