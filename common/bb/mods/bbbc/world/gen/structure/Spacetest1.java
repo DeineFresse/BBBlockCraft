@@ -8,14 +8,30 @@ public class Spacetest1 {
 
 	public static boolean isReplaceable(int ID, int ID2) {
 		boolean is = false;
-		for (int i = 0; i < Reference.REPLACEIDLIST.length; i++) {
-			if (ID == Reference.REPLACEIDLIST[i] || ID == ID2) {
+		for (int i = 0; i < Reference.getReplaceList().length; i++) {
+			if (ID == Reference.getReplaceList()[i] || ID == ID2) {
 				is = true;
 			}
 		}
 
 		return is;
 
+	}
+		
+	public static int airtest(World par1, int par2, int par3, int par4,
+			EntityPlayer par5, int ID,int whith,int lenght,int hight) {
+		for(int i = 0;i<=whith;i++){
+			for(int ii = 0;ii<=lenght;ii++){
+				for(int iii = 0;iii<=hight;iii++){
+					if(!isReplaceable(par1.getBlockId(par2+i, par3+iii, par4+ii), ID)){
+						return 0;
+					}
+				}
+			}
+		}
+		
+		
+		return 1;
 	}
 
 	@SuppressWarnings("unused")
