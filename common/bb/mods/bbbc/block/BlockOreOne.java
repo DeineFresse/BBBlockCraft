@@ -25,10 +25,7 @@ public class BlockOreOne extends Block {
 		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.BLOCKOREONE));
 
 	}
-
-	@SideOnly(Side.CLIENT)
-	public static Icon topIcon;
-
+	
 	public Icon getIcon(int par1, int par2) {
 
 		return this.blockIcon;
