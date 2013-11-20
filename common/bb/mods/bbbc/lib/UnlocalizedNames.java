@@ -2,11 +2,10 @@ package bb.mods.bbbc.lib;
 
 public class UnlocalizedNames {
 
-	@Deprecated
-	public static String getUnlocalizedName(String type,String name){
-			return getUnlocalizedName(name);
-	}
-	
+	/**
+	 * @param name
+	 * the Item/Block/etc. name
+	 * **/
 	public static String getUnlocalizedName(String name){
 		
 		StringBuilder uln = new StringBuilder();
