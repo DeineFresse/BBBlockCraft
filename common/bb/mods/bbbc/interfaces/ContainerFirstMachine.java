@@ -1,6 +1,6 @@
 package bb.mods.bbbc.interfaces;
 
-import bb.mods.bbbc.interfaces.slots.SlotAnvil;
+import bb.mods.bbbc.interfaces.slots.InputSlot;
 import bb.mods.bbbc.tileentity.TileEntityFirstMachine;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 
 public class ContainerFirstMachine extends Container{
 
-	private TileEntityFirstMachine  machine;
+	private TileEntityFirstMachine machine;
 	
 	public ContainerFirstMachine(InventoryPlayer invPlayer,TileEntityFirstMachine machine){
 		this.machine = machine;
@@ -27,7 +27,7 @@ public class ContainerFirstMachine extends Container{
 		}
 		
 		for(int x = 0;x<4;x++){
-			addSlotToContainer(new SlotAnvil(machine,x,8+18*x,16));
+			addSlotToContainer(new InputSlot(machine,x,8+18*x,16,new int[]{Block.anvil.blockID}));
 		}
 		
 	}
