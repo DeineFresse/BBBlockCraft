@@ -89,8 +89,8 @@ public class BigBlockItem extends ItemBlock {
 
 	private boolean isReplaceable(int theblockId) {
 
-		for (int i = 0; i < Reference.REPLACEIDLIST.length; i++) {
-			if (theblockId == Reference.REPLACEIDLIST[i]) {
+		for (int i = 0; i < Reference.getReplaceList().length; i++) {
+			if (theblockId == Reference.getReplaceList()[i]) {
 				return true;
 			}
 		}
