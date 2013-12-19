@@ -1,9 +1,12 @@
 package bb.mods.bbbc.world.gen.structure;
 
-import bb.mods.bbbc.lib.Reference;
-import bb.mods.bbbc.world.gen.structure.basic.Forms;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.world.gen.structure.basic.Forms;
 
 public class BrickHouse {
 
@@ -27,40 +30,93 @@ public class BrickHouse {
 			int par4, EntityPlayer par5, int f, int ID) {
 
 		Material = BrickHouse;
-
-		/*Structure s = new Structure();
-		s.addWall(-3, 0, 1, 7, 7, 4, Brick);
-		s.addWall(-2, 0, 2, 5, 5, 4, BookShelf);
-		for (int i = 0; i < 4; i++) {
-			s.addWall(-4 + i, 3 + i, i, 9 - 2 * i, 9 - 2 * i, 2, BrickStair);
-		}
-		s.addWall(-4, 0, 0, 9, 9, 2, BrickStair);
-		s.addDoor(0, 1, 1, doorWood, f);
-		s.addPlane(-3, 0, 1, 7, 7, Brick);
-		s.addBlock(0, 1, 2, Air);
-		s.addBlock(0, 2, 2, Air);
-		s.addBlock(0, 1, 4, entchantTable);
-		s.addBlock(1, 0, -1, BrickStair, 1);
-		s.addBlock(0, 0, -1, BrickStair, 2);
-		s.addBlock(-1, 0, -1, BrickStair, 0);
-		s.addBlock(-1, 0, 3, obsidian);
-		s.addBlock(-1, 0, 5, obsidian);
-		s.addBlock(1, 0, 3, obsidian);
-		s.addBlock(1, 0, 5, obsidian);
-		s.addBlock(0, 0, 4, obsidian);
-		s.addBlock(0, 0, 3, glowStone);
-		s.addBlock(0, 0, 5, glowStone);
-		s.addBlock(1, 0, 4, glowStone);
-		s.addBlock(-1, 0, 4, glowStone);
-		s.addBlock(0, 0, 0, ID);
-		s.addBlock(0, 0, 4, BrickSlab, SlabMeta);
-*/
 		if (!Reference.DEBUGMODE) {
 			//build2(par1, par2, par3, par4, f, s);
 			 build(par1, par2, par3, par4, par5, f, ID);
 		}
+		if(f>5){
+			if(par1.isRemote){
+				par5.addChatMessage("You should google 2888 Donauverse by Michèle Métail");
+			}
+		}
 
 	}
+	
+	public static void brick_house(World par1, int par2, int par3, int par4,
+			EntityPlayer par5, int f){
+		SingleBlock[] ba = new SingleBlock[13];
+		SingleBlock[] s = new SingleBlock[9];
+		
+		s[0] = new RectangleHollow(-4, 0, 0, BrickStair, 9, 9);
+		s[1] = new RectangleFilled(-3, 0, 1, Brick, 7, false, 7, f);
+		s[2] = new Walls(-3,1,1,Brick,7,7,2);
+		s[3] = new Walls(-2,1,2,BookShelf,5,5,2);
+		s[4] = new Doors(0,1,1,doorWood,f);
+		for(int i = 0;i<4;i++){
+			s[5+i] = new RectangleHollow(-4-i, 3+i, i, BrickStair, 9-i*2, 9-i*2);
+		}		
+		ba[0] = new SingleBlock(0,1,2,Air,false);
+		ba[1] = new SingleBlock(0,2,2,Air,false);
+		ba[2] = new SingleBlock(0,7,4,BrickSlab,SlabMeta,false);
+		ba[3] = new SingleBlock(0,1,4,entchantTable,false);
+		ba[4] = new SingleBlock(1,0,0,glowStone,false);
+		ba[5] = new SingleBlock(-1,0,0,glowStone,false);
+		ba[6] = new SingleBlock(0,0,-1,glowStone,false);
+		ba[7] = new SingleBlock(0,0,1,glowStone,false);
+		ba[8] = new SingleBlock(1,0,1,obsidian,false);
+		ba[0] = new SingleBlock(0,0,0,obsidian,false);
+		ba[0] = new SingleBlock(-1,0,-1,obsidian,false);
+		ba[0] = new SingleBlock(-1,0,1,obsidian,false);
+		ba[0] = new SingleBlock(1,0,-1,obsidian,false);
+		
+		List<RotatedBlock> a = new ArrayList<RotatedBlock>();
+		
+		a.addAll(convert(s,f));
+		for(int i = 0;i<ba.length;i++){
+			a.add(ba[i]);
+		}
+		
+		build2(par1, par2, par3, par4, par5, f, a);
+		
+	}
+	
+	private static void build2(World par1, int par2, int par3, int par4,
+			EntityPlayer par5, int f,List<RotatedBlock> a){
+		
+		for(int i = 0;i<a.size();i++){		
+			//par1.setBlockMetadataWithNotify(par1, par2, par3, par4, par5)
+		}
+						
+			
+			
+	}
+	
+	public int[] rotXZByDir(int x, int y, int z, int dir) {
+		if (dir == 0) {
+			return new int[] { x, y, z };
+		} else if (dir == 1) {
+			return new int[] { -z, y, x };
+		} else if (dir == 2) {
+			return new int[] { -x, y, -z };
+		} else {
+			return new int[] { z, y, -x };
+		}
+	}
+	
+	public static List<RotatedBlock> convert(SingleBlock[] s,int dir){
+	
+		RotatedBlock[] t;
+		List<RotatedBlock> a = new ArrayList<RotatedBlock>();
+		
+		for(int i = 0;i<s.length;i++){
+			t=s[i].getBlocks(dir);
+			for(int ii = 0;ii<t.length;ii++){
+				a.add(t[ii]);
+			}
+		}		
+		return a;
+	}
+	
 	
 	private static void build(World par1, int par2, int par3, int par4,
 			EntityPlayer par5, int o, int ID) {

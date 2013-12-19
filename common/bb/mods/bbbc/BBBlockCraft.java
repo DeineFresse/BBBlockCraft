@@ -25,14 +25,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @NetworkMod(channels = { Reference.MOD_CHANNEL }, clientSideRequired = true, serverSideRequired = false, packetHandler = bb.mods.bbbc.common.network.PacketHandler.class)
 public class BBBlockCraft {
 
-	/*
-	 * My most common questions and the corresponding answers`!
-	 * 
-	 *Why am I here?         You are her to Program!
-	 *What am I doing ?      You are Programming!
-	 *Where am I going ?     You are going to Program!  
-	 */
-	
 	// Gen Definition
 
 	public static bb.mods.bbbc.world.gen.BBWorldGen worldGen = new BBWorldGen();

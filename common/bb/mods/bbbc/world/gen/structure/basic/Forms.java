@@ -116,14 +116,9 @@ public class Forms {
 		}
 
 	}
-
-	public static void door(World par1, int x, int y, int z, int f, int ID) {
-		if (ID == 64 || ID == 71) {
-			int dir = (f + 1) & 3;
-			par1.setBlock(x, y, z, ID, dir, 3);
-			par1.setBlock(x, y + 1, z, ID, dir ^ 8, 3);
-
-			/*
+	
+	
+	/*
 			 * switch (f) { case (0): { par1.setBlock(x, y, z, ID, 1, 0x01);
 			 * par1.setBlock(x, y + 1, z, ID, 9, 0x01); break; } case (1): {
 			 * par1.setBlock(x, y, z, ID, 2, 0x01); par1.setBlock(x, y + 1, z,
@@ -132,6 +127,14 @@ public class Forms {
 			 * (3): { par1.setBlock(x, y, z, ID, 0, 0x01); par1.setBlock(x, y +
 			 * 1, z, ID, 8, 0x01); break; } }
 			 */
+
+	public static void door(World par1, int x, int y, int z, int f, int ID) {
+		if (ID == 64 || ID == 71) {
+			int dir = (f + 1) & 3;
+			par1.setBlock(x, y, z, ID, dir, 3);
+			par1.setBlock(x, y + 1, z, ID, dir ^ 8, 3);
+
+			
 
 		}
 	}

@@ -1,0 +1,10 @@
+/*
+	 * My most common questions and the corresponding answers`!
+	 * 
+	 *Why am I here?         You are her to Program!
+	 *What am I doing ?      You are Programming!
+	 *Where am I going ?     You are going to Program!  
+	 */
+	
+	
+	
