@@ -12,23 +12,23 @@ public class RotatedBlock {
 		Meta = meta;
 	}
 	
-	public int getXCoord() {
+	public final int getXCoord() {
 		return XCoord;
 	};
 
-	public int getYCoord() {
+	public final int getYCoord() {
 		return YCoord;
 	};
 	
-	public int getZCoord() {
+	public final int getZCoord() {
 		return ZCoord;
 	};
 
-	public int getMeta() {
+	public final int getMeta() {
 		return Meta;
 	};
 
-	public int getID() {
+	public final int getID() {
 		return ID;
 	};
 	

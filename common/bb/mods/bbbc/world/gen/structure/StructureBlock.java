@@ -13,7 +13,7 @@ public abstract class StructureBlock extends RotatedBlock{
 	
 	public abstract RotatedBlock[] getBlocks(int dir);
 
-	protected int[] rotXZByDir(int x, int y, int z, int dir) {
+	protected final int[] rotXZByDir(int x, int y, int z, int dir) {
 		if (dir == 0) {
 			return new int[] { x, y, z };
 		} else if (dir == 1) {
@@ -25,7 +25,7 @@ public abstract class StructureBlock extends RotatedBlock{
 		}
 	}
 	
-	protected int[] rotXZByDir(int x, int y, int z,int meta,int dir) {
+	protected final int[] rotXZByDir(int x, int y, int z,int meta,int dir) {
 		if (dir == 0) {
 			return new int[] { x, y, z };
 		} else if (dir == 1) {

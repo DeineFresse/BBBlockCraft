@@ -47,27 +47,27 @@ public class BrickHouse {
 		SingleBlock[] ba = new SingleBlock[13];
 		SingleBlock[] s = new SingleBlock[9];
 		
-		s[0] = new RectangleHollow(-4, 0, 0, BrickStair, 9, 9);
+		s[0] = new RectangleHollow(-4, 0, 0, BrickStair, 0, true, 9, 9);
 		s[1] = new RectangleFilled(-3, 0, 1, Brick, 7, false, 7, f);
 		s[2] = new Walls(-3,1,1,Brick,7,7,2);
 		s[3] = new Walls(-2,1,2,BookShelf,5,5,2);
 		s[4] = new Doors(0,1,1,doorWood,f);
 		for(int i = 0;i<4;i++){
-			s[5+i] = new RectangleHollow(-4-i, 3+i, i, BrickStair, 9-i*2, 9-i*2);
+			s[5+i] = new RectangleHollow(-4-i, 3+i, i, BrickStair,0, false, 9-i*2, 9-i*2);
 		}		
-		ba[0] = new SingleBlock(0,1,2,Air,false);
-		ba[1] = new SingleBlock(0,2,2,Air,false);
+		ba[0] = new SingleBlock(0,1,2,Air,0, false);
+		ba[1] = new SingleBlock(0,2,2,Air,0, false);
 		ba[2] = new SingleBlock(0,7,4,BrickSlab,SlabMeta,false);
-		ba[3] = new SingleBlock(0,1,4,entchantTable,false);
-		ba[4] = new SingleBlock(1,0,0,glowStone,false);
-		ba[5] = new SingleBlock(-1,0,0,glowStone,false);
-		ba[6] = new SingleBlock(0,0,-1,glowStone,false);
-		ba[7] = new SingleBlock(0,0,1,glowStone,false);
-		ba[8] = new SingleBlock(1,0,1,obsidian,false);
-		ba[0] = new SingleBlock(0,0,0,obsidian,false);
-		ba[0] = new SingleBlock(-1,0,-1,obsidian,false);
-		ba[0] = new SingleBlock(-1,0,1,obsidian,false);
-		ba[0] = new SingleBlock(1,0,-1,obsidian,false);
+		ba[3] = new SingleBlock(0,1,4,entchantTable,0, false);
+		ba[4] = new SingleBlock(1, 0, 0, glowStone, 0, false);
+		ba[5] = new SingleBlock(-1, 0, 0, glowStone, 0, false);
+		ba[6] = new SingleBlock(0, 0, -1, glowStone, 0, false);
+		ba[7] = new SingleBlock(0, 0, 1, glowStone, 0, false);
+		ba[8] = new SingleBlock(1, 0, 1, obsidian, 0, false);
+		ba[0] = new SingleBlock(0, 0, 0, obsidian, 0, false);
+		ba[0] = new SingleBlock(-1, 0, -1, obsidian, 0, false);
+		ba[0] = new SingleBlock(-1, 0, 1, obsidian, 0, false);
+		ba[0] = new SingleBlock(1, 0, -1, obsidian, 0, false);
 		
 		List<RotatedBlock> a = new ArrayList<RotatedBlock>();
 		

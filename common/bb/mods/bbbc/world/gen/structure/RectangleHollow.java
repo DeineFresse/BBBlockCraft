@@ -6,6 +6,7 @@ public class RectangleHollow extends SingleBlock {
 	
 	RectangleHollow(int x,int y,int z,int id,int meta,boolean rotmeta,int l,int w){
 		super(x,y,z,id,meta,rotmeta);
+		if(isStair(ID))Meta=0;
 		L = l;
 		W = w;
 	}
