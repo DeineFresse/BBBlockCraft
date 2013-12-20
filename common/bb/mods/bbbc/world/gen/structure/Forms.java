@@ -1,4 +1,4 @@
-package bb.mods.bbbc.world.gen.structure.basic;
+package bb.mods.bbbc.world.gen.structure;
 
 import net.minecraft.world.World;
 
