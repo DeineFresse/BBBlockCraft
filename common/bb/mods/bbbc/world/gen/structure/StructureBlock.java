@@ -27,13 +27,13 @@ public abstract class StructureBlock extends RotatedBlock{
 	
 	protected final int[] rotXZByDir(int x, int y, int z,int meta,int dir) {
 		if (dir == 0) {
-			return new int[] { x, y, z };
+			return new int[] { x, y, z,meta};
 		} else if (dir == 1) {
-			return new int[] { -z, y, x };
+			return new int[] { -z, y, x, (meta+1)&3};
 		} else if (dir == 2) {
-			return new int[] { -x, y, -z };
+			return new int[] { -x, y, -z, (meta+2)&3 };
 		} else {
-			return new int[] { z, y, -x };
+			return new int[] { z, y, -x , (meta+3)&3};
 		}
 	}
 }

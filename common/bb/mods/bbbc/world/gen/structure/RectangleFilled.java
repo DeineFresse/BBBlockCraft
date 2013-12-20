@@ -1,5 +1,8 @@
 package bb.mods.bbbc.world.gen.structure;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RectangleFilled extends SingleBlock {
 
 	private int L,W;
@@ -13,16 +16,20 @@ public class RectangleFilled extends SingleBlock {
 
 	@Override
 	public RotatedBlock[] getBlocks(int dir) {
-		RotatedBlock[] a = new RotatedBlock[L * W];
-		int m = 0;
-		for (int i = 0; i < L; i++, m++) {
-			for (int ii = 0; ii < W; ii++, m++) {			
-					a[m] = new RotatedBlock(XCoord + i, YCoord,
-							ZCoord + ii, ID, Meta);
+		List<RotatedBlock> a = new ArrayList<RotatedBlock>();
+		for (int i = 0; i < L; i++) {
+			for (int ii = 0; ii < W; ii++) {
+					a.add(new SingleBlock(XCoord + i, YCoord,	ZCoord + ii, ID, Meta,Rotat).getBlocks(dir)[0]);
 			}
 		}
+		
+		RotatedBlock[] r = new RotatedBlock[a.size()];
 
-		return a;
+		for(int i = 0;i<a.size();i++){
+			r[i] = a.get(i);
+		}
+		
+		return r;
 	}
 
 }

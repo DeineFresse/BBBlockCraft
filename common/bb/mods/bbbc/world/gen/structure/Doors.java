@@ -9,14 +9,18 @@ public class Doors extends SingleBlock {
 	}
 
 	@Override
-	public StructureBlock[] getBlocks(int dir) {
-		StructureBlock[] a = new StructureBlock[2];
+	public RotatedBlock[] getBlocks(int dir) {
+		
+		RotatedBlock[] rba = new RotatedBlock[2];
 		if (ID == 64 || ID == 71) {
-		a[0] = new SingleBlock(XCoord, YCoord, ZCoord, ID, Meta, Rotat);
-		a[1] = new SingleBlock(XCoord, YCoord + 1, ZCoord, ID, Meta ^ 8, Rotat);			
+
+			System.out.println("Door");
+			
+		rba[0] = new SingleBlock(XCoord, YCoord, ZCoord, ID, Meta, Rotat).getBlocks(dir)[0];
+		rba[1] = new SingleBlock(XCoord, YCoord + 1, ZCoord, ID, Meta ^ 8, Rotat).getBlocks(dir)[0];			
 
 		}
-		return a;
+		return rba;
 	}
 
 }

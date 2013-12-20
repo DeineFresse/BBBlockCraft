@@ -30,94 +30,101 @@ public class BrickHouse {
 
 		Material = BrickHouse;
 		if (!Reference.DEBUGMODE) {
-			//build2(par1, par2, par3, par4, f, s);
-			 build(par1, par2, par3, par4, par5, f, ID);
+			// build2(par1, par2, par3, par4, f, s);
+			// build(par1, par2, par3, par4, par5, f, ID);
+			brick_house(par1, par2, par3, par4, par5, f);
 		}
-		if(f>5){
-			if(par1.isRemote){
+		if (f > 5) {
+			if (par1.isRemote) {
 				par5.addChatMessage("You should google 2888 Donauverse by Michèle Métail");
 			}
 		}
 
 	}
-	
+
 	public static void brick_house(World par1, int par2, int par3, int par4,
-			EntityPlayer par5, int f){
-		SingleBlock[] ba = new SingleBlock[13];
-		SingleBlock[] s = new SingleBlock[9];
-		
-		s[0] = new RectangleHollow(-4, 0, 0, BrickStair, 0, true, 9, 9);
-		s[1] = new RectangleFilled(-3, 0, 1, Brick, 7, false, 7, f);
-		s[2] = new Walls(-3,1,1,Brick,7,7,2);
-		s[3] = new Walls(-2,1,2,BookShelf,5,5,2);
-		s[4] = new Doors(0,1,1,doorWood,f);
-		for(int i = 0;i<4;i++){
-			s[5+i] = new RectangleHollow(-4-i, 3+i, i, BrickStair,0, false, 9-i*2, 9-i*2);
-		}		
-		ba[0] = new SingleBlock(0,1,2,Air,0, false);
-		ba[1] = new SingleBlock(0,2,2,Air,0, false);
-		ba[2] = new SingleBlock(0,7,4,BrickSlab,SlabMeta,false);
-		ba[3] = new SingleBlock(0,1,4,entchantTable,0, false);
-		ba[4] = new SingleBlock(1, 0, 0, glowStone, 0, false);
-		ba[5] = new SingleBlock(-1, 0, 0, glowStone, 0, false);
-		ba[6] = new SingleBlock(0, 0, -1, glowStone, 0, false);
-		ba[7] = new SingleBlock(0, 0, 1, glowStone, 0, false);
-		ba[8] = new SingleBlock(1, 0, 1, obsidian, 0, false);
-		ba[0] = new SingleBlock(0, 0, 0, obsidian, 0, false);
-		ba[0] = new SingleBlock(-1, 0, -1, obsidian, 0, false);
-		ba[0] = new SingleBlock(-1, 0, 1, obsidian, 0, false);
-		ba[0] = new SingleBlock(1, 0, -1, obsidian, 0, false);
-		
+			EntityPlayer par5, int f) {
+		List<StructureBlock> sbl = new ArrayList<StructureBlock>();
+
+		sbl.add(new RectangleHollow(-4, 0, 0, BrickStair, 0, true, 9, 9));
+		sbl.add(new RectangleFilled(-3, 0, 1, Brick, 0, false, 7, 7));
+		sbl.add(new Walls(-3, 1, 1, Brick, 0, false, 7, 7, 2));
+		sbl.add(new Walls(-2, 1, 2, BookShelf, 0, false, 5, 5, 2));
+		sbl.add(new Doors(0, 1, 1, doorWood, f));
+		for (int i = 0; i < 4; i++) {
+			sbl.add(new RectangleHollow(-4 - i, 3 + i, i, BrickStair, 0, false,
+					9 - i * 2, 9 - i * 2));
+		}
+		sbl.add(new SingleBlock(0, 1, 2, Air, 0, false));
+		sbl.add(new SingleBlock(0, 2, 2, Air, 0, false));
+		sbl.add(new SingleBlock(0, 7, 4, BrickSlab, SlabMeta, false));
+		sbl.add(new SingleBlock(0, 1, 4, entchantTable, 0, false));
+		sbl.add(new SingleBlock(1, 0, 0, glowStone, 0, false));
+		sbl.add(new SingleBlock(-1, 0, 0, glowStone, 0, false));
+		sbl.add(new SingleBlock(0, 0, -1, glowStone, 0, false));
+		sbl.add(new SingleBlock(0, 0, 1, glowStone, 0, false));
+		sbl.add(new SingleBlock(1, 0, 1, obsidian, 0, false));
+		sbl.add(new SingleBlock(0, 0, 0, obsidian, 0, false));
+		sbl.add(new SingleBlock(-1, 0, -1, obsidian, 0, false));
+		sbl.add(new SingleBlock(-1, 0, 1, obsidian, 0, false));
+		sbl.add(new SingleBlock(1, 0, -1, obsidian, 0, false));
+
 		List<RotatedBlock> a = new ArrayList<RotatedBlock>();
-		
-		a.addAll(convert(s,f));
-		for(int i = 0;i<ba.length;i++){
-			a.add(ba[i]);
+		StructureBlock[] sba = new StructureBlock[sbl.size()];
+		for (int i = 0; i < sba.length; i++) {
+			sba[i] = sbl.get(i);
 		}
-		
-		build2(par1, par2, par3, par4, par5, f, a);
-		
+
+		a.addAll(convert(sba, f));
+
+		build2(par1, par2, par3, par4, par5, a);
+
 	}
-	
+
 	private static void build2(World par1, int par2, int par3, int par4,
-			EntityPlayer par5, int f,List<RotatedBlock> a){
+			EntityPlayer par5, List<RotatedBlock> a) {
 		
-		for(int i = 0;i<a.size();i++){		
-			//par1.setBlockMetadataWithNotify(par1, par2, par3, par4, par5)
+		System.out.println(a.size());
+		try {
+			for (int i = 0; i < a.size(); i++) {
+				
+				
+				if (a != null && a.get(i) != null) {
+					
+					System.out.println(i+":"+a.get(i).getXCoord()+";"+a.get(i).getYCoord()+";"+a.get(i).getZCoord());
+				
+					par1.setBlock(par2 + a.get(i).getXCoord(), par3
+							+ a.get(i).getYCoord(),
+							par4 + a.get(i).getZCoord(), a.get(i).getID(), a
+									.get(i).getMeta(), 3);
+				}
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-						
-			
-			
+		System.out.println("build2 Ende");
 	}
-	
-	public int[] rotXZByDir(int x, int y, int z, int dir) {
-		if (dir == 0) {
-			return new int[] { x, y, z };
-		} else if (dir == 1) {
-			return new int[] { -z, y, x };
-		} else if (dir == 2) {
-			return new int[] { -x, y, -z };
-		} else {
-			return new int[] { z, y, -x };
-		}
-	}
-	
-	public static List<RotatedBlock> convert(SingleBlock[] s,int dir){
-	
+
+	public static List<RotatedBlock> convert(StructureBlock[] structureBlocks,
+			int dir) {
+
 		RotatedBlock[] t;
 		List<RotatedBlock> a = new ArrayList<RotatedBlock>();
-		
-		for(int i = 0;i<s.length;i++){
-			t=s[i].getBlocks(dir);
-			for(int ii = 0;ii<t.length;ii++){
+
+		for (int i = 0; i < structureBlocks.length; i++) {
+			System.out.println("sbl "+structureBlocks.length+";"+i);
+			t = structureBlocks[i].getBlocks(dir);
+			for (int ii = 0; ii < t.length; ii++) {
 				a.add(t[ii]);
+				System.out.println("tl "+t.length+";"+ii);
 			}
-		}		
+		}
 		return a;
+
 	}
-	
-	
-	private static void build(World par1, int par2, int par3, int par4,
+
+	protected static void build(World par1, int par2, int par3, int par4,
 			EntityPlayer par5, int o, int ID) {
 
 		int[] xr = new int[4], xp = new int[17];
@@ -219,12 +226,9 @@ public class BrickHouse {
 		par1.setBlock(par2 + xp[0], par3 + 1, par4 + zp[0], Air);
 		par1.setBlock(par2 + xp[1], par3 + 2, par4 + zp[1], Air);
 		par1.setBlock(par2 + xp[2], par3 + 1, par4 + zp[2], entchantTable);
-		par1.setBlock(par2 + xp[3], par3, par4 + zp[3], BrickStair, stair[0],
-				3);
-		par1.setBlock(par2 + xp[4], par3, par4 + zp[4], BrickStair, stair[1],
-				3);
-		par1.setBlock(par2 + xp[5], par3, par4 + zp[5], BrickStair, stair[2],
-				3);
+		par1.setBlock(par2 + xp[3], par3, par4 + zp[3], BrickStair, stair[0], 3);
+		par1.setBlock(par2 + xp[4], par3, par4 + zp[4], BrickStair, stair[1], 3);
+		par1.setBlock(par2 + xp[5], par3, par4 + zp[5], BrickStair, stair[2], 3);
 		par1.setBlock(par2 + xp[6], par3, par4 + zp[6], obsidian);
 		par1.setBlock(par2 + xp[7], par3, par4 + zp[7], obsidian);
 		par1.setBlock(par2 + xp[8], par3, par4 + zp[8], obsidian);
