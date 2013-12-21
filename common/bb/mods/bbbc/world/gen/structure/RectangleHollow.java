@@ -28,7 +28,6 @@ public class RectangleHollow extends SingleBlock {
 		}
 		for (int i = 0; i <= W; i++) {
 
-			System.out.println("RH");
 			sbl.add(new SingleBlock(XCoord, YCoord, ZCoord + i, ID, Meta, Rotat).getBlocks(dir)[0]);
 			sbl.add(new SingleBlock(XCoord + L, YCoord, ZCoord + i, ID,isStair(ID) ? Meta | 1 : Meta, Rotat).getBlocks(dir)[0]);
 		}

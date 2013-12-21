@@ -1,11 +1,16 @@
 package bb.mods.bbbc.world.gen.structure;
 
-public abstract class StructureBlock extends RotatedBlock{
+public abstract class StructureBlock{
 
+	protected int XCoord,YCoord,ZCoord,ID,Meta;
 	protected boolean Rotat;
 
 	public StructureBlock(int x, int y, int z, int id, int meta,boolean rotmeta) {
-		super(x, y, z, id, meta);
+		XCoord = x;
+		YCoord = z;
+		ZCoord = y;
+		ID = id;
+		Meta = meta;
 		Rotat = rotmeta;
 	}
 
@@ -56,4 +61,24 @@ public abstract class StructureBlock extends RotatedBlock{
 		default:{return 0;}
 		}
 	}
+	
+	public final int getXCoord() {
+		return XCoord;
+	};
+
+	public final int getYCoord() {
+		return YCoord;
+	};
+	
+	public final int getZCoord() {
+		return ZCoord;
+	};
+
+	public final int getMeta() {
+		return Meta;
+	};
+
+	public final int getID() {
+		return ID;
+	};
 }
