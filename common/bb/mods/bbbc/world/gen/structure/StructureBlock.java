@@ -27,13 +27,33 @@ public abstract class StructureBlock extends RotatedBlock{
 	
 	protected final int[] rotXZByDir(int x, int y, int z,int meta,int dir) {
 		if (dir == 0) {
-			return new int[] { x, y, z,meta};
+			return new int[] { x, y, z,};
 		} else if (dir == 1) {
-			return new int[] { -z, y, x, (meta+1)&3};
+			return new int[] { -z, y, x,dreh1(meta)};
 		} else if (dir == 2) {
-			return new int[] { -x, y, -z, (meta+2)&3 };
+			return new int[] { -x, y, -z, meta^1 };
 		} else {
-			return new int[] { z, y, -x , (meta+3)&3};
+			return new int[] { z, y, -x ,dreh2(meta)};
+		}
+	}
+	
+	protected final int dreh1(int meta){
+		switch(meta&3){
+		case 0:{return meta^2;}
+		case 1:{return meta^2;}
+		case 2:{return meta^3;}
+		case 3:{return meta^3;}
+		default :{return 0;}
+		}
+	}
+	
+	protected final int dreh2(int meta){
+		switch(meta&3){
+		case 0:{return meta^3;}
+		case 1:{return meta^3;}
+		case 2:{return meta^2;}
+		case 3:{return meta^2;}
+		default:{return 0;}
 		}
 	}
 }

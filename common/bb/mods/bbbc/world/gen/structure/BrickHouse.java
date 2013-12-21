@@ -44,31 +44,34 @@ public class BrickHouse {
 
 	public static void brick_house(World par1, int par2, int par3, int par4,
 			EntityPlayer par5, int f) {
+		
 		List<StructureBlock> sbl = new ArrayList<StructureBlock>();
 
-		sbl.add(new RectangleHollow(-4, 0, 0, BrickStair, 0, true, 9, 9));
+		sbl.add(new RectangleHollow(-4, 0, 0, BrickStair, 0, true, 8, 8));
 		sbl.add(new RectangleFilled(-3, 0, 1, Brick, 0, false, 7, 7));
-		sbl.add(new Walls(-3, 1, 1, Brick, 0, false, 7, 7, 2));
-		sbl.add(new Walls(-2, 1, 2, BookShelf, 0, false, 5, 5, 2));
-		sbl.add(new Doors(0, 1, 1, doorWood, f));
+		sbl.add(new Walls(-3, 1, 1, Brick, 0, false, 6, 6, 3));
+		sbl.add(new Walls(-2, 1, 2, BookShelf, 0, false, 4, 4, 3));
+		
 		for (int i = 0; i < 4; i++) {
-			sbl.add(new RectangleHollow(-4 - i, 3 + i, i, BrickStair, 0, false,
-					9 - i * 2, 9 - i * 2));
+			sbl.add(new RectangleHollow(-4 + i, 3 + i, i, BrickStair, 0, true,
+					8 - i * 2, 8 - i * 2));
 		}
+		
 		sbl.add(new SingleBlock(0, 1, 2, Air, 0, false));
 		sbl.add(new SingleBlock(0, 2, 2, Air, 0, false));
 		sbl.add(new SingleBlock(0, 7, 4, BrickSlab, SlabMeta, false));
 		sbl.add(new SingleBlock(0, 1, 4, entchantTable, 0, false));
-		sbl.add(new SingleBlock(1, 0, 0, glowStone, 0, false));
-		sbl.add(new SingleBlock(-1, 0, 0, glowStone, 0, false));
-		sbl.add(new SingleBlock(0, 0, -1, glowStone, 0, false));
-		sbl.add(new SingleBlock(0, 0, 1, glowStone, 0, false));
-		sbl.add(new SingleBlock(1, 0, 1, obsidian, 0, false));
-		sbl.add(new SingleBlock(0, 0, 0, obsidian, 0, false));
-		sbl.add(new SingleBlock(-1, 0, -1, obsidian, 0, false));
-		sbl.add(new SingleBlock(-1, 0, 1, obsidian, 0, false));
-		sbl.add(new SingleBlock(1, 0, -1, obsidian, 0, false));
-
+		sbl.add(new SingleBlock(1, 0, 4, glowStone, 0, false));
+		sbl.add(new SingleBlock(-1, 0, 4, glowStone, 0, false));
+		sbl.add(new SingleBlock(0, 0, 3, glowStone, 0, false));
+		sbl.add(new SingleBlock(0, 0, 5, glowStone, 0, false));
+		sbl.add(new SingleBlock(1, 0, 5, obsidian, 0, false));
+		sbl.add(new SingleBlock(0, 0, 4, obsidian, 0, false));
+		sbl.add(new SingleBlock(-1, 0, 3, obsidian, 0, false));
+		sbl.add(new SingleBlock(-1, 0, 5, obsidian, 0, false));
+		sbl.add(new SingleBlock(1, 0, 3, obsidian, 0, false));
+		sbl.add(new Doors(0, 1, 1, doorWood, f));
+		
 		List<RotatedBlock> a = new ArrayList<RotatedBlock>();
 		StructureBlock[] sba = new StructureBlock[sbl.size()];
 		for (int i = 0; i < sba.length; i++) {
@@ -91,8 +94,6 @@ public class BrickHouse {
 				
 				if (a != null && a.get(i) != null) {
 					
-					System.out.println(i+":"+a.get(i).getXCoord()+";"+a.get(i).getYCoord()+";"+a.get(i).getZCoord());
-				
 					par1.setBlock(par2 + a.get(i).getXCoord(), par3
 							+ a.get(i).getYCoord(),
 							par4 + a.get(i).getZCoord(), a.get(i).getID(), a
