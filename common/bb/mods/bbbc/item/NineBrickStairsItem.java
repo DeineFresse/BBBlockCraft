@@ -44,11 +44,12 @@ public class NineBrickStairsItem extends Item {
 	    }
 	
 	@SideOnly(Side.CLIENT)
-	private Icon[] brick = new Icon[2];	
+	Icon[] brick;
 	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister) {
+		brick = new Icon[2];	
 		brick[0] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_9");
 		brick[1] = par1IconRegister.registerIcon(Reference.MOD_ID.toLowerCase()+":"+ Item_Names.NBSI+"_81");
 	}

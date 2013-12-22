@@ -7,7 +7,7 @@ public class RectangleFilled extends SingleBlock {
 
 	private int L,W;
 	
-	RectangleFilled(int x,int y,int z,int id,int meta,boolean rotate,int l,int w){
+	public RectangleFilled(int x,int y,int z,int id,int meta,boolean rotate,int l,int w){
 		super(x,y,z,id,meta,rotate);
 		Meta = meta;
 		L = l;
@@ -19,7 +19,7 @@ public class RectangleFilled extends SingleBlock {
 		List<RotatedBlock> a = new ArrayList<RotatedBlock>();
 		for (int i = 0; i < L; i++) {
 			for (int ii = 0; ii < W; ii++) {
-					a.add(new SingleBlock(XCoord + i, YCoord,	ZCoord + ii, ID, Meta,Rotat).getBlocks(dir)[0]);
+					a.add(getRotatedBlock(XCoord + i, YCoord,	ZCoord + ii, ID, Meta,dir,Rotat));
 			}
 		}
 		

@@ -22,7 +22,7 @@ public class MyFirstItem extends Item {
 	}
 	
 	@SideOnly(Side.CLIENT)
-	private Icon brick;
+	Icon brick;
 
 	@Override
 	@SideOnly(Side.CLIENT)

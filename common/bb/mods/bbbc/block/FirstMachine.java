@@ -111,7 +111,7 @@ public class FirstMachine extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private Icon sideIcon;
 	@SideOnly(Side.CLIENT)
-	private Icon[] sideIcons = new Icon[4];
+	private Icon[] sideIcons;
 	@SideOnly(Side.CLIENT)
 	private Icon disableIcon;
 
@@ -126,6 +126,8 @@ public class FirstMachine extends BlockContainer {
 				+ ":" + Block_Names.FIRSTMACHINE + "_side");
 		disableIcon = par1IconRegister.registerIcon(Reference.MOD_ID
 				.toLowerCase() + ":" + Block_Names.FIRSTMACHINE + "_disabled");
+		
+		sideIcons  = new Icon[4];
 		sideIcons[0] = sideIcon;
 		sideIcons[1] = par1IconRegister.registerIcon(Reference.MOD_ID
 				.toLowerCase()

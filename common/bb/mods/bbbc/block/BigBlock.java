@@ -22,7 +22,8 @@ public class BigBlock extends Block {
 	private int[] ids = new int[] { LoadedIDs.Block_BigBlock,
 			LoadedIDs.Block_Faceblock, 20 };
 
-	private Icon[][] blockIcon = new Icon[16][16];
+	@SideOnly(Side.CLIENT)
+	Icon[][] blockIcon;
 
 	public BigBlock(int blockID) {
 		super(blockID, Material.rock);
@@ -52,6 +53,8 @@ public class BigBlock extends Block {
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
+		
+		blockIcon = new Icon[16][16];
 
 		for (int i = 0; i < blockIcon.length; i++) {
 			if (i == 15) {

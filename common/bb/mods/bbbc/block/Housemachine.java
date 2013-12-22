@@ -85,10 +85,13 @@ public class Housemachine extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public static Icon bottomIcon;
 	@SideOnly(Side.CLIENT)
-	public static Icon[] sideIcon = new Icon[4];
+	public static Icon[] sideIcon;
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
+		
+		sideIcon   = new Icon[4];
+		
 		topIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":"
 				+ Block_Names.HOUSEMACHINE.toLowerCase() + "_top");
 		bottomIcon = icon.registerIcon(Reference.MOD_ID.toLowerCase() + ":"

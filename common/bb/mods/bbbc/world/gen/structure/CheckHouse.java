@@ -7,27 +7,22 @@ import net.minecraft.world.World;
 public class CheckHouse {
 
 	/**
-	 * @param par1World
-	 *            world
 	 * @param par2
 	 *            x
 	 * @param par3
 	 *            y
 	 * @param par4
 	 *            z
-	 * @param par5EntityPlayer
-	 *            EntityPlayer
-	 * 
-	 * 
 	 * **/
+	
 	public static void HouseBuild(World par1World, int par2, int par3,
 			int par4, EntityPlayer par5EntityPlayer, int ID) {
 
-		int f = 0;
-		f = MathHelper
+		int dir = 0;
+		dir = MathHelper
 				.floor_double((double) (par5EntityPlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
-		int Ergebnis = Houscheck(par1World, par2, par3, par4, f,
+		int Ergebnis = Houscheck(par1World, par2, par3, par4, dir,
 				par5EntityPlayer, ID);
 
 		boolean isRemote = par5EntityPlayer.worldObj.isRemote;
@@ -37,7 +32,7 @@ public class CheckHouse {
 		if (!isRemote) {
 			Integer I = new Integer(Ergebnis);
 			String s = I.toString();
-			Integer II = new Integer(f);
+			Integer II = new Integer(dir);
 			ss = II.toString();
 			par5EntityPlayer.addChatMessage(ss);
 			par5EntityPlayer.addChatMessage(s);
@@ -50,8 +45,8 @@ public class CheckHouse {
 			}
 			case 1: {
 				par5EntityPlayer.addChatMessage("Building is Possible!");
-				BrickHouse.BuildBrickHouse(par1World, par2, par3, par4,
-						par5EntityPlayer, f, ID);
+				BuildStructur.BuildBrickHouse(par1World, par2, par3, par4,
+						par5EntityPlayer, dir);
 				break;
 			}
 			case 2: {
@@ -68,9 +63,9 @@ public class CheckHouse {
 	}
 
 	private static int Houscheck(World par1, int par2, int par3, int par4,
-			int par5, EntityPlayer par6, int ID) {
+			int dir, EntityPlayer par6, int ID) {
 		if (!par1.isRemote) {
-			switch (par5) {
+			switch (dir) {
 			case 0: {
 				if (Spacetest1.airsouth(par1, par2, par3, par4, par6, ID)) {
 					return 1;

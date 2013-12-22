@@ -7,7 +7,7 @@ public class RectangleHollow extends SingleBlock {
 
 	private int L, W;
 
-	RectangleHollow(int x, int y, int z, int id, int meta, boolean rotmeta,
+	public RectangleHollow(int x, int y, int z, int id, int meta, boolean rotmeta,
 			int l, int w) {
 		super(x, y, z, id, meta, rotmeta);
 		if (isStair(ID)){
@@ -22,14 +22,15 @@ public class RectangleHollow extends SingleBlock {
 		
 		List<RotatedBlock>sbl = new ArrayList<RotatedBlock>();
 		for (int i = 0; i <= L; i++) {
-
-			sbl.add(new SingleBlock(XCoord + i, YCoord, ZCoord, ID,isStair(ID) ? Meta | 2 : Meta, Rotat).getBlocks(dir)[0]);
-			sbl.add(new SingleBlock(XCoord + i, YCoord, ZCoord + W, ID,isStair(ID) ? Meta | 3 : Meta, Rotat).getBlocks(dir)[0]);
+			
+			sbl.add(getRotatedBlock(XCoord + i, YCoord, ZCoord, ID,isStair(ID) ? Meta | 2 : Meta,dir, Rotat));
+			sbl.add(getRotatedBlock(XCoord + i, YCoord, ZCoord + W, ID,isStair(ID) ? Meta | 3 : Meta,dir, Rotat));
+		
 		}
 		for (int i = 0; i <= W; i++) {
-
-			sbl.add(new SingleBlock(XCoord, YCoord, ZCoord + i, ID, Meta, Rotat).getBlocks(dir)[0]);
-			sbl.add(new SingleBlock(XCoord + L, YCoord, ZCoord + i, ID,isStair(ID) ? Meta | 1 : Meta, Rotat).getBlocks(dir)[0]);
+			
+			sbl.add(getRotatedBlock(XCoord, YCoord, ZCoord + i, ID, Meta,dir, Rotat));
+			sbl.add(getRotatedBlock(XCoord + L, YCoord, ZCoord + i, ID,isStair(ID) ? Meta | 1 : Meta,dir, Rotat));
 		}
 		
 		

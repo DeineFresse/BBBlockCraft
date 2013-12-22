@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class CloudWhite extends Block {
 
 	@SideOnly(Side.CLIENT)
-	private Icon[] iconArray;
+	Icon[] iconArray;
 
 	public CloudWhite(int blockID) {
 

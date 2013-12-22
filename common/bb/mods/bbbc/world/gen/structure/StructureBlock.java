@@ -7,18 +7,22 @@ public abstract class StructureBlock{
 
 	public StructureBlock(int x, int y, int z, int id, int meta,boolean rotmeta) {
 		XCoord = x;
-		YCoord = z;
-		ZCoord = y;
+		YCoord = y;
+		ZCoord = z;
 		ID = id;
 		Meta = meta;
 		Rotat = rotmeta;
 	}
-
-	
 	
 	public abstract RotatedBlock[] getBlocks(int dir);
-
-	protected final int[] rotXZByDir(int x, int y, int z, int dir) {
+	
+	protected static RotatedBlock getRotatedBlock(int x,int y,int z,int id,int meta,int dir,boolean rotate){
+		int[] Cord = rotate?rotXZByDir(x,y,z,meta,dir):rotXZByDir(x,y,z,dir);		
+		return new RotatedBlock(Cord[0], Cord[1], Cord[2], id, Cord.length>3?Cord[3]:meta);
+	
+	}
+	
+	protected static final int[] rotXZByDir(int x, int y, int z, int dir) {
 		if (dir == 0) {
 			return new int[] { x, y, z };
 		} else if (dir == 1) {
@@ -30,7 +34,7 @@ public abstract class StructureBlock{
 		}
 	}
 	
-	protected final int[] rotXZByDir(int x, int y, int z,int meta,int dir) {
+	protected final static int[] rotXZByDir(int x, int y, int z,int meta,int dir) {
 		if (dir == 0) {
 			return new int[] { x, y, z,};
 		} else if (dir == 1) {
@@ -42,7 +46,7 @@ public abstract class StructureBlock{
 		}
 	}
 	
-	protected final int dreh1(int meta){
+	protected final static int dreh1(int meta){
 		switch(meta&3){
 		case 0:{return meta^2;}
 		case 1:{return meta^2;}
@@ -52,7 +56,7 @@ public abstract class StructureBlock{
 		}
 	}
 	
-	protected final int dreh2(int meta){
+	protected static final int dreh2(int meta){
 		switch(meta&3){
 		case 0:{return meta^3;}
 		case 1:{return meta^3;}

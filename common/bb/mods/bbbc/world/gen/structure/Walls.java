@@ -7,7 +7,7 @@ public class Walls extends StructureBlock {
 
 	private int L,W,H;
 	
-	Walls(int x,int y,int z,int id,int meta,boolean rotmeta,int l,int w,int h){
+	public Walls(int x,int y,int z,int id,int meta,boolean rotmeta,int l,int w,int h){
 		super(x,y,z,id,meta,rotmeta);
 		L = l;
 		W = w;

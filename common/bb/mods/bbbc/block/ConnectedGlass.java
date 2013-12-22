@@ -17,8 +17,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class ConnectedGlass extends Block {
-
-	Icon[][] blockIcon = new Icon[16][16];
 	
 	int[] ids = new int[] {LoadedIDs.Block_ConnectedGlass};
 
@@ -50,10 +48,15 @@ public class ConnectedGlass extends Block {
 	public Icon getIcon(int par1, int par2) {
 		return this.blockIcon[0][0];
 	}
+	
+	@SideOnly(Side.CLIENT)
+	Icon[][] blockIcon;
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
-
+			
+		blockIcon = new Icon[16][16];
+			
 		for (int i = 0; i < blockIcon.length; i++) {
 			if (i == 15) {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
