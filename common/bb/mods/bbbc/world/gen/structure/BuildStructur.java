@@ -5,8 +5,8 @@ import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import bb.mods.bbbc.lib.Reference;
-import bb.mods.bbbc.lib.Structuren;
+import bb.mods.bbbc.unrelated.structuren.Structuren;
+import bb.mods.bbbc.world.lib.Reference;
 
 public class BuildStructur {
 

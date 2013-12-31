@@ -2,7 +2,7 @@ package bb.mods.bbbc.world.gen;
 
 import java.util.Random;
 
-import bb.mods.bbbc.lib.LoadedIDs;
+import bb.mods.bbbc.world.lib.LoadedIDs;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

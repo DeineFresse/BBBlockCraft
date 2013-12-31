@@ -3,6 +3,12 @@ item.bbblockcraft:swordup.name=Sword Up [WIP]
 item.bbblockcraft:brick_stair_item.name=Brick Stair [WIP]
 item.bbblockcraft:bookwall.name=Bookwall [WIP]
 item.bbblockcraft:my_first_item=Random Item [WIP]
+item.bbblockcraft:layoutcard0.name=Layoutcard(Normal)
+item.bbblockcraft:layoutcard1.name=Layoutcard(Arrow)
+item.bbblockcraft:layoutcard2.name=Layoutcard(Border)
+item.bbblockcraft:layoutcard3.name=Layoutcard(Cross)
+item.bbblockcraft:brick_stair_item0.name=9xBrickStairs
+item.bbblockcraft:brick_stair_item1.name=81xBrickStairs
 
 # Block localizations
 tile.bbblockcraft:bigblock.name=BigBlock [WIP]
@@ -29,5 +35,6 @@ tile.bbblockcraft:cloud.green.name= Green Cloud [WIP]
 tile.bbblockcraft:cloud.red.name= Red Cloud [WIP]
 tile.bbblockcraft:cloud.black.name= Black Cloud [WIP]
 tile.bbblockcraft:firstmachine.name=First Machine
+tile.bbblockcraft:housemachine.name=House Machine [WIP]
 
 nice.bbblockcraft:erhabenezahl.number=6086555670238378989670371734243169622657830773351885970528324860512791691264

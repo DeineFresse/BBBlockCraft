@@ -1,6 +1,7 @@
 package bb.mods.bbbc.world.gen.structure;
 
-import bb.mods.bbbc.lib.Reference;
+import bb.mods.bbbc.core.lib.ReplaceList;
+import bb.mods.bbbc.world.lib.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -8,8 +9,8 @@ public class Spacetest1 {
 
 	public static boolean isReplaceable(int ID, int ID2) {
 		boolean is = false;
-		for (int i = 0; i < Reference.getReplaceList().length; i++) {
-			if (ID == Reference.getReplaceList()[i] || ID == ID2) {
+		for (int i = 0; i < ReplaceList.getReplaceList().length; i++) {
+			if (ID == ReplaceList.getReplaceList()[i] || ID == ID2) {
 				is = true;
 			}
 		}
