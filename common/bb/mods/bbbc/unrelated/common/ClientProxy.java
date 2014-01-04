@@ -1,10 +1,15 @@
 package bb.mods.bbbc.unrelated.common;
 
+import bb.mods.bbbc.unrelated.render.TestRender;
 import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
 
+	public static int  rederPass;
+	public static int testRender;
+	
 	@Override
 	public void registerRenderInformation() {
 
@@ -28,7 +33,8 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void initRenderers() {
-		// TODO Auto-generated method stub
-
+		testRender = RenderingRegistry.getNextAvailableRenderId();
+		RenderingRegistry.registerBlockHandler(new TestRender());
 	}
+	
 }

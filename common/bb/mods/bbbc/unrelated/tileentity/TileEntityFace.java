@@ -10,7 +10,7 @@ public class TileEntityFace extends TileEntity {
 	public int primary_z;
 	public int dir;
 	public int position;
-
+	
 	public void writeToNBT(NBTTagCompound par1) {
 
 		super.writeToNBT(par1);

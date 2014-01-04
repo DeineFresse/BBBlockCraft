@@ -13,6 +13,7 @@ public class block {
 	public static Block Faceblock;
 	public static Block BigBlock;
 	public static Block ConnectedGlass;
+	public static Block RenderTestBlock;
 	
 
 	public static void signBlockID() {
@@ -20,12 +21,13 @@ public class block {
 		Faceblock = new Faceblock(LoadedIDs.Block_Faceblock);
 		BigBlock = new BigBlock(LoadedIDs.Block_BigBlock);
 		ConnectedGlass = new ConnectedGlass(LoadedIDs.Block_ConnectedGlass);
+		RenderTestBlock = new RenderTestBlock(LoadedIDs.Block_RenderTestBlock);;
 	}
 
 	public static void Blockreg() {
 
 		// Register Blocks
-	
+		GameRegistry.registerBlock(RenderTestBlock,"RenderTestBlock");	
 		GameRegistry.registerBlock(TestBlock, "TestBlock");
 		GameRegistry.registerBlock(Faceblock, "Faceblock(Fakeblock)");
 		GameRegistry.registerBlock(BigBlock, BigBlockItem.class, "BigBlock");

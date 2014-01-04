@@ -35,6 +35,7 @@ public class ConfigHandler {
 				DefaultIDs.BLOCK_BIGBLOCK).getInt();		
 		LoadedIDs.Block_ConnectedGlass = config.getBlock("ConnectedGlass",
 				DefaultIDs.BLOCK_CONNECTEDGLASS).getInt();
+		LoadedIDs.Block_RenderTestBlock = config.getBlock("RenderTestBlock",DefaultIDs.BLOCK_RENDERTESTBLOCK).getInt();
 		
 
 		config.save();

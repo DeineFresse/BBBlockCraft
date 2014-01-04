@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 public class ConnectedGlass extends Block {
 	
-	int[] ids = new int[] {LoadedIDs.Block_ConnectedGlass};
+	int[] ids = new int[] {LoadedIDs.Block_ConnectedGlass,LoadedIDs.Block_RenderTestBlock};
 
 	public ConnectedGlass(int blockID) {
 		super(blockID, Material.glass);
@@ -51,7 +51,7 @@ public class ConnectedGlass extends Block {
 	}
 	
 	@SideOnly(Side.CLIENT)
-	Icon[][] blockIcon;
+	protected Icon[][] blockIcon;
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister icon) {
