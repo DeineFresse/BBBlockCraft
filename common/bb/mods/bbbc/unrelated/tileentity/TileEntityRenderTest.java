@@ -1,52 +1,84 @@
 package bb.mods.bbbc.unrelated.tileentity;
 
+import java.util.ArrayList;
+import java.util.List;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.Packet132TileEntityData;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityRenderTest extends TileEntity{
-	
-	public int x=0,y=250,z=0,mX=10,mY=50,mZ=125;
-	
-		
-	public void writeToNBT(NBTTagCompound par1){
-		super.writeToNBT(par1);
-		par1.setInteger("xPos",x);
-		par1.setInteger("yPos",y);
-		par1.setInteger("zPos",z);
+public class TileEntityRenderTest extends TileEntity {
 
-		par1.setInteger("xMov",mX);
-		par1.setInteger("yMov",mY);
-		par1.setInteger("zMov",mZ);
+	public List<Fishes> fishA = new ArrayList<Fishes>();
+	public byte sides = 0;
+	
+	
+	public TileEntityRenderTest() {
+		}
+
+	@Override
+	public void writeToNBT(NBTTagCompound par1) {
+		super.writeToNBT(par1);
 		
+		par1.setByte("sides", sides);
+		
+		NBTTagList fishes = new NBTTagList();
+		for (int i = 0; i < fishA.size(); i++) {
+
+			if (fishA.get(i) != null) {
+				NBTTagCompound b = new NBTTagCompound();
+				b.setFloat("xCoord", fishA.get(i).xCoord);
+				b.setFloat("yCoord", fishA.get(i).yCoord);
+				b.setFloat("zCoord", fishA.get(i).zCoord);
+				b.setFloat("xMove", fishA.get(i).xMove);
+				b.setFloat("yMove", fishA.get(i).yMove);
+				b.setFloat("zMove", fishA.get(i).zMove);
+
+				fishes.appendTag(b);
+			}
+
+		}
+
+		par1.setTag("fishes", fishes);
+
 	}
 	
-	public void readFromNBT(NBTTagCompound par1){
+	public void addfish(){
+		fishA.add(new Fishes());
+	}
+
+	@Override
+	public Packet getDescriptionPacket() {
+		NBTTagCompound nbtTag = new NBTTagCompound();
+		this.writeToNBT(nbtTag);
+		return new Packet132TileEntityData(xCoord, yCoord, zCoord, 1, nbtTag);
+
+	}
+
+	@Override
+	public boolean shouldRenderInPass(int pass) {
+		return true;
+	}
+
+	@Override
+	public void onDataPacket(INetworkManager net, Packet132TileEntityData packet) {
+		readFromNBT(packet.data);
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound par1) {
 		super.readFromNBT(par1);
 		
-		x = par1.getInteger("xPos");
-		y = par1.getInteger("yPos");
-		z = par1.getInteger("zPos");
-             
-		mX = par1.getInteger("xMov");
-		mY = par1.getInteger("yMov");
-		mZ = par1.getInteger("zMov");
-		
-	}
+		sides = par1.getByte("sides");
 
-	public void move() {
-		
-		if(x>250||x<=-250){
-			mX=-mX;
+		NBTTagList fish = par1.getTagList("fishes");
+
+		for (int i = 0; i < fish.tagCount(); i++) {
+			fishA.add(Fishes.fishesFromNBTTagCompound((NBTTagCompound)fish.tagAt(i)));
 		}
-		if(y>500||y<=0){
-			mY=-mY;
-		}
-		if(z>=250||z<=-250){
-			mZ=-mZ;
-		}
-		x+=mX;
-		y+=mY;
-		z+=mZ;
+
 	}
 
 }

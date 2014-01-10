@@ -35,6 +35,7 @@ public class BBBlockCraftUnrelated {
 
 		proxy.initSounds();
 		proxy.initRenderers();
+		proxy.registerTileEntitySpecialRender();
 
 		block.signBlockID();
 		block.Blockreg();

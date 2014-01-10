@@ -27,6 +27,7 @@ public class MyFirstItem extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister) {		
+			//System.out.println(TexturesName.getTextureName(Item_Names.MYFIRSTITEM));
 			brick = par1IconRegister.registerIcon(TexturesName.getTextureName(Item_Names.MYFIRSTITEM));
 	}
 
