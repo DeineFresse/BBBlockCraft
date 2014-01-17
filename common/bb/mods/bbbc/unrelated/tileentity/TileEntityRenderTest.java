@@ -13,6 +13,7 @@ public class TileEntityRenderTest extends TileEntity {
 
 	public List<Fishes> fishA = new ArrayList<Fishes>();
 	public byte sides = 0;
+	public int pass =-1;
 	
 	
 	public TileEntityRenderTest() {
@@ -59,6 +60,7 @@ public class TileEntityRenderTest extends TileEntity {
 
 	@Override
 	public boolean shouldRenderInPass(int pass) {
+		this.pass = pass;
 		return true;
 	}
 

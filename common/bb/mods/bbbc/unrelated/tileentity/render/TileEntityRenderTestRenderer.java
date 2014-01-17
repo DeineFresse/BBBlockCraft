@@ -23,52 +23,57 @@ public class TileEntityRenderTestRenderer extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity tileentity, double d0, double d1,
 			double d2, float f) {
 		TileEntityRenderTest te = (TileEntityRenderTest) tileentity;
-		renderTE(te, tileentity.worldObj, d0, d1, d2, f);
-	}
-
-	public void renderTE(TileEntityRenderTest te, World world, double d0,
-			double d1, double d2, float f) {
-
-		//Tessellator t = Tessellator.instance;
-
-		//int dir = world.getBlockMetadata(te.xCoord, te.yCoord, te.zCoord);
-
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) d0, (float) d1, (float) d2);
+	
+		if(te.pass==0){
+		renderTEPass0(te, tileentity.worldObj, d0, d1, d2, f);
+		}
+		else if(te.pass==1) {
+		renderTEPass1(te, tileentity.worldObj, d0, d1, d2, f);
+		}
+		GL11.glPopMatrix();
+	}
+
+	private void renderTEPass0(TileEntityRenderTest te, World worldObj,
+			double d0, double d1, double d2, float f) {
 		
+		
+			
+	}
+
+	public void renderTEPass1(TileEntityRenderTest te, World world, double d0,
+			double d1, double d2, float f) {
+			
 		for (int i = 0; i < te.fishA.size(); i++) {
 
 			te.fishA.get(i).moveFish();
 			Fishes fishe = te.fishA.get(i);
 
-			drawFish(0.5F, fishe.xCoord, fishe.yCoord, fishe.zCoord, 0F, 0F, 0F);
+			drawFish(fishe.size, fishe.xCoord, fishe.yCoord, fishe.zCoord, 0F, 0F, 0F);
 		}
-		//int x = te.xCoord, y = te.yCoord, z = te.zCoord;
-
-		
-		for (int i = 0; i <=3; i++) {
 			
+		for (int i = 0; i <=3; i++) {
 			int q = 1;
 			q=q<<i;
-			
 			if ((te.sides & q) != 0) {
-				GL11.glPushMatrix();
-				GL11.glTranslatef(0.5F, 0, 0.5F);
-				GL11.glRotatef(i * (90F), 0F, 1F, 0F);
-				GL11.glTranslatef(-0.5F, 0, -0.5F);
-				drawSide();
-				GL11.glPopMatrix();
+				drawSide(background,i);
 			}
 		}
-		GL11.glPopMatrix();
+		
 	}
 
-	private void drawSide() {
+	private void drawSide(ResourceLocation re,int side) {
 
 		Tessellator t = Tessellator.instance;
 
+		GL11.glPushMatrix();
+		GL11.glTranslatef(0.5F, 0, 0.5F);
+		GL11.glRotatef(side * (90F), 0F, 1F, 0F);
+		GL11.glTranslatef(-0.5F, 0, -0.5F);
+		
 		t.startDrawingQuads();
-		this.bindTexture(background);
+		this.bindTexture(re);
 
 		t.addVertexWithUV(0, 0, 0.999F, 1, 0);
 		t.addVertexWithUV(1, 0, 0.999F, 1, 1);
@@ -76,6 +81,8 @@ public class TileEntityRenderTestRenderer extends TileEntitySpecialRenderer {
 		t.addVertexWithUV(0, 1, 0.999F, 0, 0);
 
 		t.draw();
+		
+		GL11.glPopMatrix();
 
 	}
 
