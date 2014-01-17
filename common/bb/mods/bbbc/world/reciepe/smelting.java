@@ -9,7 +9,7 @@ public class smelting {
 	public static void SmeltingRecipe() {
 
 		// Add Furnace Recipe
-		GameRegistry.addSmelting(162, new ItemStack(block.CloudWhite, 1, 0),5.0F);
+		GameRegistry.addSmelting(block.cloudore, new ItemStack(block.CloudWhite, 1, 0),5.0F);
 
 	}
 

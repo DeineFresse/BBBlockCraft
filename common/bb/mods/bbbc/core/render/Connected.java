@@ -1,5 +1,7 @@
 package bb.mods.bbbc.core.render;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockAir;
 import net.minecraft.world.IBlockAccess;
 
 public class Connected {
@@ -15,7 +17,7 @@ public class Connected {
 	 * @return int[],texture,sub-texture
      */
 
-	public static int[] getConnection(int[] blockList, int dir,IBlockAccess IBA, int x, int y, int z) {
+	public static int[] getConnection(Block[] blockList, int dir,IBlockAccess IBA, int x, int y, int z) {
 		byte Connected = 0;
 		byte Corner = 0;
 
@@ -87,26 +89,28 @@ public class Connected {
 		}
 		}
 
-		if (canConnect(IBA.getBlockId(x + cCX[0], y + cCY[0], z + cCZ[0]),
+		//func_147439_a was getBlockId()
+		
+		if (canConnect(IBA.func_147439_a(x + cCX[0], y + cCY[0], z + cCZ[0]),
 				blockList)) {
 			Connected |= 1;
 		}
-		if (canConnect(IBA.getBlockId(x + cCX[1], y + cCY[1], z + cCZ[1]),
+		if (canConnect(IBA.func_147439_a(x + cCX[1], y + cCY[1], z + cCZ[1]),
 				blockList)) {
 			Connected |= 2;
 		}
-		if (canConnect(IBA.getBlockId(x + cCX[2], y + cCY[2], z + cCZ[2]),
+		if (canConnect(IBA.func_147439_a(x + cCX[2], y + cCY[2], z + cCZ[2]),
 				blockList)) {
 			Connected |= 4;
 		}
-		if (canConnect(IBA.getBlockId(x + cCX[3], y + cCY[3], z + cCZ[3]),
+		if (canConnect(IBA.func_147439_a(x + cCX[3], y + cCY[3], z + cCZ[3]),
 				blockList)) {
 			Connected |= 8;
 		}
 		// --------------------------------------------------------
 		/** Rechts Unten **/
 		if (canConnect(
-				IBA.getBlockId(x + cCX[2] + cCX[0], y + cCY[2] + cCY[0], z
+				IBA.func_147439_a(x + cCX[2] + cCX[0], y + cCY[2] + cCY[0], z
 						+ cCZ[2] + cCZ[0]), blockList)) {
 			switch (Connected) {
 			case 15: {
@@ -124,7 +128,7 @@ public class Connected {
 		}
 		/** Rechts Oben **/
 		if (canConnect(
-				IBA.getBlockId(x + cCX[2] + cCX[1], y + cCY[2] + cCY[1], z
+				IBA.func_147439_a(x + cCX[2] + cCX[1], y + cCY[2] + cCY[1], z
 						+ cCZ[2] + cCZ[1]), blockList)) {
 
 			switch (Connected) {
@@ -145,7 +149,7 @@ public class Connected {
 		}
 		/** Links Unten **/
 		if (canConnect(
-				IBA.getBlockId(x + cCX[3] + cCX[0], y + cCY[3] + cCY[0], z
+				IBA.func_147439_a(x + cCX[3] + cCX[0], y + cCY[3] + cCY[0], z
 						+ cCZ[3] + cCZ[0]), blockList)) {
 			switch (Connected) {
 			case 11: {
@@ -166,7 +170,7 @@ public class Connected {
 		}
 		/** Links Oben **/
 		if (canConnect(
-				IBA.getBlockId(x + cCX[1] + cCX[3], y + cCY[1] + cCY[3], z
+				IBA.func_147439_a(x + cCX[1] + cCX[3], y + cCY[1] + cCY[3], z
 						+ cCZ[1] + cCZ[3]), blockList)) {
 
 			switch (Connected) {
@@ -188,14 +192,14 @@ public class Connected {
 			}
 
 		}
-		if (canConnect(IBA.getBlockId(x + AX, y + AY, z + AZ), blockList)&&IBA.getBlockId(x+AX, y+AY, z+AZ)!=0) {
+		if (canConnect(IBA.func_147439_a(x + AX, y + AY, z + AZ), blockList)&&IBA.func_147439_a(x+AX, y+AY, z+AZ) instanceof BlockAir) {
 			Connected = 15;
 			Corner = 15;
 		}
 		return new int[] { Connected, Corner };
 	}
 
-	private static boolean canConnect(int blockId, int[] ids) {
+	private static boolean canConnect(Block blockId, Block[] ids) {
 
 		for (int i = 0; i < ids.length; i++) {
 			if (blockId == ids[i]) {

@@ -3,11 +3,13 @@ package bb.mods.bbbc.world.gen.structure;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.Block;
+
 public class Walls extends StructureBlock {
 
 	private int L,W,H;
 	
-	public Walls(int x,int y,int z,int id,int meta,boolean rotmeta,int l,int w,int h){
+	public Walls(int x,int y,int z,Block id,int meta,boolean rotmeta,int l,int w,int h){
 		super(x,y,z,id,meta,rotmeta);
 		L = l;
 		W = w;

@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+import bb.mods.bbbc.machines.block.block;
 import bb.mods.bbbc.machines.lib.Item_Names;
 import bb.mods.bbbc.machines.lib.LoadedIDs;
 import bb.mods.bbbc.core.lib.TexturesName;
@@ -20,7 +21,7 @@ public class LayoutCard extends Item {
 
 	public LayoutCard(int itemID) {
 
-		super(itemID);
+		super();
 		hasSubtypes = true;
 		canRepair = false;
 		maxStackSize = 64;
@@ -32,7 +33,7 @@ public class LayoutCard extends Item {
 	
 	@Override
 	public boolean onItemUseFirst(ItemStack stack,EntityPlayer player,World world,int x,int y,int z,int side,float hitX,float hitY,float hitZ){
-		if(!world.isRemote&&world.getBlockId(x, y, z)==LoadedIDs.Block_FirstMachine){
+		if(!world.isRemote&&world.func_147439_a(x, y, z)==block.FirstMachine){
 			int meta = world.getBlockMetadata(x, y, z);
 			
 			int disabled = (meta&1);
@@ -56,7 +57,7 @@ public class LayoutCard extends Item {
 	public void getSubItems(int par1, CreativeTabs par2CreativeTabs,
 			List par3List) {
 		for (int i = 0; i < 4; i++) {
-			par3List.add(new ItemStack(par1, 1, i));
+			par3List.add(new ItemStack(this, 1, i));
 		}
 
 	}

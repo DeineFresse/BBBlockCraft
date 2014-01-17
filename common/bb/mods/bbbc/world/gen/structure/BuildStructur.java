@@ -3,6 +3,7 @@ package bb.mods.bbbc.world.gen.structure;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import bb.mods.bbbc.unrelated.structuren.Structuren;
@@ -34,11 +35,12 @@ public class BuildStructur {
 		for (int i = 0; i < a.size(); i++) {
 
 			if (a != null && a.get(i) != null) {
-				int x, y, z, id, meta;
+				int x, y, z, meta;
+				Block id;
 				x = par2 + a.get(i).getXCoord();
 				y = par3 + a.get(i).getYCoord();
 				z = par4 + a.get(i).getZCoord();
-				id = a.get(i).getID();
+				id = a.get(i).getBlock();
 				meta = a.get(i).getMeta();
 				par1.setBlock(x, y, z, id, meta, 7);
 			}

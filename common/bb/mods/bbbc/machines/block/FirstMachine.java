@@ -10,6 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -206,9 +207,9 @@ public class FirstMachine extends BlockContainer {
 		if (world.isAirBlock(x, y, z)) {
 			for (int i = 0; i < inv.getSizeInventory(); i++) {
 				ItemStack stack = inv.getStackInSlot(i);
-				if (stack != null && stack.itemID == Block.anvil.blockID) {
+				if (stack != null && Block.func_149634_a(stack.getItem())== Blocks.anvil) {
 					inv.decrStackSize(i, 1);
-					world.setBlock(x, y, z, Block.anvil.blockID);
+					world.setBlock(x, y, z, Blocks.anvil);
 					return;
 				}
 			}

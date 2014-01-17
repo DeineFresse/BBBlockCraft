@@ -17,11 +17,11 @@ public class block {
 	
 
 	public static void signBlockID() {
-		TestBlock = new TestBlock(LoadedIDs.Block_TestBlock);
-		Faceblock = new Faceblock(LoadedIDs.Block_Faceblock);
-		BigBlock = new BigBlock(LoadedIDs.Block_BigBlock);
-		ConnectedGlass = new ConnectedGlass(LoadedIDs.Block_ConnectedGlass);
-		RenderTestBlock = new RenderTestBlock(LoadedIDs.Block_RenderTestBlock);;
+		TestBlock = new TestBlock(TestBlock);
+		Faceblock = new Faceblock(Faceblock);
+		BigBlock = new BigBlock(BigBlock);
+		ConnectedGlass = new ConnectedGlass(ConnectedGlass);
+		RenderTestBlock = new RenderTestBlock(RenderTestBlock);;
 	}
 
 	public static void Blockreg() {

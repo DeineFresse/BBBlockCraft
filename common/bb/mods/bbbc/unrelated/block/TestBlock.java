@@ -58,8 +58,7 @@ public class TestBlock extends Block {
 		sideIcon = icon.registerIcon(TexturesName.getTextureName(
 				Block_Names.TESTBLOCK.toLowerCase(), "_side"));
 	}
-
-	@SuppressWarnings("static-access")
+	
 	public Icon getIcon(int par1, int par2) {
 
 		switch (par1) {

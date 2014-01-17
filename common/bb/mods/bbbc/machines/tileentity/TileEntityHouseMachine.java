@@ -1,6 +1,8 @@
 package bb.mods.bbbc.machines.tileentity;
 
 import bb.mods.bbbc.core.tileentity.TileEntityInventoryBB;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -14,11 +16,11 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB {
 	
 	public TileEntityHouseMachine(){
 		items = new ItemStack[4];
-		valid = new int[4][];
-		valid[0] = new int[]{159};
-		valid[1] = new int[]{159};
-		valid[2] = new int[]{};
-		valid[3] = new int[]{159};
+		valid = new Item[4][];
+		valid[0] = new Item[]{Item.func_150898_a(Blocks.hardened_clay)};
+		valid[1] = new Item[]{Item.func_150898_a(Blocks.hardened_clay)};
+		valid[2] = new Item[]{};
+		valid[3] = new Item[]{Item.func_150898_a(Blocks.hardened_clay)};
 		
 	}
 	
@@ -90,17 +92,23 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB {
 		switch(buttonId){
 		 case 0:{
 				
+			 /*
+			  * xCoord = field_145851_c
+			  * yCoord = field_145848_d
+			  * zCoord = field_145849_e
+			  * */
+			 
 				 if (!worldObj.isRemote) { 
-					 int newMeta = worldObj.getBlockMetadata(xCoord, yCoord, zCoord)^ 1;
+					 int newMeta = worldObj.getBlockMetadata(field_145851_c, field_145848_d, field_145849_e)^ 1;
 				 
-				 worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, newMeta, 3); }
+				 worldObj.setBlockMetadataWithNotify(field_145851_c, field_145848_d, field_145849_e, newMeta, 3); }
 				 
 				 break;
 		 }
 		 case 1:{
-			 int meta2 = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
+			 int meta2 = worldObj.getBlockMetadata(field_145851_c, field_145848_d, field_145849_e);
 			 
-			 worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, meta2 % 2, 3);
+			 worldObj.setBlockMetadataWithNotify(field_145851_c, field_145848_d, field_145849_e, meta2 % 2, 3);
 			 
 			 break;
 		 }

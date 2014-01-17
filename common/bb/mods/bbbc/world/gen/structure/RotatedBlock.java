@@ -1,10 +1,13 @@
 package bb.mods.bbbc.world.gen.structure;
 
+import net.minecraft.block.Block;
+
 public class RotatedBlock {
 
-	protected int XCoord,YCoord,ZCoord,ID,Meta;
+	protected int XCoord,YCoord,ZCoord,Meta;
+	protected Block ID;
 	
-	public RotatedBlock(int xCoord, int yCoord, int zCoord, int id, int meta) {
+	public RotatedBlock(int xCoord, int yCoord, int zCoord, Block id, int meta) {
 		XCoord = xCoord;
 		YCoord = yCoord;
 		ZCoord = zCoord;
@@ -28,7 +31,7 @@ public class RotatedBlock {
 		return Meta;
 	};
 
-	public final int getID() {
+	public final Block getBlock() {
 		return ID;
 	};
 	

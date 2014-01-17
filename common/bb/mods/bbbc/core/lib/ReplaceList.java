@@ -3,27 +3,30 @@ package bb.mods.bbbc.core.lib;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReplaceList {
-	private static List<Integer> replaceList = new ArrayList<Integer>();
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 
-	public static int[] getReplaceList() {
+public class ReplaceList {
+	private static List<Block> replaceList = new ArrayList<Block>();
+
+	public static Block[] getReplaceList() {
 		
 		if(replaceList.size()>=1){
-		int[] a = new int[replaceList.size()];
+		Block[] a = new Block[replaceList.size()];
 		for(int i=0;i<a.length;i++){
 			a[i] = replaceList.get(i);
 		}
 		return a;
 		}
 		else{
-			addToReplaceList(0);
-			return new int[]{0};
+			addToReplaceList(Blocks.air);
+			return new Block[]{Blocks.air};
 		}
 	}
 	
-	public static void addToReplaceList(int i){
-		if(!replaceList.contains(i)){
-		replaceList.add(i);
+	public static void addToReplaceList(Block air){
+		if(!replaceList.contains(air)){
+		replaceList.add(air);
 		}
 	}
 	

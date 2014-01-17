@@ -79,8 +79,10 @@ public class GuiFirstMachine extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
 		fontRenderer.drawSplitString("Silly Machine", 8, 6, 100, 0x404040);
+		
+		//field _145851_c = xCoord ,field_145848_d = yCoord,field_145849_e = zCoord
 
-		int type = machine.worldObj.getBlockMetadata(machine.xCoord, machine.yCoord, machine.zCoord) / 2;
+		int type = machine.worldObj.getBlockMetadata(machine.field_145851_c, machine.field_145848_d, machine.field_145849_e) / 2;
 
 		String str = "";
 		boolean invalid = true;

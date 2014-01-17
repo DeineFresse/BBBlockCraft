@@ -1,10 +1,12 @@
 package bb.mods.bbbc.unrelated.item;
 
+import bb.mods.bbbc.unrelated.block.block;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
 import bb.mods.bbbc.unrelated.lib.LoadedIDs;
 import bb.mods.bbbc.core.lib.ReplaceList;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityFace;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -13,9 +15,9 @@ import net.minecraft.world.World;
 
 public class BigBlockItem extends ItemBlock {
 
-	public BigBlockItem(int par1) {
+	public BigBlockItem(Block block) {
 
-		super(par1);
+		super(block);
 		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.BIGBLOCK));
 
 
@@ -47,7 +49,7 @@ public class BigBlockItem extends ItemBlock {
 						gagShift[i][2], dir);
 
 				if (!world.isAirBlock(x + shift[0], y + shift[1], z + shift[2])
-						&& !isReplaceable(world.getBlockId(x + shift[0], y
+						&& !isReplaceable(world.func_147439_a(x + shift[0], y
 								+ shift[1], z + shift[2]))) {
 
 					canPlace = false;
@@ -64,7 +66,7 @@ public class BigBlockItem extends ItemBlock {
 					shift = rotXZByDir(gagShift[i][0], gagShift[i][1],
 							gagShift[i][2], dir);
 					world.setBlock(x + shift[0], y + shift[1], z + shift[2],
-							LoadedIDs.Block_Faceblock, dir, 0x02);
+							block.Faceblock, dir, 0x02);
 
 					TileEntityFace tileFace = (TileEntityFace) world
 							.getBlockTileEntity(x + shift[0], y + shift[1], z
@@ -87,10 +89,10 @@ public class BigBlockItem extends ItemBlock {
 		return false;
 	}
 
-	private boolean isReplaceable(int theblockId) {
+	private boolean isReplaceable(Block block) {
 
 		for (int i = 0; i < ReplaceList.getReplaceList().length; i++) {
-			if (theblockId == ReplaceList.getReplaceList()[i]) {
+			if (block == ReplaceList.getReplaceList()[i]) {
 				return true;
 			}
 		}

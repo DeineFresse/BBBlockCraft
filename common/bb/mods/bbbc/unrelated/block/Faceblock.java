@@ -3,21 +3,21 @@ package bb.mods.bbbc.unrelated.block;
 import java.io.File;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
+import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import bb.mods.bbbc.core.lib.TexturesName;
+import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import bb.mods.bbbc.core.render.Connected;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
 import bb.mods.bbbc.unrelated.lib.LoadedIDs;
-import bb.mods.bbbc.core.lib.TexturesName;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityFace;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class Faceblock extends BlockContainer {
 
@@ -25,8 +25,8 @@ public class Faceblock extends BlockContainer {
 
 	public static final int shiftedIndex = 165;
 
-	private int[] ids = new int[] { LoadedIDs.Block_BigBlock,
-			LoadedIDs.Block_Faceblock, 20 };
+	private Block[] ids = new Block[] { block.BigBlock,
+			block.Faceblock, Blocks.glass };
 
 	public Faceblock(int id) {
 
@@ -137,10 +137,10 @@ public class Faceblock extends BlockContainer {
 				y, z);
 
 		if (tileEntiy != null) {
-			if (world.getBlockId(tileEntiy.primary_x, tileEntiy.primary_y,
-					tileEntiy.primary_z) < 1
-					|| world.getBlockId(tileEntiy.primary_x,
-							tileEntiy.primary_y, tileEntiy.primary_z) != LoadedIDs.Block_BigBlock) {
+			if (world.func_147439_a(tileEntiy.primary_x, tileEntiy.primary_y,
+					tileEntiy.primary_z) != Blocks.air
+					|| world.func_147439_a(tileEntiy.primary_x,
+							tileEntiy.primary_y, tileEntiy.primary_z) != block.BigBlock) {
 
 				world.destroyBlock(x, y, z, false);
 				world.removeBlockTileEntity(x, y, z);

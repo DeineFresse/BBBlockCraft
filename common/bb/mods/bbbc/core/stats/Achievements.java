@@ -11,10 +11,9 @@ public class Achievements {
 
 	public static Achievement firstAchievement = new Achievement(2001,
 			"Getting Ore", 0, 2, block.BlockOreOne,
-			AchievementList.openInventory).setSpecial().registerAchievement();
+			AchievementList.openInventory).setSpecial();
 	public static Achievement secondAchievement = new Achievement(2002,
-			"Smelting the Ore", 2, 2, Block.furnaceBurning, firstAchievement)
-			.registerAchievement();
+			"Smelting the Ore", 2, 2, Block.furnaceBurning, firstAchievement);
 
 	private static void addAchievementName(String ach, String name) {
 		LanguageRegistry.instance().addStringLocalization(ach, "en_US", name);

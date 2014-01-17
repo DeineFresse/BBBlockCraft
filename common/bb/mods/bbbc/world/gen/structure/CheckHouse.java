@@ -1,5 +1,6 @@
 package bb.mods.bbbc.world.gen.structure;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -16,7 +17,7 @@ public class CheckHouse {
 	 * **/
 	
 	public static void HouseBuild(World par1World, int par2, int par3,
-			int par4, EntityPlayer par5EntityPlayer, int ID) {
+			int par4, EntityPlayer par5EntityPlayer, Block ID) {
 
 		int dir = 0;
 		dir = MathHelper
@@ -63,7 +64,7 @@ public class CheckHouse {
 	}
 
 	private static int Houscheck(World par1, int par2, int par3, int par4,
-			int dir, EntityPlayer par6, int ID) {
+			int dir, EntityPlayer par6, Block ID) {
 		if (!par1.isRemote) {
 			switch (dir) {
 			case 0: {

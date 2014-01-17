@@ -1,10 +1,11 @@
 package bb.mods.bbbc.unrelated.render;
 
+import javax.swing.Icon;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
-import net.minecraft.util.Icon;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.IBlockAccess;
 import bb.mods.bbbc.unrelated.common.ClientProxy;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityRenderTest;
@@ -36,7 +37,7 @@ public class TestRender implements ISimpleBlockRenderingHandler {
 	}
 	
 	public void aquarium(IBlockAccess world,int x,int y,int z){
-		Icon a  = Block.waterMoving.getBlockTexture(world, x, y, z, 0);
+		Icon a  = Blocks.water.getBlockTexture(world, x, y, z, 0);
 		
 		double maU = a.getMaxU();
 		double maV = a.getMaxV();
@@ -45,49 +46,51 @@ public class TestRender implements ISimpleBlockRenderingHandler {
 		
 		Tessellator t = Tessellator.instance;
 		
-		if(world.getBlockId(x, y, z)!=world.getBlockId(x-1, y, z)){			
+		//func_147439 was getBlockId
+		
+		if(world.func_147439_a(x, y, z)!=world.func_147439_a(x-1, y, z)){			
 		t.addVertexWithUV(x+0.01D, y, z+1, maU, maV);
 		t.addVertexWithUV(x+0.01D, y, z, maU, miV);
 		t.addVertexWithUV(x+0.01D, y+1, z, miU, miV);
 		t.addVertexWithUV(x+0.01D, y+1, z+1, miU, maV);
 		}
 		
-		if(world.getBlockId(x, y, z)!=world.getBlockId(x+1, y, z)){	
+		if(world.func_147439_a(x, y, z)!=world.func_147439_a(x+1, y, z)){	
 		t.addVertexWithUV(x+1-0.01D, y+1, z+1, maU, maV);
 		t.addVertexWithUV(x+1-0.01D, y+1, z, maU, miV);
 		t.addVertexWithUV(x+1-0.01D, y, z, miU, miV);
 		t.addVertexWithUV(x+1-0.01D, y, z+1, miU, maV);
 		}
 		
-		if(world.getBlockId(x, y, z)!=world.getBlockId(x, y, z+1)){
+		if(world.func_147439_a(x, y, z)!=world.func_147439_a(x, y, z+1)){
 		t.addVertexWithUV(x  ,y+1, z+1-0.01D, maU, maV);
 		t.addVertexWithUV(x+1,y+1, z+1-0.01D, maU, miV);
 		t.addVertexWithUV(x+1,y  , z+1-0.01D, miU, miV);
 		t.addVertexWithUV(x  ,y  , z+1-0.01D, miU, maV);
 		}
 		
-		if(world.getBlockId(x, y, z)!=world.getBlockId(x, y, z-1)){
+		if(world.func_147439_a(x, y, z)!=world.func_147439_a(x, y, z-1)){
 		t.addVertexWithUV(x+1,y+1,z+0.01D, maU, maV);
 		t.addVertexWithUV(x  ,y+1,z+0.01D, maU, miV);
 		t.addVertexWithUV(x  ,y  ,z+0.01D, miU, miV);
 		t.addVertexWithUV(x+1,y  ,z+0.01D, miU, maV);
 		}
 		
-		if(world.getBlockId(x, y, z)!=world.getBlockId(x, y+1, z)){
+		if(world.func_147439_a(x, y, z)!=world.func_147439_a(x, y+1, z)){
 		t.addVertexWithUV(x+1,y+1-0.01D, z, maU, maV);
 		t.addVertexWithUV(x+1,y+1-0.01D, z+1, maU, miV);
 		t.addVertexWithUV(x,  y+1-0.01D, z+1, miU, miV);
 		t.addVertexWithUV(x,  y+1-0.01D,z, miU, maV);
 		}
 		
-		a = Block.sand.getBlockTexture(world, x, y, z, 0);
+		a = Blocks.sand.getBlockTexture(world, x, y, z, 0);
 		
 		maU = a.getMaxU();
 		maV = a.getMaxV();
 		miU = a.getMinU();
 		miV = a.getMinV();
 		
-		if(world.getBlockId(x, y, z)!=world.getBlockId(x, y-1, z)){
+		if(world.func_147439_a(x, y, z)!=world.func_147439_a(x, y-1, z)){
 		t.addVertexWithUV(x , y+0.01D, z, maU, maV);
 		t.addVertexWithUV(x , y+0.01D, z+1, maU, miV);
 		t.addVertexWithUV(x+1,y+0.01D, z+1, miU, miV);

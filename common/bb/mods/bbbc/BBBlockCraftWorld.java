@@ -34,8 +34,6 @@ public class BBBlockCraftWorld {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		ConfigHandler.init(event.getSuggestedConfigurationFile());
-
 		proxy.initSounds();
 		proxy.initRenderers();
 
@@ -51,7 +49,7 @@ public class BBBlockCraftWorld {
 		crafting.Recipe();
 		crafting.ShapelessRecipe();
 
-		GameRegistry.registerWorldGenerator(worldGen);
+		GameRegistry.registerWorldGenerator(worldGen,12);
 		
 	}
 

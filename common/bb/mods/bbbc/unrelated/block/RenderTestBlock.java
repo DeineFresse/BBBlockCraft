@@ -2,16 +2,17 @@ package bb.mods.bbbc.unrelated.block;
 
 import java.util.Random;
 
+import javax.swing.Icon;
+
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -57,7 +58,7 @@ public class RenderTestBlock extends BlockContainer {
 					float spawnZ = par4 + par1World.rand.nextFloat();
 
 					EntityItem droppedItem = new EntityItem(par1World, spawnX,
-							spawnY, spawnZ, new ItemStack(Item.fishRaw.itemID,1,0));
+							spawnY, spawnZ, new ItemStack(Items.fish,1,0));
 
 					float mult = 0.05F;
 
@@ -91,7 +92,7 @@ public class RenderTestBlock extends BlockContainer {
 		}
 		
 		if (a != null) {
-			if (a.itemID == Item.fishRaw.itemID) {
+			if (a.getItem() == Items.fish) {
 
 				if (!par5EntityPlayer.capabilities.isCreativeMode) {
 					int slot = par5EntityPlayer.inventory.currentItem;
@@ -107,7 +108,7 @@ public class RenderTestBlock extends BlockContainer {
 			
 				return true;
 			}
-			if(a.itemID == item.MyFirstItem.itemID){
+			if(a.getItem() == item.MyFirstItem){
 				int dir = MathHelper.floor_double((double) ((par5EntityPlayer.rotationYaw * 4F) / 360F) + 0.5D) & 3;
 				System.out.println(dir);
 				switch(dir){

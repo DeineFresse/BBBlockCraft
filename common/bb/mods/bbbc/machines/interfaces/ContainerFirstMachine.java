@@ -1,13 +1,15 @@
 package bb.mods.bbbc.machines.interfaces;
 
-import bb.mods.bbbc.core.slots.InputSlot;
-import bb.mods.bbbc.machines.tileentity.TileEntityFirstMachine;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import bb.mods.bbbc.core.slots.InputSlot;
+import bb.mods.bbbc.machines.tileentity.TileEntityFirstMachine;
 
 public class ContainerFirstMachine extends Container{
 
@@ -27,7 +29,7 @@ public class ContainerFirstMachine extends Container{
 		}
 		
 		for(int x = 0;x<4;x++){
-			addSlotToContainer(new InputSlot(machine,x,8+18*x,16,new int[]{Block.anvil.blockID}));
+			addSlotToContainer(new InputSlot(machine,x,8+18*x,16,new Item[]{Blocks.anvil}));
 		}
 		
 	}
@@ -52,7 +54,7 @@ public class ContainerFirstMachine extends Container{
 				if(!mergeItemStack(stack,0,36,false)){
 					return null;
 				}
-			}else if(stack.itemID != Block.anvil.blockID||!mergeItemStack(stack,36,36+machine.getSizeInventory(), false)){
+			}else if(Block.func_149634_a(stack.getItem()) != Blocks.anvil||!mergeItemStack(stack,36,36+machine.getSizeInventory(), false)){
 				return null;
 			}
 			

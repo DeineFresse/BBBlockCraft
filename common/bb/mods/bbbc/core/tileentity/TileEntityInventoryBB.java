@@ -5,15 +5,16 @@ import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityInventoryBB extends TileEntity implements IInventory {
 
 	protected ItemStack[] items;
-	protected int[][] valid;
+	protected Item[][] valid;
 	
-	public int[] getValidItems(int slot){
+	public Item[] getValidItems(int slot){
 		return valid[slot];
 	}
 	
@@ -62,12 +63,18 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 	}
 
 	@Override
-	public String getInvName() {
+	
+	//was getInvName()
+	
+	public String func_145825_b() {
 		return "Unnamed";
 	}
 
 	@Override
-	public boolean isInvNameLocalized() {
+	
+	//was isInvNameLocalized()
+	
+	public boolean func_145818_k_() {
 		return false;
 	}
 
@@ -77,8 +84,13 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 	}
 
 	@Override
+
+	//xCoord = field_145851_c
+	//yCoord = field_145848_d
+	//zCoord = field_145849_e
+	
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-		return entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <=64;
+		return entityplayer.getDistanceSq(field_145851_c + 0.5, field_145848_d + 0.5, field_145849_e + 0.5) <=64;
 	}
 
 	@Override
@@ -87,32 +99,32 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 	@Override
 	public void closeChest() {}
 
-	public void addValid(int slot,int ID){
-		int[][] a = valid;
-		valid = new int[a.length][];
-		List<Integer> b = new ArrayList<Integer>();
+	public void addValid(int slot,Item item){
+		Item[][] a = valid;
+		valid = new Item[a.length][];
+		List<Item> b = new ArrayList<Item>();
 		for(int i = 0;i<a[slot].length;i++){
 			b.add(a[slot][i]);
 		}
-		b.add(ID);
+		b.add(item);
 		for(int i = 0;i<a.length;i++){
 			if(i!=slot){
 				valid[i]=a[i];
 			}
 		}
-		int[] c = new int[b.size()];
+		Item[] c = new Item[b.size()];
 		for(int i = 0;i<c.length;i++){
-			c[i] = b.get(i).intValue();
+			c[i] = b.get(i);
 		}
 		valid[slot]= c;
 	}
 	
-	public void removeValid(int slot,int ID){
-		int[][] a = valid;
-		valid = new int[a.length][];
-		List<Integer> b = new ArrayList<Integer>();
+	public void removeValid(int slot,Item item){
+		Item[][] a = valid;
+		valid = new Item[a.length][];
+		List<Item> b = new ArrayList<Item>();
 		for(int i = 0;i<a[slot].length;i++){
-			if(a[slot][i]!=ID){
+			if(a[slot][i]!=item){
 			b.add(a[slot][i]);
 			}
 		}
@@ -121,9 +133,9 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 				valid[i]=a[i];
 			}
 		}
-		int[] c = new int[b.size()];
+		Item[] c = new Item[b.size()];
 		for(int i = 0;i<c.length;i++){
-			c[i] = b.get(i).intValue();
+			c[i] = b.get(i);
 		}
 		valid[slot]= c;
 	}
@@ -132,12 +144,14 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		if(valid!=null){
 		for(int q = 0;q<valid[i].length;q++){
-			if(valid[i][q] == itemstack.itemID){
+			if(valid[i][q] == itemstack.getItem()){
 				return true;
 			}
 		}
 		}
 		return false;
 	}
+
+
 
 }

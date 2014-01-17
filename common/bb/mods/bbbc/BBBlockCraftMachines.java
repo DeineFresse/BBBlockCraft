@@ -30,8 +30,6 @@ public class BBBlockCraftMachines {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
-		ConfigHandler.init(event.getSuggestedConfigurationFile());
-
 		proxy.initSounds();
 		proxy.initRenderers();
 

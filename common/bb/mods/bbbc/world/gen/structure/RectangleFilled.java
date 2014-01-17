@@ -3,11 +3,13 @@ package bb.mods.bbbc.world.gen.structure;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraft.block.Block;
+
 public class RectangleFilled extends SingleBlock {
 
 	private int L,W;
 	
-	public RectangleFilled(int x,int y,int z,int id,int meta,boolean rotate,int l,int w){
+	public RectangleFilled(int x,int y,int z,Block id,int meta,boolean rotate,int l,int w){
 		super(x,y,z,id,meta,rotate);
 		Meta = meta;
 		L = l;

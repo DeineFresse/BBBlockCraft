@@ -118,10 +118,10 @@ public class CloudWhite extends Block {
 	/**
 	 * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
 	 */
-	public void getSubBlocks(int par1, CreativeTabs par2CreativeTabs,
+	public void getSubBlocks(int par1 ,CreativeTabs par2CreativeTabs,
 			List par3List) {
 		for (int var4 = 0; var4 < 16; ++var4) {
-			par3List.add(new ItemStack(par1, 1, var4));
+			par3List.add(new ItemStack(this, 1, var4));
 		}
 	}
 

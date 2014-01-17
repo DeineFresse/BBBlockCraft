@@ -11,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.Icon;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.relauncher.Side;
@@ -20,8 +21,8 @@ public class BigBlock extends Block {
 
 	public static int shiftedIndex;
 
-	private int[] ids = new int[] { LoadedIDs.Block_BigBlock,
-			LoadedIDs.Block_Faceblock, 20 };
+	private Block[] ids = new Block[] { block.BigBlock,
+			block.Faceblock, Blocks.glass };
 
 	@SideOnly(Side.CLIENT)
 	Icon[][] blockIcon;

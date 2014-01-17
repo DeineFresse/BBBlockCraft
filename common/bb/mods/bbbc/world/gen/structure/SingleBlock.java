@@ -1,8 +1,10 @@
 package bb.mods.bbbc.world.gen.structure;
 
+import net.minecraft.block.Block;
+
 public class SingleBlock extends StructureBlock {
 
-	public SingleBlock(int x, int y, int z, int id, int meta, boolean rotmeta) {
+	public SingleBlock(int x, int y, int z,Block id, int meta, boolean rotmeta) {
 		super(x, y, z, id, meta, rotmeta);
 	};
 

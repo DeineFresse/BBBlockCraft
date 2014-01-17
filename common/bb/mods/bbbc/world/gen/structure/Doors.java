@@ -1,8 +1,10 @@
 package bb.mods.bbbc.world.gen.structure;
 
+import net.minecraft.block.Block;
+
 public class Doors extends SingleBlock {
 	
-	public Doors(int x,int y,int z,int id,int dir){
+	public Doors(int x,int y,int z,Block id,int dir){
 		super(x,y,z,id,(dir+1)&3,true);
 	}
 

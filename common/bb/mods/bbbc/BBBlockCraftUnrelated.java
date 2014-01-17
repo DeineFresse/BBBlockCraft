@@ -30,9 +30,7 @@ public class BBBlockCraftUnrelated {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-
-		ConfigHandler.init(event.getSuggestedConfigurationFile());
-
+		
 		proxy.initSounds();
 		proxy.initRenderers();
 		proxy.registerTileEntitySpecialRender();

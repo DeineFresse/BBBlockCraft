@@ -2,20 +2,20 @@ package bb.mods.bbbc.world.gen;
 
 import java.util.Random;
 
-import bb.mods.bbbc.world.lib.LoadedIDs;
-
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
+import bb.mods.bbbc.world.lib.LoadedIDs;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class BBWorldGen implements IWorldGenerator {
 
 	/** Checks if Block is allowed to be replaced */
-	public boolean isitright(int ID) {
-		if (ID == Block.dirt.blockID || ID == Block.stone.blockID
-				|| ID == Block.gravel.blockID) {
+	public boolean isitright(Block ID) {
+		if (ID == Blocks.dirt|| ID == Blocks.stone
+				|| ID == Blocks.gravel) {
 			return true;
 		} else {
 			return false;
@@ -50,10 +50,10 @@ public class BBWorldGen implements IWorldGenerator {
 				int B = Y;
 				int C = chunkZ * 16 + Z;
 
-				if (isitright(world.getBlockId(A, B, C))
-						&& isitright(world.getBlockId(A, B - 1, C))
-						&& isitright(world.getBlockId(A + 1, B, C))
-						&& isitright(world.getBlockId(A + 1, B - 1, C))) {
+				if (isitright(world.func_147439_a(A, B, C))
+						&& isitright(world.func_147439_a(A, B - 1, C))
+						&& isitright(world.func_147439_a(A + 1, B, C))
+						&& isitright(world.func_147439_a(A + 1, B - 1, C))) {
 
 					world.setBlock(chunkX * 16 + X, Y, chunkZ * 16 + Z, ID);
 					world.setBlock(chunkX * 16 + X, Y - 1, chunkZ * 16 + Z, ID);

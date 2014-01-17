@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 public class ConnectedGlass extends Block {
 	
-	int[] ids = new int[] {LoadedIDs.Block_ConnectedGlass,LoadedIDs.Block_RenderTestBlock};
+	Block[] ids = new Block[] {block.ConnectedGlass};
 
 	public ConnectedGlass(int blockID) {
 		super(blockID, Material.glass);
