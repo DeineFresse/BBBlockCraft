@@ -8,7 +8,6 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import bb.mods.bbbc.machines.common.network.PacketHandler;
 import bb.mods.bbbc.machines.tileentity.TileEntityHouseMachine;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -18,8 +17,7 @@ public class GuiHousemachine extends GuiContainer {
 
 	private TileEntityHouseMachine machine;
 
-	public GuiHousemachine(InventoryPlayer invPlayer,
-			TileEntityHouseMachine te) {
+	public GuiHousemachine(InventoryPlayer invPlayer, TileEntityHouseMachine te) {
 		super(new ContainerHouseMachine(invPlayer, te));
 
 		this.machine = te;
@@ -37,26 +35,26 @@ public class GuiHousemachine extends GuiContainer {
 
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		
-		float filled = machine.getTimer()/machine.getMacTimer();
-		
-		float barHeight = (int) (filled *75);
+
+		float filled = machine.getTimer() / machine.getMacTimer();
+
+		float barHeight = (int) (filled * 75);
 
 		if (barHeight > 0) {
-			int srcX = 75 - (int)barHeight;
+			int srcX = 75 - (int) barHeight;
 			int srcY = ySize;
 
-			drawTexturedModalRect(guiLeft + 104 - (int)barHeight,guiTop + 30, srcX,
-					srcY, (int)barHeight,18);
+			drawTexturedModalRect(guiLeft + 104 - (int) barHeight, guiTop + 30,
+					srcX, srcY, (int) barHeight, 18);
 		}
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
-		fontRenderer.drawSplitString("Silly Machine", 8, 6, 100, 0x404040);
+		fontRendererObj.drawSplitString("Silly Machine", 8, 6, 100, 0x404040);
 
 	}
-	
+
 	@Override
 	public void initGui() {
 		super.initGui();
@@ -64,7 +62,6 @@ public class GuiHousemachine extends GuiContainer {
 
 	@Override
 	protected void actionPerformed(GuiButton button) {
-		PacketHandler.sendButtonPacket((byte) button.id);
 	}
 
 }

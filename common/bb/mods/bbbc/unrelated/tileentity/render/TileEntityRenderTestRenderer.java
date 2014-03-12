@@ -27,10 +27,10 @@ public class TileEntityRenderTestRenderer extends TileEntitySpecialRenderer {
 		GL11.glTranslatef((float) d0, (float) d1, (float) d2);
 	
 		if(te.pass==0){
-		renderTEPass0(te, tileentity.worldObj, d0, d1, d2, f);
+		renderTEPass0(te, tileentity.getWorldObj(), d0, d1, d2, f);
 		}
 		else if(te.pass==1) {
-		renderTEPass1(te, tileentity.worldObj, d0, d1, d2, f);
+		renderTEPass1(te, tileentity.getWorldObj(), d0, d1, d2, f);
 		}
 		GL11.glPopMatrix();
 	}

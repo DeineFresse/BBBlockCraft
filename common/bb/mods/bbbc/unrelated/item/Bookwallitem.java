@@ -5,15 +5,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.unrelated.lib.Item_Names;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 
 public class Bookwallitem extends Item {
 
-	public Bookwallitem(int par1) {
-		super(par1);
+	public Bookwallitem() {
+		super();
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
 		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Item_Names.BOOKWALLITEM));
@@ -21,17 +21,17 @@ public class Bookwallitem extends Item {
 		
 	}
 	@SideOnly(Side.CLIENT)
-	private Icon brick;
+	private IIcon brick;
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister) {		
+	public void registerIcons(IIconRegister par1IconRegister) {		
 			brick = par1IconRegister.registerIcon(TexturesName.getTextureName(Item_Names.BOOKWALLITEM));
 	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public Icon getIconFromDamage(int par1) {
+	public IIcon getIconFromDamage(int par1) {
 		return brick;
 	}
 }

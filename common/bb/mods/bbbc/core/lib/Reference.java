@@ -6,10 +6,11 @@ public class Reference {
 	public static final boolean DEBUGMODE = false;
 
 	// General Mod Konstanten
-	public static final String MOD_ID = "BBBlockCraft";
-	public static final String MOD_NAME = "BBBlockCraft";
+	public static final String MOD_ID = "BBBlockCraftCore";
+	public static final String MOD_NAME = "BBBlockCraftCore";
 	public static final String MOD_VERSION = "DEV-0.1.1";
 	public static final String MOD_CHANNEL = "BB_BBBCCore";
+	public static final String MOD_RESOURCE_LOC = "BBBlockCraft";
 
 	public static final String CHATPREFIX = "[" + MOD_CHANNEL + "]";	
 	

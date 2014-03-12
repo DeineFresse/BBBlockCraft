@@ -17,9 +17,10 @@ public class CloudWhiteItem extends ItemBlock {
 
 	public String getUnlocalizedName(ItemStack itemstack) {
 		
-		
+		//dyeColorNames replaced by field_150923_a
+		//getBlockFromDye replaced by func_150031_c
 		return "tile."+UnlocalizedNames.getUnlocalizedName(Block_Names.CLOUDWHITE)
-				+"."+ItemDye.dyeColorNames[BlockColored.getBlockFromDye(itemstack
+				+"."+ItemDye.field_150923_a[BlockColored.func_150031_c(itemstack
 						.getItemDamage())].toLowerCase();
 
 	}

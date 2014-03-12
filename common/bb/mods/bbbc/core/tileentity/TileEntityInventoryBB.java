@@ -22,6 +22,10 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 	public int getSizeInventory() {
 		return items.length;
 	}
+	
+	public void onInventoryChanged(){
+		markDirty();
+	}
 
 	@Override
 	public ItemStack getStackInSlot(int i) {
@@ -41,6 +45,7 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 				onInventoryChanged();
 			}
 		}
+		onInventoryChanged();
 				return itemstack;
 	}
 
@@ -66,7 +71,7 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 	
 	//was getInvName()
 	
-	public String func_145825_b() {
+	public String getInventoryName() {
 		return "Unnamed";
 	}
 
@@ -74,7 +79,7 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 	
 	//was isInvNameLocalized()
 	
-	public boolean func_145818_k_() {
+	public boolean hasCustomInventoryName() {
 		return false;
 	}
 
@@ -85,19 +90,15 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 
 	@Override
 
-	//xCoord = field_145851_c
-	//yCoord = field_145848_d
-	//zCoord = field_145849_e
-	
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-		return entityplayer.getDistanceSq(field_145851_c + 0.5, field_145848_d + 0.5, field_145849_e + 0.5) <=64;
+		return entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <=64;
 	}
 
 	@Override
-	public void openChest() {}
+	public void openInventory() {}
 
 	@Override
-	public void closeChest() {}
+	public void closeInventory() {}
 
 	public void addValid(int slot,Item item){
 		Item[][] a = valid;
@@ -151,7 +152,5 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 		}
 		return false;
 	}
-
-
 
 }

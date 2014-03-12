@@ -1,6 +1,5 @@
 package bb.mods.bbbc.unrelated.item;
 
-import bb.mods.bbbc.unrelated.lib.LoadedIDs;
 import net.minecraft.item.Item;
 
 public class item {
@@ -13,11 +12,10 @@ public class item {
 
 	public static void signItemID() {
 
-		MyFirstItem = new MyFirstItem(LoadedIDs.Item_MyFirstItem);
-		NineBrickStairsItem = new NineBrickStairsItem(
-				LoadedIDs.Item_NineBrickStairItem);
-		Bookwallitem = new Bookwallitem(LoadedIDs.Item_BookWallItem);
-		SwordUp = new SwordUp(LoadedIDs.Item_SwordUp);
+		MyFirstItem = new MyFirstItem();
+		NineBrickStairsItem = new NineBrickStairsItem();
+		Bookwallitem = new Bookwallitem();
+		SwordUp = new SwordUp();
 	
 	}
 }

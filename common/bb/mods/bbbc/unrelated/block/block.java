@@ -1,7 +1,6 @@
 package bb.mods.bbbc.unrelated.block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import bb.mods.bbbc.unrelated.lib.LoadedIDs;
 import bb.mods.bbbc.unrelated.item.BigBlockItem;
 import net.minecraft.block.Block;
 
@@ -17,11 +16,11 @@ public class block {
 	
 
 	public static void signBlockID() {
-		TestBlock = new TestBlock(TestBlock);
-		Faceblock = new Faceblock(Faceblock);
-		BigBlock = new BigBlock(BigBlock);
-		ConnectedGlass = new ConnectedGlass(ConnectedGlass);
-		RenderTestBlock = new RenderTestBlock(RenderTestBlock);;
+		TestBlock = new TestBlock();
+		Faceblock = new Faceblock();
+		BigBlock = new BigBlock();
+		ConnectedGlass = new ConnectedGlass();
+		RenderTestBlock = new RenderTestBlock();;
 	}
 
 	public static void Blockreg() {

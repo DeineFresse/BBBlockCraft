@@ -2,7 +2,6 @@ package bb.mods.bbbc.unrelated.item;
 
 import bb.mods.bbbc.unrelated.block.block;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
-import bb.mods.bbbc.unrelated.lib.LoadedIDs;
 import bb.mods.bbbc.core.lib.ReplaceList;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityFace;
@@ -49,7 +48,7 @@ public class BigBlockItem extends ItemBlock {
 						gagShift[i][2], dir);
 
 				if (!world.isAirBlock(x + shift[0], y + shift[1], z + shift[2])
-						&& !isReplaceable(world.func_147439_a(x + shift[0], y
+						&& !isReplaceable(world.getBlock(x + shift[0], y
 								+ shift[1], z + shift[2]))) {
 
 					canPlace = false;
@@ -60,7 +59,7 @@ public class BigBlockItem extends ItemBlock {
 			if (canPlace) {
 
 				world.setBlock(x, y, z,
-						bb.mods.bbbc.unrelated.block.BigBlock.shiftedIndex, dir, 0x02);
+						bb.mods.bbbc.unrelated.block.block.BigBlock, dir, 0x02);
 
 				for (int i = 0; i < gagShift.length; i++) {
 					shift = rotXZByDir(gagShift[i][0], gagShift[i][1],
@@ -69,7 +68,7 @@ public class BigBlockItem extends ItemBlock {
 							block.Faceblock, dir, 0x02);
 
 					TileEntityFace tileFace = (TileEntityFace) world
-							.getBlockTileEntity(x + shift[0], y + shift[1], z
+							.getTileEntity(x + shift[0], y + shift[1], z
 									+ shift[2]);
 
 					if (tileFace != null) {

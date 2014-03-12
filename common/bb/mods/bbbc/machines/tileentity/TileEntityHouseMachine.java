@@ -1,13 +1,15 @@
 package bb.mods.bbbc.machines.tileentity;
 
-import bb.mods.bbbc.core.tileentity.TileEntityInventoryBB;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraftforge.common.util.Constants;
+import bb.mods.bbbc.core.IGUITileEntity;
+import bb.mods.bbbc.core.tileentity.TileEntityInventoryBB;
 
-public class TileEntityHouseMachine extends TileEntityInventoryBB {
+public class TileEntityHouseMachine extends TileEntityInventoryBB implements IGUITileEntity{
 	
 	private int proccesTimer;
 	private final int MAXTIMER = 200;
@@ -17,10 +19,10 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB {
 	public TileEntityHouseMachine(){
 		items = new ItemStack[4];
 		valid = new Item[4][];
-		valid[0] = new Item[]{Item.func_150898_a(Blocks.hardened_clay)};
-		valid[1] = new Item[]{Item.func_150898_a(Blocks.hardened_clay)};
+		valid[0] = new Item[]{Item.getItemFromBlock(Blocks.hardened_clay)};
+		valid[1] = new Item[]{Item.getItemFromBlock(Blocks.hardened_clay)};
 		valid[2] = new Item[]{};
-		valid[3] = new Item[]{Item.func_150898_a(Blocks.hardened_clay)};
+		valid[3] = new Item[]{Item.getItemFromBlock(Blocks.hardened_clay)};
 		
 	}
 	
@@ -37,7 +39,7 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB {
 	}
 
 	@Override
-	public String getInvName() {
+	public String getInventoryName() {
 		return "First Machine";
 	}
 
@@ -76,10 +78,10 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB {
 		
 		proccesTimer = compound.getInteger("proccesTimer");
 		
-		NBTTagList items = compound.getTagList("Items");
+		NBTTagList items = compound.getTagList("Items",Constants.NBT.TAG_COMPOUND);
 		
 		for(int i=0;i<items.tagCount();i++){
-			NBTTagCompound item = (NBTTagCompound)items.tagAt(i);
+			NBTTagCompound item = (NBTTagCompound)items.getCompoundTagAt(i);
 			int slot = item.getByte("Slot");
 			
 			if(slot>=0&&slot<getSizeInventory()){
@@ -88,30 +90,26 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB {
 		}
 	}
 
-	public void receiveButtonEvent(byte buttonId) {
+	@Override
+	public void onReceiveButtonEvent(byte buttonId) {
 		switch(buttonId){
 		 case 0:{
-				
-			 /*
-			  * xCoord = field_145851_c
-			  * yCoord = field_145848_d
-			  * zCoord = field_145849_e
-			  * */
 			 
 				 if (!worldObj.isRemote) { 
-					 int newMeta = worldObj.getBlockMetadata(field_145851_c, field_145848_d, field_145849_e)^ 1;
+					 int newMeta = worldObj.getBlockMetadata(xCoord, yCoord, zCoord)^ 1;
 				 
-				 worldObj.setBlockMetadataWithNotify(field_145851_c, field_145848_d, field_145849_e, newMeta, 3); }
+				 worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, newMeta, 3); }
 				 
 				 break;
 		 }
 		 case 1:{
-			 int meta2 = worldObj.getBlockMetadata(field_145851_c, field_145848_d, field_145849_e);
+			 int meta2 = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 			 
-			 worldObj.setBlockMetadataWithNotify(field_145851_c, field_145848_d, field_145849_e, meta2 % 2, 3);
+			 worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord, meta2 % 2, 3);
 			 
 			 break;
 		 }
-		}		
+		}
 	}
+
 }

@@ -7,7 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
-import bb.mods.bbbc.world.lib.LoadedIDs;
+import bb.mods.bbbc.world.block.block;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class BBWorldGen implements IWorldGenerator {
@@ -24,7 +24,7 @@ public class BBWorldGen implements IWorldGenerator {
 
 	/** Generates Ore in a specific pattern */
 	public void generateit(Random random, int chunkX, int chunkZ, World world,
-			IChunkProvider chunkGenerator, IChunkProvider chunkProvider, int ID) {
+			IChunkProvider chunkGenerator, IChunkProvider chunkProvider, Block ID) {
 
 		boolean nosucsess = true;
 		int tries = 0;
@@ -50,10 +50,10 @@ public class BBWorldGen implements IWorldGenerator {
 				int B = Y;
 				int C = chunkZ * 16 + Z;
 
-				if (isitright(world.func_147439_a(A, B, C))
-						&& isitright(world.func_147439_a(A, B - 1, C))
-						&& isitright(world.func_147439_a(A + 1, B, C))
-						&& isitright(world.func_147439_a(A + 1, B - 1, C))) {
+				if (isitright(world.getBlock(A, B, C))
+						&& isitright(world.getBlock(A, B - 1, C))
+						&& isitright(world.getBlock(A + 1, B, C))
+						&& isitright(world.getBlock(A + 1, B - 1, C))) {
 
 					world.setBlock(chunkX * 16 + X, Y, chunkZ * 16 + Z, ID);
 					world.setBlock(chunkX * 16 + X, Y - 1, chunkZ * 16 + Z, ID);
@@ -81,9 +81,9 @@ public class BBWorldGen implements IWorldGenerator {
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 
 		generateit(random, chunkX, chunkZ, world, chunkGenerator,
-				chunkProvider, LoadedIDs.Block_BlockOreOne);
+				chunkProvider, block.BlockOreOne);
 		generateit(random, chunkX, chunkZ, world, chunkGenerator,
-				chunkProvider, LoadedIDs.Block_cloudore);
+				chunkProvider, block.cloudore);
 
 	}
 

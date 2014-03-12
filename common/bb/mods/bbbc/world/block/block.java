@@ -1,7 +1,6 @@
 package bb.mods.bbbc.world.block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import bb.mods.bbbc.world.lib.LoadedIDs;
 import bb.mods.bbbc.world.block.BlockOreOne;
 import bb.mods.bbbc.world.block.CloudWhite;
 import bb.mods.bbbc.world.block.Dark_Stone;
@@ -18,10 +17,10 @@ public class block {
 	public static Block Dark_Stone;
 
 	public static void signBlockID() {
-		BlockOreOne = new BlockOreOne(LoadedIDs.Block_BlockOreOne);
-		cloudore = new cloudore(LoadedIDs.Block_cloudore);
-		CloudWhite = new CloudWhite(LoadedIDs.Block_CloudWhite);
-		Dark_Stone = new Dark_Stone(LoadedIDs.Block_Dark_Stone);
+		BlockOreOne = new BlockOreOne();
+		cloudore = new cloudore();
+		CloudWhite = new CloudWhite();
+		Dark_Stone = new Dark_Stone();
 	}
 
 	public static void Blockreg() {

@@ -20,7 +20,7 @@ public class BuildStructur {
 }
 		if (dir > 5) {
 			if (par1.isRemote) {
-				par5.addChatMessage("You should google 2888 Donauverse by Michèle Métail");
+				//par5.addChatMessage("You should google 2888 Donauverse by Michèle Métail");
 			}
 		}
 	}

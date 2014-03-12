@@ -1,6 +1,5 @@
 package bb.mods.bbbc.machines.item;
 
-import bb.mods.bbbc.machines.lib.LoadedIDs;
 import bb.mods.bbbc.machines.item.LayoutCard;
 import net.minecraft.item.Item;
 
@@ -11,7 +10,7 @@ public class item {
 
 	public static void signItemID() {
 
-		LayoutCard = new LayoutCard(LoadedIDs.Item_LayoutCard);
+		LayoutCard = new LayoutCard();
 
 	}
 }

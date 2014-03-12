@@ -1,6 +1,6 @@
 package bb.mods.bbbc.machines.block;
 
-import cpw.mods.fml.common.network.FMLNetworkHandler;
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;//check for better way
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.BBBlockCraftCore;
@@ -8,28 +8,31 @@ import bb.mods.bbbc.machines.lib.Block_Names;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import bb.mods.bbbc.machines.tileentity.TileEntityHouseMachine;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class Housemachine extends BlockContainer {
 
-	public Housemachine(int par1) {
-		super(par1, Material.clay);
+	public Housemachine() {
+		super(Material.clay);
 		setHardness(1.0f);
 		setResistance(0.5f);
-		setStepSound(soundAnvilFootstep);
+		setStepSound(soundTypeStone);
 		setCreativeTab(CreativeTabs.tabDecorations);
-		setLightValue(1.0f);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.HOUSEMACHINE));
+		//setlightValue replaced by setLightLevel
+		setLightLevel(1.0f);
+		//setUnlocalizedName replaced by setBlockName
+		setBlockName(UnlocalizedNames.getUnlocalizedName(Block_Names.HOUSEMACHINE));
 	}
 	
 
@@ -47,8 +50,9 @@ public class Housemachine extends BlockContainer {
 	
 	@Override
 	public void breakBlock(World par1World, int par2, int par3, int par4,
-			int par5, int par6) {
-		TileEntity te = par1World.getBlockTileEntity(par2, par3, par4);
+			Block par5, int par6) {
+		//getBlockTileEntity replaced by getTileEntity
+		TileEntity te = par1World.getTileEntity(par2, par3, par4);
 		if (te != null && te instanceof IInventory) {
 			IInventory inventory = (IInventory) te;
 
@@ -81,16 +85,17 @@ public class Housemachine extends BlockContainer {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static Icon topIcon;
+	public static IIcon topIcon;
 	@SideOnly(Side.CLIENT)
-	public static Icon bottomIcon;
+	public static IIcon bottomIcon;
 	@SideOnly(Side.CLIENT)
-	public static Icon[] sideIcon;
+	public static IIcon[] sideIcon;
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	//registerIcons replaced by registerBlockIcons
+	public void registerBlockIcons(IIconRegister icon) {
 		
-		sideIcon   = new Icon[4];
+		sideIcon   = new IIcon[4];
 		
 		topIcon = icon.registerIcon(TexturesName.getTextureName(Block_Names.HOUSEMACHINE.toLowerCase() , "_top"));
 		bottomIcon = icon.registerIcon(TexturesName.getTextureName(Block_Names.HOUSEMACHINE.toLowerCase() , "_bottom"));
@@ -99,7 +104,7 @@ public class Housemachine extends BlockContainer {
 		}
 	}
 
-	public Icon getIcon(int par1, int par2) {
+	public IIcon getIcon(int par1, int par2) {
 
 		switch (par1) {
 		case 1:
@@ -112,8 +117,10 @@ public class Housemachine extends BlockContainer {
 
 	}
 
+	//createNewTileEntity(World world) replaced by public TileEntity createNewTileEntity(World var1, int var2)
+	
 	@Override
-	public TileEntity createNewTileEntity(World world) {
+	public TileEntity createNewTileEntity(World var1, int var2) {
 		return new TileEntityHouseMachine();
 	}
 

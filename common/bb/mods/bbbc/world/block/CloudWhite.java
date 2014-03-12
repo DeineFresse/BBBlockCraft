@@ -4,11 +4,12 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import bb.mods.bbbc.world.lib.Block_Names;
 import bb.mods.bbbc.core.lib.TexturesName;
@@ -19,17 +20,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class CloudWhite extends Block {
 
 	@SideOnly(Side.CLIENT)
-	Icon[] iconArray;
+	IIcon[] iconArray;
 
-	public CloudWhite(int blockID) {
+	public CloudWhite() {
 
-		super(blockID, Material.cloth);
+		super(Material.cloth);
 		setHardness(0.0f);
 		setResistance(100.0f);
-		setStepSound(soundClothFootstep);
+		setStepSound(soundTypeStone);
 		setCreativeTab(CreativeTabs.tabDecorations);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.CLOUDWHITE));
-		setTextureName("wool_colored");
+		setBlockName(UnlocalizedNames.getUnlocalizedName(Block_Names.CLOUDWHITE));
+		setBlockTextureName("wool_colored");
 
 	}
 
@@ -62,8 +63,8 @@ public class CloudWhite extends Block {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister) {
-		this.iconArray = new Icon[16];
+	public void registerBlockIcons(IIconRegister par1IconRegister) {
+		this.iconArray = new IIcon[16];
 
 		for (int i = 0; i < this.iconArray.length; ++i) {
 			this.iconArray[i] = par1IconRegister.registerIcon(TexturesName.getTextureName(Block_Names.CLOUDWHITE.toLowerCase()
@@ -71,7 +72,7 @@ public class CloudWhite extends Block {
 		}
 	}
 
-	public Icon getIcon(int par1, int par2) {
+	public IIcon getIcon(int par1, int par2) {
 
 		return iconArray[par2];
 
@@ -118,7 +119,7 @@ public class CloudWhite extends Block {
 	/**
 	 * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
 	 */
-	public void getSubBlocks(int par1 ,CreativeTabs par2CreativeTabs,
+	public void getSubBlocks(Item par1 ,CreativeTabs par2CreativeTabs,
 			List par3List) {
 		for (int var4 = 0; var4 < 16; ++var4) {
 			par3List.add(new ItemStack(this, 1, var4));

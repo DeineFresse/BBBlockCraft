@@ -2,10 +2,14 @@ package bb.mods.bbbc.machines.common;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class CommonProxy implements IGuiHandler {
 
+	@SidedProxy(clientSide = "bb.mods.bbbc.machines.common.ClientProxy", serverSide = "bb.mods.bbbc.machines.common.CommonProxy")
+	public static CommonProxy proxy;
+	
 	public void registerRenderInformation() {
 
 	}
@@ -37,5 +41,4 @@ public class CommonProxy implements IGuiHandler {
 	public void initRenderers() {
 
 	}
-
 }

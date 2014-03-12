@@ -1,45 +1,39 @@
 package bb.mods.bbbc.unrelated.block;
 
 import java.io.File;
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import bb.mods.bbbc.core.render.Connected;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
-import bb.mods.bbbc.unrelated.lib.LoadedIDs;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityFace;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class Faceblock extends BlockContainer {
 
-	Icon[][] blockIcon = new Icon[16][16];
+	IIcon[][] blockIIcon = new IIcon[16][16];
 
 	public static final int shiftedIndex = 165;
 
 	private Block[] ids = new Block[] { block.BigBlock,
 			block.Faceblock, Blocks.glass };
 
-	public Faceblock(int id) {
+	public Faceblock() {
 
-		super(id, Material.wood);
+		super(Material.wood);
 
-		setUnlocalizedName(UnlocalizedNames
+		setBlockName(UnlocalizedNames
 				.getUnlocalizedName(Block_Names.FACEBLOCK));
 
-	}
-
-	@Override
-	public int idDropped(int par1, Random par2Random, int par3) {
-		return LoadedIDs.Block_BigBlock;
 	}
 
 	public TileEntity createTileEntity(World world, int metadata) {
@@ -48,67 +42,67 @@ public class Faceblock extends BlockContainer {
 
 	public void breakBlock(World world, int x, int y, int z, int p, int t) {
 
-		TileEntityFace tileEntiy = (TileEntityFace) world.getBlockTileEntity(x,
+		TileEntityFace tileEntiy = (TileEntityFace) world.getTileEntity(x,
 				y, z);
 
 		if (tileEntiy != null) {
-			if (world.getBlockId(tileEntiy.primary_x, tileEntiy.primary_y,
-					tileEntiy.primary_z) == LoadedIDs.Block_BigBlock)
-				world.destroyBlock(tileEntiy.primary_x, tileEntiy.primary_y,
-						tileEntiy.primary_z, false);
+			if (world.getBlock(tileEntiy.primary_x, tileEntiy.primary_y,
+					tileEntiy.primary_z) == block.BigBlock)
+				world.setBlockToAir(tileEntiy.primary_x, tileEntiy.primary_y,
+						tileEntiy.primary_z);
 
 			// world.removeBlockTileEntity(tileEntiy.primary_x,
 			// tileEntiy.primary_y, tileEntiy.primary_z);
 
 		}
 
-		world.removeBlockTileEntity(x, y, z);
+		world.removeTileEntity(x, y, z);
 
 	}
 
 	@SideOnly(Side.CLIENT)
-	public Icon getBlockTexture(IBlockAccess par1IBlockAccess, int par2,
+	public IIcon getBlockTexture(IBlockAccess par1IBlockAccess, int par2,
 			int par3, int par4, int par5) {
 		int[] connected = Connected.getConnection(ids, par5, par1IBlockAccess,
 				par2, par3, par4);
 
-		return this.blockIcon[connected[0]][connected[1]];
+		return this.blockIIcon[connected[0]][connected[1]];
 	}
 
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int par1, int par2) {
-		return this.blockIcon[0][0];
+	public IIcon getIIcon(int par1, int par2) {
+		return this.blockIIcon[0][0];
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	public void registerIIcons(IIconRegister IIcon) {
 
-		for (int i = 0; i < blockIcon.length; i++) {
+		for (int i = 0; i < blockIIcon.length; i++) {
 			if (i == 15) {
-				for (int ii = 0; ii < blockIcon[i].length; ii++) {
-					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK,File.separator,Block_Names.BIGBLOCK+ i,"_"+ ii));
+				for (int ii = 0; ii < blockIIcon[i].length; ii++) {
+					this.blockIIcon[i][ii] = IIcon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK,File.separator,Block_Names.BIGBLOCK+ i,"_"+ ii));
 				}
 			} else if (i == 5 || i == 6 || i == 9 || i == 10) {
-				for (int ii = 0; ii < blockIcon[i].length; ii++) {
+				for (int ii = 0; ii < blockIIcon[i].length; ii++) {
 					int x = ii & 1;
-					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK, File.separator,Block_Names.BIGBLOCK
+					this.blockIIcon[i][ii] = IIcon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK, File.separator,Block_Names.BIGBLOCK
 							+ i
 							, "_"
 							+ x));
 				}
 
 			} else if (isAdvanced(i)) {
-				for (int ii = 0; ii < blockIcon[i].length; ii++) {
+				for (int ii = 0; ii < blockIIcon[i].length; ii++) {
 					int x = ii & 3;
-					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK, File.separator
+					this.blockIIcon[i][ii] = IIcon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK, File.separator
 							, Block_Names.BIGBLOCK
 							+ i
 							, "_"
 							+ x));
 				}
 			} else {
-				for (int ii = 0; ii < blockIcon[i].length; ii++) {
-					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK
+				for (int ii = 0; ii < blockIIcon[i].length; ii++) {
+					this.blockIIcon[i][ii] = IIcon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK
 							, File.separator
 							, Block_Names.BIGBLOCK
 							+ i
@@ -132,23 +126,23 @@ public class Faceblock extends BlockContainer {
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, int p) {
-		TileEntityFace tileEntiy = (TileEntityFace) world.getBlockTileEntity(x,
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block p) {
+		TileEntityFace tileEntiy = (TileEntityFace) world.getTileEntity(x,
 				y, z);
 
 		if (tileEntiy != null) {
-			if (world.func_147439_a(tileEntiy.primary_x, tileEntiy.primary_y,
+			if (world.getBlock(tileEntiy.primary_x, tileEntiy.primary_y,
 					tileEntiy.primary_z) != Blocks.air
-					|| world.func_147439_a(tileEntiy.primary_x,
+					|| world.getBlock(tileEntiy.primary_x,
 							tileEntiy.primary_y, tileEntiy.primary_z) != block.BigBlock) {
 
-				world.destroyBlock(x, y, z, false);
-				world.removeBlockTileEntity(x, y, z);
+				world.setBlockToAir(x, y, z);
+				world.removeTileEntity(x, y, z);
 
 			}
 		} else {
-			world.destroyBlock(x, y, z, false);
-			world.removeBlockTileEntity(x, y, z);
+			world.setBlockToAir(x, y, z);
+			world.removeTileEntity(x, y, z);
 
 		}
 
@@ -160,8 +154,7 @@ public class Faceblock extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World world) {
-		// TODO Auto-generated method stub
+	public TileEntity createNewTileEntity(World var1, int var2) {
 		return null;
 	}
 

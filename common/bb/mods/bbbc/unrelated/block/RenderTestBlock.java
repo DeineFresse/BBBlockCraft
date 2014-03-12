@@ -2,17 +2,17 @@ package bb.mods.bbbc.unrelated.block;
 
 import java.util.Random;
 
-import javax.swing.Icon;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -27,13 +27,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class RenderTestBlock extends BlockContainer {
 
-	public RenderTestBlock(int id) {
-		super(id, Material.clay);
+	public RenderTestBlock() {
+		super(Material.clay);
 		setCreativeTab(CreativeTabs.tabBlock);
 		setResistance(1);
 		setHardness(1);
-		setLightValue(0.5F);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.RTB));
+		setLightLevel(0.5F);
+		setBlockName(UnlocalizedNames.getUnlocalizedName(Block_Names.RTB));
 	}
 
 	@Override
@@ -43,8 +43,8 @@ public class RenderTestBlock extends BlockContainer {
 	
 	@Override
 	public void breakBlock(World par1World, int par2, int par3, int par4,
-			int par5, int par6) {
-		TileEntity te = par1World.getBlockTileEntity(par2, par3, par4);
+			Block par5, int par6) {
+		TileEntity te = par1World.getTileEntity(par2, par3, par4);
 		if (te != null&&te instanceof TileEntityRenderTest) {
 			TileEntityRenderTest fish = (TileEntityRenderTest) te;
 
@@ -86,7 +86,7 @@ public class RenderTestBlock extends BlockContainer {
 		TileEntityRenderTest te = null;
 		try {
 			te = (TileEntityRenderTest) par1World
-					.getBlockTileEntity(par2, par3, par4);
+					.getTileEntity(par2, par3, par4);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -168,17 +168,17 @@ public class RenderTestBlock extends BlockContainer {
 	}
 
 	@SideOnly(Side.CLIENT)
-	Icon blockIcon;
+	IIcon blockIcon;
 
 	@Override
-	public Icon getBlockTexture(IBlockAccess par1iBlockAccess, int par2,
+	public IIcon getIcon(IBlockAccess par1iBlockAccess, int par2,
 			int par3, int par4, int par5) {
 		return blockIcon;
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	public void registerBlockIcons(IIconRegister icon) {
 		blockIcon = icon.registerIcon(TexturesName.getTextureName(
 				Block_Names.TESTBLOCK.toLowerCase(), "_top"));
 	}
@@ -189,7 +189,7 @@ public class RenderTestBlock extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World world) {
+	public TileEntity createNewTileEntity(World world,int kp) {
 		// TODO Auto-generated method stub
 		return new TileEntityRenderTest();
 	}

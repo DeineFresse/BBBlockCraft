@@ -1,19 +1,16 @@
 package bb.mods.bbbc.unrelated.block;
 
-import java.io.File;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.core.render.Connected;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
-import bb.mods.bbbc.unrelated.lib.LoadedIDs;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -21,19 +18,19 @@ public class ConnectedGlass extends Block {
 	
 	Block[] ids = new Block[] {block.ConnectedGlass};
 
-	public ConnectedGlass(int blockID) {
-		super(blockID, Material.glass);
+	public ConnectedGlass() {
+		super(Material.glass);
 		setHardness(1.0f);
 		setResistance(200000.0f);
-		setStepSound(soundGlassFootstep);
+		setStepSound(soundTypeGlass);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setLightValue(1.0F);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.CONNECTEDGLASS));
+		setLightLevel(1.0F);
+		setBlockName(UnlocalizedNames.getUnlocalizedName(Block_Names.CONNECTEDGLASS));
 
 	}
 
 	@SideOnly(Side.CLIENT)
-	public Icon getBlockTexture(IBlockAccess par1IBlockAccess, int par2,
+	public IIcon getBlockTexture(IBlockAccess par1IBlockAccess, int par2,
 			int par3, int par4, int par5) {
 		
 		int[] con= Connected.getConnection(ids, par5, par1IBlockAccess,par2, par3, par4);
@@ -42,27 +39,28 @@ public class ConnectedGlass extends Block {
 	}
 	
 	@Override
-	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5) {		
+	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, Block par5) {		
 	}
 
 	@SideOnly(Side.CLIENT)
-	public Icon getIcon(int par1, int par2) {
+	public IIcon getIcon(int par1, int par2) {
 		return this.blockIcon[0][0];
 	}
 	
 	@SideOnly(Side.CLIENT)
-	protected Icon[][] blockIcon;
+	protected IIcon[][] blockIcon;
 
+	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	public void registerBlockIcons(IIconRegister icon) {
 			
-		blockIcon = new Icon[16][16];
+		blockIcon = new IIcon[16][16];
 			
 		for (int i = 0; i < blockIcon.length; i++) {
 			if (i == 15) {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
 					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.CONNECTEDGLASS
-							+ File.separatorChar
+							+ ":"
 							, Block_Names.CONNECTEDGLASS
 							+ i
 							, "_" + ii));
@@ -71,7 +69,7 @@ public class ConnectedGlass extends Block {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
 					int x = ii & 1;
 					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.CONNECTEDGLASS
-							+ File.separatorChar
+							+ ":"
 							, Block_Names.CONNECTEDGLASS
 							+ i
 							, "_" + x));
@@ -81,7 +79,7 @@ public class ConnectedGlass extends Block {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
 					int x = ii & 3;
 					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.CONNECTEDGLASS
-							+ File.separatorChar
+							+ ":"
 							, Block_Names.CONNECTEDGLASS
 							+ i
 							, "_" + x));
@@ -89,7 +87,7 @@ public class ConnectedGlass extends Block {
 			} else {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
 					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.CONNECTEDGLASS
-							+ File.separatorChar
+							+ ":"
 							, Block_Names.CONNECTEDGLASS
 							+ i
 							, "_" + 0));

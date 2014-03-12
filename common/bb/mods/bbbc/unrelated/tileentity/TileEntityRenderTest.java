@@ -2,22 +2,17 @@ package bb.mods.bbbc.unrelated.tileentity;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.INetworkManager;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.Packet132TileEntityData;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.Constants;
 
 public class TileEntityRenderTest extends TileEntity {
 
 	public List<Fishes> fishA = new ArrayList<Fishes>();
 	public byte sides = 0;
 	public int pass =-1;
-	
-	
-	public TileEntityRenderTest() {
-		}
 
 	@Override
 	public void writeToNBT(NBTTagCompound par1) {
@@ -48,15 +43,7 @@ public class TileEntityRenderTest extends TileEntity {
 	
 	public void addfish(){
 		fishA.add(new Fishes());
-	}
-
-	@Override
-	public Packet getDescriptionPacket() {
-		NBTTagCompound nbtTag = new NBTTagCompound();
-		this.writeToNBT(nbtTag);
-		return new Packet132TileEntityData(xCoord, yCoord, zCoord, 1, nbtTag);
-
-	}
+		}
 
 	@Override
 	public boolean shouldRenderInPass(int pass) {
@@ -65,20 +52,15 @@ public class TileEntityRenderTest extends TileEntity {
 	}
 
 	@Override
-	public void onDataPacket(INetworkManager net, Packet132TileEntityData packet) {
-		readFromNBT(packet.data);
-	}
-
-	@Override
 	public void readFromNBT(NBTTagCompound par1) {
 		super.readFromNBT(par1);
 		
 		sides = par1.getByte("sides");
 
-		NBTTagList fish = par1.getTagList("fishes");
+		NBTTagList fish = par1.getTagList("fishes",Constants.NBT.TAG_COMPOUND);
 
 		for (int i = 0; i < fish.tagCount(); i++) {
-			fishA.add(Fishes.fishesFromNBTTagCompound((NBTTagCompound)fish.tagAt(i)));
+			fishA.add(Fishes.fishesFromNBTTagCompound(fish.getCompoundTagAt(i)));
 		}
 
 	}

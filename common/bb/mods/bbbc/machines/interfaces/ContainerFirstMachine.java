@@ -29,7 +29,7 @@ public class ContainerFirstMachine extends Container{
 		}
 		
 		for(int x = 0;x<4;x++){
-			addSlotToContainer(new InputSlot(machine,x,8+18*x,16,new Item[]{Blocks.anvil}));
+			addSlotToContainer(new InputSlot(machine,x,8+18*x,16,new Item[]{Item.getItemFromBlock(Block.getBlockFromName("anvil"))}));
 		}
 		
 	}
@@ -54,7 +54,7 @@ public class ContainerFirstMachine extends Container{
 				if(!mergeItemStack(stack,0,36,false)){
 					return null;
 				}
-			}else if(Block.func_149634_a(stack.getItem()) != Blocks.anvil||!mergeItemStack(stack,36,36+machine.getSizeInventory(), false)){
+			}else if(Block.getBlockFromItem(stack.getItem()) != Blocks.anvil||!mergeItemStack(stack,36,36+machine.getSizeInventory(), false)){
 				return null;
 			}
 			

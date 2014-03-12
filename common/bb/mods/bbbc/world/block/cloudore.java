@@ -7,26 +7,26 @@ import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 
 public class cloudore extends Block {
 
-	public cloudore(int blockID) {
+	public cloudore() {
 
-		super(blockID, Material.plants);
+		super(Material.plants);
 		setHardness(0.5f);
 		setResistance(5.0f);
-		setStepSound(soundStoneFootstep);
+		setStepSound(soundTypeStone);
 		setCreativeTab(CreativeTabs.tabBlock);
-		setLightValue(0.5F);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Block_Names.CLOUDORE));
+		setLightLevel(0.5F);
+		setBlockName(UnlocalizedNames.getUnlocalizedName(Block_Names.CLOUDORE));
 
 
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister icon) {
+	public void registerIcons(IIconRegister icon) {
 		blockIcon = icon.registerIcon(TexturesName.getTextureName(Block_Names.CLOUDORE));
 	}
 }

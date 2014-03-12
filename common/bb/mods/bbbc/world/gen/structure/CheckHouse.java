@@ -2,6 +2,7 @@ package bb.mods.bbbc.world.gen.structure;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -35,25 +36,22 @@ public class CheckHouse {
 			String s = I.toString();
 			Integer II = new Integer(dir);
 			ss = II.toString();
-			par5EntityPlayer.addChatMessage(ss);
-			par5EntityPlayer.addChatMessage(s);
+			par5EntityPlayer.addChatMessage(new ChatComponentText(s));
+			par5EntityPlayer.addChatMessage(new ChatComponentText(ss));
 
 			switch (Ergebnis) {
 			case 0: {
-				par5EntityPlayer
-						.addChatMessage("Building was not possible,to less space!");
+				par5EntityPlayer.addChatMessage(new ChatComponentText("Building was not possible,to less space!"));
 				break;
 			}
 			case 1: {
-				par5EntityPlayer.addChatMessage("Building is Possible!");
+				par5EntityPlayer.addChatMessage(new ChatComponentText("Building is Possible!"));
 				BuildStructur.BuildBrickHouse(par1World, par2, par3, par4,
 						par5EntityPlayer, dir);
 				break;
 			}
 			case 2: {
-				par5EntityPlayer
-						.addChatMessage("Build not possible,ERROR,unexpacted Output from Methode Housecheck ("
-								+ ss + ")");
+				par5EntityPlayer.addChatMessage(new ChatComponentText("Build not possible,ERROR,unexpacted Output from Methode Housecheck ("+ ss + ")"));
 				break;
 			}
 			case 3: {

@@ -5,18 +5,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.unrelated.lib.Item_Names;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
-import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Icon;
+import net.minecraft.util.IIcon;
 
 public class SwordUp extends Item {
 
-	public SwordUp(int ID) {
-		super(ID);
+	public SwordUp() {
 		maxStackSize = 1;
 		setMaxDamage(100000);
 		setCreativeTab(CreativeTabs.tabMisc);
@@ -25,11 +24,11 @@ public class SwordUp extends Item {
 	}
 	
 	@SideOnly(Side.CLIENT)
-	private Icon brick;
+	private IIcon brick;
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister par1IconRegister) {		
+	public void registerIcons(IIconRegister par1IconRegister) {		
 			brick = par1IconRegister.registerIcon(TexturesName.getTextureName(Item_Names.SWORDUP));
 	}
 
@@ -50,7 +49,7 @@ public class SwordUp extends Item {
 	  
 	@Override
 	@SideOnly(Side.CLIENT)
-	public Icon getIconFromDamage(int par1) {
+	public IIcon getIconFromDamage(int par1) {
 		return brick;
 	}
 }

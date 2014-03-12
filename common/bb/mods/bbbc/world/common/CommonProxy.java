@@ -2,10 +2,15 @@ package bb.mods.bbbc.world.common;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class CommonProxy implements IGuiHandler {
 
+	@SidedProxy(clientSide = "bb.mods.bbbc.world.common.ClientProxy", serverSide = "bb.mods.bbbc.world.common.CommonProxy")
+	public static CommonProxy proxy;
+
+	
 	public void registerRenderInformation() {
 
 	}

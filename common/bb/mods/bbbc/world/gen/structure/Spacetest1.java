@@ -25,7 +25,7 @@ public class Spacetest1 {
 		for(int i = 0;i<=whith;i++){
 			for(int ii = 0;ii<=lenght;ii++){
 				for(int iii = 0;iii<=hight;iii++){
-					if(!isReplaceable(par1.func_147439_a(par2+i, par3+iii, par4+ii), ID)){
+					if(!isReplaceable(par1.getBlock(par2+i, par3+iii, par4+ii), ID)){
 						return 0;
 					}
 				}
@@ -48,7 +48,7 @@ public class Spacetest1 {
 			do {
 				z = par4 + 1;
 				do {
-					if (!isReplaceable(par1.func_147439_a(x, y, z), ID)) {
+					if (!isReplaceable(par1.getBlock(x, y, z), ID)) {
 						if (!par5.worldObj.isRemote && Reference.DEBUGMODE) {
 						}
 						return false;
@@ -76,9 +76,9 @@ public class Spacetest1 {
 			do {
 				z = par4 + 8;
 				do {
-					if (!isReplaceable(par1.func_147439_a(x, y, z), ID)) {
+					if (!isReplaceable(par1.getBlock(x, y, z), ID)) {
 						if (!par5.worldObj.isRemote && Reference.DEBUGMODE) {
-							i = par1.func_147439_a(x, y, z);
+							i = par1.getBlock(x, y, z);
 						}
 						return false;
 					}
@@ -103,7 +103,7 @@ public class Spacetest1 {
 			do {
 				z = par4 - 4;
 				do {
-					if (!isReplaceable(par1.func_147439_a(x, y, z), ID)) {
+					if (!isReplaceable(par1.getBlock(x, y, z), ID)) {
 						if (!par5.worldObj.isRemote && Reference.DEBUGMODE) {
 						}
 						return false;
@@ -130,7 +130,7 @@ public class Spacetest1 {
 			do {
 				z = par4 - 4;
 				do {
-					if (!isReplaceable(par1.func_147439_a(x, y, z), ID)) {
+					if (!isReplaceable(par1.getBlock(x, y, z), ID)) {
 						if (!par5.worldObj.isRemote && Reference.DEBUGMODE) {
 						}
 						return false;

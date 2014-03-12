@@ -1,7 +1,6 @@
 package bb.mods.bbbc.machines.block;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import bb.mods.bbbc.machines.lib.LoadedIDs;
 import bb.mods.bbbc.machines.block.FirstMachine;
 import bb.mods.bbbc.machines.block.Housemachine;
 import bb.mods.bbbc.machines.item.FirstMachineItem;
@@ -14,8 +13,8 @@ public class block {
 	public static Block Housemachine;
 
 	public static void signBlockID() {
-		FirstMachine = new FirstMachine(LoadedIDs.Block_FirstMachine);
-		Housemachine = new Housemachine(LoadedIDs.Block_Housemachine);
+		FirstMachine = new FirstMachine();
+		Housemachine = new Housemachine();
 	}
 
 	public static void Blockreg() {

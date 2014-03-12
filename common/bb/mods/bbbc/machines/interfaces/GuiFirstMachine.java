@@ -9,8 +9,9 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
+import bb.mods.bbbc.BBBlockCraftCore;
+import bb.mods.bbbc.core.common.network.ButtonEventPacket;
 import bb.mods.bbbc.machines.block.block;
-import bb.mods.bbbc.machines.common.network.PacketHandler;
 import bb.mods.bbbc.machines.tileentity.TileEntityFirstMachine;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -40,9 +41,10 @@ public class GuiFirstMachine extends GuiContainer {
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
-		int meta = machine.worldObj.getBlockMetadata(machine.xCoord, machine.yCoord, machine.zCoord);
-		int type = meta/2;
-				
+		int meta = machine.getWorldObj().getBlockMetadata(machine.xCoord,
+				machine.yCoord, machine.zCoord);
+		int type = meta / 2;
+
 		switch (type) {
 		case 1: {
 			drawTexturedModalRect(guiLeft + 6, guiTop + 52, 40, ySize, 20, 20);
@@ -70,19 +72,20 @@ public class GuiFirstMachine extends GuiContainer {
 			drawTexturedModalRect(guiLeft + 155, guiTop + 77 - barHeight, srcX,
 					srcY, 10, barHeight);
 		}
-		
-		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-		drawTexturedModelRectFromIcon(guiLeft+8, guiTop+35, block.FirstMachine.getIcon(1,meta), 16, 16);
+
+		Minecraft.getMinecraft().getTextureManager()
+				.bindTexture(TextureMap.locationBlocksTexture);
+		drawTexturedModelRectFromIcon(guiLeft + 8, guiTop + 35,
+				block.FirstMachine.getIcon(1, meta), 16, 16);
 
 	}
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int x, int y) {
-		fontRenderer.drawSplitString("Silly Machine", 8, 6, 100, 0x404040);
-		
-		//field _145851_c = xCoord ,field_145848_d = yCoord,field_145849_e = zCoord
+		fontRendererObj.drawSplitString("Silly Machine", 8, 6, 100, 0x404040);
 
-		int type = machine.worldObj.getBlockMetadata(machine.field_145851_c, machine.field_145848_d, machine.field_145849_e) / 2;
+		int type = machine.getWorldObj().getBlockMetadata(machine.xCoord,
+				machine.yCoord, machine.zCoord) / 2;
 
 		String str = "";
 		boolean invalid = true;
@@ -105,7 +108,7 @@ public class GuiFirstMachine extends GuiContainer {
 		}
 
 		int color = invalid ? 0xD30000 : 0x404040;
-		fontRenderer.drawSplitString(str, 45, 48, 100, color);
+		fontRendererObj.drawSplitString(str, 45, 48, 100, color);
 
 	}
 
@@ -131,7 +134,8 @@ public class GuiFirstMachine extends GuiContainer {
 
 	@Override
 	protected void actionPerformed(GuiButton button) {
-		PacketHandler.sendButtonPacket((byte) button.id);
+		System.out.println("TestGFM");
+		BBBlockCraftCore.instance.sendToServer(new ButtonEventPacket().getButtonEventPacket(machine,(byte)button.id));
 		if (button.id == 0) {
 			button.displayString = button.displayString.equals(DISABLE_TEXT) ? ENABLE_TEXT
 					: DISABLE_TEXT;
