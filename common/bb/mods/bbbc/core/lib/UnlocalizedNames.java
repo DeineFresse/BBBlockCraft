@@ -10,7 +10,7 @@ public class UnlocalizedNames {
 		
 		StringBuilder uln = new StringBuilder();
 		
-		uln.append(bb.mods.bbbc.core.lib.Reference.MOD_ID.toLowerCase()+":");
+		uln.append(bb.mods.bbbc.core.lib.Reference.MOD_RESOURCE_LOC.toLowerCase()+":");
 		uln.append(name);
 		
 		return uln.toString();

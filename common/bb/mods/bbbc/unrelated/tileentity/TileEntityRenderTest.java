@@ -48,7 +48,7 @@ public class TileEntityRenderTest extends TileEntity {
 	@Override
 	public boolean shouldRenderInPass(int pass) {
 		this.pass = pass;
-		return true;
+		return pass==1;
 	}
 
 	@Override

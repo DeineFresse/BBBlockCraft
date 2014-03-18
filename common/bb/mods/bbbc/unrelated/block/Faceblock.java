@@ -20,6 +20,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Faceblock extends BlockContainer {
 
+	@SideOnly(Side.CLIENT)
 	IIcon[][] blockIIcon = new IIcon[16][16];
 
 	public static final int shiftedIndex = 165;

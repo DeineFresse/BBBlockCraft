@@ -68,12 +68,13 @@ public class TileEntityFirstMachine extends TileEntityInventoryBB implements IGU
 	}
 
 	public void onReceiveButtonEvent(byte buttonId) {
+		System.out.println("TileEvent recieved : " + buttonId);
+		if(!worldObj.isRemote){
 		switch(buttonId){
 		 case 0:{				
-				 if (!worldObj.isRemote) { 
 					 int newMeta = worldObj.getBlockMetadata(xCoord,yCoord, zCoord)^ 1;
 				 
-				 worldObj.setBlockMetadataWithNotify(xCoord,yCoord,zCoord, newMeta, 3); }
+				 worldObj.setBlockMetadataWithNotify(xCoord,yCoord,zCoord, newMeta, 3);
 				 
 				 break;
 		 }
@@ -85,7 +86,7 @@ public class TileEntityFirstMachine extends TileEntityInventoryBB implements IGU
 			 break;
 		 }
 		}		
-	}
+	}}
 
 	private int anvils = -1;
 	

@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import bb.mods.bbbc.BBBlockCraftCore;
+import bb.mods.bbbc.BBBlockCraftMachines;
 import bb.mods.bbbc.core.common.network.ButtonEventPacket;
 import bb.mods.bbbc.machines.block.block;
 import bb.mods.bbbc.machines.tileentity.TileEntityFirstMachine;
@@ -134,8 +134,9 @@ public class GuiFirstMachine extends GuiContainer {
 
 	@Override
 	protected void actionPerformed(GuiButton button) {
-		System.out.println("TestGFM");
-		BBBlockCraftCore.instance.sendToServer(new ButtonEventPacket().getButtonEventPacket(machine,(byte)button.id));
+		
+		BBBlockCraftMachines.instance.sendToServer(new ButtonEventPacket().getButtonEventPacket(machine,(byte)button.id));
+		
 		if (button.id == 0) {
 			button.displayString = button.displayString.equals(DISABLE_TEXT) ? ENABLE_TEXT
 					: DISABLE_TEXT;

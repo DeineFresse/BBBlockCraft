@@ -27,9 +27,9 @@ public class RectangleHollow extends SingleBlock {
 		for (int i = 0; i <= L; i++) {
 
 			sbl.add(getRotatedBlock(XCoord + i, YCoord, ZCoord, ID,
-					isStair(ID) ? Meta | 2 : Meta, dir, Rotat));
+					isStair(ID) ? dreh1(Meta) : Meta, dir, Rotat));
 			sbl.add(getRotatedBlock(XCoord + i, YCoord, ZCoord + W, ID,
-					isStair(ID) ? Meta | 3 : Meta, dir, Rotat));
+					isStair(ID) ? dreh2(Meta) : Meta, dir, Rotat));
 
 		}
 		for (int i = 0; i <= W; i++) {
@@ -37,7 +37,7 @@ public class RectangleHollow extends SingleBlock {
 			sbl.add(getRotatedBlock(XCoord, YCoord, ZCoord + i, ID, Meta, dir,
 					Rotat));
 			sbl.add(getRotatedBlock(XCoord + L, YCoord, ZCoord + i, ID,
-					isStair(ID) ? Meta | 1 : Meta, dir, Rotat));
+					isStair(ID) ? Meta^1 : Meta, dir, Rotat));
 		}
 
 		RotatedBlock[] rba = new RotatedBlock[sbl.size()];
@@ -52,7 +52,7 @@ public class RectangleHollow extends SingleBlock {
 	private static boolean isStair(Block id) {
 		Block[] s = new Block[] { Blocks.oak_stairs, Blocks.spruce_stairs,
 				Blocks.birch_stairs, Blocks.jungle_stairs,
-				Blocks.dark_oak_stairs, Blocks.acacia_stairs };
+				Blocks.dark_oak_stairs, Blocks.acacia_stairs,Blocks.brick_stairs };
 		for (int i = 0; i < s.length; i++) {
 			if (id == s[i]) {
 				return true;

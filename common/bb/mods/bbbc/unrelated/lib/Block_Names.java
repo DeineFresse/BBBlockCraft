@@ -7,5 +7,6 @@ public class Block_Names {
 	public static final String BIGBLOCK = "bigblock";
 	public static final String CONNECTEDGLASS = "connectedglass";
 	public static final String RTB = "rendertestblock";
+	public static final String AUFGABENBLOCK = "aufgabenblock";
 	
 }

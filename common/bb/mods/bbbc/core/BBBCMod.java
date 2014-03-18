@@ -23,24 +23,25 @@ public class BBBCMod {
 	public EnumMap<Side,FMLEmbeddedChannel> channels;
 	
 	public void sendToPlayers(Packet packet,World world,int x,int y,int z,int maxDist){
-		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.ALL);
-		channels.get(Side.SERVER).writeOutbound(packet);
+		this.channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.ALL);
+		this.channels.get(Side.SERVER).writeOutbound(packet);
 	}
 	
 	public void sendToPlayers(BBBCPacket packet,World world,int x,int y,int z,int maxDist){
-		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.ALL);
-		channels.get(Side.SERVER).writeOutbound(packet);
+		this.channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.ALL);
+		this.channels.get(Side.SERVER).writeOutbound(packet);
 	}
 	
 	public void sendToPlayer(EntityPlayer entityplayer,BBBCPacket packet){
-		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.PLAYER);
-		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(entityplayer);
-		channels.get(Side.SERVER).writeOutbound(packet);
+		this.channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.PLAYER);
+		this.channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(entityplayer);
+		this.channels.get(Side.SERVER).writeOutbound(packet);
 	}
 	
-	public void sendToServer(BBBCPacket packet){
-		channels.get(Side.CLIENT).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
-		channels.get(Side.CLIENT).writeOutbound(packet);
+	public final void sendToServer(BBBCPacket packet){
+		
+		this.channels.get(Side.CLIENT).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
+		this.channels.get(Side.CLIENT).writeOutbound(packet);
 	}
 
 }

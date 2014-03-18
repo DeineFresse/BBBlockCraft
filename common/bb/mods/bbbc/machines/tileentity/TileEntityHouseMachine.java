@@ -92,6 +92,7 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB implements IGU
 
 	@Override
 	public void onReceiveButtonEvent(byte buttonId) {
+		System.out.println("TileEvent recieved");
 		switch(buttonId){
 		 case 0:{
 			 

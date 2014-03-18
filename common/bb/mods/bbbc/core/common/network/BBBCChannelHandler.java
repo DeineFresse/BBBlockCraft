@@ -8,7 +8,10 @@ public class BBBCChannelHandler extends
 		FMLIndexedMessageToMessageCodec<BBBCPacket> {
 
 	public BBBCChannelHandler() {
+		addDiscriminator(0,ButtonEventPacket.class);
 	}
+	
+	
 
 	@Override
 	public void encodeInto(ChannelHandlerContext ctx, BBBCPacket packet,

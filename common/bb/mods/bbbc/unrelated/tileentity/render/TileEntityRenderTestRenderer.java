@@ -2,6 +2,7 @@ package bb.mods.bbbc.unrelated.tileentity.render;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.init.Items;
 import net.minecraft.tileentity.TileEntity;
 //import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
