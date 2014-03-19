@@ -33,6 +33,7 @@ public class BBBlockCraftUnrelated extends BBBCMod{
 		block.Blockreg();
 		
 		item.signItemID();
+		item.registerItems();
 		
 		TileEntity.regTileEntity();
 

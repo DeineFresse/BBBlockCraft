@@ -1,5 +1,7 @@
 package bb.mods.bbbc.unrelated.item;
 
+import bb.mods.bbbc.unrelated.lib.Reference;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 
 public class item {
@@ -17,5 +19,9 @@ public class item {
 		Bookwallitem = new Bookwallitem();
 		SwordUp = new SwordUp();
 	
+	}
+	
+	public static void registerItems(){
+		GameRegistry.registerItem(MyFirstItem,MyFirstItem.getUnlocalizedName(),Reference.MOD_ID);
 	}
 }
