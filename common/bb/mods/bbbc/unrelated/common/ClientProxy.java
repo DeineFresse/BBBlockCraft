@@ -1,6 +1,5 @@
 package bb.mods.bbbc.unrelated.common;
 
-import bb.mods.bbbc.unrelated.render.TestRender;
 import bb.mods.bbbc.unrelated.tileentity.render.TileEntityRenderTestRenderer;
 import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
@@ -9,17 +8,19 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
 
-	public static int  rederPass;
+	public static int rederPass;
 	public static int testRender;
-	
+
 	@Override
 	public void registerRenderInformation() {
-
 	}
 
 	@Override
 	public void registerTileEntitySpecialRender(/* Placeholder */) {
-		ClientRegistry.bindTileEntitySpecialRenderer(bb.mods.bbbc.unrelated.tileentity.TileEntityRenderTest.class,
+
+		testRender = RenderingRegistry.getNextAvailableRenderId();
+		ClientRegistry.bindTileEntitySpecialRenderer(
+				bb.mods.bbbc.unrelated.tileentity.TileEntityRenderTest.class,
 				new TileEntityRenderTestRenderer());
 	}
 
@@ -36,8 +37,6 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void initRenderers() {
-		testRender = RenderingRegistry.getNextAvailableRenderId();
-		RenderingRegistry.registerBlockHandler(new TestRender());
-	}
 	
+	}
 }
