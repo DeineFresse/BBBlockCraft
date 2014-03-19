@@ -1,8 +1,6 @@
 package bb.mods.bbbc.core.common.network;
 
-import net.minecraft.tileentity.TileEntity;
 import io.netty.buffer.ByteBuf;
-import bb.mods.bbbc.core.IGUITileEntity;
 
 public class ButtonEventPacket extends BBBCPacket {
 
@@ -32,14 +30,12 @@ public class ButtonEventPacket extends BBBCPacket {
 		data.writeByte(getI());
 	}
 
-	public ButtonEventPacket getButtonEventPacket(TileEntity te, byte i) {
+	public ButtonEventPacket getButtonEventPacket(int xCoord,int yCoord,int zCoord, byte buttonID) {
 
-		if (te instanceof IGUITileEntity) {
-			x = (te.xCoord);
-			y = (te.yCoord);
-			z = (te.zCoord);
-			this.i = (i);
-		}
+			x = xCoord;
+			y = yCoord;
+			z = zCoord;
+			i = buttonID;
 
 		return this;
 	}
