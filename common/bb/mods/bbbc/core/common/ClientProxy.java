@@ -1,14 +1,19 @@
 package bb.mods.bbbc.core.common;
 
+import bb.mods.bbbc.core.render.ConnectedRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class ClientProxy extends CommonProxy {
 
+	public static int connectedRender;
+	
 	@Override
 	public void registerRenderInformation() {
 
@@ -16,7 +21,11 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void registerTileEntitySpecialRender(/* Placeholder */) {
-
+		connectedRender = RenderingRegistry.getNextAvailableRenderId();
+		ClientRegistry.bindTileEntitySpecialRenderer(
+				bb.mods.bbbc.core.tileentity.ConnectedTileEntity.class,
+				new ConnectedRenderer());
+	
 	}
 
 	@Override
@@ -32,8 +41,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void initRenderers() {
-		// TODO Auto-generated method stub
-
+		
 	}
 	
 	@Override
