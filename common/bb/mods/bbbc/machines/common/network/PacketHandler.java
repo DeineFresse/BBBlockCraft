@@ -25,8 +25,8 @@ public class PacketHandler extends BBBCChannelHandler {
 		EntityPlayer player = CommonProxy.proxy
 				.getPlayerFromNetHandler(netHandler);
 		
-		System.out.println("Event recieved");
-
+		System.out.println("Event recieved"); 
+		
 		int packetID = packet.getID();
 		switch (packetID) {
 		case PacketIDs.BUTTONEVENT: {
