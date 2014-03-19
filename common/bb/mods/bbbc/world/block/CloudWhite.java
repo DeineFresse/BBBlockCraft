@@ -1,5 +1,6 @@
 package bb.mods.bbbc.world.block;
 
+import java.awt.Color;
 import java.util.List;
 
 import net.minecraft.block.Block;
@@ -106,6 +107,11 @@ public class CloudWhite extends Block {
 		return ~par0 & 15;
 	}
 
+	
+	@Override
+	public int getRenderColor(int p_149741_1_) {
+		return super.getRenderColor(Color.yellow.getRGB());
+	}
 	/**
 	 * Takes a block damage value and returns the dye damage value to match
 	 */
