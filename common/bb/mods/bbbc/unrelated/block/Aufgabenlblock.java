@@ -3,6 +3,7 @@ package bb.mods.bbbc.unrelated.block;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
+import bb.mods.bbbc.unrelated.tileentity.TileEntityAufgabenblock;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -31,10 +32,10 @@ public class Aufgabenlblock extends BlockContainer {
 				p_149673_4_);
 
 		if ((i & 1) == 1) {
-			return green;
+			return blue;
 		} else {
-			System.out.println("Yellow Aufgabenblock");
-			return red;
+			//System.out.println("Yellow Aufgabenblock");
+			return yellow;
 		}
 
 	}
@@ -45,62 +46,85 @@ public class Aufgabenlblock extends BlockContainer {
 			int p_149727_6_, float p_149727_7_, float p_149727_8_,
 			float p_149727_9_) {
 
-		if ((p_149727_1_
-				.getBlockMetadata(p_149727_2_, p_149727_3_, p_149727_4_) & 2) == 0&&!p_149727_1_.isRemote) {
+		if ((p_149727_1_.getBlockMetadata(p_149727_2_, p_149727_3_, p_149727_4_) & 2) == 0&&!p_149727_1_.isRemote) {
+			
 			for (int i = -1; i <= 1; i++) {
+				
 				for (int ii = -1; ii <= 1; ii++) {
+					
 					if (p_149727_1_.getBlock(p_149727_2_+i,p_149727_3_,p_149727_4_+ii)==this) {
-						System.out.println("Changed Aufgabenblock");
-						p_149727_1_.setBlockMetadataWithNotify(p_149727_2_+i,
-								p_149727_3_, p_149727_4_+ii, p_149727_1_
-										.getBlockMetadata(p_149727_2_+i,
-												p_149727_3_, p_149727_4_+ii) ^ 1,
-								0x03);
+						
+						//System.out.println("Changed Aufgabenblock");
+						
+						int newmeta = p_149727_1_.getBlockMetadata(p_149727_2_+i,p_149727_3_, p_149727_4_+ii) ^ 1;
+						
+						p_149727_1_.setBlockMetadataWithNotify(p_149727_2_+i,p_149727_3_, p_149727_4_+ii, newmeta,0x03);
 					}
+					
 				}
+				
 			}
-		}
-		
-		if(checkFinished(p_149727_1_,p_149727_2_,p_149727_3_,p_149727_4_)){
-			setFinished();
+			
+			if(checkFinished(p_149727_1_,p_149727_2_,p_149727_3_,p_149727_4_)){
+				setFinished();
+			}
+			
 		}
 
 		return false;
 	}
 
-	@SuppressWarnings("unused")
 	private boolean checkFinished(World world, int x,
 			int y, int z) {
 		
-		boolean notfinished = true;
-		for(int i = -1;notfinished;i--){
-			notfinished = false;
+		TileEntity te = world.getTileEntity(x, y, z);
+		
+		if(te instanceof TileEntityAufgabenblock){
+			TileEntityAufgabenblock tea = (TileEntityAufgabenblock)te;
+			if(tea.blockList.size()==0){
+				tea.startreCalc();
+			}
+			return tea.check();
 		}
 		
 		return false;
 	}
 
 	private void setFinished() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@SideOnly(Side.CLIENT)
-	IIcon red;
+	IIcon yellow;
 	@SideOnly(Side.CLIENT)
-	IIcon green;
+	IIcon blue;
 
 	@Override
+	public void onNeighborChange(IBlockAccess world, int x, int y, int z,
+			int tileX, int tileY, int tileZ) {
+		TileEntity te = world.getTileEntity(x, y, z);
+		
+		if(te instanceof TileEntityAufgabenblock){
+			TileEntityAufgabenblock tea = (TileEntityAufgabenblock)te;
+			tea.reset();
+		}
+		
+		super.onNeighborChange(world, x, y, z, tileX, tileY, tileZ);
+	}
+	
+	@Override
 	public void registerBlockIcons(IIconRegister p_149651_1_) {
-		green = p_149651_1_.registerIcon(TexturesName
-				.getTextureName(Block_Names.AUFGABENBLOCK ,"_gruen"));
-		red = p_149651_1_.registerIcon(TexturesName.getTextureName(Block_Names.AUFGABENBLOCK ,"_gelb"));
+		blue = p_149651_1_.registerIcon(TexturesName
+				.getTextureName(Block_Names.AUFGABENBLOCK ,"_blau"));
+		yellow = p_149651_1_.registerIcon(TexturesName.getTextureName(Block_Names.AUFGABENBLOCK ,"_gelb"));
+		
+		blockIcon = yellow;
 
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		return null;
+		return new TileEntityAufgabenblock();
 	}
 
 }
