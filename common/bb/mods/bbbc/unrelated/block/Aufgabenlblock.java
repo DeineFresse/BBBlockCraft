@@ -84,6 +84,7 @@ public class Aufgabenlblock extends BlockContainer {
 			if(tea.blockList.size()==0){
 				tea.startreCalc();
 			}
+			//TODO: Fix not correct behavior when adding blocks
 			return tea.check();
 		}
 		
