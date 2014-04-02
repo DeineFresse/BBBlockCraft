@@ -12,7 +12,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
-import bb.mods.bbbc.core.render.Connected;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityFace;
 import cpw.mods.fml.relauncher.Side;
@@ -64,10 +63,7 @@ public class Faceblock extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public IIcon getBlockTexture(IBlockAccess par1IBlockAccess, int par2,
 			int par3, int par4, int par5) {
-		int[] connected = Connected.getConnection(ids, par5, par1IBlockAccess,
-				par2, par3, par4);
-
-		return this.blockIIcon[connected[0]][connected[1]];
+		return this.blockIIcon[0][0];
 	}
 
 	@SideOnly(Side.CLIENT)

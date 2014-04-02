@@ -2,7 +2,6 @@ package bb.mods.bbbc.unrelated.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import bb.mods.bbbc.core.render.Connected;
 import bb.mods.bbbc.core.tileentity.ConnectedTileEntity;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
 import bb.mods.bbbc.core.lib.TexturesName;
@@ -37,9 +36,8 @@ public class ConnectedGlass extends BlockContainer {
 	public IIcon getBlockTexture(IBlockAccess par1IBlockAccess, int par2,
 			int par3, int par4, int par5) {
 		
-		int[] con= Connected.getConnection(ids, par5, par1IBlockAccess,par2, par3, par4);
 		 
-		return this.blockIcon [con[0]][con[1]];
+		return this.blockIcon [0][0];
 	}
 	
 	@Override

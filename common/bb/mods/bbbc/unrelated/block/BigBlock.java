@@ -1,6 +1,5 @@
 package bb.mods.bbbc.unrelated.block;
 
-import bb.mods.bbbc.core.render.Connected;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
@@ -18,8 +17,8 @@ public class BigBlock extends Block {
 
 	public static int shiftedIndex;
 
-	private Block[] ids = new Block[] { block.BigBlock,
-			block.Faceblock, Blocks.glass };
+	private Block[] ids = new Block[] { block.BigBlock, block.Faceblock,
+			Blocks.glass };
 
 	@SideOnly(Side.CLIENT)
 	IIcon[][] blockIcon;
@@ -37,10 +36,7 @@ public class BigBlock extends Block {
 	@SideOnly(Side.CLIENT)
 	public IIcon getBlockTexture(IBlockAccess par1IBlockAccess, int par2,
 			int par3, int par4, int par5) {
-		int[] connected = Connected.getConnection(ids, par5, par1IBlockAccess,
-				par2, par3, par4);
-
-		return this.blockIcon[connected[0]][connected[1]];
+		return this.blockIcon[0][0];
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -51,45 +47,36 @@ public class BigBlock extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister icon) {
-		
+
 		blockIcon = new IIcon[16][16];
 
 		for (int i = 0; i < blockIcon.length; i++) {
 			if (i == 15) {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
-					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName( Block_Names.BIGBLOCK
-							+ "."
-							, Block_Names.BIGBLOCK
-							+ i
-							, "_" + ii));
+					this.blockIcon[i][ii] = icon.registerIcon(TexturesName
+							.getTextureName(Block_Names.BIGBLOCK + ".",
+									Block_Names.BIGBLOCK + i, "_" + ii));
 				}
 			} else if (i == 5 || i == 6 || i == 9 || i == 10) {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
 					int x = ii & 1;
-					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK
-							+ "."
-							, Block_Names.BIGBLOCK
-							+ i
-							, "_" + x));
+					this.blockIcon[i][ii] = icon.registerIcon(TexturesName
+							.getTextureName(Block_Names.BIGBLOCK + ".",
+									Block_Names.BIGBLOCK + i, "_" + x));
 				}
 
 			} else if (isAdvanced(i)) {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
 					int x = ii & 3;
-					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK
-							+ "."
-							, Block_Names.BIGBLOCK
-							+ i
-							, "_"
-							+ x));
+					this.blockIcon[i][ii] = icon.registerIcon(TexturesName
+							.getTextureName(Block_Names.BIGBLOCK + ".",
+									Block_Names.BIGBLOCK + i, "_" + x));
 				}
 			} else {
 				for (int ii = 0; ii < blockIcon[i].length; ii++) {
-					this.blockIcon[i][ii] = icon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK
-							+ "."
-							, Block_Names.BIGBLOCK
-							+ i
-							, "_" + 0));
+					this.blockIcon[i][ii] = icon.registerIcon(TexturesName
+							.getTextureName(Block_Names.BIGBLOCK + ".",
+									Block_Names.BIGBLOCK + i, "_" + 0));
 				}
 			}
 		}

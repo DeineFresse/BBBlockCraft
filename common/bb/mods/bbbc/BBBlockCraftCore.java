@@ -4,6 +4,7 @@ package bb.mods.bbbc;
 import bb.mods.bbbc.machines.interfaces.GuiHandler;
 import bb.mods.bbbc.core.BBBCMod;
 import bb.mods.bbbc.core.lib.Reference;
+import bb.mods.bbbc.core.tileentity.TileEntity;
 import bb.mods.bbbc.world.gen.BBWorldGen;
 import bb.mods.bbbc.core.common.CommonProxy;
 import bb.mods.bbbc.core.common.network.PacketHandler;
@@ -28,6 +29,7 @@ public class BBBlockCraftCore extends BBBCMod{
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		CommonProxy.proxy.registerTileEntitySpecialRender();
+		TileEntity.regTileEntity();
 	}
 
 	@EventHandler

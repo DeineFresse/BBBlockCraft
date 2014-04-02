@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import bb.mods.bbbc.core.tileentity.IConnectetTileEntity;
+import bb.mods.bbbc.core.tileentity.ConnectedTileEntity;
 
 @SuppressWarnings("unused")
 public class ConnectedRenderer extends TileEntitySpecialRenderer {
@@ -21,21 +21,23 @@ public class ConnectedRenderer extends TileEntitySpecialRenderer {
 
 	public void renderTileEntityAt(TileEntity var1, double var2, double var4,
 			double var6) {
-		IConnectetTileEntity te = (IConnectetTileEntity) var1;
-		// World world = var1.getWorldObj();
+		if (var1 instanceof ConnectedTileEntity) {
 
-		GL11.glPushMatrix();
+			ConnectedTileEntity te = (ConnectedTileEntity) var1;
+			// World world = var1.getWorldObj();
 
-		GL11.glTranslatef((float) var2, (float) var4, (float) var6);
+			GL11.glPushMatrix();
 
-		ResourceLocation re = (te.getResourceLocation());
+			GL11.glTranslatef((float) var2, (float) var4, (float) var6);
 
-		for (int i = 0; i <= 6; i++) {
-			drawSide(re, i, 3);
+			ResourceLocation re = (te.getResourceLocation());
+
+			for (int i = 0; i <= 6; i++) {
+				drawSide(re, i, 3);
+			}
+
+			GL11.glPopMatrix();
 		}
-
-		GL11.glPopMatrix();
-
 	}
 
 	private void drawSide(ResourceLocation re, int side, int rot) {
