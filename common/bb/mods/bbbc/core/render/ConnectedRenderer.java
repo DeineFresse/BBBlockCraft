@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import org.lwjgl.opengl.GL11;
 
@@ -18,9 +19,11 @@ public class ConnectedRenderer extends TileEntitySpecialRenderer {
 			double var6, float var8) {
 		renderTileEntityAt(var1, var2, var4, var6);
 	}
+	
 
 	public void renderTileEntityAt(TileEntity var1, double var2, double var4,
 			double var6) {
+
 		if (var1 instanceof ConnectedTileEntity) {
 
 			ConnectedTileEntity te = (ConnectedTileEntity) var1;
@@ -32,72 +35,66 @@ public class ConnectedRenderer extends TileEntitySpecialRenderer {
 
 			ResourceLocation re = (te.getResourceLocation());
 
-			for (int i = 0; i <= 6; i++) {
-				drawSide(re, i, 3);
+			for (int i = 0; i < 6; i++) {
+				if (te.shouldSideBeRendered(ForgeDirection.getOrientation(i))) {
+					 drawSide(re, i);				 
+				} else {
+					//System.out.println(ForgeDirection.getOrientation(i));
+					//drawSide(re, ForgeDirection.SOUTH.ordinal());
+				}
 			}
 
 			GL11.glPopMatrix();
 		}
 	}
 
-	private void drawSide(ResourceLocation re, int side, int rot) {
+	private void drawSide(ResourceLocation re, int side) {
 
 		Tessellator t = Tessellator.instance;
 
 		GL11.glPushMatrix();
-
-		GL11.glPushMatrix();
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 
-		if (side <= 4) {
-			GL11.glRotatef(side * (90F), 0F, 1F, 0F);
-
-		} else {
-			if (side == 5) {
-				GL11.glRotatef(90F, 1F, 0F, 0F);
-			} else {
-				GL11.glRotatef(-90F, 1F, 0F, 0F);
-			}
-
+		switch (side) {
+		case 0: {
+			GL11.glRotated(90, 1, 0, 0);
+			break;
 		}
+		case 1: {
+			GL11.glRotated(-90, 1, 0, 0);
+			break;
+		}
+		case 2:{
+			GL11.glRotated(-180, 1, 0, 0);
+			break;
+		}
+		case 4:{
+			GL11.glRotated(-90, 0, 1, 0);
+			break;
+		}
+		case 5:{
+			GL11.glRotated(90, 0, 1, 0);
+			break;
+		}
+		}
+
 		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 
 		t.startDrawingQuads();
 		this.bindTexture(re);
 
-		switch (rot) {
-		case 0: {
-			t.addVertexWithUV(0, 0, 0.999F, 1, 0);
-			t.addVertexWithUV(1, 0, 0.999F, 1, 1);
-			t.addVertexWithUV(1, 1, 0.999F, 0, 1);
-			t.addVertexWithUV(0, 1, 0.999F, 0, 0);
-			break;
-		}
-		case 1: {
-			t.addVertexWithUV(0, 1, 0.999F, 1, 0);
-			t.addVertexWithUV(0, 0, 0.999F, 1, 1);
-			t.addVertexWithUV(1, 0, 0.999F, 0, 1);
-			t.addVertexWithUV(1, 1, 0.999F, 0, 0);
-			break;
-		}
-		case 2: {
-			t.addVertexWithUV(1, 1, 0.999F, 1, 0);
-			t.addVertexWithUV(0, 1, 0.999F, 1, 1);
-			t.addVertexWithUV(0, 0, 0.999F, 0, 1);
-			t.addVertexWithUV(1, 0, 0.999F, 0, 0);
-			break;
-		}
-		case 3: {
-			t.addVertexWithUV(1, 0, 0.999F, 1, 0);
-			t.addVertexWithUV(1, 1, 0.999F, 1, 1);
-			t.addVertexWithUV(0, 1, 0.999F, 0, 1);
-			t.addVertexWithUV(0, 0, 0.999F, 0, 0);
-			break;
-		}
-		}
+		t.addVertexWithUV(0, 0, 0.999F, 1, 0);
+		t.addVertexWithUV(1, 0, 0.999F, 1, 1);
+		t.addVertexWithUV(1, 1, 0.999F, 0, 1);
+		t.addVertexWithUV(0, 1, 0.999F, 0, 0);
+		
+		t.addVertexWithUV(1, 1, 0.999F, 0, 1);
+		t.addVertexWithUV(1, 0, 0.999F, 1, 1);
+		t.addVertexWithUV(0, 0, 0.999F, 1, 0);
+		t.addVertexWithUV(0, 1, 0.999F, 0, 0);
+
 		t.draw();
 
-		GL11.glPopMatrix();
 		GL11.glPopMatrix();
 
 	}

@@ -1,5 +1,6 @@
 package bb.mods.bbbc.core.tileentity;
 
+import bb.mods.bbbc.core.block.ConnectedBlock;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -7,6 +8,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.util.ForgeDirection;
 
 public class ConnectedTileEntity extends TileEntity {
 
@@ -14,7 +16,7 @@ public class ConnectedTileEntity extends TileEntity {
 
 	protected boolean hasChanged = true;
 
-	protected int connection;
+	private int connection;
 
 	@Override
 	public Packet getDescriptionPacket() {
@@ -33,14 +35,26 @@ public class ConnectedTileEntity extends TileEntity {
 	public ConnectedTileEntity(ResourceLocation res) {
 		re = res;
 	}
+	
+	public ConnectedTileEntity(){
+	}
 
 	public ResourceLocation getResourceLocation() {
 		return re;
 	}
+	
+	public TileEntity setRecourceLocation(ResourceLocation res){
+		re= res;
+		return this;
+	}
 
 	@Override
 	public void updateEntity() {
-		super.updateEntity();
+	}
+	
+	public void neighborChanged(){
+		System.out.println("Changed");
+		checkConnection();
 		hasChanged = true;
 	}
 
@@ -49,40 +63,87 @@ public class ConnectedTileEntity extends TileEntity {
 			return connection;
 		} else {
 			checkConnection();
+			hasChanged = false;
 			return connection;
 		}
 	}
 
 	private void checkConnection() {
 
-		int num = 0;
-		for (int i = -1; i <= 1; i++) {
-			for (int ii = -1; ii <= 1; ii++) {
-				for (int iii = -1; iii <= 1; iii++) {
-					if (!(i == 0 && ii == 0 && iii == 0)) {
-						if (canConnect(
-								this.getWorldObj().getBlock(xCoord+i, yCoord+ii,
-										zCoord+iii),
-								new Block[] { this.getWorldObj().getBlock(
-										xCoord, yCoord, zCoord) })) {
-							connection = 1 >>> num;
-						}
-						num++;
-					}
+		System.out.println("Checking Connection! : " +connection);
+		
+		if(canConnectTo(getWorldObj().getBlock(xCoord, yCoord+1, zCoord))){
+			connection |= 1<<ForgeDirection.UP.ordinal();
+		}
+		else{
+			connection &= ~(1<<ForgeDirection.UP.ordinal());
+		}
+		
+		if(canConnectTo(getWorldObj().getBlock(xCoord, yCoord-1, zCoord))){
+			connection |= 1<<ForgeDirection.DOWN.ordinal();
+		}
+		else{
+			connection &= ~(1<<ForgeDirection.DOWN.ordinal());
+		}
+		
+		if(canConnectTo(getWorldObj().getBlock(xCoord, yCoord, zCoord-1))){
+			connection |= 1<<ForgeDirection.NORTH.ordinal();
+		}
+		else{
+			connection &= ~(1<<ForgeDirection.NORTH.ordinal());
+		}
+		
+		if(canConnectTo(getWorldObj().getBlock(xCoord, yCoord, zCoord+1))){
+			connection |= 1<<ForgeDirection.SOUTH.ordinal();
+			System.out.println("South Connection astablished");
+		}
+		else{
+			connection &= ~(1<<ForgeDirection.SOUTH.ordinal());
+		}
+		
+		if(canConnectTo(getWorldObj().getBlock(xCoord+1, yCoord, zCoord))){
+			connection |= 1<<ForgeDirection.EAST.ordinal();
+		}
+		
+		else{
+			connection &= ~(1<<ForgeDirection.EAST.ordinal());
+		}
+		
+		if(canConnectTo(getWorldObj().getBlock(xCoord-1, yCoord, zCoord))){
+			connection |= 1<<ForgeDirection.WEST.ordinal();
+		}
+		
+		else{
+			connection &= (~(1<<ForgeDirection.WEST.ordinal()));
+		}
+		
+		System.out.println("New Connection : "+connection);
+		//hasChanged = false;
+		
+	}
+	
+	private boolean canConnectTo(Block conTo){
+		boolean r = false;
+		if(conTo == this.blockType){
+			r = true;
+		}
+		if(this.blockType instanceof ConnectedBlock){
+			ConnectedBlock con = (ConnectedBlock) this.blockType;
+			for(Block b:con.canConnectToBlock()){
+				if(b == conTo){
+					r= true;
+					break;
 				}
 			}
 		}
-
+		//System.out.println("cannConnectTo : "+r);
+		return r;
 	}
 
-	private static boolean canConnect(Block blockId, Block[] ids) {
 
-		for (int i = 0; i < ids.length; i++) {
-			if (blockId == ids[i]) {
-				return true;
-			}
-		}
-
-		return false;
+	public boolean shouldSideBeRendered(ForgeDirection forgeDirection) {
+		int ord = forgeDirection.ordinal();
+		//System.out.println("Ordinal:"+ord);
+		return (getConnection() & (1<<ord))==0;
 	}
 }

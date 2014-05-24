@@ -1,15 +1,17 @@
 package bb.mods.bbbc.unrelated.block;
 
 import java.io.File;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import bb.mods.bbbc.core.block.ConnectedBlock;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
@@ -17,19 +19,16 @@ import bb.mods.bbbc.unrelated.tileentity.TileEntityFace;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Faceblock extends BlockContainer {
+public class Faceblock extends ConnectedBlock {
 
 	@SideOnly(Side.CLIENT)
 	IIcon[][] blockIIcon = new IIcon[16][16];
 
 	public static final int shiftedIndex = 165;
 
-	private Block[] ids = new Block[] { block.BigBlock,
-			block.Faceblock, Blocks.glass };
-
 	public Faceblock() {
 
-		super(Material.wood);
+		super(Material.wood,new ResourceLocation(bb.mods.bbbc.core.lib.Reference.MOD_RESOURCE_LOC,""));
 
 		setBlockName(UnlocalizedNames
 				.getUnlocalizedName(Block_Names.FACEBLOCK));
@@ -73,7 +72,7 @@ public class Faceblock extends BlockContainer {
 
 	@SideOnly(Side.CLIENT)
 	public void registerIIcons(IIconRegister IIcon) {
-
+		
 		for (int i = 0; i < blockIIcon.length; i++) {
 			if (i == 15) {
 				for (int ii = 0; ii < blockIIcon[i].length; ii++) {
@@ -108,6 +107,8 @@ public class Faceblock extends BlockContainer {
 				}
 			}
 		}
+		
+		blockIcon = blockIIcon[0][0];
 
 	}
 

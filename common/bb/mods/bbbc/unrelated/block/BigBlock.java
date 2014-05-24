@@ -1,30 +1,27 @@
 package bb.mods.bbbc.unrelated.block;
 
 import bb.mods.bbbc.unrelated.lib.Block_Names;
+import bb.mods.bbbc.core.block.ConnectedBlock;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BigBlock extends Block {
+public class BigBlock extends ConnectedBlock {
 
 	public static int shiftedIndex;
-
-	private Block[] ids = new Block[] { block.BigBlock, block.Faceblock,
-			Blocks.glass };
 
 	@SideOnly(Side.CLIENT)
 	IIcon[][] blockIcon;
 
 	public BigBlock() {
-		super(Material.rock);
+		super(Material.rock,new ResourceLocation(bb.mods.bbbc.core.lib.Reference.MOD_RESOURCE_LOC,""));
 		setHardness(2.0f);
 		setResistance(5.0f);
 		setStepSound(soundTypeStone);
