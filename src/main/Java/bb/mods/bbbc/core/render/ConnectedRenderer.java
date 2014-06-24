@@ -11,7 +11,6 @@ import org.lwjgl.opengl.GL11;
 
 import bb.mods.bbbc.core.tileentity.ConnectedTileEntity;
 
-@SuppressWarnings("unused")
 public class ConnectedRenderer extends TileEntitySpecialRenderer {
 
 	@Override
