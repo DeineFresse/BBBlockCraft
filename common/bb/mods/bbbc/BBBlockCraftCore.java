@@ -38,6 +38,8 @@ public class BBBlockCraftCore extends BBBCMod{
 		channels = NetworkRegistry.INSTANCE.newChannel(Reference.MOD_CHANNEL,new PacketHandler());
 		new GuiHandler();
 		
+		
+		
 	}
 
 	@EventHandler

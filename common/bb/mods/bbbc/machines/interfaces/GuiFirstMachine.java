@@ -135,7 +135,9 @@ public class GuiFirstMachine extends GuiContainer {
 	@Override
 	protected void actionPerformed(GuiButton button) {
 		
-		BBBlockCraftMachines.instance.sendToServer(new ButtonEventPacket().getButtonEventPacket(machine.xCoord,machine.yCoord,machine.zCoord,(byte)button.id));
+		ButtonEventPacket BEP = new ButtonEventPacket().getButtonEventPacket(machine.xCoord,machine.yCoord,machine.zCoord,(byte)button.id);
+		
+		BBBlockCraftMachines.instance.sendToServer(BEP);
 		
 		if (button.id == 0) {
 			button.displayString = button.displayString.equals(DISABLE_TEXT) ? ENABLE_TEXT

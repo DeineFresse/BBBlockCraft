@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import bb.mods.bbbc.core.common.network.BBBCPacket;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLOutboundHandler;
+import cpw.mods.fml.common.network.FMLOutboundHandler.OutboundTarget;
 import cpw.mods.fml.relauncher.Side;
 
 public class BBBCMod {
@@ -40,7 +41,7 @@ public class BBBCMod {
 	
 	public final void sendToServer(BBBCPacket packet){
 		
-		this.channels.get(Side.CLIENT).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
+		this.channels.get(Side.CLIENT).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(OutboundTarget.TOSERVER);
 		this.channels.get(Side.CLIENT).writeOutbound(packet);
 	}
 

@@ -7,7 +7,7 @@ public class Reference {
 
 	// General Mod Konstanten
 	public static final String MOD_ID = "BBBlockCraftWorld";
-	public static final String MOD_NAME = "BBBlockCraft";
+	public static final String MOD_NAME = "BBBlockCraft-World";
 	public static final String MOD_VERSION = "DEV-0.1.1";
 	public static final String MOD_CHANNEL = "BB_BBBCWorld";
 

@@ -24,26 +24,20 @@ public class PacketHandler extends BBBCChannelHandler {
 
 		EntityPlayer player = CommonProxy.proxy
 				.getPlayerFromNetHandler(netHandler);
-		
-		System.out.println("Event recieved"); 
-		
 		int packetID = packet.getID();
+		
+		System.out.println("Event recieved : " + packetID+" on "+(!player.worldObj.isRemote?"Server":"Client")+" Side"); 
+		
 		switch (packetID) {
 		case PacketIDs.BUTTONEVENT: {
 			if (packet instanceof ButtonEventPacket && player != null) {
 
-				System.out.println(player.isClientWorld());
-				
-				System.out.println("ButtonEventPacket recieved");
-				
 				ButtonEventPacket packetBE = (ButtonEventPacket) packet;
-				
-				
+								
 				TileEntity te = player.getEntityWorld().getTileEntity(
 						packetBE.getX(), packetBE.getY(), packetBE.getZ());
 
-				
-				System.out.println("Hey" + packetBE.getX() + ":"
+				System.out.println("Hey " + packetBE.getX() + ":"
 						+ packetBE.getY() + ":" + packetBE.getZ());
 
 				if (te != null && (te instanceof IGUITileEntity)) {
