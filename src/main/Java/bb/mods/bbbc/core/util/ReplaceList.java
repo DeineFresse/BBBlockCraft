@@ -1,4 +1,4 @@
-package bb.mods.bbbc.core.lib;
+package bb.mods.bbbc.core.util;
 
 import java.util.ArrayList;
 import java.util.List;

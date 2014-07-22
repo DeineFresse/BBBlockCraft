@@ -4,7 +4,7 @@ import bb.mods.bbbc.core.BBBCMod;
 import bb.mods.bbbc.machines.block.block;
 import bb.mods.bbbc.machines.interfaces.GuiHandler;
 import bb.mods.bbbc.machines.item.item;
-import bb.mods.bbbc.machines.lib.Reference;
+import bb.mods.bbbc.machines.references.Reference;
 import bb.mods.bbbc.machines.reciepe.crafting;
 import bb.mods.bbbc.machines.common.proxy.CommonProxy;
 import bb.mods.bbbc.machines.common.network.PacketHandler;
@@ -27,7 +27,7 @@ public class BBBlockCraftMachines extends BBBCMod{
 	public void preInit(FMLPreInitializationEvent event) {
 
 		CommonProxy.proxy.initSounds();
-		CommonProxy.proxy.initRenderers();
+		CommonProxy.proxy.initRenderer();
 
 		block.signBlockID();
 		block.Blockreg();

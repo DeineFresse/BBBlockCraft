@@ -1,13 +1,14 @@
 package bb.mods.bbbc.unrelated.block;
 
 import bb.mods.bbbc.core.common.proxy.ClientProxy;
+import bb.mods.bbbc.core.references.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.core.tileentity.ConnectedTileEntity;
-import bb.mods.bbbc.unrelated.lib.Block_Names;
+import bb.mods.bbbc.unrelated.references.Block_Names;
 import bb.mods.bbbc.core.block.ConnectedBlock;
-import bb.mods.bbbc.core.lib.TexturesName;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
+import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -23,7 +24,7 @@ public class ConnectedGlass extends ConnectedBlock {
 	Block[] ids = new Block[] {block.ConnectedGlass};
 
 	public ConnectedGlass() {
-		super(Material.glass,new ResourceLocation(bb.mods.bbbc.core.lib.Reference.MOD_RESOURCE_LOC.toLowerCase(),"textures/blocks/connectedglass/connectedglass0_0.png"));
+		super(Material.glass,new ResourceLocation( Reference.MOD_RESOURCE_LOC.toLowerCase(),"textures/blocks/connectedglass/connectedglass0_0.png"));
 		setHardness(1.0f);
 		setResistance(200000.0f);
 		setStepSound(soundTypeGlass);
@@ -133,6 +134,6 @@ public class ConnectedGlass extends ConnectedBlock {
 	
 	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
-		return new ConnectedTileEntity(new ResourceLocation(bb.mods.bbbc.core.lib.Reference.MOD_RESOURCE_LOC.toLowerCase(),"textures/blocks/connectedglass/connectedglass0_0.png"));
+		return new ConnectedTileEntity(new ResourceLocation( Reference.MOD_RESOURCE_LOC.toLowerCase(),"textures/blocks/connectedglass/connectedglass0_0.png"));
 	}
 }

@@ -1,4 +1,4 @@
-package bb.mods.bbbc.core.lib;
+package bb.mods.bbbc.world.references;
 
 public class Reference {
 
@@ -6,13 +6,12 @@ public class Reference {
 	public static final boolean DEBUGMODE = false;
 
 	// General Mod Konstanten
-	public static final String MOD_ID = "BBBlockCraftCore";
-	public static final String MOD_NAME = "BBBlockCraftCore";
+	public static final String MOD_ID = "BBBlockCraftWorld";
+	public static final String MOD_NAME = "BBBlockCraft-World";
 	public static final String MOD_VERSION = "DEV-0.1.1";
-	public static final String MOD_CHANNEL = "BB_BBBCCore";
-	public static final String MOD_RESOURCE_LOC = "BBBlockCraft";
+	public static final String MOD_CHANNEL = "BB_BBBCWorld";
 
-	public static final String CHATPREFIX = "[" + MOD_CHANNEL + "]";	
+	public static final String CHATPREFIX = "[" + MOD_CHANNEL + "]";
 	
 	private static final String[] SideSufix = new String[] { "top", "bottom",
 			"north", "south", "east", "west" };

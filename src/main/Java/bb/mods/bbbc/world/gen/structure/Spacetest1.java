@@ -1,7 +1,7 @@
 package bb.mods.bbbc.world.gen.structure;
 
-import bb.mods.bbbc.core.lib.ReplaceList;
-import bb.mods.bbbc.world.lib.Reference;
+import bb.mods.bbbc.core.util.ReplaceList;
+import bb.mods.bbbc.world.references.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

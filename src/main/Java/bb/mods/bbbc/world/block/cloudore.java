@@ -2,9 +2,9 @@ package bb.mods.bbbc.world.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import bb.mods.bbbc.world.lib.Block_Names;
-import bb.mods.bbbc.core.lib.TexturesName;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
+import bb.mods.bbbc.world.references.Block_Names;
+import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

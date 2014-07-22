@@ -1,4 +1,4 @@
-package bb.mods.bbbc.world.lib;
+package bb.mods.bbbc.world.references;
 
 public class Block_Names {
 		

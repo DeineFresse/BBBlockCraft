@@ -1,9 +1,10 @@
 package bb.mods.bbbc.unrelated.block;
 
-import bb.mods.bbbc.unrelated.lib.Block_Names;
+import bb.mods.bbbc.core.references.Reference;
+import bb.mods.bbbc.unrelated.references.Block_Names;
 import bb.mods.bbbc.core.block.ConnectedBlock;
-import bb.mods.bbbc.core.lib.TexturesName;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
+import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -21,7 +22,7 @@ public class BigBlock extends ConnectedBlock {
 	IIcon[][] blockIcon;
 
 	public BigBlock() {
-		super(Material.rock,new ResourceLocation(bb.mods.bbbc.core.lib.Reference.MOD_RESOURCE_LOC,""));
+		super(Material.rock,new ResourceLocation( Reference.MOD_RESOURCE_LOC,""));
 		setHardness(2.0f);
 		setResistance(5.0f);
 		setStepSound(soundTypeStone);

@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import bb.mods.bbbc.unrelated.structuren.Structuren;
-import bb.mods.bbbc.world.lib.Reference;
+import bb.mods.bbbc.world.references.Reference;
 
 public class BuildStructur {
 
@@ -20,7 +20,7 @@ public class BuildStructur {
 }
 		if (dir > 5) {
 			if (par1.isRemote) {
-				//par5.addChatMessage("You should google 2888 Donauverse by Michèle Métail");
+				//par5.addChatMessage("You should google 2888 Donauverse by Michï¿½le Mï¿½tail");
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 package bb.mods.bbbc.unrelated.item;
 
-import bb.mods.bbbc.unrelated.lib.Reference;
+import bb.mods.bbbc.unrelated.references.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 

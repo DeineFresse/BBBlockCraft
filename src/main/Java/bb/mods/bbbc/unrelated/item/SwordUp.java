@@ -2,9 +2,9 @@ package bb.mods.bbbc.unrelated.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import bb.mods.bbbc.unrelated.lib.Item_Names;
-import bb.mods.bbbc.core.lib.TexturesName;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
+import bb.mods.bbbc.unrelated.references.Item_Names;
+import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;

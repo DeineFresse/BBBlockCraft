@@ -4,7 +4,7 @@ import bb.mods.bbbc.core.BBBCMod;
 import bb.mods.bbbc.unrelated.block.block;
 import bb.mods.bbbc.unrelated.common.proxy.CommonProxy;
 import bb.mods.bbbc.unrelated.item.item;
-import bb.mods.bbbc.unrelated.lib.Reference;
+import bb.mods.bbbc.unrelated.references.Reference;
 import bb.mods.bbbc.unrelated.reciepe.crafting;
 import bb.mods.bbbc.unrelated.reciepe.smelting;
 import bb.mods.bbbc.unrelated.tileentity.TileEntity;
@@ -26,7 +26,7 @@ public class BBBlockCraftUnrelated extends BBBCMod{
 	public void preInit(FMLPreInitializationEvent event) {
 		
 		CommonProxy.proxy.initSounds();
-		CommonProxy.proxy.initRenderers();
+		CommonProxy.proxy.initRenderer();
 		CommonProxy.proxy.registerTileEntitySpecialRender();
 
 		block.signBlockID();

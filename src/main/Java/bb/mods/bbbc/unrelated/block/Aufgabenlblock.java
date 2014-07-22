@@ -1,8 +1,8 @@
 package bb.mods.bbbc.unrelated.block;
 
-import bb.mods.bbbc.core.lib.TexturesName;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
-import bb.mods.bbbc.unrelated.lib.Block_Names;
+import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
+import bb.mods.bbbc.unrelated.references.Block_Names;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityAufgabenblock;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

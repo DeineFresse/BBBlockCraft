@@ -1,9 +1,9 @@
 package bb.mods.bbbc.unrelated.item;
 
 import bb.mods.bbbc.unrelated.block.block;
-import bb.mods.bbbc.unrelated.lib.Block_Names;
-import bb.mods.bbbc.core.lib.ReplaceList;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
+import bb.mods.bbbc.unrelated.references.Block_Names;
+import bb.mods.bbbc.core.util.ReplaceList;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityFace;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;

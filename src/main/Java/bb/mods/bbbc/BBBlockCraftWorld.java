@@ -2,7 +2,7 @@ package bb.mods.bbbc;
 
 import bb.mods.bbbc.core.BBBCMod;
 import bb.mods.bbbc.world.block.block;
-import bb.mods.bbbc.world.lib.Reference;
+import bb.mods.bbbc.world.references.Reference;
 import bb.mods.bbbc.world.reciepe.crafting;
 import bb.mods.bbbc.world.reciepe.smelting;
 import bb.mods.bbbc.world.gen.BBWorldGen;
@@ -29,7 +29,7 @@ public class BBBlockCraftWorld extends BBBCMod{
 	public void preInit(FMLPreInitializationEvent event) {
 
 		CommonProxy.proxy.initSounds();
-		CommonProxy.proxy.initRenderers();
+		CommonProxy.proxy.initRenderer();
 
 		block.signBlockID();
 		block.Blockreg();

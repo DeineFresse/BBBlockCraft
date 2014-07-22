@@ -1,4 +1,4 @@
-package bb.mods.bbbc.unrelated.lib;
+package bb.mods.bbbc.unrelated.references;
 
 public class Block_Names {
 	

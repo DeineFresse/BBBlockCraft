@@ -1,4 +1,4 @@
-package bb.mods.bbbc.machines.lib;
+package bb.mods.bbbc.machines.references;
 
 public class Block_Names {
 

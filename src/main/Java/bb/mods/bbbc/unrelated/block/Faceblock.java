@@ -2,6 +2,7 @@ package bb.mods.bbbc.unrelated.block;
 
 import java.io.File;
 
+import bb.mods.bbbc.core.references.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -12,9 +13,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import bb.mods.bbbc.core.block.ConnectedBlock;
-import bb.mods.bbbc.core.lib.TexturesName;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
-import bb.mods.bbbc.unrelated.lib.Block_Names;
+import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
+import bb.mods.bbbc.unrelated.references.Block_Names;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityFace;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -28,7 +29,7 @@ public class Faceblock extends ConnectedBlock {
 
 	public Faceblock() {
 
-		super(Material.wood,new ResourceLocation(bb.mods.bbbc.core.lib.Reference.MOD_RESOURCE_LOC,""));
+		super(Material.wood,new ResourceLocation( Reference.MOD_RESOURCE_LOC,""));
 
 		setBlockName(UnlocalizedNames
 				.getUnlocalizedName(Block_Names.FACEBLOCK));

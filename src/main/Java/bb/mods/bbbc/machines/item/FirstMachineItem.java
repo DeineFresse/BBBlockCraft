@@ -1,7 +1,7 @@
 package bb.mods.bbbc.machines.item;
 
-import bb.mods.bbbc.machines.lib.Block_Names;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
+import bb.mods.bbbc.machines.references.Block_Names;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 

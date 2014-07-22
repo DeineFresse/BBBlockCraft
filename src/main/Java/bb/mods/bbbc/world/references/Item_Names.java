@@ -1,4 +1,4 @@
-package bb.mods.bbbc.unrelated.lib;
+package bb.mods.bbbc.world.references;
 
 public class Item_Names {
 

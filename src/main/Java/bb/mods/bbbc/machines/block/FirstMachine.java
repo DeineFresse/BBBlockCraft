@@ -18,9 +18,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import bb.mods.bbbc.BBBlockCraftCore;
-import bb.mods.bbbc.machines.lib.Block_Names;
-import bb.mods.bbbc.core.lib.TexturesName;
-import bb.mods.bbbc.core.lib.UnlocalizedNames;
+import bb.mods.bbbc.machines.references.Block_Names;
+import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
 import bb.mods.bbbc.machines.tileentity.TileEntityFirstMachine;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler; //check for better Way
 import cpw.mods.fml.relauncher.Side;

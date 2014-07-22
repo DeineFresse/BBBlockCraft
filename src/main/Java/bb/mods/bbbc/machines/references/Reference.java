@@ -1,4 +1,4 @@
-package bb.mods.bbbc.world.lib;
+package bb.mods.bbbc.machines.references;
 
 public class Reference {
 
@@ -6,10 +6,10 @@ public class Reference {
 	public static final boolean DEBUGMODE = false;
 
 	// General Mod Konstanten
-	public static final String MOD_ID = "BBBlockCraftWorld";
-	public static final String MOD_NAME = "BBBlockCraft-World";
+	public static final String MOD_ID = "BBBlockCraftMachines";
+	public static final String MOD_NAME = "BBBlockCraft-Machines";
 	public static final String MOD_VERSION = "DEV-0.1.1";
-	public static final String MOD_CHANNEL = "BB_BBBCWorld";
+	public static final String MOD_CHANNEL = "BB_BBBCMachines";
 
 	public static final String CHATPREFIX = "[" + MOD_CHANNEL + "]";
 	

@@ -3,7 +3,7 @@ package bb.mods.bbbc;
 
 import bb.mods.bbbc.machines.interfaces.GuiHandler;
 import bb.mods.bbbc.core.BBBCMod;
-import bb.mods.bbbc.core.lib.Reference;
+import bb.mods.bbbc.core.references.Reference;
 import bb.mods.bbbc.core.tileentity.TileEntity;
 import bb.mods.bbbc.world.gen.BBWorldGen;
 import bb.mods.bbbc.core.common.proxy.CommonProxy;

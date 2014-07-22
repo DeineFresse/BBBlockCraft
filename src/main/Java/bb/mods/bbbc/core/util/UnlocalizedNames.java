@@ -1,4 +1,6 @@
-package bb.mods.bbbc.core.lib;
+package bb.mods.bbbc.core.util;
+
+import bb.mods.bbbc.core.references.Reference;
 
 public class UnlocalizedNames {
 
@@ -10,7 +12,7 @@ public class UnlocalizedNames {
 		
 		StringBuilder uln = new StringBuilder();
 		
-		uln.append(bb.mods.bbbc.core.lib.Reference.MOD_RESOURCE_LOC.toLowerCase()+":");
+		uln.append( Reference.MOD_RESOURCE_LOC.toLowerCase()+":");
 		uln.append(name);
 		
 		return uln.toString();
