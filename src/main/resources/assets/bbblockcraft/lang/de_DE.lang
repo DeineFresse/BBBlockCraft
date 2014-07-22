@@ -1,38 +1,38 @@
 # Item localizations
 item.bbblockcraft:swordup.name=Schwert Hoch [WIP]
 item.bbblockcraft:brick_stair_item.name=Ziegel Treppen [WIP]
-item.bbblockcraft:bookwall.name=B¸cherwand [WIP]
-item.bbblockcraft:my_first_item=Zuf‰lliges Item [WIP]
-item.bbblockcraft:layoutcard0.name=Layoutcard(Normal)
-item.bbblockcraft:layoutcard1.name=Layoutcard(Arrow)
-item.bbblockcraft:layoutcard2.name=Layoutcard(Border)
-item.bbblockcraft:layoutcard3.name=Layoutcard(Cross)
+item.bbblockcraft:bookwall.name=B√ºcherwand [WIP]
+item.bbblockcraft:my_first_item=Zuf√§lliges Item [WIP]
+item.bbblockcraft:layoutcard0.name=Layout-card(Normal)
+item.bbblockcraft:layoutcard1.name=Layout-card(Arrow)
+item.bbblockcraft:layoutcard2.name=Layout-card(Border)
+item.bbblockcraft:layoutcard3.name=Layout-card(Cross)
 item.bbblockcraft:brick_stair_item0.name=9xBrickStairs
 item.bbblockcraft:brick_stair_item1.name=81xBrickStairs
 
 
 # Block localizations
-tile.bbblockcraft:bigblock.name=Groﬂer Block [WIP]
+tile.bbblockcraft:bigblock.name=Gro√üer Block [WIP]
 tile.bbblockcraft:Wolke_ore.name=Wolken Erz [WIP]
 tile.bbblockcraft:brick_house.name=Ziegel House [WIP]
 tile.bbblockcraft:block_ore_one.name=Block Erz [WIP]
 tile.bbblockcraft:dark_stone.name=Dunklerstein [WIP]
-tile.bbblockcraft:faceblock.name=Groﬂer Block [WIP]
+tile.bbblockcraft:faceblock.name=Gro√üer Block [WIP]
 tile.bbblockcraft:connectedglass.name=Verbund Glass [WIP]
-tile.bbblockcraft:Wolke.white.name=Weiﬂe Wolke [WIP]
+tile.bbblockcraft:Wolke.white.name=Wei√üe Wolke [WIP]
 tile.bbblockcraft:Wolke.orange.name=Orange Wolke [WIP]
 tile.bbblockcraft:Wolke.magenta.name=Magenta Wolke [WIP]
 tile.bbblockcraft:Wolke.lightblue.name=Hell Blaue Wolke [WIP]
 tile.bbblockcraft:Wolke.yellow.name=Gelbe Wolke [WIP]
-tile.bbblockcraft:Wolke.lime.name=Hell Gr¸ne Wolke [WIP]
+tile.bbblockcraft:Wolke.lime.name=Hell Gr√ºne Wolke [WIP]
 tile.bbblockcraft:Wolke.pink.name=Pinke Wolke [WIP]
 tile.bbblockcraft:Wolke.gray.name=Graue Wolke [WIP]
 tile.bbblockcraft:Wolke.silver.name=Silberne Wolke [WIP]
-tile.bbblockcraft:Wolke.cyan.name=T¸rkiese Wolke [WIP]
+tile.bbblockcraft:Wolke.cyan.name=T√ºrkiese Wolke [WIP]
 tile.bbblockcraft:Wolke.purple.name=Lila Wolke [WIP]
 tile.bbblockcraft:Wolke.blue.name=Blaue Wolke [WIP]
 tile.bbblockcraft:Wolke.brown.name=Braune Wolke [WIP]
-tile.bbblockcraft:Wolke.green.name= Gr¸ne Wolke [WIP]
+tile.bbblockcraft:Wolke.green.name= Gr√ºne Wolke [WIP]
 tile.bbblockcraft:Wolke.red.name=Rote Wolke [WIP]
 tile.bbblockcraft:Wolke.black.name=Schwarze Wolke [WIP]
 tile.bbblockcraft:firstmachine.name=Erste Maschine
