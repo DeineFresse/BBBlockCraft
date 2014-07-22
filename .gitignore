@@ -1,0 +1,9 @@
+/.gradle/
+/eclipse/
+/gradle/
+/run/
+/BBBlockCraft.iml
+/BBBlockCraft.ipr
+/BBBlockCraft.iws
+/gradlew
+/gradlew.bat

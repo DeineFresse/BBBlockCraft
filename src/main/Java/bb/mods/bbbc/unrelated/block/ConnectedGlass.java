@@ -1,5 +1,6 @@
 package bb.mods.bbbc.unrelated.block;
 
+import bb.mods.bbbc.core.common.proxy.ClientProxy;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import bb.mods.bbbc.core.tileentity.ConnectedTileEntity;
@@ -127,7 +128,7 @@ public class ConnectedGlass extends ConnectedBlock {
 
 	@Override
 	public int getRenderType() {
-		return bb.mods.bbbc.core.common.ClientProxy.connectedRender;
+		return ClientProxy.connectedRender;
 	}
 	
 	@Override

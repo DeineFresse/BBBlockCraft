@@ -1,4 +1,4 @@
-package bb.mods.bbbc.machines.common;
+package bb.mods.bbbc.machines.common.proxy;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,7 +7,8 @@ import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.world.World;
 import cpw.mods.fml.client.FMLClientHandler;
 
-public class ClientProxy extends CommonProxy {
+public class ClientProxy extends CommonProxy
+{
 
 	@Override
 	public void registerRenderInformation() {
@@ -20,6 +21,20 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
+	public Object getServerGuiElement( int ID, EntityPlayer player, World world, int x, int y, int z )
+	{
+		return null;
+	}
+
+	@Override
+	public Object getClientGuiElement( int ID, EntityPlayer player, World world, int x, int y, int z )
+	{
+		return null;
+	}
+
+
+
+	@Override
 	public World getClientWorld() {
 		return FMLClientHandler.instance().getClient().theWorld;
 	}
@@ -29,7 +44,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void initRenderers() {
+	public void initRenderer() {
 	}
 	
 	@Override

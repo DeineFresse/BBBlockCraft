@@ -6,7 +6,7 @@ import bb.mods.bbbc.core.BBBCMod;
 import bb.mods.bbbc.core.lib.Reference;
 import bb.mods.bbbc.core.tileentity.TileEntity;
 import bb.mods.bbbc.world.gen.BBWorldGen;
-import bb.mods.bbbc.core.common.CommonProxy;
+import bb.mods.bbbc.core.common.proxy.CommonProxy;
 import bb.mods.bbbc.core.common.network.PacketHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;

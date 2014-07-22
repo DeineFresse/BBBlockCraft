@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetHandler;
 import net.minecraft.tileentity.TileEntity;
 import bb.mods.bbbc.core.IGUITileEntity;
-import bb.mods.bbbc.machines.common.CommonProxy;
+import bb.mods.bbbc.machines.common.proxy.CommonProxy;
 import bb.mods.bbbc.core.common.network.BBBCChannelHandler;
 import bb.mods.bbbc.core.common.network.BBBCPacket;
 import bb.mods.bbbc.core.common.network.ButtonEventPacket;

@@ -2,7 +2,7 @@ package bb.mods.bbbc;
 
 import bb.mods.bbbc.core.BBBCMod;
 import bb.mods.bbbc.unrelated.block.block;
-import bb.mods.bbbc.unrelated.common.CommonProxy;
+import bb.mods.bbbc.unrelated.common.proxy.CommonProxy;
 import bb.mods.bbbc.unrelated.item.item;
 import bb.mods.bbbc.unrelated.lib.Reference;
 import bb.mods.bbbc.unrelated.reciepe.crafting;

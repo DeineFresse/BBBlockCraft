@@ -18,7 +18,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import bb.mods.bbbc.core.lib.TexturesName;
 import bb.mods.bbbc.core.lib.UnlocalizedNames;
-import bb.mods.bbbc.unrelated.common.ClientProxy;
+import bb.mods.bbbc.unrelated.common.proxy.ClientProxy;
 import bb.mods.bbbc.unrelated.item.item;
 import bb.mods.bbbc.unrelated.lib.Block_Names;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityRenderTest;

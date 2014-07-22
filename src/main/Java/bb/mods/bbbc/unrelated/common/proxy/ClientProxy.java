@@ -1,6 +1,6 @@
-package bb.mods.bbbc.core.common;
+package bb.mods.bbbc.unrelated.common.proxy;
 
-import bb.mods.bbbc.core.render.ConnectedRenderer;
+import bb.mods.bbbc.unrelated.tileentity.render.TileEntityRenderTestRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetHandler;
@@ -10,22 +10,37 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class ClientProxy extends CommonProxy {
+public class ClientProxy extends CommonProxy
+{
 
-	public static int connectedRender;
-	
+	public static int rederPass;
+	public static int testRender;
+
 	@Override
 	public void registerRenderInformation() {
-
 	}
 
 	@Override
+	public Object getClientGuiElement( int ID, EntityPlayer player, World world, int x, int y, int z )
+	{
+		return null;
+	}
+
+	@Override
+	public Object getServerGuiElement( int ID, EntityPlayer player, World world, int x, int y, int z )
+	{
+		return null;
+	}
+
+
+
+	@Override
 	public void registerTileEntitySpecialRender(/* Placeholder */) {
-		connectedRender = RenderingRegistry.getNextAvailableRenderId();
+
+		testRender = RenderingRegistry.getNextAvailableRenderId();
 		ClientRegistry.bindTileEntitySpecialRenderer(
-				bb.mods.bbbc.core.tileentity.ConnectedTileEntity.class,
-				new ConnectedRenderer());
-	
+				bb.mods.bbbc.unrelated.tileentity.TileEntityRenderTest.class,
+				new TileEntityRenderTestRenderer());
 	}
 
 	@Override
@@ -38,13 +53,13 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@Override
-	public void initRenderers() {
-		
-	}
+	public void initRenderer() {
 	
+	}
+
 	@Override
 	public EntityPlayer getPlayerFromNetHandler (INetHandler handler) {
-		if (handler instanceof NetHandlerPlayServer) {
+		if (handler instanceof NetHandlerPlayServer ) {
 			return ((NetHandlerPlayServer) handler).playerEntity;
 		} else {
 			return Minecraft.getMinecraft().thePlayer;

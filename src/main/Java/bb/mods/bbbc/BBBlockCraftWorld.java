@@ -6,7 +6,7 @@ import bb.mods.bbbc.world.lib.Reference;
 import bb.mods.bbbc.world.reciepe.crafting;
 import bb.mods.bbbc.world.reciepe.smelting;
 import bb.mods.bbbc.world.gen.BBWorldGen;
-import bb.mods.bbbc.world.common.CommonProxy;
+import bb.mods.bbbc.world.common.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
