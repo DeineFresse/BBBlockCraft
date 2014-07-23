@@ -8,10 +8,6 @@ import net.minecraft.world.World;
 
 public class ServerProxy implements IProxy{
 
-	@SidedProxy(clientSide = "bb.mods.bbbc.world.common.proxy.ClientProxy", serverSide = "bb.mods.bbbc.world.common.proxy.CommonProxy")
-	public static ServerProxy proxy;
-
-
 	public void registerRenderInformation()
 	{
 
