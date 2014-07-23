@@ -54,28 +54,30 @@ public class ConnectedRenderer extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslatef(0.5F, 0.5F, 0.5F);
 
-		switch (side) {
-		case 0: {
-			GL11.glRotated(90, 1, 0, 0);
-			break;
-		}
-		case 1: {
-			GL11.glRotated(-90, 1, 0, 0);
-			break;
-		}
-		case 2:{
-			GL11.glRotated(-180, 1, 0, 0);
-			break;
-		}
-		case 4:{
-			GL11.glRotated(-90, 0, 1, 0);
-			break;
-		}
-		case 5:{
-			GL11.glRotated(90, 0, 1, 0);
-			break;
-		}
-		}
+        switch(ForgeDirection.getOrientation(side)){
+            case SOUTH : {
+                GL11.glRotated(-180,0,1,0);
+                break;
+            }
+            case EAST:{
+                GL11.glRotated(-90,0,1,0);
+                break;
+            }
+            case WEST:{
+                GL11.glRotated(90,0,1,0);
+                break;
+            }
+            case UP:{
+                GL11.glRotated(90,1,0,0);
+                break;
+            }
+            case DOWN:{
+                GL11.glRotated(-90,1,0,0);
+                break;
+            }
+        }
+
+
 
 		GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
 

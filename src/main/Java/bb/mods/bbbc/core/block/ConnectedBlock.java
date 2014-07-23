@@ -6,6 +6,7 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
@@ -17,7 +18,7 @@ public abstract class ConnectedBlock extends BlockContainer {
 
 	private List<Block> canConnect = new ArrayList<Block>();
 	
-	public final ResourceLocation resLocation;
+	public ResourceLocation resLocation;
 	
 	public ConnectedBlock(Material material,ResourceLocation re) {
 		super(material);
@@ -25,52 +26,6 @@ public abstract class ConnectedBlock extends BlockContainer {
 		addConnectingBlock(this);
 	}
 
-	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z,
-			Block block) {
-		super.onNeighborBlockChange(world, x, y, z, block);
-		TileEntity tile = world.getTileEntity(x, y, z);
-		if (tile instanceof ConnectedTileEntity) {
-			ConnectedTileEntity te = (ConnectedTileEntity) tile;
-			te.neighborChanged();
-		}
-	}
-	
-	@Override
-	public void onPostBlockPlaced(World world, int x,int y, int z, int p_149714_5_) {
-		super.onPostBlockPlaced(world, x, y, z,p_149714_5_);
-		for(int i = -1;i<=1;i++){
-			for(int ii = -1;ii<=1;ii++){
-				for(int iii = -1;iii<=1;iii++){
-					TileEntity te = world.getTileEntity(x+i,y+ii,z+iii);
-					if(te instanceof ConnectedTileEntity){
-						ConnectedTileEntity cte = (ConnectedTileEntity) te;
-						cte.neighborChanged();
-					}
-				}
-			}
-		}
-		
-	}
-	
-	@Override
-	public void onBlockPreDestroy(World world, int x,
-			int y, int z, int p_149725_5_) {
-		// TODO Auto-generated method stub
-		super.onBlockPreDestroy(world, x, y, z,
-				p_149725_5_);
-		for(int i = -1;i<=1;i++){
-			for(int ii = -1;ii<=1;ii++){
-				for(int iii = -1;iii<=1;iii++){
-					TileEntity te = world.getTileEntity(x+i,y+ii,z+iii);
-					if(te instanceof ConnectedTileEntity){
-						ConnectedTileEntity cte = (ConnectedTileEntity) te;
-						cte.neighborChanged();
-					}
-				}
-			}
-		}
-	}
 	public final Block[] canConnectToBlock(){
 		Block[] a = new Block[canConnect.size()];
 		for(int i =0;i< canConnect.size();i++){
@@ -104,4 +59,8 @@ public abstract class ConnectedBlock extends BlockContainer {
 		return new ConnectedTileEntity(null);
 	}
 
+    @Override
+    public void registerBlockIcons(IIconRegister iir) {
+       blockIcon = iir.registerIcon(resLocation.toString());
+    }
 }
