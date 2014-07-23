@@ -38,7 +38,7 @@ public class BBBlockCraftMachines extends BBBCMod{
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent evtent) {
+	public void init(FMLInitializationEvent event) {
 
 		crafting.Recipe();
 		crafting.ShapelessRecipe();

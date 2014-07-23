@@ -1,16 +1,17 @@
 
 package bb.mods.bbbc;
 
-import bb.mods.bbbc.machines.interfaces.GuiHandler;
 import bb.mods.bbbc.core.BBBCMod;
+import bb.mods.bbbc.core.common.network.PacketHandler;
+import bb.mods.bbbc.core.common.proxy.CommonProxy;
+import bb.mods.bbbc.core.config.ConfigurationHandler;
 import bb.mods.bbbc.core.references.Reference;
 import bb.mods.bbbc.core.tileentity.TileEntity;
+import bb.mods.bbbc.machines.interfaces.GuiHandler;
 import bb.mods.bbbc.world.gen.BBWorldGen;
-import bb.mods.bbbc.core.common.proxy.CommonProxy;
-import bb.mods.bbbc.core.common.network.PacketHandler;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -28,13 +29,16 @@ public class BBBlockCraftCore extends BBBCMod{
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		ConfigurationHandler.init( event.getSuggestedConfigurationFile() );
 		CommonProxy.proxy.registerTileEntitySpecialRender();
 		TileEntity.regTileEntity();
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent evtent) {
-		
+	public void init(FMLInitializationEvent event) {
+
+
+
 		channels = NetworkRegistry.INSTANCE.newChannel(Reference.MOD_CHANNEL,new PacketHandler());
 		new GuiHandler();
 		
