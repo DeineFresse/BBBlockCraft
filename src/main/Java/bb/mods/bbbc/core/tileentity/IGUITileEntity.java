@@ -1,4 +1,4 @@
-package bb.mods.bbbc.core;
+package bb.mods.bbbc.core.tileentity;
 
 public interface IGUITileEntity {
 	

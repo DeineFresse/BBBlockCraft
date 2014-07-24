@@ -15,9 +15,9 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Aufgabenlblock extends BlockContainer {
+public class Aufgabenblock extends BlockContainer {
 
-	protected Aufgabenlblock() {
+	protected Aufgabenblock() {
 		super(Material.sponge);
 		setLightLevel(1.0f);
 		setBlockName(UnlocalizedNames.getUnlocalizedName(Block_Names.AUFGABENBLOCK));
