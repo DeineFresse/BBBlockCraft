@@ -53,11 +53,11 @@ public class RectangleHollow extends SingleBlock {
 		Block[] s = new Block[] { Blocks.oak_stairs, Blocks.spruce_stairs,
 				Blocks.birch_stairs, Blocks.jungle_stairs,
 				Blocks.dark_oak_stairs, Blocks.acacia_stairs,Blocks.brick_stairs };
-		for (int i = 0; i < s.length; i++) {
-			if (id == s[i]) {
-				return true;
-			}
-		}
+        for (Block value : s) {
+            if (id == value) {
+                return true;
+            }
+        }
 		return false;
 	}
 

@@ -2,6 +2,7 @@ package bb.mods.bbbc.world.gen;
 
 import java.util.Random;
 
+import bb.mods.bbbc.core.util.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -12,7 +13,11 @@ import cpw.mods.fml.common.IWorldGenerator;
 
 public class BBWorldGen implements IWorldGenerator {
 
-	/** Generates Ore in a specific pattern */
+	/** Generates Ore in a specific pattern
+     *
+     * @param  only if true only the listed bioms else not the listed Bioms
+     *
+     * */
 	public void generateit(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider,
 			Block ID, Block target, String[] bioms, boolean only, int tries) {
@@ -56,13 +61,11 @@ public class BBWorldGen implements IWorldGenerator {
 					world.setBlock(x + 1, y, z, ID);
 					world.setBlock(x + 1, y - 1, z, ID);
 					nosucsess = false;
-					System.out.println(ID.getLocalizedName() + " X: " + x + " Y: " + y + " Z: "
-							+ z);
+                    LogHelper.debug("Generated "+ID.getLocalizedName()+" at "+ " X: " + x + " Y: " + y + " Z: "+ z);
 				} else {
 					nosucsess = true;
 					trieCount++;
-					System.out.println("Had no sucess,try again!Tried: "
-							+ trieCount + ", ToTry: " + tries);
+                    LogHelper.debug("Had no sucess,try :"+ trieCount+"/"+tries);
 				}
 
 			} while (nosucsess && trieCount < tries);
@@ -90,6 +93,8 @@ public class BBWorldGen implements IWorldGenerator {
 		generateit(random, chunkX, chunkZ, world, chunkGenerator,
 				chunkProvider, block.cloudore, Blocks.stone,
 				new String[] { "Hell" }, false, 10);
+
+        generateit(random,chunkX,chunkZ,world,chunkGenerator,chunkProvider,Blocks.netherrack,Blocks.netherrack,new String[]{"Hell"},true,5);
 
 	}
 

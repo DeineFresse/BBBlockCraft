@@ -29,8 +29,6 @@ public class BuildStructur {
 			EntityPlayer par5,int dir, StructureBlock[] b) {
 
 		 List<RotatedBlock> a = convert(b,dir);		 
-		 
-		System.out.println(a.size());
 
 		for (int i = 0; i < a.size(); i++) {
 
@@ -47,7 +45,6 @@ public class BuildStructur {
 
 		}
 
-		System.out.println("build2 Ende");
 	}
 
 	public static List<RotatedBlock> convert(StructureBlock[] structureBlocks,
@@ -56,13 +53,13 @@ public class BuildStructur {
 		RotatedBlock[] t;
 		List<RotatedBlock> a = new ArrayList<RotatedBlock>();
 
-		for (int i = 0; i < structureBlocks.length; i++) {
-				
-			t = structureBlocks[i].getBlocks(dir);
-			for (int ii = 0; ii < t.length; ii++) {
-				a.add(t[ii]);
-			}
-		}
+        for (StructureBlock structureBlock : structureBlocks) {
+
+            t = structureBlock.getBlocks(dir);
+            for (RotatedBlock aT : t) {
+                a.add(aT);
+            }
+        }
 		return a;
 	}
 }

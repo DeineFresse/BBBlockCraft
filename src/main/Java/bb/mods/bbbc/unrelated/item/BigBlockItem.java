@@ -43,18 +43,18 @@ public class BigBlockItem extends ItemBlock {
 			int[] shift;
 
 			boolean canPlace = true;
-			for (int i = 0; i < gagShift.length; i++) {
-				shift = rotXZByDir(gagShift[i][0], gagShift[i][1],
-						gagShift[i][2], dir);
+            for (int[] aGagShift : gagShift) {
+                shift = rotXZByDir(aGagShift[0], aGagShift[1],
+                        aGagShift[2], dir);
 
-				if (!world.isAirBlock(x + shift[0], y + shift[1], z + shift[2])
-						&& !isReplaceable(world.getBlock(x + shift[0], y
-								+ shift[1], z + shift[2]))) {
+                if (!world.isAirBlock(x + shift[0], y + shift[1], z + shift[2])
+                        && !isReplaceable(world.getBlock(x + shift[0], y
+                        + shift[1], z + shift[2]))) {
 
-					canPlace = false;
-				}
+                    canPlace = false;
+                }
 
-			}
+            }
 
 			if (canPlace) {
 

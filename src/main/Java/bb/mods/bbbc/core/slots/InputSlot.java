@@ -21,11 +21,11 @@ public class InputSlot extends Slot {
 	@Override
 	public boolean isItemValid(ItemStack stack) {
 		if (valid != null) {
-			for (int i = 0; i < valid.length; i++) {
-				if (stack.getItem() == valid[i]) {
-					return true;
-				}
-			}
+            for (Item aValid : valid) {
+                if (stack.getItem() == aValid) {
+                    return true;
+                }
+            }
 		}
 		/*if(stack == null){
 			return true;

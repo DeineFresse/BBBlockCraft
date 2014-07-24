@@ -1,6 +1,5 @@
 package bb.mods.bbbc.world.common.proxy;
 
-import cpw.mods.fml.common.SidedProxy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;

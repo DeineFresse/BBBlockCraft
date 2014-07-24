@@ -106,11 +106,11 @@ public class ConnectedGlass extends ConnectedBlock {
 
 	private boolean isAdvanced(int is) {
 		int[] advanced = new int[] { 5, 6, 7, 9, 10, 11, 13, 14,15};
-		for (int i = 0; i < advanced.length; i++) {
-			if (is == advanced[i]) {
-				return true;
-			}
-		}
+        for (int anAdvanced : advanced) {
+            if (is == anAdvanced) {
+                return true;
+            }
+        }
 		return false;
 	}
 

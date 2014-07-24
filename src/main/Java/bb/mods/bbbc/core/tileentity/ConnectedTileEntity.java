@@ -1,6 +1,7 @@
 package bb.mods.bbbc.core.tileentity;
 
 import bb.mods.bbbc.core.block.ConnectedBlock;
+import bb.mods.bbbc.core.util.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -85,20 +86,15 @@ public class ConnectedTileEntity extends TileEntity {
 
         if(connection != tempConnection) {
             connection = tempConnection;
-            System.out.println("New Connection : " + connection);
-        }
+            LogHelper.debug("Connection on ConnectedTileEntity changed to : "+connection);
+            }
     }
 
     //x,y and z should be  -1,0 or 1
     public boolean relativeConnection(int x,int y,int z){
         int offset = ((x+1)+3*(y+1)+9*(z+1));
         int con = connection & (1<<offset);
-        if(con!=0){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return con != 0;
 
     }
 

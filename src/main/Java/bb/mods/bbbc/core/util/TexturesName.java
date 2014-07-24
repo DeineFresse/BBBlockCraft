@@ -9,9 +9,9 @@ public class TexturesName {
 		StringBuilder Name = new StringBuilder( Reference.MOD_RESOURCE_LOC.toLowerCase());
 		Name.append(':');
 		Name.append(BlockName);
-		for(int i = 0;i<strings.length;i++){
-			Name.append(strings[i]);
-		}
+        for (String string : strings) {
+            Name.append(string);
+        }
 			
 		return Name.toString();
 	}

@@ -22,7 +22,7 @@ public class block {
 		BigBlock = new BigBlock();
 		ConnectedGlass = new ConnectedGlass();
 		RenderTestBlock = new RenderTestBlock();
-		Aufgabenblock = new Aufgabenlblock();
+		Aufgabenblock = new bb.mods.bbbc.unrelated.block.Aufgabenblock();
 	}
 
 	public static void Blockreg() {

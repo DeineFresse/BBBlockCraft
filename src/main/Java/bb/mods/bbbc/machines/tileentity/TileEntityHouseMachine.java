@@ -1,12 +1,13 @@
 package bb.mods.bbbc.machines.tileentity;
 
+import bb.mods.bbbc.core.util.LogHelper;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraftforge.common.util.Constants;
-import bb.mods.bbbc.core.IGUITileEntity;
+import bb.mods.bbbc.core.tileentity.IGUITileEntity;
 import bb.mods.bbbc.core.tileentity.TileEntityInventoryBB;
 
 public class TileEntityHouseMachine extends TileEntityInventoryBB implements
@@ -82,7 +83,7 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB implements
 				Constants.NBT.TAG_COMPOUND);
 
 		for (int i = 0; i < items.tagCount(); i++) {
-			NBTTagCompound item = (NBTTagCompound) items.getCompoundTagAt(i);
+			NBTTagCompound item = items.getCompoundTagAt(i);
 			int slot = item.getByte("Slot");
 
 			if (slot >= 0 && slot < getSizeInventory()) {
@@ -94,7 +95,7 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB implements
 
 	@Override
 	public void onReceiveButtonEvent(byte buttonId) {
-		System.out.println("TileEvent recieved");
+        LogHelper.info("Received ButtonPress!");
 		int oldMeta = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 		int newMeta = oldMeta;
 
@@ -111,9 +112,6 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB implements
 		if (!worldObj.isRemote) {
 			worldObj.setBlockMetadataWithNotify(xCoord, yCoord, zCoord,
 					newMeta, 3);
-
-			System.out.println("New Meta : " + newMeta + " Old Meta : "
-					+ oldMeta);
 		}
 	}
 

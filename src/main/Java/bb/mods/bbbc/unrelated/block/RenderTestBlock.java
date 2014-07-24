@@ -99,7 +99,6 @@ public class RenderTestBlock extends BlockContainer {
 					a.stackSize--;
 					par5EntityPlayer.inventory
 							.setInventorySlotContents(slot, a);
-					System.out.println("Tada");
 				}
 				
 				if(te!=null){
@@ -110,7 +109,6 @@ public class RenderTestBlock extends BlockContainer {
 			}
 			if(a.getItem() == item.MyFirstItem){
 				int dir = MathHelper.floor_double((double) ((par5EntityPlayer.rotationYaw * 4F) / 360F) + 0.5D) & 3;
-				System.out.println(dir);
 				switch(dir){
 				case 0:{
 					if(te!=null){

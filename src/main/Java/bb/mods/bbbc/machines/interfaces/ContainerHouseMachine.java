@@ -66,8 +66,7 @@ public class ContainerHouseMachine extends Container {
 					if (getSlot(ii).isItemValid(stack)) {
 
 						if (!mergeItemStack(stack, ii, ii + 1, false)) {
-							continue;
-						}
+                        }
 						else {
 							if (stack.stackSize == 0) {
 								slot.putStack(null);

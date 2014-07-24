@@ -5,7 +5,7 @@ import net.minecraft.network.INetHandler;
 import net.minecraft.world.World;
 
 /**
- * Created by Modding on 22.07.2014.
+ * Created by BB20101997 on 22.07.2014.
  */
 public interface IProxy
 {

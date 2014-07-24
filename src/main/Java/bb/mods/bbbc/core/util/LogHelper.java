@@ -1,6 +1,6 @@
 package bb.mods.bbbc.core.util;
 
-import com.pahimar.letsmodreboot.reference.Reference;
+import bb.mods.bbbc.core.references.Reference;
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 

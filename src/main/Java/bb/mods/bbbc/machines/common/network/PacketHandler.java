@@ -1,11 +1,12 @@
 package bb.mods.bbbc.machines.common.network;
 
+import bb.mods.bbbc.core.util.LogHelper;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.INetHandler;
 import net.minecraft.tileentity.TileEntity;
-import bb.mods.bbbc.core.IGUITileEntity;
+import bb.mods.bbbc.core.tileentity.IGUITileEntity;
 import bb.mods.bbbc.machines.common.proxy.CommonProxy;
 import bb.mods.bbbc.core.common.network.BBBCChannelHandler;
 import bb.mods.bbbc.core.common.network.BBBCPacket;
@@ -25,8 +26,8 @@ public class PacketHandler extends BBBCChannelHandler {
 		EntityPlayer player = CommonProxy.proxy
 				.getPlayerFromNetHandler(netHandler);
 		int packetID = packet.getID();
-		
-		System.out.println("Event recieved : " + packetID+" on "+(!player.worldObj.isRemote?"Server":"Client")+" Side"); 
+
+        LogHelper.info("Packet received : " + packetID+" on "+(!player.worldObj.isRemote?"Server":"Client")+" Side");
 		
 		switch (packetID) {
 		case PacketIDs.BUTTONEVENT: {
@@ -36,9 +37,6 @@ public class PacketHandler extends BBBCChannelHandler {
 								
 				TileEntity te = player.getEntityWorld().getTileEntity(
 						packetBE.getX(), packetBE.getY(), packetBE.getZ());
-
-				System.out.println("Hey " + packetBE.getX() + ":"
-						+ packetBE.getY() + ":" + packetBE.getZ());
 
 				if (te != null && (te instanceof IGUITileEntity)) {
 					IGUITileEntity Ite = (IGUITileEntity) te;

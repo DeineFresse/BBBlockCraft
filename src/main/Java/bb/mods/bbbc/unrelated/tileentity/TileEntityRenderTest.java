@@ -24,21 +24,21 @@ public class TileEntityRenderTest extends TileEntity {
 		par1.setByte("sides", sides);
 		
 		NBTTagList fishes = new NBTTagList();
-		for (int i = 0; i < fishA.size(); i++) {
+        for (Fishes aFishA : fishA) {
 
-			if (fishA.get(i) != null) {
-				NBTTagCompound b = new NBTTagCompound();
-				b.setFloat("xCoord", fishA.get(i).xCoord);
-				b.setFloat("yCoord", fishA.get(i).yCoord);
-				b.setFloat("zCoord", fishA.get(i).zCoord);
-				b.setFloat("xMove", fishA.get(i).xMove);
-				b.setFloat("yMove", fishA.get(i).yMove);
-				b.setFloat("zMove", fishA.get(i).zMove);
+            if (aFishA != null) {
+                NBTTagCompound b = new NBTTagCompound();
+                b.setFloat("xCoord", aFishA.xCoord);
+                b.setFloat("yCoord", aFishA.yCoord);
+                b.setFloat("zCoord", aFishA.zCoord);
+                b.setFloat("xMove", aFishA.xMove);
+                b.setFloat("yMove", aFishA.yMove);
+                b.setFloat("zMove", aFishA.zMove);
 
-				fishes.appendTag(b);
-			}
+                fishes.appendTag(b);
+            }
 
-		}
+        }
 
 		par1.setTag("fishes", fishes);
 

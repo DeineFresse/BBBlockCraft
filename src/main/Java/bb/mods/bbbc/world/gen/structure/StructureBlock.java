@@ -70,21 +70,21 @@ public abstract class StructureBlock{
 	
 	public final int getXCoord() {
 		return XCoord;
-	};
+	}
 
-	public final int getYCoord() {
+    public final int getYCoord() {
 		return YCoord;
-	};
-	
-	public final int getZCoord() {
+	}
+
+    public final int getZCoord() {
 		return ZCoord;
-	};
+	}
 
-	public final int getMeta() {
+    public final int getMeta() {
 		return Meta;
-	};
+	}
 
-	public final Block getBlock() {
+    public final Block getBlock() {
 		return ID;
-	};
+	}
 }

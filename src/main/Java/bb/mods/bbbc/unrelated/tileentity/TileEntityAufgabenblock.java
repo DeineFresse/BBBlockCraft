@@ -3,6 +3,7 @@ package bb.mods.bbbc.unrelated.tileentity;
 import java.util.ArrayList;
 import java.util.List;
 
+import bb.mods.bbbc.core.util.LogHelper;
 import bb.mods.bbbc.unrelated.block.block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -109,11 +110,8 @@ public class TileEntityAufgabenblock extends TileEntity {
 
 		public boolean equals(int xCor, int yCor, int zCor) {
 
-			if (xCor == x && yCor == y && zCor == z) {
-				return true;
-			}
-			return false;
-		}
+            return xCor == x && yCor == y && zCor == z;
+        }
 	}
 
 	public boolean check() {
@@ -121,18 +119,17 @@ public class TileEntityAufgabenblock extends TileEntity {
 
 			if (!(worldObj.getBlock(c.x, c.y, c.z) == block.Aufgabenblock)) {
 				reset();
-				System.out
-						.println("ReCalculating in TileEntityAufgabenblock ,may cause loop");
+				//TODO make this work
 				startreCalc();
 				return check();
 			}
 
 			if (!((worldObj.getBlockMetadata(c.x, c.y, c.z) & 1) == 1)) {
-				System.out.println("Fail : " + worldObj.isRemote);
+                LogHelper.info("Aufgabenblock check was a Fail!");
 				return false;
 			}
 		}
-		System.out.println("Succes : " + worldObj.isRemote);
+		LogHelper.info("Aufgabenblock check was a Success!");
 		return true;
 	}
 

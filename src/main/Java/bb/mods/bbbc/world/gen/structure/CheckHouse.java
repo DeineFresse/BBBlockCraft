@@ -32,9 +32,9 @@ public class CheckHouse {
 		String ss = null;
 
 		if (!isRemote) {
-			Integer I = new Integer(Ergebnis);
+			Integer I = Ergebnis;
 			String s = I.toString();
-			Integer II = new Integer(dir);
+			Integer II = dir;
 			ss = II.toString();
 			par5EntityPlayer.addChatMessage(new ChatComponentText(s));
 			par5EntityPlayer.addChatMessage(new ChatComponentText(ss));

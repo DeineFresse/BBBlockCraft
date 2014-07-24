@@ -23,9 +23,9 @@ public class Walls extends StructureBlock {
 		
 		for(int i = 0;i<H;i++){
 			 RotatedBlock[] a =new RectangleHollow(XCoord,YCoord+i,ZCoord,ID,Meta,Rotat,L,W).getBlocks(dir);
-			 for(int ii = 0;ii<a.length;ii++){
-				 rl.add(a[ii]);
-			 }
+            for (RotatedBlock anA : a) {
+                rl.add(anA);
+            }
 		}
 		
 		RotatedBlock[] ra = new RotatedBlock[rl.size()];
