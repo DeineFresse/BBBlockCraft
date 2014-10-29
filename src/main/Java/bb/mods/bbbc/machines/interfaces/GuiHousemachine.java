@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class GuiHousemachine extends GuiContainer {
 
-	private TileEntityHouseMachine machine;
+	private final TileEntityHouseMachine machine;
 
 	public GuiHousemachine(InventoryPlayer invPlayer, TileEntityHouseMachine te) {
 		super(new ContainerHouseMachine(invPlayer, te));
