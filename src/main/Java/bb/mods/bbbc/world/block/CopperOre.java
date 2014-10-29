@@ -11,11 +11,11 @@ import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockOreOne extends Block {
+public class CopperOre extends Block {
 
 	public static int shiftedIndex;
 
-	public BlockOreOne() {
+	public CopperOre() {
 		super(Material.rock);
 		setHardness(2.0f);
 		setResistance(5.0f);
