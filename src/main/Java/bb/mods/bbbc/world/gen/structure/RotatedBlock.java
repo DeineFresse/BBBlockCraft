@@ -4,8 +4,11 @@ import net.minecraft.block.Block;
 
 public class RotatedBlock {
 
-	protected int XCoord,YCoord,ZCoord,Meta;
-	protected Block ID;
+	protected final int XCoord;
+    protected final int YCoord;
+    protected final int ZCoord;
+    protected final int Meta;
+	protected final Block ID;
 	
 	public RotatedBlock(int xCoord, int yCoord, int zCoord, Block id, int meta) {
 		XCoord = xCoord;

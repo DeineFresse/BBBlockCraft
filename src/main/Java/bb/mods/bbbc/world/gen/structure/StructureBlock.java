@@ -4,9 +4,12 @@ import net.minecraft.block.Block;
 
 public abstract class StructureBlock{
 
-	protected int XCoord,YCoord,ZCoord,Meta;
-	protected boolean Rotat;
-	protected Block ID;
+	protected final int XCoord;
+    protected final int YCoord;
+    protected final int ZCoord;
+    protected int Meta;
+	protected final boolean Rotat;
+	protected final Block ID;
 	public StructureBlock(int x, int y, int z, Block id2, int meta,boolean rotmeta) {
 		XCoord = x;
 		YCoord = y;
@@ -24,7 +27,7 @@ public abstract class StructureBlock{
 	
 	}
 	
-	protected static final int[] rotXZByDir(int x, int y, int z,int dir) {
+	protected static int[] rotXZByDir(int x, int y, int z,int dir) {
 		if (dir == 0) {
 			return new int[] { x, y, z };
 		} else if (dir == 1) {
@@ -36,7 +39,7 @@ public abstract class StructureBlock{
 		}
 	}
 	
-	protected final static int[] rotXZByDir(int x, int y, int z,int meta,int dir) {
+	protected static int[] rotXZByDir(int x, int y, int z,int meta,int dir) {
 		if (dir == 0) {
 			return new int[] { x, y, z,};
 		} else if (dir == 1) {
@@ -48,7 +51,7 @@ public abstract class StructureBlock{
 		}
 	}
 	
-	protected final static int dreh1(int meta){
+	protected static int dreh1(int meta){
 		switch(meta&3){
 		case 0:{return meta^2;}
 		case 1:{return meta^2;}
@@ -58,7 +61,7 @@ public abstract class StructureBlock{
 		}
 	}
 	
-	protected static final int dreh2(int meta){
+	protected static int dreh2(int meta){
 		switch(meta&3){
 		case 0:{return meta^3;}
 		case 1:{return meta^3;}

@@ -8,7 +8,8 @@ import net.minecraft.init.Blocks;
 
 public class RectangleHollow extends SingleBlock {
 
-	private int L, W;
+	private final int L;
+    private final int W;
 
 	public RectangleHollow(int x, int y, int z, Block id, int meta,
 			boolean rotmeta, int l, int w) {
