@@ -1,6 +1,7 @@
 package bb.mods.bbbc.core.tileentity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -104,9 +105,7 @@ public class TileEntityInventoryBB extends TileEntity implements IInventory {
 		Item[][] a = valid;
 		valid = new Item[a.length][];
 		List<Item> b = new ArrayList<Item>();
-		for(int i = 0;i<a[slot].length;i++){
-			b.add(a[slot][i]);
-		}
+        b.addAll(Arrays.asList(a[slot]));
 		b.add(item);
 		for(int i = 0;i<a.length;i++){
 			if(i!=slot){
