@@ -13,7 +13,7 @@ import bb.mods.bbbc.core.tileentity.TileEntityInventoryBB;
 public class TileEntityHouseMachine extends TileEntityInventoryBB implements
 		IGUITileEntity {
 
-	private int proccesTimer;
+	private int processTimer;
 	private final int MAXTIMER = 200;
 
 	private boolean inventoryChange = true;
@@ -37,7 +37,7 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB implements
 	}
 
 	public int getTimer() {
-		return proccesTimer;
+		return processTimer;
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB implements
 	public void writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
 
-		compound.setInteger("proccesTimer", proccesTimer);
+		compound.setInteger("processTimer", processTimer);
 
 		NBTTagList items = new NBTTagList();
 
@@ -77,7 +77,7 @@ public class TileEntityHouseMachine extends TileEntityInventoryBB implements
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 
-		proccesTimer = compound.getInteger("proccesTimer");
+		processTimer = compound.getInteger("processTimer");
 
 		NBTTagList items = compound.getTagList("Items",
 				Constants.NBT.TAG_COMPOUND);
