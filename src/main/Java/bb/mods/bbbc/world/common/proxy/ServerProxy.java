@@ -5,7 +5,7 @@ import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.world.World;
 
-public class ServerProxy implements IProxy{
+public class ServerProxy extends CommonProxy{
 
 	public void registerRenderInformation()
 	{
