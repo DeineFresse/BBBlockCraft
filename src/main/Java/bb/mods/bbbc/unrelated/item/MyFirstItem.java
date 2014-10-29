@@ -17,9 +17,9 @@ public class MyFirstItem extends Item {
 		super();
 		maxStackSize = 64;
 		setCreativeTab(CreativeTabs.tabMisc);
-		setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Item_Names.MYFIRSTITEM));
+        setUnlocalizedName(UnlocalizedNames.getUnlocalizedName(Item_Names.MYFIRSTITEM));
 
-	}
+    }
 	
 	@SideOnly(Side.CLIENT)
 	IIcon brick;
