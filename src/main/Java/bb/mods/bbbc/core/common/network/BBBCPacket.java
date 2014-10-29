@@ -5,7 +5,7 @@ import io.netty.buffer.ByteBuf;
 
 public abstract class BBBCPacket {
 	
-	protected boolean isChunkDataPAcket = false;
+	protected boolean isChunkDataPacket = false;
 	
 	public abstract int getID();
 	
