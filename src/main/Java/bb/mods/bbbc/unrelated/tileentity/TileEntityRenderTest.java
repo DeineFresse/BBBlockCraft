@@ -1,8 +1,5 @@
 package bb.mods.bbbc.unrelated.tileentity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
@@ -11,9 +8,12 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.Constants;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TileEntityRenderTest extends TileEntity {
 
-	public List<Fishes> fishA = new ArrayList<Fishes>();
+	public final List<Fishes> fishA = new ArrayList<Fishes>();
 	public byte sides = 0;
 	public int pass =-1;
 
