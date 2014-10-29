@@ -1,13 +1,13 @@
 package bb.mods.bbbc.core.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ReplaceList {
-	private static List<Block> replaceList = new ArrayList<Block>();
+	private static final List<Block> replaceList = new ArrayList<Block>();
 
 	public static Block[] getReplaceList() {
 		
@@ -30,8 +30,8 @@ public class ReplaceList {
 		}
 	}
 	
-	public static void removeFromReplaceList(int i){
-		for(;replaceList.contains(i);){
+	public static void removeFromReplaceList(Block i){
+		while(replaceList.contains(i)){
 			replaceList.remove(replaceList.indexOf(i));
 		}
 	}
