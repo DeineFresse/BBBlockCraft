@@ -40,7 +40,7 @@ public class BBBlockCraftUnrelated extends BBBCMod{
 	}
 
 	@EventHandler
-	public void init(FMLInitializationEvent evtent) {
+	public void init(FMLInitializationEvent event) {
 
 		smelting.SmeltingRecipe();
 		crafting.Recipe();
