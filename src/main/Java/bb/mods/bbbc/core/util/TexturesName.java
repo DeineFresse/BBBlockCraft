@@ -6,7 +6,7 @@ public class TexturesName {
 
 	public static String getTextureName(String BlockName,String ... strings){
 		
-		StringBuilder Name = new StringBuilder( Reference.MOD_RESOURCE_LOC.toLowerCase());
+		StringBuilder Name = new StringBuilder( Reference.MOD_RESOURCE_LOC);
 		Name.append(':');
 		Name.append(BlockName);
         for (String string : strings) {
