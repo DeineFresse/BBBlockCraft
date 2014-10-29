@@ -1,8 +1,5 @@
 package bb.mods.bbbc.unrelated.tileentity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import bb.mods.bbbc.core.util.LogHelper;
 import bb.mods.bbbc.unrelated.block.block;
 import net.minecraft.nbt.NBTTagCompound;
@@ -10,6 +7,9 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TileEntityAufgabenblock extends TileEntity {
 
@@ -89,7 +89,9 @@ public class TileEntityAufgabenblock extends TileEntity {
 
 	private class Coord {
 
-		public int x, y, z;
+		public final int x;
+        public final int y;
+        public final int z;
 
 		public Coord(int xCor, int yCor, int zCor) {
 			x = xCor;
