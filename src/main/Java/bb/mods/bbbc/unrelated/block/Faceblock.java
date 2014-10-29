@@ -1,36 +1,23 @@
 package bb.mods.bbbc.unrelated.block;
 
-import java.io.File;
-
-import bb.mods.bbbc.core.references.Reference;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import bb.mods.bbbc.core.block.ConnectedBlock;
-import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.references.RenderIDS;
 import bb.mods.bbbc.core.util.UnlocalizedNames;
 import bb.mods.bbbc.unrelated.references.Block_Names;
+import bb.mods.bbbc.unrelated.references.Resources;
 import bb.mods.bbbc.unrelated.tileentity.TileEntityFace;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class Faceblock extends ConnectedBlock {
 
-	@SideOnly(Side.CLIENT)
-	IIcon[][] blockIIcon = new IIcon[16][16];
-
-	public static final int shiftedIndex = 165;
-
 	public Faceblock() {
 
-		super(Material.wood,new ResourceLocation( Reference.MOD_RESOURCE_LOC,""));
-
+		super(Material.wood);
+        RLocation = Resources.BIGBLOCK_RL;
 		setBlockName(UnlocalizedNames
 				.getUnlocalizedName(Block_Names.FACEBLOCK));
 
@@ -60,70 +47,6 @@ public class Faceblock extends ConnectedBlock {
 
 	}
 
-	@SideOnly(Side.CLIENT)
-	public IIcon getBlockTexture(IBlockAccess par1IBlockAccess, int par2,
-			int par3, int par4, int par5) {
-		return this.blockIIcon[0][0];
-	}
-
-	@SideOnly(Side.CLIENT)
-	public IIcon getIIcon(int par1, int par2) {
-		return this.blockIIcon[0][0];
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void registerIIcons(IIconRegister IIcon) {
-		
-		for (int i = 0; i < blockIIcon.length; i++) {
-			if (i == 15) {
-				for (int ii = 0; ii < blockIIcon[i].length; ii++) {
-					this.blockIIcon[i][ii] = IIcon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK,File.separator,Block_Names.BIGBLOCK+ i,"_"+ ii));
-				}
-			} else if (i == 5 || i == 6 || i == 9 || i == 10) {
-				for (int ii = 0; ii < blockIIcon[i].length; ii++) {
-					int x = ii & 1;
-					this.blockIIcon[i][ii] = IIcon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK, File.separator,Block_Names.BIGBLOCK
-							+ i
-							, "_"
-							+ x));
-				}
-
-			} else if (isAdvanced(i)) {
-				for (int ii = 0; ii < blockIIcon[i].length; ii++) {
-					int x = ii & 3;
-					this.blockIIcon[i][ii] = IIcon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK, File.separator
-							, Block_Names.BIGBLOCK
-							+ i
-							, "_"
-							+ x));
-				}
-			} else {
-				for (int ii = 0; ii < blockIIcon[i].length; ii++) {
-					this.blockIIcon[i][ii] = IIcon.registerIcon(TexturesName.getTextureName(Block_Names.BIGBLOCK
-							, File.separator
-							, Block_Names.BIGBLOCK
-							+ i
-							, "_"
-							+ 0));
-				}
-			}
-		}
-		
-		blockIcon = blockIIcon[0][0];
-
-	}
-
-	private boolean isAdvanced(int is) {
-		int[] advanced = new int[] { 5, 6, 7, 9, 10, 11, 13, 14, 15 };
-        for (int anAdvanced : advanced) {
-            if (is == anAdvanced) {
-                return true;
-            }
-        }
-
-		return false;
-	}
-
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block p) {
 		TileEntityFace tileEntiy = (TileEntityFace) world.getTileEntity(x,
@@ -147,14 +70,9 @@ public class Faceblock extends ConnectedBlock {
 
 	}
 
-	@Override
-	public boolean isOpaqueCube() {
-		return true;
-	}
-
-	@Override
-	public TileEntity createNewTileEntity(World var1, int var2) {
-		return null;
-	}
+    @Override
+    public int getRenderType() {
+        return RenderIDS.connectedRender;
+    }
 
 }
