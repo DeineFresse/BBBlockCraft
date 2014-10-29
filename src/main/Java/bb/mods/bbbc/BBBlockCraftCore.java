@@ -7,8 +7,6 @@ import bb.mods.bbbc.core.common.proxy.CommonProxy;
 import bb.mods.bbbc.core.config.ConfigurationHandler;
 import bb.mods.bbbc.core.references.Reference;
 import bb.mods.bbbc.core.tileentity.TileEntity;
-import bb.mods.bbbc.machines.interfaces.GuiHandler;
-import bb.mods.bbbc.world.gen.BBWorldGen;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -22,7 +20,6 @@ public class BBBlockCraftCore extends BBBCMod{
 
 	// Gen Definition
 
-	public static bb.mods.bbbc.world.gen.BBWorldGen worldGen = new BBWorldGen();
 
 	@Instance(Reference.MOD_ID)
 	public static BBBlockCraftCore instance;
@@ -40,7 +37,7 @@ public class BBBlockCraftCore extends BBBCMod{
 
 
 		channels = NetworkRegistry.INSTANCE.newChannel(Reference.MOD_CHANNEL,new PacketHandler());
-		new GuiHandler();
+
 		
 		
 		
