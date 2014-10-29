@@ -1,5 +1,6 @@
 package bb.mods.bbbc.unrelated.tileentity.render;
 
+import bb.mods.bbbc.unrelated.references.Resources;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -14,10 +15,7 @@ import bb.mods.bbbc.unrelated.tileentity.TileEntityRenderTest;
 
 public class TileEntityRenderTestRenderer extends TileEntitySpecialRenderer {
 
-	public static ResourceLocation fish = new ResourceLocation("minecraft",
-			"textures/items/fish_raw.png");
-	public static ResourceLocation background = new ResourceLocation(
-			"bbblockcraft", "textures/tileentitys/aquarium/background.png");
+
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d0, double d1,
@@ -29,7 +27,7 @@ public class TileEntityRenderTestRenderer extends TileEntitySpecialRenderer {
 
 		GL11.glTranslatef((float) d0, (float) d1, (float) d2);
 
-			bindTexture(background);
+			bindTexture(Resources.AQUARIUM_BACKGROUND);
 			
 		if (te.pass == 0) {
 			renderTEPass0(te, tileentity.getWorldObj(), d0, d1, d2, f);
@@ -60,7 +58,7 @@ public class TileEntityRenderTestRenderer extends TileEntitySpecialRenderer {
 			int q = 1;
 			q = q << i;
 			if ((te.sides & q) != 0) {
-				drawSide(background, i);
+				drawSide(Resources.AQUARIUM_BACKGROUND, i);
 			}
 		}
 
@@ -106,7 +104,7 @@ public class TileEntityRenderTestRenderer extends TileEntitySpecialRenderer {
 		GL11.glScalef(size, size, size);
 		GL11.glTranslatef(-0.5F, 0, -0.5F);
 		GL11.glTranslatef(xCoord, yCoord, zCoord);
-		this.bindTexture(fish);
+		this.bindTexture(Resources.MINECRAFT_FISH);
 		t.addVertexWithUV(0, 0.5, 0.5, 1, 0);
 		t.addVertexWithUV(0.5, 0, 0.5, 1, 1);
 		t.addVertexWithUV(1, 0.5, 0.5, 0, 1);
