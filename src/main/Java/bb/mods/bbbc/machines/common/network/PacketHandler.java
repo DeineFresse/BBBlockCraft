@@ -27,8 +27,10 @@ public class PacketHandler extends BBBCChannelHandler {
 				.getPlayerFromNetHandler(netHandler);
 		int packetID = packet.getID();
 
-        LogHelper.info("Packet received : " + packetID+" on "+(!player.worldObj.isRemote?"Server":"Client")+" Side");
-		
+        if(player!=null) {
+            LogHelper.info("Packet received : " + packetID + " on " + (!player.worldObj.isRemote ? "Server" : "Client") + " Side");
+        }
+
 		switch (packetID) {
 		case PacketIDs.BUTTONEVENT: {
 			if (packet instanceof ButtonEventPacket && player != null) {
