@@ -25,7 +25,6 @@ public class ConnectedTileEntity extends TileEntity {
         NBTTagCompound nbttagcompound = new NBTTagCompound();
         this.writeToNBT(nbttagcompound);
         return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, nbttagcompound);
-
     }
 
     @Override
@@ -45,7 +44,7 @@ public class ConnectedTileEntity extends TileEntity {
         return re;
     }
 
-    public TileEntity setRecourceLocation(ResourceLocation res) {
+    public TileEntity setRecourseLocation(ResourceLocation res) {
         re = res;
         return this;
     }
@@ -68,7 +67,7 @@ public class ConnectedTileEntity extends TileEntity {
 
         World w = getWorldObj();
 
-        for(int x=-1,offset = 0;x<=1;x++){
+        for(int x=-1,offset;x<=1;x++){
             for(int y=-1;y<=1;y++){
                 for(int z=-1;z<=1;z++){
                     Block b = w.getBlock(xCoord+x,yCoord+y,zCoord+z);
@@ -90,8 +89,8 @@ public class ConnectedTileEntity extends TileEntity {
             }
     }
 
-    //x,y and z should be  -1,0 or 1
     public boolean relativeConnection(int x,int y,int z){
+        //x,y and z should be  -1,0 or 1
         int offset = ((x+1)+3*(y+1)+9*(z+1));
         int con = connection & (1<<offset);
         return con != 0;
@@ -109,7 +108,7 @@ public class ConnectedTileEntity extends TileEntity {
         }
         if (this.blockType instanceof ConnectedBlock) {
             ConnectedBlock con = (ConnectedBlock) this.blockType;
-            for (Block b : con.canConnectToBlock()) {
+            for (Block b : con.canConnectToBlocks()) {
                 if (b == conTo) {
                     r = true;
                     break;
@@ -120,8 +119,16 @@ public class ConnectedTileEntity extends TileEntity {
     }
 
 
+    public byte getConnectionOnSide(ForgeDirection forgeDirection){
+
+         byte ergebniss;
+
+        boolean[] boos = new boolean[8];
+        return 8;
+    }
+
+
     public boolean shouldSideBeRendered(ForgeDirection forgeDirection) {
-        //TODO Needs Rework since the connection is gererated differently
     return !relativeConnection(forgeDirection.getOpposite().offsetX,forgeDirection.getOpposite().offsetY,forgeDirection.getOpposite().offsetZ);
 }
 }
