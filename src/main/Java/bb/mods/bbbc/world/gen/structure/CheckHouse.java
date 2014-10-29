@@ -20,16 +20,14 @@ public class CheckHouse {
 	public static void HouseBuild(World par1World, int par2, int par3,
 			int par4, EntityPlayer par5EntityPlayer, Block ID) {
 
-		int dir = 0;
-		dir = MathHelper
-				.floor_double((double) (par5EntityPlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		int dir = MathHelper.floor_double((double) (par5EntityPlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
 		int Ergebnis = Houscheck(par1World, par2, par3, par4, dir,
 				par5EntityPlayer, ID);
 
 		boolean isRemote = par5EntityPlayer.worldObj.isRemote;
 
-		String ss = null;
+		String ss;
 
 		if (!isRemote) {
 			Integer I = Ergebnis;

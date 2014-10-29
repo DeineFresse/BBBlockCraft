@@ -1,13 +1,14 @@
 package bb.mods.bbbc.world.gen.structure;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import bb.mods.bbbc.unrelated.structuren.Structuren;
+import bb.mods.bbbc.world.references.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import bb.mods.bbbc.unrelated.structuren.Structuren;
-import bb.mods.bbbc.world.references.Reference;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class BuildStructur {
 
@@ -56,9 +57,7 @@ public class BuildStructur {
         for (StructureBlock structureBlock : structureBlocks) {
 
             t = structureBlock.getBlocks(dir);
-            for (RotatedBlock aT : t) {
-                a.add(aT);
-            }
+            a.addAll(Arrays.asList(t));
         }
 		return a;
 	}
