@@ -1,15 +1,15 @@
 package bb.mods.bbbc.world.gen;
 
-import java.util.Random;
-
 import bb.mods.bbbc.core.util.LogHelper;
+import bb.mods.bbbc.world.block.block;
+import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
-import bb.mods.bbbc.world.block.block;
-import cpw.mods.fml.common.IWorldGenerator;
+
+import java.util.Random;
 
 public class BBWorldGen implements IWorldGenerator {
 
@@ -22,7 +22,7 @@ public class BBWorldGen implements IWorldGenerator {
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider,
 			Block ID, Block target, String[] bioms, boolean only, int tries) {
 
-		boolean nosucsess = true;
+		boolean nosucsess;
 		int trieCount = 0;
 		BiomeGenBase b = world.getBiomeGenForCoords(chunkX, chunkZ);
 		int yRandom;
