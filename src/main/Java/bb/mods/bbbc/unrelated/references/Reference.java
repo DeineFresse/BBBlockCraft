@@ -13,12 +13,4 @@ public class Reference {
 
 	public static final String CHATPREFIX = "[" + MOD_CHANNEL + "]";
 
-	private static final String[] SideSufix = new String[] { "top", "bottom",
-			"north", "south", "east", "west" };
-	/**
-	 * @param par5 side
-	 * **/
-	public static String getSideSufix(int par5) {
-		return par5<SideSufix.length&&par5>=0?SideSufix[par5]:null;
-	}
 }
