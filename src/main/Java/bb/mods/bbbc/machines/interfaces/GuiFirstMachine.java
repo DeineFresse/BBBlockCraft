@@ -19,7 +19,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class GuiFirstMachine extends GuiContainer {
 
-	private TileEntityFirstMachine machine;
+	private final TileEntityFirstMachine machine;
 
 	public GuiFirstMachine(InventoryPlayer invPlayer,
 			TileEntityFirstMachine machine) {
@@ -87,7 +87,7 @@ public class GuiFirstMachine extends GuiContainer {
 		int type = machine.getWorldObj().getBlockMetadata(machine.xCoord,
 				machine.yCoord, machine.zCoord) / 2;
 
-		String str = "";
+		String str;
 		boolean invalid = true;
 		int count = 0;
 		if (type == 0) {
@@ -100,7 +100,7 @@ public class GuiFirstMachine extends GuiContainer {
 			} else {
 				count = 9;
 			}
-			str = count + " Anvil´s needed per drop!";
+			str = count + " Anvilï¿½s needed per drop!";
 		}
 
 		if (machine.getAnvils() >= count) {
