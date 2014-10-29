@@ -20,7 +20,7 @@ public class BBBlockCraftWorld extends BBBCMod{
 	
 	// Gen Definition
 
-	public static bb.mods.bbbc.world.gen.BBWorldGen worldGen = new BBWorldGen();
+	public static final bb.mods.bbbc.world.gen.BBWorldGen worldGen = new BBWorldGen();
 
 	@Instance(Reference.MOD_ID)
 	public static BBBlockCraftWorld instance;
