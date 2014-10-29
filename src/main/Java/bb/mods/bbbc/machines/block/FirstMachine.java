@@ -1,7 +1,13 @@
 package bb.mods.bbbc.machines.block;
 
-import java.util.List;
-
+import bb.mods.bbbc.BBBlockCraftCore;
+import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
+import bb.mods.bbbc.machines.references.Block_Names;
+import bb.mods.bbbc.machines.tileentity.TileEntityFirstMachine;
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -17,14 +23,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import bb.mods.bbbc.BBBlockCraftCore;
-import bb.mods.bbbc.machines.references.Block_Names;
-import bb.mods.bbbc.core.util.TexturesName;
-import bb.mods.bbbc.core.util.UnlocalizedNames;
-import bb.mods.bbbc.machines.tileentity.TileEntityFirstMachine;
-import cpw.mods.fml.common.network.internal.FMLNetworkHandler; //check for better Way
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class FirstMachine extends BlockContainer {
 
@@ -118,8 +118,6 @@ public class FirstMachine extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private IIcon topIcon;
 	@SideOnly(Side.CLIENT)
-	private IIcon sideIcon;
-	@SideOnly(Side.CLIENT)
 	private IIcon[] sideIcons;
 	@SideOnly(Side.CLIENT)
 	private IIcon disableIcon;
@@ -129,11 +127,10 @@ public class FirstMachine extends BlockContainer {
 	public void registerBlockIcons(IIconRegister par1IconRegister) {
 		bottomIcon = par1IconRegister.registerIcon(TexturesName.getTextureName(Block_Names.FIRSTMACHINE , "_bottom"));
 		topIcon = par1IconRegister.registerIcon(TexturesName.getTextureName(Block_Names.FIRSTMACHINE , "_top"));
-		sideIcon = par1IconRegister.registerIcon(TexturesName.getTextureName(Block_Names.FIRSTMACHINE , "_side"));
 		disableIcon = par1IconRegister.registerIcon(TexturesName.getTextureName(Block_Names.FIRSTMACHINE , "_disabled"));
 		
 		sideIcons  = new IIcon[4];
-		sideIcons[0] = sideIcon;
+		sideIcons[0] = par1IconRegister.registerIcon(TexturesName.getTextureName(Block_Names.FIRSTMACHINE , "_side"));
 		sideIcons[1] = par1IconRegister.registerIcon(TexturesName.getTextureName(Block_Names.FIRSTMACHINE,"_side_border"));
 		sideIcons[2] = par1IconRegister.registerIcon(TexturesName.getTextureName(Block_Names.FIRSTMACHINE , "_side_x"));
 		sideIcons[3] = par1IconRegister.registerIcon(TexturesName.getTextureName(Block_Names.FIRSTMACHINE , "_side_arrow"));
