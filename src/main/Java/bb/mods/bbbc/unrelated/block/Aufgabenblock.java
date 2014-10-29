@@ -66,7 +66,7 @@ public class Aufgabenblock extends BlockContainer {
 			}
 			
 			if(checkFinished(p_149727_1_,p_149727_2_,p_149727_3_,p_149727_4_)){
-				setFinished();
+				//TODO: Add a finish setting or remove
 			}
 			
 		}
@@ -89,10 +89,6 @@ public class Aufgabenblock extends BlockContainer {
 		}
 		
 		return false;
-	}
-
-	private void setFinished() {
-		
 	}
 
 	@SideOnly(Side.CLIENT)
