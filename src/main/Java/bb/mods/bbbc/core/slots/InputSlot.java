@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public class InputSlot extends Slot {
 
-	private Item[] valid;
+	private final Item[] valid;
 
 	/**
 	 * @param valid
