@@ -10,7 +10,7 @@ import bb.mods.bbbc.machines.tileentity.TileEntityHouseMachine;
 
 public class ContainerHouseMachine extends Container {
 
-	private TileEntityHouseMachine machine;
+	private final TileEntityHouseMachine machine;
 
 	public ContainerHouseMachine(InventoryPlayer invPlayer,
 			TileEntityHouseMachine machine) {
@@ -65,9 +65,8 @@ public class ContainerHouseMachine extends Container {
 
 					if (getSlot(ii).isItemValid(stack)) {
 
-						if (!mergeItemStack(stack, ii, ii + 1, false)) {
-                        }
-						else {
+						if (mergeItemStack(stack, ii, ii + 1, false)) {
+
 							if (stack.stackSize == 0) {
 								slot.putStack(null);
 							}

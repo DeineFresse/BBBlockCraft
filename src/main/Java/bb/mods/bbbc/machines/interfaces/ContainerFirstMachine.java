@@ -13,7 +13,7 @@ import bb.mods.bbbc.machines.tileentity.TileEntityFirstMachine;
 
 public class ContainerFirstMachine extends Container{
 
-	private TileEntityFirstMachine machine;
+	private final TileEntityFirstMachine machine;
 	
 	public ContainerFirstMachine(InventoryPlayer invPlayer,TileEntityFirstMachine machine){
 		this.machine = machine;
