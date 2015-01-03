@@ -22,7 +22,7 @@ group= "bb.mods.bbbc" // http://maven.apache.org/guides/mini/guide-naming-conven
 archivesBaseName = "BBBlockCraft"
 
 minecraft {
-    version = "1.7.10-10.13.0.1180"
+    version = "1.7.10-10.13.2.1240"
 }
 
 dependencies {
