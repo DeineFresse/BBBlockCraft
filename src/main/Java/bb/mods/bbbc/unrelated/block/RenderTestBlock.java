@@ -1,7 +1,13 @@
 package bb.mods.bbbc.unrelated.block;
 
-import java.util.Random;
-
+import bb.mods.bbbc.core.util.TexturesName;
+import bb.mods.bbbc.core.util.UnlocalizedNames;
+import bb.mods.bbbc.unrelated.common.proxy.ClientProxy;
+import bb.mods.bbbc.unrelated.item.item;
+import bb.mods.bbbc.unrelated.references.Block_Names;
+import bb.mods.bbbc.unrelated.tileentity.TileEntityRenderTest;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -16,14 +22,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import bb.mods.bbbc.core.util.TexturesName;
-import bb.mods.bbbc.core.util.UnlocalizedNames;
-import bb.mods.bbbc.unrelated.common.proxy.ClientProxy;
-import bb.mods.bbbc.unrelated.item.item;
-import bb.mods.bbbc.unrelated.references.Block_Names;
-import bb.mods.bbbc.unrelated.tileentity.TileEntityRenderTest;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class RenderTestBlock extends BlockContainer {
 
@@ -161,7 +161,6 @@ public class RenderTestBlock extends BlockContainer {
 	public boolean canRenderInPass(int pass) {
 
 		ClientProxy.rederPass = pass;
-
 		return true;
 	}
 
@@ -189,7 +188,7 @@ public class RenderTestBlock extends BlockContainer {
 
 	@Override
 	public int getRenderBlockPass() {
-		return 1;
+		return 2;
 	}
 
 	@Override
