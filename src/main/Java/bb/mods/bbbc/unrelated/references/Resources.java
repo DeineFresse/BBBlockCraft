@@ -16,5 +16,5 @@ public class Resources {
     public final static ResourceLocation CONNECTED_GLASS_CORNER_RL =  new ResourceLocation(Reference.MOD_RESOURCE_LOC.toLowerCase(), "textures/blocks/connectedglass/connectedglass_corner.png");
     public final static ResourceLocation CONNECTED_GLASS_SIDE_RL =  new ResourceLocation(Reference.MOD_RESOURCE_LOC.toLowerCase(), "textures/blocks/connectedglass/connectedglass_side.png");
     public static final ResourceLocation MINECRAFT_FISH = new ResourceLocation("minecraft","textures/items/fish_raw.png");
-    public static final ResourceLocation AQUARIUM_BACKGROUND = new ResourceLocation(Reference.MOD_RESOURCE_LOC, "textures/blocks/aquarium/background.png");
+    public static final ResourceLocation AQUARIUM_BACKGROUND = new ResourceLocation(Reference.MOD_RESOURCE_LOC, "textures/tileentitys/aquarium/background.png");
 }
