@@ -18,9 +18,9 @@ public class BBWorldGen implements IWorldGenerator {
      * @param  only if true only the listed bioms else not the listed Bioms
      *
      * */
-	public void generateit(Random random, int chunkX, int chunkZ, World world,
-			IChunkProvider chunkGenerator, IChunkProvider chunkProvider,
-			Block ID, Block target, String[] bioms, boolean only, int tries) {
+	public void generateIt(Random random, int chunkX, int chunkZ, World world,
+						   IChunkProvider chunkGenerator, IChunkProvider chunkProvider,
+						   Block ID, Block target, String[] bioms, boolean only, int tries) {
 
 		boolean nosucsess;
 		int trieCount = 0;
@@ -87,14 +87,14 @@ public class BBWorldGen implements IWorldGenerator {
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 
-		generateit(random, chunkX, chunkZ, world, chunkGenerator,
+		generateIt(random, chunkX, chunkZ, world, chunkGenerator,
 				chunkProvider, block.BlockOreOne, Blocks.stone,
-				new String[] { "Hell" }, false, 10);
-		generateit(random, chunkX, chunkZ, world, chunkGenerator,
+				new String[]{"Hell"}, false, 10);
+		generateIt(random, chunkX, chunkZ, world, chunkGenerator,
 				chunkProvider, block.cloudore, Blocks.stone,
-				new String[] { "Hell" }, false, 10);
+				new String[]{"Hell"}, false, 10);
 
-        generateit(random,chunkX,chunkZ,world,chunkGenerator,chunkProvider,Blocks.netherrack,Blocks.netherrack,new String[]{"Hell"},true,5);
+        generateIt(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider, Blocks.netherrack, Blocks.netherrack, new String[]{"Hell"}, true, 5);
 
 	}
 
