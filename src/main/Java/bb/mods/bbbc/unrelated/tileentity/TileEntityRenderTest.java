@@ -34,6 +34,7 @@ public class TileEntityRenderTest extends TileEntity {
                 b.setFloat("xMove", aFishA.xMove);
                 b.setFloat("yMove", aFishA.yMove);
                 b.setFloat("zMove", aFishA.zMove);
+				b.setFloat("size",aFishA.size);
 
                 fishes.appendTag(b);
             }
